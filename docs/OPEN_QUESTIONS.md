@@ -20,7 +20,7 @@ what was removed and why useful historical work remains.
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
 | Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |
-| Recording segment versus episode | Full reply inspected; source filter defect reproduced | Resolve the final post-crash row retained by the pinned loader. Then verify exclusions, terminal/censoring rules and independent acquisition groups against permitted records |
+| Recording segment versus episode | Full reply inspected; filter candidate qualified on synthetic inputs | Review the [candidate correction](../reports/ope_interface_qualification.md#separate-correction-qualification), then verify exclusions, terminal/censoring rules and independent acquisition groups against permitted records |
 | Policy correspondence and execution | Synthetic batch, single-state, reset and permutation checks agree | [Executed cases](../runs/ope_interface_qualification/result.json); archived observation coverage and complete environment construction remain unqualified |
 | Loader aliases | Corrected registrations inspected | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |

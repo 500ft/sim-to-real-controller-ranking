@@ -77,6 +77,50 @@ in the result for inputs, expected rows, observed rows and flags. This is an
 executed source defect; its incidence in the corrected ZIPs is unknown. No
 upstream code or recorded data was silently repaired.
 
+### Separate correction qualification
+
+A [registered finite-domain run](../runs/ope_terminal_filter_qualification/protocol.json)
+compares the original helper and a candidate exclusive-end sentinel correction
+against an independent sequential oracle. The [result](../runs/ope_terminal_filter_qualification/result.json)
+records counts by length and dtype, the minimal counterexample, source/code
+hashes, resource use and the external case-log hash. The candidate agrees on the
+entire registered domain. Original disagreements occur exactly when the array
+ends in consecutive true values; an adjacent-pair oracle and closed-form counts
+independently confirm that pattern.
+
+The correction changes `len(terminals) - 1` to `len(terminals)` only in the
+helper's final change point. It executes in a temporary copy of the pinned
+source. The established synthetic `get_dataset` adapter also removes the
+previously retained tail row with this candidate. Original sources and the
+first interface result remain unchanged.
+
+The domain and stopping rules were committed before the pilot. The pilot passed
+literal fixtures before exhaustive enumeration scaled to the registered domain.
+These are deterministic code cases, with the same arrays checked in two dtypes;
+they are not independent drives or a statistical sample. Empty, nonbinary and
+multidimensional inputs are excluded. The helper has no recording-boundary
+argument, so agreement cannot establish independent episodes, distinguish crash
+from censoring or approve exclusions on concatenated archives. Candidate adoption
+and archive-level qualification remain pending.
+
+Reproduce using the same source cache and environment described below. Choose
+new output directories; the command refuses to overwrite existing run evidence.
+
+```bash
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
+export VECLIB_MAXIMUM_THREADS=1 NUMEXPR_NUM_THREADS=1 MPLBACKEND=Agg
+python experiments/qualify_terminal_filter.py --cache /tmp/racing-interface-sources \
+  --phase pilot --output-dir /tmp/racing-terminal-pilot
+python experiments/qualify_terminal_filter.py --cache /tmp/racing-interface-sources \
+  --phase full --output-dir /tmp/racing-terminal-full
+```
+
+Inspect the pilot result and resource use before executing the full command.
+`cases.jsonl` retains every comparison outside git; `checkpoint.json` records
+progress after each length. Compare hashes and numerical fields when reproducing;
+elapsed time and peak memory vary by host. The committed script was unchanged
+between registration and execution.
+
 The fixture also confirms that `set_terminals=True` can promote natural timeouts
 and the chosen horizon cutoff into terminals. A numerical comparison must
 therefore state its finite-horizon and censoring interpretation rather than

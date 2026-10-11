@@ -26,9 +26,11 @@ and exact policy-name matches. The [result](runs/ope_qualification/result.json)
 and [generated table](runs/ope_qualification/structure.md) reproduce that work.
 The [corrected-source interface run](reports/ope_interface_qualification.md)
 executes synthetic policy and loader cases. It reproduces a first-crash filter
-failure at the end of an array. Corrected ZIP permission, checksums and census,
+failure at the end of an array. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
+agrees with the documented helper contract over its registered synthetic domain.
+Corrected ZIP permission, checksums and census,
 archive-level policy coverage and the benchmark simulator revision remain open.
-Neither result supplies a controller-performance or refusal claim.
+These results supply no controller-performance or refusal claim.
 
 The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
@@ -70,8 +72,9 @@ Prerequisite: the structural census and a clearly identified candidate source.
   but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
   those public code licenses.
 - Confirm the benchmark's simulator revision. The simulator is public and
-  licensed, but the benchmark has no gitlink for it. Resolve the executed
-  first-crash filtering discrepancy before applying exclusions to data.
+  licensed, but the benchmark has no gitlink for it. The terminal-tail candidate
+  passes its finite-domain checks; review its adoption and establish recording,
+  crash and censoring semantics before applying exclusions to data.
 - Pin corrected ZIP checksums and rerun their structural census. The
   [interface result](runs/ope_interface_qualification/result.json) records
   corrected registrations and synthetic checks; the archived census remains
