@@ -65,9 +65,10 @@ Status: current, blocked on external information and owner choices.
 Prerequisite: the structural census and a clearly identified candidate source.
 
 - Obtain terms covering the corrected data ZIPs and intended derived outputs.
-  The [contact record](docs/ope_author_request.txt) retains the reply summary;
-  the original message is needed to verify its exact grant. The corrected-source
-  run verifies public code licenses, but no archive-specific permission.
+  The [contact record](docs/ope_author_request.txt) records the full reply supplied
+  by the owner and inspected in this session. It describes code-license additions
+  but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
+  those public code licenses.
 - Confirm the benchmark's simulator revision. The simulator is public and
   licensed, but the benchmark has no gitlink for it. Resolve the executed
   first-crash filtering discrepancy before applying exclusions to data.
@@ -148,8 +149,9 @@ Sources: [prior work note](literature/prior-work-ranking-withholding.md).
   agents. Simulator-versus-real disagreements are predicted to concentrate in
   cross-family pairs. If the dispersion rule flags only within-family pairs,
   it is blind to the main mechanism in the data.
-- Scope limit. All real data come from one car, one configuration and a few
-  days of recording. The claim is limited to ranking flips on the same car.
+- Scope limit. The author confirms one car and configuration, and recalls a
+  recording span of a few days without session IDs. The claim is limited to
+  ranking flips on the same car.
   Transfer to an unseen vehicle is not tested.
 
 ### M4. Establish real-platform evidence

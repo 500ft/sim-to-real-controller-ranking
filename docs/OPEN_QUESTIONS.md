@@ -19,12 +19,12 @@ what was removed and why useful historical work remains.
 
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
-| Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The original reply is needed to verify the exact grant; code licensing does not establish external ZIP rights |
-| Recording segment versus episode | Reply summary retained; source filter defect reproduced | Resolve the final post-crash row retained by the pinned loader. Then verify exclusions, terminal/censoring rules and independent acquisition groups against permitted records |
+| Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |
+| Recording segment versus episode | Full reply inspected; source filter defect reproduced | Resolve the final post-crash row retained by the pinned loader. Then verify exclusions, terminal/censoring rules and independent acquisition groups against permitted records |
 | Policy correspondence and execution | Synthetic batch, single-state, reset and permutation checks agree | [Executed cases](../runs/ope_interface_qualification/result.json); archived observation coverage and complete environment construction remain unqualified |
 | Loader aliases | Corrected registrations inspected | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
-| External author contact | Reply summary recorded; original message unavailable in this run | [Contact record](ope_author_request.txt). Supply the original reply and resolve ZIP permission, simulator revision and first-crash filtering. No follow-up sent |
+| External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and first-crash filtering. No follow-up sent |
 | Simulator dependency | Public and Unlicense; benchmark revision unpinned | `.gitmodules` entry has no gitlink. Public head is not automatically the benchmark revision |
 | Reward comparison | Common outcome unqualified | Simulation documentation lacks progress and `new_rewards`; never equate collection rewards by selecting `reward_config=None` |
 | Reviewer, physical study, publication and campaign | No new approval supplied | Conditional M2 scope is in the roadmap; M3/M5 still require their separate prerequisites |

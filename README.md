@@ -66,8 +66,8 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Obtain the original author reply, corrected ZIP permission, the required
-simulator revision and a disposition of the first-crash filter failure. The
+Obtain corrected ZIP permission, the required simulator revision and a
+disposition of the first-crash filter failure. The
 [roadmap](ROADMAP.md) keeps M2 conditional on these prerequisites. Its outcome
 and uncertainty rules must be committed before performance data is read.
 [Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.

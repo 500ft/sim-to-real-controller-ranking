@@ -1,6 +1,6 @@
 {
   "scope": "Pinned public-source structure and synthetic policy/loader interface checks only. No archive payloads or Groundtruth files; no returns or ranking.",
-  "inputs_sha256": "13fc1d2a7949dba6e3cfd7e6ec8753b112e38949dcec1a5607ea1f2300248fbc",
+  "inputs_sha256": "55a00ff2d42cf2f3a4e3df0449beaaa3f8fdc94bda80a5be9fb167c314fd195a",
   "script_sha256": "d5f040f3ec7540ffea4c60bb28f1fc2bc92498f1a7b7e0f3727e89780f81e867",
   "environment": {
     "python": "3.11.15",
@@ -1213,7 +1213,7 @@
     "corrected_zip_rights": "unresolved",
     "corrected_zip_hashes_and_census": "not acquired or rerun; old archive hashes retained separately",
     "simulator_benchmark_revision": "unqualified: public repository exists but no benchmark gitlink",
-    "original_reply": "Repository summary inspected; original reply requested from owner, not available through the email connector.",
+    "original_reply": "Full reply supplied by the owner in this CLI session and inspected. MIT statement concerns subrepositories; no explicit Drive-ZIP terms or required simulator revision supplied.",
     "m2_ranking": "not executed; rights, environment and first-crash filtering unresolved",
     "m3_m5_outcomes": "unopened"
   },

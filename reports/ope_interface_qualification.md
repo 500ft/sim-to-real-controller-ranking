@@ -25,13 +25,21 @@ pin when inspected. Source downloads stay outside this repository.
 | `f110_sim_env` | Public repository with an Unlicense file | The old missing-public-repository claim is superseded |
 | Benchmark simulator dependency | `.gitmodules` names `f110_sim_env`, but the benchmark tree has no corresponding gitlink | The inspected public simulator revision is a candidate, not a confirmed benchmark dependency |
 | Corrected real and simulation ZIPs | Registrations now identify separate Drive objects; no archive-specific permission or immutable ZIP checksum established here | Acquisition, corrected census and empirical use remain pending |
-| Author reply | Only the repository's existing summary was available; the email connector could not retrieve the original | Original message requested from the owner; exact wording and any additional permission cannot be verified in this run |
+| Author reply | Full text supplied by the owner and inspected; MIT additions concern subrepositories, and recursive cloning is recommended | No explicit Drive-ZIP terms or simulator revision supplied; the reply's intended post-crash filtering is the test oracle |
 
 The benchmark tree does pin the gym, loader, agents and OPE methods. Exact
 revisions and source URLs are in the input record; the public simulator head
 must not be substituted for a missing benchmark pin. The benchmark README's
 published OPE comparison was read as requested. No `Groundtruth` files, saved
 returns, archive performance arrays or reserved driving bags were opened.
+
+The owner-supplied reply confirms the same car/configuration and real starting
+poses for simulation, with no explicit paired episode IDs or recording-session
+mapping. Its description of the raw `done` flag and recording span is qualified
+by the author's recollection. These statements cannot establish independent
+sessions or a cross-car claim. The original correspondence stays local; its
+provenance and text hash are recorded in the input manifest. The author requests
+citation of the thesis, “Deep off-policy evaluation with autonomous racing cars.”
 
 ## Executed interface checks
 
@@ -110,8 +118,8 @@ committed result; environment versions are recorded separately within it.
 
 ## Stop condition
 
-Obtain the original reply, explicit permission for the corrected Drive archives
-and intended derived outputs, and the simulator revision used with the benchmark.
+Obtain explicit permission for the corrected Drive archives and intended derived
+outputs, and the simulator revision used with the benchmark.
 Resolve the demonstrated first-crash filter behavior without changing exclusions
 silently. Then pin ZIP checksums and run the corrected structural census before
 considering M2. Before any performance outcome is read, commit the finite horizon,

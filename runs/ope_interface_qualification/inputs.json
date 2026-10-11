@@ -323,5 +323,10 @@
     "immutable_archive_sha256": "not established for the corrected Drive objects; old hashes remain in runs/ope_qualification/inputs.json",
     "acquisition": "not requested by this source-only harness"
   },
-  "reply_status": "Repository summary inspected; original reply requested from owner, not available through the email connector."
+  "reply_status": "Full reply supplied by the owner in this CLI session and inspected. MIT statement concerns subrepositories; no explicit Drive-ZIP terms or required simulator revision supplied.",
+  "reply_provenance": {
+    "source": "Full author reply supplied by owner in this CLI session",
+    "local_text_sha256": "f19cff24b3c731f2797b6386d82e18b0db9d6b759b61cd18f3c29de3682b15d6",
+    "full_correspondence_redistributed": false
+  }
 }
