@@ -108,3 +108,8 @@ runs/mast_fea/converge/
 !runs/ope_interface_qualification/
 !runs/ope_interface_qualification/inputs.json
 !runs/ope_interface_qualification/result.json
+
+# Synthetic terminal-filter qualification; raw enumeration stays outside git.
+!runs/ope_terminal_filter_qualification/
+!runs/ope_terminal_filter_qualification/protocol.json
+!runs/ope_terminal_filter_qualification/result.json
