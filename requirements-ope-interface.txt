@@ -1,0 +1,6 @@
+# Source-only synthetic interface qualification, Python 3.11.
+numpy==2.4.6
+scipy==1.17.1
+matplotlib==3.10.8
+# The pinned upstream policy module imports pkg_resources.
+setuptools==80.9.0

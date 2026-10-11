@@ -1,5 +1,10 @@
 # F110 archive qualification
 
+Historical result at the original pins. The [corrected-source interface
+qualification](ope_interface_qualification.md) supersedes current code/license
+and loader-registration status. This report, its counts and figures retain the
+original archive evidence; the corrected Drive ZIP census has not been run.
+
 The structural census reproduced the prior audit. Empirical policy evaluation
 remains blocked: reuse terms, episode meaning and policy executability are
 unqualified. The [result](../runs/ope_qualification/result.json) records the

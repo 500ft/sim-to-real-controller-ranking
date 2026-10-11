@@ -31,9 +31,11 @@
 
 - ROADMAP.md is the only active dependency plan. The owner authorized its
   adoption and removal of retired implementation and work orders.
-- Archive structural qualification is complete; rights, episode meaning and
-  policy execution remain unresolved. Do not open outcome data or start a
-  ranking campaign under cleanup authorization.
+- The original archive census is preserved. Corrected-source synthetic checks
+  found a first-crash loader defect; corrected ZIP rights/census and the required
+  simulator revision remain unresolved. M2 is conditionally authorized only
+  after M1 qualifies and comparison rules are committed before outcome access.
+  M3/M5 and reserved driving outcomes remain unopened.
 - Historical CAD/sprint ledgers are retained under docs/history/ as records.
   They no longer activate tasks or drive CI. Preserve useful geometry,
   simulation, calibration and result-reproduction checks.

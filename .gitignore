@@ -103,3 +103,8 @@ runs/mast_fea/converge/
 !runs/ope_qualification/structure.svg
 !runs/ope_qualification/structure.csv
 !runs/ope_qualification/loader_aliases.csv
+
+# Pinned public-source interface findings; no corrected dataset payloads.
+!runs/ope_interface_qualification/
+!runs/ope_interface_qualification/inputs.json
+!runs/ope_interface_qualification/result.json

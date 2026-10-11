@@ -24,8 +24,11 @@ authorize data exposure, a research campaign, purchases or external contact.
 archive hashes, explicit internal roots, loader aliases, recording boundaries
 and exact policy-name matches. The [result](runs/ope_qualification/result.json)
 and [generated table](runs/ope_qualification/structure.md) reproduce that work.
-Policy execution, episode meaning, independence and reuse permission remain
-unqualified. This result supplies no controller-performance or refusal claim.
+The [corrected-source interface run](reports/ope_interface_qualification.md)
+executes synthetic policy and loader cases. It reproduces a first-crash filter
+failure at the end of an array. Corrected ZIP permission, checksums and census,
+archive-level policy coverage and the benchmark simulator revision remain open.
+Neither result supplies a controller-performance or refusal claim.
 
 The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
@@ -61,14 +64,17 @@ for empirical ranking work.
 Status: current, blocked on external information and owner choices.
 Prerequisite: the structural census and a clearly identified candidate source.
 
-- Obtain terms covering the data, policy code, weights and intended outputs.
-  The owner confirms that the email to Fabian Kresse has been sent; the
-  [contact record](docs/ope_author_request.txt) records that confirmation.
-  Await the author's reply. Sending establishes no reuse permission.
-- Reply received 2026-10-09. The contact record summarises it and
-  [open questions](docs/OPEN_QUESTIONS.md) records what it settled and what
-  stays open. The structural qualification must be re-run at the author's
-  current pins before any analysis; the note in open questions gives them.
+- Obtain terms covering the corrected data ZIPs and intended derived outputs.
+  The [contact record](docs/ope_author_request.txt) retains the reply summary;
+  the original message is needed to verify its exact grant. The corrected-source
+  run verifies public code licenses, but no archive-specific permission.
+- Confirm the benchmark's simulator revision. The simulator is public and
+  licensed, but the benchmark has no gitlink for it. Resolve the executed
+  first-crash filtering discrepancy before applying exclusions to data.
+- Pin corrected ZIP checksums and rerun their structural census. The
+  [interface result](runs/ope_interface_qualification/result.json) records
+  corrected registrations and synthetic checks; the archived census remains
+  at its original pins.
 - Resolve raw segment versus episode meaning, continuing terminal flags,
   truncation, exclusions, vehicle/session groups and real/simulation pairing.
 - Map policy IDs to executable implementations. Qualify observations, action
@@ -84,11 +90,16 @@ another source or stop; do not inspect reserved outcomes to rescue it.
 
 ### M2. Qualify a development reference and model set
 
-Status: future. Prerequisite: M1 for the selected data route and authorization
-to use its development data.
+Status: conditionally owner-authorized for the published evaluation agents'
+simulation-versus-real reference ranking, stopped at M1. Prerequisite: qualified
+source rights, archive and policy interfaces, and the required environment
+revision. Commit the comparison rules below before reading performance outcomes;
+this does not authorize M3 or M5 data use.
 
-- Define the finite-horizon outcome, start-state distribution, collision and
-  censoring rules before inspecting performance outcomes.
+- Commit a common reward/outcome calculation, finite horizon, start-distribution
+  comparison, terminal/censoring and whole-record uncertainty rules before
+  inspecting performance outcomes. Do not infer paired episode IDs from a
+  shared-start description.
 - Reproduce a reference calculation with independently checked boundary cases.
   Check units, frames, clocks, observations and action conventions before fitting.
 - Fit model parameters on development groups only. Retain model discrepancies,
@@ -123,8 +134,8 @@ error versus retained comparisons, near-tie handling and measurement cost on
 calibration groups. If simpler coverage explains the benefit, withdraw the claim
 of added value from model disagreement. All-comparison refusal is not success.
 
-Added 2026-10-09 from the literature review, under the owner instruction of
-that date. Sources: [prior work note](literature/prior-work-ranking-withholding.md).
+Retained from the owner-directed literature review.
+Sources: [prior work note](literature/prior-work-ranking-withholding.md).
 
 - Confidence-gate baseline. Use the nominal model alone. Predict each pair's
   performance difference with a bootstrap interval over rollouts and withhold

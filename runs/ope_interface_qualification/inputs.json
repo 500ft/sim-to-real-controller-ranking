@@ -1,0 +1,327 @@
+{
+  "scope": "Pinned public-source structure and synthetic policy/loader interface checks only. No archive payloads or Groundtruth files; no returns or ranking.",
+  "repository_pins": {
+    "f110_ope_benchmark": "42789222451f4ee0e679475a8798d7c47bf220b5",
+    "f1tenth_orl_dataset": "536d762ad7b07076551d39ef202199cbaead6a87",
+    "stochastic_ftg_agents": "c42146ca40d9d075ecf8fe4642cddbf2435032ad",
+    "f110_ope_methods": "64adc095c61c5a5b4bd8cf5a8e8c914064d4b272",
+    "f110_sim_env": "0c15e5ba4e7537390777dc25c67c81628daf1d16",
+    "f1tenth_gym": "886dde048d4095a8b5170d2790fb68d4af6e80fc"
+  },
+  "files": {
+    "benchmark-tree.json": {
+      "repo": "f110_ope_benchmark",
+      "path": null,
+      "url": "https://api.github.com/repos/HyberionBrew/f110_ope_benchmark/git/trees/42789222451f4ee0e679475a8798d7c47bf220b5",
+      "sha256": "26f0de597b3098cfdc031da29182ea7ad28033e748ef5790773ff089c02f7862",
+      "canonical_tree_json": true
+    },
+    "f110_ope_benchmark__.gitmodules": {
+      "repo": "f110_ope_benchmark",
+      "path": ".gitmodules",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_ope_benchmark/42789222451f4ee0e679475a8798d7c47bf220b5/.gitmodules",
+      "sha256": "1251df41b004ac5c5b737ba959d42da1903846237b6fa6c202198c6534f33fa7",
+      "canonical_tree_json": false
+    },
+    "f110_ope_benchmark__LICENSE": {
+      "repo": "f110_ope_benchmark",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_ope_benchmark/42789222451f4ee0e679475a8798d7c47bf220b5/LICENSE",
+      "sha256": "51484aa2a75249bc29efec67bd88caac70910e1c78b9496a5f346845f1eb857a",
+      "canonical_tree_json": false
+    },
+    "f110_ope_benchmark__README.md": {
+      "repo": "f110_ope_benchmark",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_ope_benchmark/42789222451f4ee0e679475a8798d7c47bf220b5/README.md",
+      "sha256": "306c05e70dd41e93cd3d4c2c43d77a087f46cac2ae8bdbbb45a10788276db576",
+      "canonical_tree_json": false
+    },
+    "f110_ope_benchmark__experiments__run_iw.py": {
+      "repo": "f110_ope_benchmark",
+      "path": "experiments/run_iw.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_ope_benchmark/42789222451f4ee0e679475a8798d7c47bf220b5/experiments/run_iw.py",
+      "sha256": "2aa95421d56082029fda269ae453c5841401721f194467f4924c350162cfec6e",
+      "canonical_tree_json": false
+    },
+    "f110_ope_methods__LICENSE": {
+      "repo": "f110_ope_methods",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_ope_methods/64adc095c61c5a5b4bd8cf5a8e8c914064d4b272/LICENSE",
+      "sha256": "51484aa2a75249bc29efec67bd88caac70910e1c78b9496a5f346845f1eb857a",
+      "canonical_tree_json": false
+    },
+    "f110_ope_methods__tree.json": {
+      "repo": "f110_ope_methods",
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/HyberionBrew/f110_ope_methods/git/trees/64adc095c61c5a5b4bd8cf5a8e8c914064d4b272?recursive=1",
+      "sha256": "cd939f3686d3b23bbc6b0bd5a2753d2c258190c5af7929e83e0dfa07ad016741",
+      "canonical_tree_json": true
+    },
+    "f110_sim_env__LICENSE": {
+      "repo": "f110_sim_env",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_sim_env/0c15e5ba4e7537390777dc25c67c81628daf1d16/LICENSE",
+      "sha256": "6b0382b16279f26ff69014300541967a356a666eb0b91b422f6862f6b7dad17e",
+      "canonical_tree_json": false
+    },
+    "f110_sim_env__README.md": {
+      "repo": "f110_sim_env",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f110_sim_env/0c15e5ba4e7537390777dc25c67c81628daf1d16/README.md",
+      "sha256": "4b8451d99e87780a318c2126997f4eedd3854655a3aaf72c13d3c3d0a58fc575",
+      "canonical_tree_json": false
+    },
+    "f110_sim_env__tree.json": {
+      "repo": "f110_sim_env",
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/HyberionBrew/f110_sim_env/git/trees/0c15e5ba4e7537390777dc25c67c81628daf1d16?recursive=1",
+      "sha256": "465be2bb2a19e5cef08d1b391fc2b02460702a5b52ddc6be9387e7e151eceecd",
+      "canonical_tree_json": true
+    },
+    "f1tenth_orl_dataset__LICENSE": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_orl_dataset/536d762ad7b07076551d39ef202199cbaead6a87/LICENSE",
+      "sha256": "478ac819c6e3b44d6d1c471c75b3ce4ce9787fa1224f35e6a0ecc8332463c96c",
+      "canonical_tree_json": false
+    },
+    "f1tenth_orl_dataset__README.md": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_orl_dataset/536d762ad7b07076551d39ef202199cbaead6a87/README.md",
+      "sha256": "cb28546636eb53a664facdbdd83baa911c43aaa061583ea84a51079f9a7bcf23",
+      "canonical_tree_json": false
+    },
+    "f1tenth_orl_dataset__f110_orl_dataset__apply_termination_condition.py": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "f110_orl_dataset/apply_termination_condition.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_orl_dataset/536d762ad7b07076551d39ef202199cbaead6a87/f110_orl_dataset/apply_termination_condition.py",
+      "sha256": "61bbe7a4ebeca3049a135556ccc917614702d596ac18137738865b5bf0045ba3",
+      "canonical_tree_json": false
+    },
+    "f1tenth_orl_dataset__f110_orl_dataset__dataset_env.py": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "f110_orl_dataset/dataset_env.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_orl_dataset/536d762ad7b07076551d39ef202199cbaead6a87/f110_orl_dataset/dataset_env.py",
+      "sha256": "2e660e3a5b7432cc2b8b39fa5212a0710104f6ada10d88bdeee8802b588be5c2",
+      "canonical_tree_json": false
+    },
+    "f1tenth_orl_dataset__tree.json": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/HyberionBrew/f1tenth_orl_dataset/git/trees/536d762ad7b07076551d39ef202199cbaead6a87?recursive=1",
+      "sha256": "342559802f6ea5d46d8c0df7698712975bb09830384de6fa8c00e18dde2d74c5",
+      "canonical_tree_json": true
+    },
+    "stochastic_ftg_agents__LICENSE": {
+      "repo": "stochastic_ftg_agents",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/LICENSE",
+      "sha256": "478ac819c6e3b44d6d1c471c75b3ce4ce9787fa1224f35e6a0ecc8332463c96c",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5.json",
+      "sha256": "b0572a240bd5a7e09c6fc966d9cd0cc3dc55270a681d8013b3c74af0b0e5bb1e",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5.json",
+      "sha256": "fe3b52140697e73b09d467f9c54a017775b0a8d8a40ef674f11d225177285d6e",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5.json",
+      "sha256": "2859b577e726aae828fa6808c0e27b2c41483de0b732dc2e2333c44b5a124f88",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5.json",
+      "sha256": "718626fe0ce15c518ed8935f38bd4ed8bade00dd1f1d7be8d700cadc5f437f76",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.44_0.3_raceline1_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.44_0.3_raceline1_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.44_0.3_raceline1_0.3_0.5.json",
+      "sha256": "593c91c77747689f44b768cb91be13dc07aab216d9d6b90f7f30886faf95e039",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.44_0.85_raceline1_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.44_0.85_raceline1_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.44_0.85_raceline1_0.3_0.5.json",
+      "sha256": "983bd109a96470039f8c58866b7251b03207ec057f8980cbb9fad2dffdd00861",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.4_0.3_raceline4_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.4_0.3_raceline4_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.4_0.3_raceline4_0.3_0.5.json",
+      "sha256": "7218b1edac9477e9a18d906f8e48a6d9c5193a581d8015bc09219e8cbfc9118f",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.52_0.9_raceline4_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.52_0.9_raceline4_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.52_0.9_raceline4_0.3_0.5.json",
+      "sha256": "1d7eb4e3ba59247f3de1f09544ecc49b29ad5eb2a5f18b765144cfd89ff4167a",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.65_1.2_centerline_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.65_1.2_centerline_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.65_1.2_centerline_0.3_0.5.json",
+      "sha256": "0c760dae6872416727127dfbb5e1f1ef7585ef754d66a8697e5778ae6743fb0b",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.68_1.1_raceline8_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.68_1.1_raceline8_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.68_1.1_raceline8_0.3_0.5.json",
+      "sha256": "d6e26904721a635c92a3b148eb6fc8cc366c4d9fd5d46627972ab057f2c08bf7",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.6_1.0_raceline2_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.6_1.0_raceline2_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.6_1.0_raceline2_0.3_0.5.json",
+      "sha256": "d2d6e5a80288faf1e60ecc7d7272cecacef8f7787e135d467142fc4be8547692",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.73_0.95_centerline_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.73_0.95_centerline_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.73_0.95_centerline_0.3_0.5.json",
+      "sha256": "cde5a1e95097f30b883e1d1e26966f36efd8bc2cd9fc5b6523af9592625e6eee",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.73_0.95_raceline4_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.73_0.95_raceline4_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.73_0.95_raceline4_0.3_0.5.json",
+      "sha256": "6a14bb1294ecaa6022b0d5d31c0f8a8f921fce93b390952ee61b601fbea3466b",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.7_0.9_raceline8_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.7_0.9_raceline8_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.7_0.9_raceline8_0.3_0.5.json",
+      "sha256": "3f6bd29be3b4bf0af7c93d9f75e5aa8b27b4801166de18c827067bf6f8095121",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__agent_configs__pure_pursuit2_0.8_0.95_raceline3_0.3_0.5.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "agent_configs/pure_pursuit2_0.8_0.95_raceline3_0.3_0.5.json",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/agent_configs/pure_pursuit2_0.8_0.95_raceline3_0.3_0.5.json",
+      "sha256": "395859974e3daada48b69dcac8e3d876ea62bb438197cf3432d925edf0435ac9",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__f110_agents__agent.py": {
+      "repo": "stochastic_ftg_agents",
+      "path": "f110_agents/agent.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/f110_agents/agent.py",
+      "sha256": "3f5c1d9c9447e02b02410b2042abaf8bab1c459b157b70e54b020f155439362e",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__f110_agents__agents_numpy.py": {
+      "repo": "stochastic_ftg_agents",
+      "path": "f110_agents/agents_numpy.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/f110_agents/agents_numpy.py",
+      "sha256": "c161f5e2a2270f86f07e0074988d576cbd8c9a42a2571a1640395b0c295e5b92",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__f110_agents__pure_pursuit.py": {
+      "repo": "stochastic_ftg_agents",
+      "path": "f110_agents/pure_pursuit.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/f110_agents/pure_pursuit.py",
+      "sha256": "2152a4eefb22bf3a4b180709d4c6bc4e88bf9916dcdc37bcda96529dc2c7c6ac",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__centerline.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/centerline.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/centerline.csv",
+      "sha256": "3b291e8be37d25f4f16413f67020e5f6efacfbddfd17eaf00d21b6d139ee5dd9",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__raceline1.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/raceline1.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/raceline1.csv",
+      "sha256": "2b27895652f907e00a83a2b262ee5fed1ab1f5737d01e7a3dfe885d763563c58",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__raceline2.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/raceline2.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/raceline2.csv",
+      "sha256": "99948a5228211e6d3a8133ecd3c134d97550fa5b515ba300391f6cdce430d390",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__raceline3.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/raceline3.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/raceline3.csv",
+      "sha256": "937ebe3316dc7b8566e75819a19092890a83151811cc228fe472005fca289ee6",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__raceline4.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/raceline4.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/raceline4.csv",
+      "sha256": "15a4224780908a26cb0a18be1820b9517d030dc8195222f8f11693120bd6ee13",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__racelines__raceline8.csv": {
+      "repo": "stochastic_ftg_agents",
+      "path": "racelines/raceline8.csv",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/racelines/raceline8.csv",
+      "sha256": "8d5bb16d896562bd9b92b8477bed57d9634d96e715bd2417cdc7f6a8b93487c5",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__tree.json": {
+      "repo": "stochastic_ftg_agents",
+      "path": "tree.json",
+      "url": "https://api.github.com/repos/HyberionBrew/stochastic_ftg_agents/git/trees/c42146ca40d9d075ecf8fe4642cddbf2435032ad?recursive=1",
+      "sha256": "4fbae0e42133386ea1d2e263006269b63726361c9bae7b560a89279b13905735",
+      "canonical_tree_json": true
+    },
+    "f1tenth_orl_dataset__f110_orl_dataset____init__.py": {
+      "repo": "f1tenth_orl_dataset",
+      "path": "f110_orl_dataset/__init__.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_orl_dataset/536d762ad7b07076551d39ef202199cbaead6a87/f110_orl_dataset/__init__.py",
+      "sha256": "206a94cc5a8a6910c2384d1fd2ed84ef9bfc1d39f9ef8cd16aed6fcc82041f51",
+      "canonical_tree_json": false
+    },
+    "stochastic_ftg_agents__f110_agents____init__.py": {
+      "repo": "stochastic_ftg_agents",
+      "path": "f110_agents/__init__.py",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/stochastic_ftg_agents/c42146ca40d9d075ecf8fe4642cddbf2435032ad/f110_agents/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "canonical_tree_json": false
+    },
+    "f1tenth_gym__LICENSE": {
+      "repo": "f1tenth_gym",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/HyberionBrew/f1tenth_gym/886dde048d4095a8b5170d2790fb68d4af6e80fc/LICENSE",
+      "sha256": "da1f6b460422b28683c1e3896fc7969c21f0a1cbf0f2f121d3ecc0cdd58ef34f",
+      "canonical_tree_json": false
+    }
+  },
+  "zip_status": {
+    "permission": "unresolved; code license is not an explicit grant for externally hosted ZIPs",
+    "immutable_archive_sha256": "not established for the corrected Drive objects; old hashes remain in runs/ope_qualification/inputs.json",
+    "acquisition": "not requested by this source-only harness"
+  },
+  "reply_status": "Repository summary inspected; original reply requested from owner, not available through the email connector."
+}
