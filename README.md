@@ -2,9 +2,10 @@
 
 Can dispersion in the predicted performance difference between controllers,
 across physically justified models consistent with development data, identify
-rankings that should be withheld? The current result is
-a reproducible qualification of public F110 archives. Policy ranking remains
-blocked by unresolved reuse terms, episode meaning and policy executability.
+rankings that should be withheld? The corrected-source qualification loads all
+15 evaluation policies on synthetic inputs, but reproduces a first-crash loader
+failure. Ranking remains blocked by corrected data permission, archive-level
+qualification and an unpinned simulator dependency.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -14,7 +15,7 @@ blocked by unresolved reuse terms, episode meaning and policy executability.
 
 ![Structural census of five pinned archives: recording segments, policy-name strings and terminal-flag alignment; real-v1 has flags before segment ends](runs/ope_qualification/structure.png)
 
-*Unfiltered structural counts from [result.json](runs/ope_qualification/result.json).
+*Historical census at the original source pins. Unfiltered counts from [result.json](runs/ope_qualification/result.json).
 Panel C separates flagged rows at recording ends from flags within recordings.
 Segments do not establish independent episodes; names do not establish execution eligibility.
 [Accessible tables and archive identities](runs/ope_qualification/structure.md) ·
@@ -22,14 +23,28 @@ Segments do not establish independent episodes; names do not establish execution
 
 ## Results
 
+The [corrected-source interface report](reports/ope_interface_qualification.md)
+and [executed result](runs/ope_interface_qualification/result.json) record the
+new source pins, license inspection, policy batch checks and loader failure.
+The simulator repository is now public and licensed; its required benchmark
+revision is still unconfirmed. No corrected ZIP or performance outcome was opened.
+
+A [separately qualified correction](reports/ope_interface_qualification.md#separate-correction-qualification)
+passes all 16,380 exhaustive synthetic dtype cases; the original helper fails
+4,094. [Source result](runs/ope_terminal_filter_qualification/result.json).
+The candidate has not been applied to any archive or approved as its exclusion rule.
+
+The preserved census below uses the earlier pins:
+
 - Real v1 contains 311 recording segments and 29 distinct policy-name strings.
   Its 10,813 `done | truncated` rows cannot be treated as separate recordings.
 - Real stochastic v2 contains 1,375 segments and 57 policy-name strings. All
   those names match configuration filenames in the pinned benchmark source;
-  actual policy execution remains unqualified.
-- Both real-stochastic environment registrations load the simulation-v1
-  archive. The qualification script binds each archive by explicit filename,
-  hash and internal array root.
+  execution on archived observations remains unqualified.
+- At those earlier pins, both real-stochastic registrations loaded the
+  simulation-v1 archive. The corrected source now uses distinct Drive objects.
+  The original qualification binds each inspected archive by filename, hash
+  and internal array root.
 
 The [executed table](runs/ope_qualification/structure.md) and
 [qualification report](reports/ope_qualification.md) give the source pins,
@@ -56,15 +71,12 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Fabian Kresse replied on 2026-10-09. The [contact record](docs/ope_author_request.txt)
-summarises the reply; [open questions](docs/OPEN_QUESTIONS.md) records what it
-settled and what stays open (data-zip licence, f110_sim_env, simulator
-log_probs). The structural qualification must be re-run at the author's
-current pins before any analysis. The owner has adopted the
-[dependency roadmap](ROADMAP.md) and repository cleanup; open questions retain
-the unanswered data and physical decisions. Dataset access and owner-approved platform access are parallel
-possible routes. A refusal from one source does not close every route. No empirical OPE or
-finite-horizon return calculation has been run.
+Obtain corrected ZIP permission, the required simulator revision and a
+disposition of the first-crash filter failure. The
+[roadmap](ROADMAP.md) keeps M2 conditional on these prerequisites. Its outcome
+and uncertainty rules must be committed before performance data is read.
+[Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.
+No empirical ranking or finite-horizon return calculation has been run.
 
 ## Retained work
 
@@ -99,8 +111,8 @@ must identify the result it changes and the checks actually run.
 
 Repository code uses the [MIT License](LICENSE), preserving upstream simulator
 attribution. This grants no rights to the separately inspected F110 archives or
-policy code. The author added MIT licences to the code repositories on
-2026-10-09; the data zips carry no licence text of their own. The earlier
+policy code. The [artifact-level source inspection](reports/ope_interface_qualification.md#inspected-sources-and-rights)
+verifies upstream code licenses; corrected ZIP permission remains unresolved. The earlier
 public-driving bag has its own [CC BY 4.0 source record](runs/real_command_response/source.json).
 See the [source register](docs/upstream_roboracer_sources.md) and
 [identity note](docs/REPOSITORY_IDENTITY.md) for the retained project history.

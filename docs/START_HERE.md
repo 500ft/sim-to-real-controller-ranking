@@ -14,8 +14,10 @@ the plan. This guide is for reading the work quickly or rerunning part of it.
 
 The ranking-refusal question concerns paired performance differences and
 calibrated abstention. The [roadmap](../ROADMAP.md) gives prerequisites and
-completion evidence for each milestone. Structural qualification is complete. Archive permissions,
-episode meaning and target-policy execution remain unqualified. Earlier
+completion evidence for each milestone. The original archive census is preserved.
+[Corrected-source interface checks](../reports/ope_interface_qualification.md)
+found a loader defect; corrected ZIP permission, census and environment revision
+remain unresolved. Earlier
 command-response, simulator and mast studies are retained at their original paths.
 Their historical next steps do not authorize a new campaign.
 
@@ -40,7 +42,14 @@ PYTHONPATH=gym python experiments/test_final_report.py
 
 Each should exit 0. They need no ROS install, vehicle or test rig.
 
-### Current archive qualification: Python 3.11
+### Corrected-source interfaces: Python 3.11
+
+Use [requirements-ope-interface.txt](../requirements-ope-interface.txt) and the
+[source-only reproduction command](../reports/ope_interface_qualification.md#reproduce-this-source-only-result).
+It executes pinned policy code on synthetic observations and loader methods on
+synthetic arrays. It opens no archive or performance outcome.
+
+### Original archive qualification: Python 3.11
 
 Use [requirements-ope-qualification.txt](../requirements-ope-qualification.txt)
 and the [executed qualification commands](../reports/ope_qualification.md#reproduce).

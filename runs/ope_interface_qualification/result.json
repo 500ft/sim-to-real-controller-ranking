@@ -1,0 +1,1229 @@
+{
+  "scope": "Pinned public-source structure and synthetic policy/loader interface checks only. No archive payloads or Groundtruth files; no returns or ranking.",
+  "inputs_sha256": "55a00ff2d42cf2f3a4e3df0449beaaa3f8fdc94bda80a5be9fb167c314fd195a",
+  "script_sha256": "d5f040f3ec7540ffea4c60bb28f1fc2bc92498f1a7b7e0f3727e89780f81e867",
+  "environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "gitlinks": {
+    "f1tenth_gym": "886dde048d4095a8b5170d2790fb68d4af6e80fc",
+    "f1tenth_orl_dataset": "536d762ad7b07076551d39ef202199cbaead6a87",
+    "ope_methods": "64adc095c61c5a5b4bd8cf5a8e8c914064d4b272",
+    "stochastic_ftg_agents": "c42146ca40d9d075ecf8fe4642cddbf2435032ad"
+  },
+  "simulator_has_benchmark_gitlink": false,
+  "licenses": {
+    "f110_ope_benchmark": "MIT",
+    "f1tenth_orl_dataset": "MIT",
+    "stochastic_ftg_agents": "MIT",
+    "f110_ope_methods": "MIT",
+    "f110_sim_env": "Unlicense",
+    "f1tenth_gym": "MIT"
+  },
+  "registrations": {
+    "f110-real-stoch-v2": {
+      "dataset_url": "https://drive.usercontent.google.com/download?id=1ryaq4F3hHIo_klvlj0KlkDBZ9Zd5qI0Q&export=download&confirm=t",
+      "bad_trajectories": [
+        161444,
+        283691,
+        82322,
+        202835,
+        152551,
+        268314,
+        155685,
+        161312,
+        278488
+      ],
+      "eval_model_names": [
+        "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5",
+        "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5",
+        "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5",
+        "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5",
+        "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5",
+        "pure_pursuit2_0.65_1.2_centerline_0.3_0.5",
+        "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5",
+        "pure_pursuit2_0.73_0.95_centerline_0.3_0.5",
+        "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5",
+        "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5",
+        "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5",
+        "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5"
+      ],
+      "bad_agents": [
+        "pure_pursuit2_0.8_1.25_raceline8_0.3_0.5",
+        "StochasticContinousFTGAgent_0.4_5_0.5_0.03_0.1_5.0_0.3_0.5"
+      ]
+    },
+    "f110-sim-stoch-v2": {
+      "dataset_url": "https://drive.usercontent.google.com/download?id=14GnCIa9Bz4ZiOaPjFEnPZLXJIZzamKix&export=download&confirm=t",
+      "bad_trajectories": [],
+      "eval_model_names": [
+        "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5",
+        "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5",
+        "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5",
+        "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5",
+        "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5",
+        "pure_pursuit2_0.65_1.2_centerline_0.3_0.5",
+        "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5",
+        "pure_pursuit2_0.73_0.95_centerline_0.3_0.5",
+        "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5",
+        "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5",
+        "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5",
+        "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5"
+      ]
+    }
+  },
+  "loader": {
+    "methods_executed": [
+      "get_dataset",
+      "_find_consecutive_terminals_indices",
+      "_remove_indices_from_dataset",
+      "clip_trajectories",
+      "add_timesteps"
+    ],
+    "adapter": "Original method AST; in-memory synthetic arrays; no gym constructor",
+    "options": {
+      "remove_cons_terminals": true,
+      "set_previous_step_terminals": 0,
+      "include_vesc_fault_trajectories": false,
+      "timesteps_to_include": [
+        0,
+        250
+      ],
+      "set_terminals": true,
+      "use_compute_termination": true,
+      "include_time_obs": true,
+      "include_progress": false,
+      "encode_cyclic": true,
+      "use_delta_actions": true,
+      "delta_factor": 1.0,
+      "flatten_obs": false,
+      "reward_config": null,
+      "include_pose_time_diff": false,
+      "include_action_pose_time_diff": false,
+      "bad_agents": [],
+      "bad_trajectories": [],
+      "train_only": false,
+      "eval_only": false,
+      "eval_agents": [
+        "synthetic"
+      ],
+      "keys": []
+    },
+    "first_crash_cases": [
+      {
+        "name": "interior_terminal_run",
+        "input_terminals": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          false
+        ],
+        "expected_kept_rows": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "actual_kept_rows": [
+          0,
+          1,
+          3,
+          4,
+          5
+        ],
+        "agrees": true,
+        "actual_terminals": [
+          false,
+          true,
+          false,
+          false,
+          true
+        ],
+        "actual_timeouts": [
+          false,
+          true,
+          false,
+          false,
+          true
+        ]
+      },
+      {
+        "name": "terminal_run_at_array_end",
+        "input_terminals": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ],
+        "expected_kept_rows": [
+          0,
+          1,
+          2
+        ],
+        "actual_kept_rows": [
+          0,
+          1,
+          2,
+          5
+        ],
+        "agrees": false,
+        "actual_terminals": [
+          false,
+          false,
+          true,
+          true
+        ],
+        "actual_timeouts": [
+          false,
+          false,
+          true,
+          true
+        ]
+      }
+    ],
+    "delta_absolute_ordering": "steering, speed",
+    "artificial_horizon_and_natural_timeout_promoted_to_terminal": true,
+    "missing_sim_fields": [
+      {
+        "option": "include_progress",
+        "missing_key": "'progress_sin'"
+      },
+      {
+        "option": "reward_config",
+        "missing_key": "'new_rewards'"
+      }
+    ],
+    "limitation": "Synthetic loader behavior only. No raw record or installed simulator validated."
+  },
+  "policies": {
+    "cases_per_policy": 4,
+    "tolerance": 1e-12,
+    "observations": {
+      "poses_x": [
+        0.0,
+        1.0,
+        -1.0,
+        2.0
+      ],
+      "poses_y": [
+        0.0,
+        0.5,
+        1.0,
+        -1.0
+      ],
+      "theta_sin": [
+        -0.5646424733950354,
+        0.0,
+        0.479425538604203,
+        0.9320390859672263
+      ],
+      "theta_cos": [
+        0.8253356149096783,
+        1.0,
+        0.8775825618903728,
+        0.3623577544766736
+      ],
+      "previous_action_steer": [
+        -0.1,
+        0.0,
+        0.1,
+        -0.2
+      ],
+      "previous_action_speed": [
+        0.6,
+        1.0,
+        2.0,
+        4.8
+      ],
+      "lidar_occupancy": [
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    "policy_results": [
+      {
+        "policy": "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.2562693366272295,
+            0.26864810986389814
+          ],
+          [
+            0.23872171971175352,
+            0.24816656670752413
+          ],
+          [
+            -0.0812315348865238,
+            -0.24897193990614344
+          ],
+          [
+            0.17560072484149752,
+            -0.2905735277616995
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.856946687831567,
+            2.6628421438690144
+          ],
+          [
+            1.7433439700806668,
+            2.6083789231260717
+          ],
+          [
+            1.7473856329406927,
+            2.5876193641154615
+          ],
+          [
+            2.0043798769142342,
+            2.587636233568752
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.25916059522062473,
+            0.2744809799211793
+          ],
+          [
+            0.24491830049319302,
+            0.2611338964131738
+          ],
+          [
+            -0.08625220633195953,
+            -0.2014188734180706
+          ],
+          [
+            0.20984587702467591,
+            -0.29036643934087125
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.8934366613149414,
+            2.678318244786923
+          ],
+          [
+            1.8125289211446098,
+            2.621356763070454
+          ],
+          [
+            1.560518752755136,
+            2.58761936411583
+          ],
+          [
+            2.0028511141832253,
+            2.588947550130646
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.25683630451590334,
+            0.2818257954215014
+          ],
+          [
+            0.23347699907828928,
+            0.27618666481083376
+          ],
+          [
+            -0.15386822421291463,
+            0.15790557427278093
+          ],
+          [
+            0.14990386608321574,
+            -0.2884563481729641
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.9421925395610011,
+            2.665694465101291
+          ],
+          [
+            1.904335395434667,
+            2.601005303327119
+          ],
+          [
+            1.4644974802166086,
+            2.5876199191233438
+          ],
+          [
+            1.9888745994790809,
+            2.587619646040753
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.26035097973511456,
+            0.24457454967237385
+          ],
+          [
+            0.24399628970777967,
+            0.12307845477534458
+          ],
+          [
+            -0.09421720704779876,
+            -0.27065986972328393
+          ],
+          [
+            0.14544602136678675,
+            -0.29169705988778194
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.7261186778987947,
+            2.685392102655692
+          ],
+          [
+            1.4228455045780812,
+            2.6190743618688
+          ],
+          [
+            1.869141921712098,
+            2.587619364118766
+          ],
+          [
+            2.0127200527402858,
+            2.587619493114857
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.2586418921045863,
+            0.2539164025256342
+          ],
+          [
+            0.23951027110816228,
+            0.18785666849043348
+          ],
+          [
+            -0.13902222515839424,
+            -0.26641196276452933
+          ],
+          [
+            0.1719360658741131,
+            -0.29158495447334415
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.7732267680084814,
+            2.675367561800279
+          ],
+          [
+            1.5241188594077,
+            2.609745387117277
+          ],
+          [
+            1.843273092589034,
+            2.587619404382827
+          ],
+          [
+            2.0118843754988283,
+            2.5876291906292885
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.65_1.2_centerline_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.24963922582765155,
+            0.2761398882104022
+          ],
+          [
+            0.21815895974327223,
+            0.265511464585215
+          ],
+          [
+            -0.14847764319672507,
+            -0.20430236886499634
+          ],
+          [
+            0.1442003722021675,
+            -0.2899021431836246
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.9041722978602316,
+            2.6353463903471996
+          ],
+          [
+            1.8379190367067488,
+            2.5908100945971224
+          ],
+          [
+            1.5691208832947043,
+            2.5876195841601963
+          ],
+          [
+            1.9994331831795318,
+            2.587619467403132
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.25359816546054254,
+            0.27336520385142
+          ],
+          [
+            0.23563823692889535,
+            0.25849484665830447
+          ],
+          [
+            -0.09098884206306049,
+            -0.21519232763714521
+          ],
+          [
+            0.2057975355006213,
+            -0.29051747277488194
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.8863055894019016,
+            2.650521301049463
+          ],
+          [
+            1.7977268233332957,
+            2.603708863719973
+          ],
+          [
+            1.6045398332794878,
+            2.5876193641169274
+          ],
+          [
+            2.003965808760848,
+            2.5884642232300052
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.73_0.95_centerline_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.25668128314511107,
+            0.2797239288068959
+          ],
+          [
+            0.23202008637428123,
+            0.27256497596794854
+          ],
+          [
+            -0.15622325540451645,
+            -0.0344034357076416
+          ],
+          [
+            0.1302514563542508,
+            -0.2890496817584455
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.927915550467338,
+            2.6649060020462376
+          ],
+          [
+            1.881075232407119,
+            2.599414433013694
+          ],
+          [
+            1.388023053783564,
+            2.587620187455742
+          ],
+          [
+            1.9931922068753978,
+            2.587619371759973
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.2572066096136998,
+            0.2735642014583363
+          ],
+          [
+            0.23689883708162748,
+            0.26026126286384754
+          ],
+          [
+            -0.1377139855689051,
+            -0.22971424603403137
+          ],
+          [
+            0.1725043064055971,
+            -0.2901512231311199
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.8875721435654196,
+            2.667604326346783
+          ],
+          [
+            1.807592782330857,
+            2.6054948099617836
+          ],
+          [
+            1.6594953571663724,
+            2.5876193957098192
+          ],
+          [
+            2.0012651459064603,
+            2.58763005955023
+          ]
+        ]
+      },
+      {
+        "policy": "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.00011654301944563072,
+            0.29325871387589764
+          ],
+          [
+            0.25996396516043624,
+            0.2925929736084998
+          ],
+          [
+            -0.2749566722693494,
+            0.29016483014460176
+          ],
+          [
+            -0.21889999999999998,
+            -0.29220823602609036
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            2.0245211394720024,
+            2.587619364115309
+          ],
+          [
+            2.0194256900543697,
+            2.6830453630009767
+          ],
+          [
+            2.001364456219079,
+            2.813167645260589
+          ],
+          [
+            2.0165404099173148,
+            3.2807665446752545
+          ]
+        ]
+      },
+      {
+        "policy": "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.00011654301944563072,
+            0.29325871387589764
+          ],
+          [
+            0.25996396516043624,
+            0.2925929736084998
+          ],
+          [
+            -0.2749566722693494,
+            0.29016483014460176
+          ],
+          [
+            -0.21889999999999998,
+            -0.2925315109527845
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            2.0245211394720024,
+            2.587619364115309
+          ],
+          [
+            2.0194256900543697,
+            2.6830453630009767
+          ],
+          [
+            2.001364456219079,
+            2.813167645260589
+          ],
+          [
+            2.0189648082429468,
+            3.2807665446752545
+          ]
+        ]
+      },
+      {
+        "policy": "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.00011654301944563072,
+            0.29325871387589764
+          ],
+          [
+            0.25996396516043624,
+            0.2925929736084998
+          ],
+          [
+            -0.2749566722693494,
+            0.29016483014460176
+          ],
+          [
+            -0.21889999999999998,
+            -0.29289974371675076
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            2.0245211394720024,
+            2.587619364115309
+          ],
+          [
+            2.0194256900543697,
+            2.6830453630009767
+          ],
+          [
+            2.001364456219079,
+            2.813167645260589
+          ],
+          [
+            2.0217342621497423,
+            3.2807665446752545
+          ]
+        ]
+      },
+      {
+        "policy": "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.00011654301944563072,
+            0.29130496553773116
+          ],
+          [
+            0.25996396516043624,
+            0.29016483014460176
+          ],
+          [
+            -0.17587684903775935,
+            0.2853688273502142
+          ],
+          [
+            -0.21889999999999998,
+            -0.2931037555102169
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            2.009885017468336,
+            2.587619364115309
+          ],
+          [
+            2.001364456219079,
+            2.6830453630009767
+          ],
+          [
+            1.9667519813199994,
+            2.587636924506793
+          ],
+          [
+            2.023272244573701,
+            3.2807665446752545
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.27591614310796103,
+            0.2200742164658517
+          ],
+          [
+            0.270312438424728,
+            -0.06659724852098382
+          ],
+          [
+            -0.17714791972517524,
+            -0.27414071386911565
+          ],
+          [
+            0.14610685243057134,
+            -0.2922312153566769
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.6228633867389577,
+            2.8246673225970573
+          ],
+          [
+            1.3936164350663474,
+            2.763388524429991
+          ],
+          [
+            1.8911023687544564,
+            2.5876404664405057
+          ],
+          [
+            2.0167125294986934,
+            2.587619509162301
+          ]
+        ]
+      },
+      {
+        "policy": "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5",
+        "cases": 4,
+        "max_abs_error": {
+          "batch_action": 0.0,
+          "batch_log_density": 0.0,
+          "reset": 0.0,
+          "permutation": 0.0
+        },
+        "finite": true,
+        "agrees": true,
+        "deterministic_deltas": [
+          [
+            0.2759991638480218,
+            0.24457454967237385
+          ],
+          [
+            0.2708836960593606,
+            0.12307845477534458
+          ],
+          [
+            -0.05873302253183856,
+            -0.27065986972328393
+          ],
+          [
+            0.006634214264212651,
+            -0.29169705988778194
+          ]
+        ],
+        "log_densities_at_those_deltas": [
+          [
+            1.7261186778987947,
+            2.825682821331573
+          ],
+          [
+            1.4228455045780812,
+            2.7690067597775316
+          ],
+          [
+            1.869141921712098,
+            2.5876193641153096
+          ],
+          [
+            2.0127200527402858,
+            2.587619364115337
+          ]
+        ]
+      }
+    ],
+    "density_order": [
+      "speed",
+      "steering"
+    ],
+    "action_order": [
+      "steering",
+      "speed"
+    ],
+    "density_formula_max_abs_error": 4.440892098500626e-16,
+    "joint_log_density_rule": "sum of dimension log densities for the tested nondegenerate independent truncated normals",
+    "limitation": "Directed synthetic states only; deterministic means and supplied-action densities. No rollout, archived-action coverage, degenerate-support or simulator qualification."
+  },
+  "gates": {
+    "corrected_zip_rights": "unresolved",
+    "corrected_zip_hashes_and_census": "not acquired or rerun; old archive hashes retained separately",
+    "simulator_benchmark_revision": "unqualified: public repository exists but no benchmark gitlink",
+    "original_reply": "Full reply supplied by the owner in this CLI session and inspected. MIT statement concerns subrepositories; no explicit Drive-ZIP terms or required simulator revision supplied.",
+    "m2_ranking": "not executed; rights, environment and first-crash filtering unresolved",
+    "m3_m5_outcomes": "unopened"
+  },
+  "reward_contract": {
+    "source": "f1tenth_orl_dataset README and dataset_env at manifest pin",
+    "sim_missing_per_documentation": [
+      "progress",
+      "new_rewards"
+    ],
+    "archive_payload_verified": false,
+    "comparison": "No shared outcome calculation qualified; collection rewards are not presumed comparable."
+  }
+}

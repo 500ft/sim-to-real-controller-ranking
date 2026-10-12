@@ -1,0 +1,498 @@
+{
+  "phase": "full",
+  "protocol_sha256": "99e9ac5886f066c2a24bc3410daedd06529ed96253cb209bebc43ace769fd0b0",
+  "script_sha256": "36f8a758261c71c4bbf7eac6375cc68685cfb71d989c96b46170b961c2017b6f",
+  "manifest_sha256": "55a00ff2d42cf2f3a4e3df0449beaaa3f8fdc94bda80a5be9fb167c314fd195a",
+  "source_sha256": "2e660e3a5b7432cc2b8b39fa5212a0710104f6ada10d88bdeee8802b588be5c2",
+  "candidate_source_sha256": "ec32ad5578345259f4361107f44d8380c4785da6c4c4a71e8832d991d06d90aa",
+  "candidate_change": {
+    "old": "change_points = np.concatenate([[0], change_points, [len(terminals) - 1]])",
+    "new": "change_points = np.concatenate([[0], change_points, [len(terminals)]])"
+  },
+  "literal_oracle_checks_passed": true,
+  "summary": [
+    {
+      "length": 1,
+      "by_dtype": {
+        "bool": {
+          "cases": 2,
+          "upstream_disagreements": 0,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 2,
+          "upstream_disagreements": 0,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 2,
+      "by_dtype": {
+        "bool": {
+          "cases": 4,
+          "upstream_disagreements": 1,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 4,
+          "upstream_disagreements": 1,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 3,
+      "by_dtype": {
+        "bool": {
+          "cases": 8,
+          "upstream_disagreements": 2,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 8,
+          "upstream_disagreements": 2,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 4,
+      "by_dtype": {
+        "bool": {
+          "cases": 16,
+          "upstream_disagreements": 4,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 16,
+          "upstream_disagreements": 4,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 5,
+      "by_dtype": {
+        "bool": {
+          "cases": 32,
+          "upstream_disagreements": 8,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 32,
+          "upstream_disagreements": 8,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 6,
+      "by_dtype": {
+        "bool": {
+          "cases": 64,
+          "upstream_disagreements": 16,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 64,
+          "upstream_disagreements": 16,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 7,
+      "by_dtype": {
+        "bool": {
+          "cases": 128,
+          "upstream_disagreements": 32,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 128,
+          "upstream_disagreements": 32,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 8,
+      "by_dtype": {
+        "bool": {
+          "cases": 256,
+          "upstream_disagreements": 64,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 256,
+          "upstream_disagreements": 64,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 9,
+      "by_dtype": {
+        "bool": {
+          "cases": 512,
+          "upstream_disagreements": 128,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 512,
+          "upstream_disagreements": 128,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 10,
+      "by_dtype": {
+        "bool": {
+          "cases": 1024,
+          "upstream_disagreements": 256,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 1024,
+          "upstream_disagreements": 256,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 11,
+      "by_dtype": {
+        "bool": {
+          "cases": 2048,
+          "upstream_disagreements": 512,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 2048,
+          "upstream_disagreements": 512,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    },
+    {
+      "length": 12,
+      "by_dtype": {
+        "bool": {
+          "cases": 4096,
+          "upstream_disagreements": 1024,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        },
+        "int8": {
+          "cases": 4096,
+          "upstream_disagreements": 1024,
+          "candidate_disagreements": 0,
+          "exceptions": 0
+        }
+      }
+    }
+  ],
+  "minimal_failures": {
+    "upstream": {
+      "id": "2:3:bool",
+      "flags": [
+        1,
+        1
+      ],
+      "dtype": "bool",
+      "expected_removed": [
+        1
+      ],
+      "upstream": []
+    }
+  },
+  "loader_adapter": {
+    "upstream": {
+      "methods_executed": [
+        "get_dataset",
+        "_find_consecutive_terminals_indices",
+        "_remove_indices_from_dataset",
+        "clip_trajectories",
+        "add_timesteps"
+      ],
+      "adapter": "Original method AST; in-memory synthetic arrays; no gym constructor",
+      "options": {
+        "remove_cons_terminals": true,
+        "set_previous_step_terminals": 0,
+        "include_vesc_fault_trajectories": false,
+        "timesteps_to_include": [
+          0,
+          250
+        ],
+        "set_terminals": true,
+        "use_compute_termination": true,
+        "include_time_obs": true,
+        "include_progress": false,
+        "encode_cyclic": true,
+        "use_delta_actions": true,
+        "delta_factor": 1.0,
+        "flatten_obs": false,
+        "reward_config": null,
+        "include_pose_time_diff": false,
+        "include_action_pose_time_diff": false,
+        "bad_agents": [],
+        "bad_trajectories": [],
+        "train_only": false,
+        "eval_only": false,
+        "eval_agents": [
+          "synthetic"
+        ],
+        "keys": []
+      },
+      "first_crash_cases": [
+        {
+          "name": "interior_terminal_run",
+          "input_terminals": [
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "expected_kept_rows": [
+            0,
+            1,
+            3,
+            4,
+            5
+          ],
+          "actual_kept_rows": [
+            0,
+            1,
+            3,
+            4,
+            5
+          ],
+          "agrees": true,
+          "actual_terminals": [
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "actual_timeouts": [
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        {
+          "name": "terminal_run_at_array_end",
+          "input_terminals": [
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_kept_rows": [
+            0,
+            1,
+            2
+          ],
+          "actual_kept_rows": [
+            0,
+            1,
+            2,
+            5
+          ],
+          "agrees": false,
+          "actual_terminals": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "actual_timeouts": [
+            false,
+            false,
+            true,
+            true
+          ]
+        }
+      ],
+      "delta_absolute_ordering": "steering, speed",
+      "artificial_horizon_and_natural_timeout_promoted_to_terminal": true,
+      "missing_sim_fields": [
+        {
+          "option": "include_progress",
+          "missing_key": "'progress_sin'"
+        },
+        {
+          "option": "reward_config",
+          "missing_key": "'new_rewards'"
+        }
+      ],
+      "limitation": "Synthetic loader behavior only. No raw record or installed simulator validated."
+    },
+    "candidate": {
+      "methods_executed": [
+        "get_dataset",
+        "_find_consecutive_terminals_indices",
+        "_remove_indices_from_dataset",
+        "clip_trajectories",
+        "add_timesteps"
+      ],
+      "adapter": "Original method AST; in-memory synthetic arrays; no gym constructor",
+      "options": {
+        "remove_cons_terminals": true,
+        "set_previous_step_terminals": 0,
+        "include_vesc_fault_trajectories": false,
+        "timesteps_to_include": [
+          0,
+          250
+        ],
+        "set_terminals": true,
+        "use_compute_termination": true,
+        "include_time_obs": true,
+        "include_progress": false,
+        "encode_cyclic": true,
+        "use_delta_actions": true,
+        "delta_factor": 1.0,
+        "flatten_obs": false,
+        "reward_config": null,
+        "include_pose_time_diff": false,
+        "include_action_pose_time_diff": false,
+        "bad_agents": [],
+        "bad_trajectories": [],
+        "train_only": false,
+        "eval_only": false,
+        "eval_agents": [
+          "synthetic"
+        ],
+        "keys": []
+      },
+      "first_crash_cases": [
+        {
+          "name": "interior_terminal_run",
+          "input_terminals": [
+            false,
+            true,
+            true,
+            false,
+            false,
+            false
+          ],
+          "expected_kept_rows": [
+            0,
+            1,
+            3,
+            4,
+            5
+          ],
+          "actual_kept_rows": [
+            0,
+            1,
+            3,
+            4,
+            5
+          ],
+          "agrees": true,
+          "actual_terminals": [
+            false,
+            true,
+            false,
+            false,
+            true
+          ],
+          "actual_timeouts": [
+            false,
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        {
+          "name": "terminal_run_at_array_end",
+          "input_terminals": [
+            false,
+            false,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_kept_rows": [
+            0,
+            1,
+            2
+          ],
+          "actual_kept_rows": [
+            0,
+            1,
+            2
+          ],
+          "agrees": true,
+          "actual_terminals": [
+            false,
+            false,
+            true
+          ],
+          "actual_timeouts": [
+            false,
+            false,
+            true
+          ]
+        }
+      ],
+      "delta_absolute_ordering": "steering, speed",
+      "artificial_horizon_and_natural_timeout_promoted_to_terminal": true,
+      "missing_sim_fields": [
+        {
+          "option": "include_progress",
+          "missing_key": "'progress_sin'"
+        },
+        {
+          "option": "reward_config",
+          "missing_key": "'new_rewards'"
+        }
+      ],
+      "limitation": "Synthetic loader behavior only. No raw record or installed simulator validated."
+    }
+  },
+  "case_log_sha256": "cde0d125c417067d2f00a6ab19f56e331086e1bcf2cbb7883e6fcadb3718bce1",
+  "case_log_bytes": 2581096,
+  "elapsed_seconds": 0.7024895410286263,
+  "peak_rss_bytes": 72007680,
+  "environment": {
+    "python": "3.11.15",
+    "numpy": "2.4.6"
+  },
+  "completed_registered_domain": true,
+  "interpretation": "Finite-domain code validation, not statistical evidence from independent drives. Passing does not resolve source rights, intended simulator revision, episode semantics or shared rewards. No ranking or ensemble permitted by this result."
+}

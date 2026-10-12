@@ -1,0 +1,25 @@
+{
+  "question": "Does changing the final exclusive-end sentinel from len(terminals)-1 to len(terminals) satisfy the documented helper contract?",
+  "source_manifest": "runs/ope_interface_qualification/inputs.json",
+  "source_file_key": "f1tenth_orl_dataset__f110_orl_dataset__dataset_env.py",
+  "source_semantics": "Remove all but the first true element of each contiguous true run, as documented by the pinned helper. This does not identify independent episodes or approve a dataset exclusion rule.",
+  "candidate": "Replace only the final change-point sentinel. Candidate executes in a temporary source copy; original cache and historical outputs stay unchanged.",
+  "domain": {
+    "pilot_max_length": 4,
+    "full_max_length": 12,
+    "min_length": 1,
+    "values": [0, 1],
+    "dtypes": ["bool", "int8"],
+    "order": "increasing length, lexicographic binary tuple, then dtype",
+    "seed": null,
+    "seed_reason": "Exhaustive finite enumeration, no sampling or random seeds"
+  },
+  "oracle": "Independent sequential scan retains first true after false/start, removes subsequent true values. Exact ordered index equality; no numerical tolerance.",
+  "small_independent_checks": "Literal expected removal indices for singleton false/true, two true values, interior run, tail run and separated runs precede enumeration.",
+  "metrics": ["attempted cases", "exceptions", "exact disagreements per implementation/length/dtype", "smallest counterexample", "case-log SHA256", "elapsed seconds", "peak RSS bytes"],
+  "exposure": "Synthetic boolean arrays and existing synthetic loader adapter only. No archives, recorded observations, Groundtruth, performance outcomes or reserved groups.",
+  "exclusions": ["empty arrays", "nonbinary values", "multidimensional inputs", "record-boundary inference", "full gym construction", "archive incidence", "reward computation", "physical behavior"],
+  "stopping": "Run pilot first. Stop if literal fixtures fail or candidate disagrees or throws. Scale only if projected full enumeration fits resource ceilings. Full run stops on a candidate failure and preserves log/checkpoint; no tuning to outcomes.",
+  "resources": {"workers": 1, "blas_openmp_threads": 1, "target_rss_bytes": 2147483648, "runtime_ceiling_seconds": 14400, "new_artifact_ceiling_bytes": 5368709120},
+  "interpretation": "Finite-domain code validation, not statistical evidence from independent drives. Passing does not resolve source rights, intended simulator revision, episode semantics or shared rewards. No ranking or ensemble permitted by this result."
+}

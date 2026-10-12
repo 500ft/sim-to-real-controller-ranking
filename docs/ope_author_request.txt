@@ -5,7 +5,8 @@ Confirmation provenance: the owner message in this CLI session states "the
 other email has been sent" and explicitly identifies the racing dataset email
 to Fabian Kresse in its repository-specific instruction.
 Send timestamp: not supplied.
-Reply: no reply or answers supplied in this confirmation.
+Reply: the owner supplied the full reply in this CLI session. It was inspected
+for the corrected-source qualification; the earlier summary remains below.
 Sending does not establish data/code/weights reuse permission or satisfy the
 episode, policy-execution or estimator eligibility prerequisites.
 
@@ -59,7 +60,9 @@ Thank you.
 [Owner to review recipient, wording and signature before sending.]
 
 ----------------------------------------------------------------------
-Reply received 2026-10-09 (summary, not a quotation)
+Reply received 2026-10-09 (historical summary, not a quotation)
+Simulator-availability claims in this summary are superseded by the source
+inspection noted below; the summary itself is retained as history.
 
 Code and pins
 - Top-level repo HyberionBrew/f110_ope_benchmark; clone with --recursive.
@@ -112,3 +115,26 @@ Still open after the reply
 
 The structural qualification in reports/ope_qualification.md was run at the
 old pins and has not been re-run; see docs/OPEN_QUESTIONS.md.
+
+----------------------------------------------------------------------
+Corrected public-source inspection
+
+See reports/ope_interface_qualification.md and its pinned inputs/result. The
+simulator repository is public with an Unlicense file. The benchmark still has
+no gitlink establishing which simulator revision belongs to it. Synthetic
+policy interfaces agree on the tested cases; the loader retains the last
+post-crash row when a terminal run reaches the end of an array.
+
+The owner subsequently supplied the full reply in this CLI session. The author
+states that MIT licenses were added to the subrepositories and asks for thesis
+citation. The reply confirms executed delta-action density ordering, recommends
+recursive cloning and the benchmark gym.make options, and says rows after the
+first crash are filtered. It supplies no explicit terms for the Drive ZIPs or
+exact simulator revision. The raw done interpretation and short recording span
+are described from recollection; no session or pairing IDs are supplied.
+
+The full correspondence remains local; its source and text hash are in the
+corrected-source input manifest. No follow-up was sent, no corrected ZIP
+acquired and no ranking computed. Pending questions concern explicit ZIP
+permission and derived outputs, the simulator revision and disposition of the
+filter defect.
