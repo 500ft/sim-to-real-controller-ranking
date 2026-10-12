@@ -29,8 +29,8 @@ new source pins, license inspection, policy batch checks and loader failure.
 The simulator repository is now public and licensed; its required benchmark
 revision is still unconfirmed. No corrected ZIP or performance outcome was opened.
 
-A [separately qualified correction](reports/ope_interface_qualification.md#separate-correction-qualification)
-passes all 16,380 exhaustive synthetic dtype cases; the original helper fails
+A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
+passes all 16,380 registered synthetic dtype cases; the original helper fails
 4,094. [Source result](runs/ope_terminal_filter_qualification/result.json).
 The candidate has not been applied to any archive or approved as its exclusion rule.
 
