@@ -20,17 +20,23 @@ authorize data exposure, a research campaign, purchases or external contact.
 
 ## Verified starting point
 
-**Done:** [structural qualification](reports/ope_qualification.md), including
-archive hashes, explicit internal roots, loader aliases, recording boundaries
-and exact policy-name matches. The [result](runs/ope_qualification/result.json)
-and [generated table](runs/ope_qualification/structure.md) reproduce that work.
+The [historical structural census](reports/ope_qualification.md) preserves
+archive hashes, internal roots, recording boundaries and policy-name matches at
+the earlier pins. Its [result](runs/ope_qualification/result.json) and
+[generated table](runs/ope_qualification/structure.md) include the old
+wrong-alias registrations. They do not qualify the corrected ZIPs.
+
 The [corrected-source interface run](reports/ope_interface_qualification.md)
-executes synthetic policy and loader cases. It reproduces a first-crash filter
-failure at the end of an array. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
-agrees with the documented helper contract over its registered synthetic domain.
-Corrected ZIP permission, checksums and census,
-archive-level policy coverage and the benchmark simulator revision remain open.
-These results supply no controller-performance or refusal claim.
+executes synthetic policy and loader cases. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
+accepts the corrected final sentinel for the helper's documented consecutive
+terminal rule. Archive exclusion remains unadopted until recording, crash and
+censoring semantics are established. Corrected ZIP permission, checksums and
+census, archive-level policy coverage and the benchmark simulator revision
+remain open. These results supply no controller-performance or refusal claim.
+
+The owner adopted qualification before the conditionally authorized reference
+ranking. Complete M1 and qualify a shared reward before reading performance
+outcomes. Preserve the reserved groups for independent evaluation.
 
 The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
@@ -40,10 +46,10 @@ admitted no independent final group. Unopened bags remain unassigned and frozen.
 
 ```mermaid
 flowchart TD
-    Q[Completed structural qualification] --> D[Qualify a permitted data route]
+    Q[Historical census and corrected-source checks] --> D[Qualify a permitted data route]
     D --> R[Qualify development reference and model set]
     R --> A[Calibrate performance-difference abstention]
-    P[Owner establishes platform or lab access] --> I[Qualify real-platform identification and outcomes]
+    P[Owner establishes platform and suitable space] --> I[Qualify real-platform identification and outcomes]
     P --> D
     D --> I
     A --> F[Freeze controllers, method and independent test protocol]
@@ -64,7 +70,7 @@ for empirical ranking work.
 ### M1. Qualify an accessible data route
 
 Status: current, blocked on external information and owner choices.
-Prerequisite: the structural census and a clearly identified candidate source.
+Prerequisite: the historical census and a clearly identified corrected source.
 
 - Obtain terms covering the corrected data ZIPs and intended derived outputs.
   The [contact record](docs/ope_author_request.txt) records the full reply supplied
@@ -72,33 +78,37 @@ Prerequisite: the structural census and a clearly identified candidate source.
   but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
   those public code licenses.
 - Confirm the benchmark's simulator revision. The simulator is public and
-  licensed, but the benchmark has no gitlink for it. The terminal-tail candidate
-  passes its finite-domain checks; review its adoption and establish recording,
-  crash and censoring semantics before applying exclusions to data.
-- Pin corrected ZIP checksums and rerun their structural census. The
-  [interface result](runs/ope_interface_qualification/result.json) records
-  corrected registrations and synthetic checks; the archived census remains
-  at its original pins.
+  licensed, but the benchmark has no gitlink for it. The corrected helper
+  sentinel passes its registered synthetic cases. Do not use it to exclude
+  archive rows until the author clarifies recording, crash, timeout and
+  censoring semantics.
+- With permission, pin both corrected ZIP checksums and rerun their
+  structural census. The [interface result](runs/ope_interface_qualification/result.json)
+  records corrected registrations and synthetic checks; the earlier archive
+  census remains historical.
 - Resolve raw segment versus episode meaning, continuing terminal flags,
   truncation, exclusions, vehicle/session groups and real/simulation pairing.
 - Map policy IDs to executable implementations. Qualify observations, action
-  conventions, clipping, internal state and reset behavior.
+  conventions, clipping, internal state and reset behavior on permitted archive
+  records. Qualify one reward calculation shared by real and simulation records;
+  simulation lacks `new_rewards`, so collection rewards cannot be assumed equal.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities
   with constants. Clarify the unresolved helper source named in the report.
 
-Complete when: source-backed rights, episode/group mapping and a tested policy
-interface support a declared use, with explicit exclusions and estimator
-eligibility. If a route fails, record that reason and let the owner choose
-another source or stop; do not inspect reserved outcomes to rescue it.
+Complete when: source-backed rights, corrected archive identity, episode/group
+mapping, a tested policy interface and a common reward support a declared use,
+with explicit exclusions and estimator eligibility. If a route fails, record
+that reason and let the owner choose another source or stop; do not inspect
+reserved outcomes to rescue it.
 
 ### M2. Qualify a development reference and model set
 
 Status: conditionally owner-authorized for the published evaluation agents'
 simulation-versus-real reference ranking, stopped at M1. Prerequisite: qualified
-source rights, archive and policy interfaces, and the required environment
-revision. Commit the comparison rules below before reading performance outcomes;
-this does not authorize M3 or M5 data use.
+source rights, corrected archive and policy interfaces, a qualified common reward
+and the required environment revision. Commit the comparison rules below before
+reading performance outcomes; this does not authorize M3 or M5 data use.
 
 - Commit a common reward/outcome calculation, finite horizon, start-distribution
   comparison, terminal/censoring and whole-record uncertainty rules before
@@ -160,8 +170,10 @@ Sources: [prior work note](literature/prior-work-ranking-withholding.md).
 ### M4. Establish real-platform evidence
 
 Status: optional access route, currently blocked for new physical acquisition.
-Prerequisites: owner-confirmed platform/lab access and permission for physical
-work, or an M1-qualified existing physical dataset. Acquisition and method
+Prerequisites: owner-confirmed platform and suitable test-space access with
+permission for physical work, or an M1-qualified existing physical dataset.
+Self-funded equipment and independently arranged space can qualify when their
+actual setup supports the required measurements. Acquisition and method
 preparation can proceed independently only when separately authorized.
 
 - Confirm repeatable operating conditions, sensor/action interfaces and the
@@ -178,7 +190,7 @@ Building or possessing a car alone does not complete this milestone.
 
 ### M5. Freeze and execute independent ranking tests
 
-Status: future, not authorized by this cleanup.
+Status: future; independent evaluation remains unauthorized.
 Prerequisites: M3 and M4, qualified independent groups, named reviewer and
 explicit approval of the test protocol.
 

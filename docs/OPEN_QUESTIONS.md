@@ -8,9 +8,17 @@ The [roadmap](../ROADMAP.md) is the only plan.
 The owner adopted the dependency roadmap and authorized removal of obsolete
 active implementation, work orders and presentation assets. The active method
 question concerns dispersion of paired controller-performance differences and
-calibrated abstention, including near ties. This authorization supplies no data
-rights or permission to execute the future research milestones. The
+calibrated abstention, including near ties. This adoption supplies no data
+rights or permission to open reserved outcomes. M2 remains conditional on M1. The
 retained confidence-gate baseline, registered prediction and scope limit are in [roadmap M3](../ROADMAP.md#m3-calibrate-a-controller-difference-abstention-rule).
+
+The owner adopted qualification before reference ranking. The corrected
+sentinel is accepted for the helper's documented consecutive-terminal rule on
+the tested synthetic domain. Applying it to archive exclusions remains pending
+the author's recording, crash, timeout and censoring interpretation. The older
+wrong-alias archive census stays historical; corrected ZIPs need separate
+permission, hashes and census. The conditional M2 ranking waits for a qualified
+shared reward and simulator revision as well as the other M1 gates.
 
 Dataset qualification and owner-approved platform access are parallel possible
 routes. Failure of one source requires a route decision, rather than a claim that
@@ -20,13 +28,13 @@ what was removed and why useful historical work remains.
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
 | Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |
-| Recording segment versus episode | Full reply inspected; filter candidate qualified on synthetic inputs | Review the [candidate correction](../reports/ope_interface_qualification.md#separate-correction-qualification), then verify exclusions, terminal/censoring rules and independent acquisition groups against permitted records |
+| Recording segment versus episode | Helper correction accepted on synthetic inputs; archive exclusion unadopted | Confirm the [helper correction](../reports/ope_interface_qualification.md#separate-correction-qualification) against the author's recording, crash, timeout and censoring rules before processing permitted records |
 | Policy correspondence and execution | Synthetic batch, single-state, reset and permutation checks agree | [Executed cases](../runs/ope_interface_qualification/result.json); archived observation coverage and complete environment construction remain unqualified |
-| Loader aliases | Corrected registrations inspected | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
+| Loader aliases | Corrected registrations inspected; old census historical | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
-| External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and first-crash filtering. No follow-up sent |
+| External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and archive terminal semantics. No follow-up sent |
 | Simulator dependency | Public and Unlicense; benchmark revision unpinned | `.gitmodules` entry has no gitlink. Public head is not automatically the benchmark revision |
-| Reward comparison | Common outcome unqualified | Simulation documentation lacks progress and `new_rewards`; never equate collection rewards by selecting `reward_config=None` |
+| Reward comparison | Common outcome unqualified | Simulation lacks progress and `new_rewards`; qualify one shared reward computation before M2 performance access |
 | Reviewer, physical study, publication and campaign | No new approval supplied | Conditional M2 scope is in the roadmap; M3/M5 still require their separate prerequisites |
 
 ## Qualification pins

@@ -71,10 +71,12 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Obtain corrected ZIP permission, the required simulator revision and a
-disposition of the first-crash filter failure. The
-[roadmap](ROADMAP.md) keeps M2 conditional on these prerequisites. Its outcome
-and uncertainty rules must be committed before performance data is read.
+Obtain corrected ZIP permission and the required simulator revision. Confirm
+recording, crash, timeout and censoring semantics before using the accepted
+helper correction for archive exclusions. Qualify the corrected archive bytes,
+policy interfaces and a shared reward before the conditional M2 ranking. The
+[roadmap](ROADMAP.md) requires outcome and uncertainty rules to be committed
+before performance data is read.
 [Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.
 No empirical ranking or finite-horizon return calculation has been run.
 
