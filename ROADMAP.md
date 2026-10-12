@@ -28,9 +28,9 @@ wrong-alias registrations. They do not qualify the corrected ZIPs.
 
 The [corrected-source interface run](reports/ope_interface_qualification.md)
 executes synthetic policy and loader cases. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
-accepts the corrected final sentinel for the helper's documented consecutive
-terminal rule. Archive exclusion remains unadopted until recording, crash and
-censoring semantics are established. Corrected ZIP permission, checksums and
+qualifies a candidate final-sentinel correction on its registered synthetic
+domain. Archive exclusion remains unadopted until recording, crash, timeout
+and censoring semantics are established. Corrected ZIP permission, checksums and
 census, archive-level policy coverage and the benchmark simulator revision
 remain open. These results supply no controller-performance or refusal claim.
 
@@ -78,8 +78,8 @@ Prerequisite: the historical census and a clearly identified corrected source.
   but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
   those public code licenses.
 - Confirm the benchmark's simulator revision. The simulator is public and
-  licensed, but the benchmark has no gitlink for it. The corrected helper
-  sentinel passes its registered synthetic cases. Do not use it to exclude
+  licensed, but the benchmark has no gitlink for it. The candidate helper
+  correction passes its registered synthetic cases. Do not use it to exclude
   archive rows until the author clarifies recording, crash, timeout and
   censoring semantics.
 - With permission, pin both corrected ZIP checksums and rerun their

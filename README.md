@@ -72,9 +72,9 @@ outside this repository while reuse terms remain unknown.
 ## What's next
 
 Obtain corrected ZIP permission and the required simulator revision. Confirm
-recording, crash, timeout and censoring semantics before using the accepted
-helper correction for archive exclusions. Qualify the corrected archive bytes,
-policy interfaces and a shared reward before the conditional M2 ranking. The
+recording, crash, timeout and censoring semantics before deciding whether
+the candidate correction applies to archive exclusions. Qualify the corrected
+archive bytes, policy interfaces and a shared reward before conditional M2 ranking. The
 [roadmap](ROADMAP.md) requires outcome and uncertainty rules to be committed
 before performance data is read.
 [Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.
