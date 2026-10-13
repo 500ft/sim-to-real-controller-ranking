@@ -76,7 +76,8 @@ Prerequisite: the historical census and a clearly identified corrected source.
   The [contact record](docs/ope_author_request.txt) records the full reply supplied
   by the owner and inspected in this session. It describes code-license additions
   but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
-  those public code licenses.
+  those public code licenses. The [four source proposals](docs/OPEN_QUESTIONS.md#four-proposed-assumptions)
+  do not satisfy the data, simulator or archive-semantic gates.
 - Confirm the benchmark's simulator revision. The simulator is public and
   licensed, but the benchmark has no gitlink for it. The candidate helper
   correction passes its registered synthetic cases. Do not use it to exclude

@@ -44,9 +44,56 @@ accessible development data. Proposed thesis correlations are source-check
 candidates, not pass thresholds. No ranking or runtime sweep has been run under
 this decision.
 
-The current handoff refers to "four assumptions" without their text or a source.
-Neither the repository nor the supplied task files identify them. Their content
-and checks remain unregistered; none is inferred from the comparison choices.
+## Four proposed assumptions
+
+Source: the local
+`/Users/redhose/Projects/critical-audit-20261002/implementation/sim-to-real-assumptions-20261013/ASSUMPTIONS.md`,
+SHA-256 `8ca006e41a4fed3bfdd3dcc83cf142904a14038f2fc1c30670067af039c30011`.
+It records proposals from a Claude Code conversation with the owner. The file
+explicitly says they are not yet owner accepted. The quoted sentences below are
+source proposals, not findings or permission to use data.
+
+1. **Data terms.** "Use the two v2 archives (f110-real-stoch-v2, f110-sim-stoch-v2,
+   Google Drive, no licence text of their own) for research under the terms
+   the author stated in his 2026-10-09 reply: cite the thesis "Deep off-policy
+   evaluation with autonomous racing cars" (TU Wien, handle 20.500.12708/201148),
+   publish derived results and figures, never redistribute the raw bytes or
+   processed subsets." The inspected reply adds MIT terms to code and asks for
+   thesis citation; it gives no explicit Drive-ZIP grant for research use,
+   derived publication or redistribution. This proposal does not qualify the
+   archives. An applicable data grant remains required.
+2. **Simulator revision.** "Pin the public f110_sim_env head, commit
+   0c15e5ba4e7537390777dc25c67c81628daf1d16 (2024-03-29, Unlicense,
+   HyberionBrew/f110_sim_env), as the assumed revision for benchmark
+   42789222451f4ee0e679475a8798d7c47bf220b5, whose .gitmodules lists the
+   simulator with no gitlink." The public commit is a candidate. A successful
+   end-to-end run could establish compatibility, not historical identity. A
+   failed run could reflect the revision, another dependency or the environment;
+   neither result identifies the author's executed revision. That identity
+   remains unconfirmed.
+3. **Crash and timeout semantics.** "Adopt the documented helper contract as the
+   registered exclusion rule: keep the first terminal sample of a terminal run
+   and drop later samples of the same run, including the final array row
+   (the candidate correction qualified on the synthetic domain in PR #72)."
+   This is a proposal for archive exclusions. The helper test establishes its
+   synthetic contract only. Recording boundaries and the meaning of crash,
+   intervention and timeout flags still need qualification before any exclusion
+   rule is applied to corrected archives. The original pinned loader may then
+   serve as a separately labeled sensitivity variant.
+4. **Common reward.** "Recompute all four thesis rewards (progress, lifetime,
+   minimum action, checkpoint) for both archives with the benchmark's reward
+   setup from experiments/run_iw.py, because the sim archive lacks stored
+   rewards." The pinned dataset README says simulation lacks `new_rewards`;
+   collection rewards still exist. A shared calculation remains to be specified
+   and checked. Matching the author's per-agent Groundtruth mean and standard
+   deviation, if access is later permitted, would check aggregates only and
+   cannot establish a unique implementation or per-record equivalence. A
+   mismatch would require investigation before ranking.
+
+The source also proposes a detailed comparison freeze. Its proposal status does
+not change the owner's previously accepted high-level development comparison
+direction above. Exact operational settings and source rights remain open, and
+reserved outcomes stay closed.
 
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
