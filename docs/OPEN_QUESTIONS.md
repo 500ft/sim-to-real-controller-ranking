@@ -24,6 +24,30 @@ routes. Failure of one source requires a route decision, rather than a claim tha
 all legitimate routes are closed. The [history index](history/README.md) records
 what was removed and why useful historical work remains.
 
+## Accepted development comparison direction
+
+The owner accepted a comparison direction for accessible development records,
+conditional on M1. These choices do not expose reserved outcomes or qualify the
+corrected ZIPs.
+
+| Element | Accepted direction and source | Still required before performance access |
+| --- | --- | --- |
+| Horizon | 250 steps, consistent with the pinned benchmark's [run_iw.py](https://github.com/HyberionBrew/f110_ope_benchmark/blob/42789222451f4ee0e679475a8798d7c47bf220b5/experiments/run_iw.py) `timesteps_to_include=(0,250)` | Confirm the timestep duration and the cutoff's timeout/terminal treatment on permitted records |
+| Starts | Use recorded real start poses. The [author reply record](ope_author_request.txt) says simulation starts came from real rollouts | Establish eligible records and a comparable start distribution; no paired episode IDs were supplied |
+| Rewards | Compare the four thesis reward definitions. The pinned [dataset README](https://github.com/HyberionBrew/f1tenth_orl_dataset/blob/536d762ad7b07076551d39ef202199cbaead6a87/README.md) names `reward_progress.json`, `reward_checkpoint.json`, `reward_lifetime.json` and `reward_min_act.json` | Match each thesis reward to executable code and a common calculation on both permitted archives; simulation lacks `new_rewards` |
+| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | Fix the exact seed list and verify how the intended simulator uses it; seeds sample simulator randomness, not independent vehicles |
+
+Before opening any development performance outcome, freeze the actual timestep,
+reward implementation, discounting, terminal and truncation handling, aggregation,
+eligible start distribution and exact seeds. Apply the freeze only to qualifying
+accessible development data. Proposed thesis correlations are source-check
+candidates, not pass thresholds. No ranking or runtime sweep has been run under
+this decision.
+
+The current handoff refers to "four assumptions" without their text or a source.
+Neither the repository nor the supplied task files identify them. Their content
+and checks remain unregistered; none is inferred from the comparison choices.
+
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
 | Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |

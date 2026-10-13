@@ -110,10 +110,11 @@ source rights, corrected archive and policy interfaces, a qualified common rewar
 and the required environment revision. Commit the comparison rules below before
 reading performance outcomes; this does not authorize M3 or M5 data use.
 
-- Commit a common reward/outcome calculation, finite horizon, start-distribution
-  comparison, terminal/censoring and whole-record uncertainty rules before
-  inspecting performance outcomes. Do not infer paired episode IDs from a
-  shared-start description.
+- The owner accepted the [development comparison direction](docs/OPEN_QUESTIONS.md#accepted-development-comparison-direction)
+  for accessible records. Before inspecting performance outcomes, freeze the
+  exact seed list, timestep, common reward code, discount, start distribution,
+  terminal and truncation handling, aggregation and whole-record uncertainty.
+  Do not infer paired episode IDs from a shared-start description.
 - Reproduce a reference calculation with independently checked boundary cases.
   Check units, frames, clocks, observations and action conventions before fitting.
 - Fit model parameters on development groups only. Retain model discrepancies,
