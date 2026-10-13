@@ -3,4 +3,4 @@ numpy==2.4.6
 scipy==1.17.1
 matplotlib==3.10.8
 # The pinned upstream policy module imports pkg_resources.
-setuptools==80.9.0
+setuptools==83.0.0
