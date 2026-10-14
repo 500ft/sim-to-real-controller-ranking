@@ -113,3 +113,7 @@ runs/mast_fea/converge/
 !runs/ope_terminal_filter_qualification/
 !runs/ope_terminal_filter_qualification/protocol.json
 !runs/ope_terminal_filter_qualification/result.json
+
+# Corrected Drive-v2 qualification summaries; archive payloads stay outside git.
+!runs/ope_corrected_v2/
+!runs/ope_corrected_v2/*.json
