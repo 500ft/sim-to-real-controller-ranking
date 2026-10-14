@@ -1,0 +1,42 @@
+{
+  "f110-real-stoch-v2": {
+    "affected_policy_names": [
+      "pure_pursuit2_0.5_0.35_raceline5_0.3_0.5",
+      "pure_pursuit2_0.8_1.25_raceline8_0.3_0.5"
+    ],
+    "changed_reset_rows": 2,
+    "evaluation_reset_rows_changed": 0,
+    "evaluation_reward_changes": {}
+  },
+  "f110-sim-stoch-v2": {
+    "affected_policy_names": [
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5"
+    ],
+    "changed_reset_rows": 1,
+    "evaluation_reset_rows_changed": 1,
+    "evaluation_reward_changes": {
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "corrected_minus_original_mean": -0.31541027644513875,
+          "corrected_recordings": 50,
+          "original_recordings": 49
+        },
+        "lifetime": {
+          "corrected_minus_original_mean": -0.6589996858454157,
+          "corrected_recordings": 50,
+          "original_recordings": 49
+        },
+        "min_act": {
+          "corrected_minus_original_mean": -0.3882998764254175,
+          "corrected_recordings": 50,
+          "original_recordings": 49
+        },
+        "progress": {
+          "corrected_minus_original_mean": -0.39223119821966534,
+          "corrected_recordings": 50,
+          "original_recordings": 49
+        }
+      }
+    }
+  }
+}

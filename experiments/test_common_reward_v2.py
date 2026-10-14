@@ -23,6 +23,12 @@ class CommonRewardCases(unittest.TestCase):
         np.testing.assert_allclose(decode_progress(np.sin(2 * np.pi * np.array([0.2, 0.8])),
                                                    np.cos(2 * np.pi * np.array([0.2, 0.8]))), [0.2, 0.8])
 
+    def test_one_row_terminal_and_full_lap_checkpoint(self):
+        one = reward_vectors(np.array([0.2]), np.array([0.0]), np.array([0.0]), True)
+        self.assertTrue(all(np.all(value == 0) for value in one.values()))
+        crossing = reward_vectors(np.array([0.99, 0.01, 0.01]), np.zeros(3), np.zeros(3), True)
+        np.testing.assert_array_equal(crossing["checkpoint"], [0, 10, 0])
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,675 @@
+{
+  "f110-real-stoch-v2": {
+    "policies": {
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 42.7493692546892,
+          "recordings": 50,
+          "std_population": 18.419169717566216
+        },
+        "lifetime": {
+          "mean": 72.41811358809167,
+          "recordings": 50,
+          "std_population": 22.485001241953494
+        },
+        "min_act": {
+          "mean": 28.29351185055313,
+          "recordings": 50,
+          "std_population": 9.088933605525282
+        },
+        "progress": {
+          "mean": 45.98921405315017,
+          "recordings": 50,
+          "std_population": 18.32847673361981
+        }
+      },
+      "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 45.70391600623997,
+          "recordings": 49,
+          "std_population": 16.21396824304658
+        },
+        "lifetime": {
+          "mean": 81.20909907133236,
+          "recordings": 49,
+          "std_population": 17.857509996590785
+        },
+        "min_act": {
+          "mean": 33.96519791406978,
+          "recordings": 49,
+          "std_population": 8.897710948171232
+        },
+        "progress": {
+          "mean": 47.91520596129464,
+          "recordings": 49,
+          "std_population": 15.641731512983045
+        }
+      },
+      "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 42.41552980003965,
+          "recordings": 50,
+          "std_population": 14.371180485319455
+        },
+        "lifetime": {
+          "mean": 83.04791763829807,
+          "recordings": 50,
+          "std_population": 19.560395430428013
+        },
+        "min_act": {
+          "mean": 38.45918488347073,
+          "recordings": 50,
+          "std_population": 10.343179112396246
+        },
+        "progress": {
+          "mean": 40.757996754922054,
+          "recordings": 50,
+          "std_population": 13.558843355093705
+        }
+      },
+      "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 22.90348206639688,
+          "recordings": 48,
+          "std_population": 11.88554549740978
+        },
+        "lifetime": {
+          "mean": 73.5811342018282,
+          "recordings": 48,
+          "std_population": 21.345757246848468
+        },
+        "min_act": {
+          "mean": 35.107969039736,
+          "recordings": 48,
+          "std_population": 10.740466472891852
+        },
+        "progress": {
+          "mean": 26.030343502709638,
+          "recordings": 48,
+          "std_population": 11.350053002691475
+        }
+      },
+      "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+        "checkpoint": {
+          "mean": 19.738197847520198,
+          "recordings": 50,
+          "std_population": 9.101513203709878
+        },
+        "lifetime": {
+          "mean": 66.53226009637,
+          "recordings": 50,
+          "std_population": 19.868886668851967
+        },
+        "min_act": {
+          "mean": 12.877519288879506,
+          "recordings": 50,
+          "std_population": 4.194651337343823
+        },
+        "progress": {
+          "mean": 22.14825891274883,
+          "recordings": 50,
+          "std_population": 6.982191559804544
+        }
+      },
+      "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+        "checkpoint": {
+          "mean": 32.50742452239152,
+          "recordings": 50,
+          "std_population": 3.650193849481984
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 50,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 56.51088797400675,
+          "recordings": 50,
+          "std_population": 6.748702804748661
+        },
+        "progress": {
+          "mean": 30.867877573124524,
+          "recordings": 50,
+          "std_population": 2.475302083573313
+        }
+      },
+      "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 14.411063312811184,
+          "recordings": 49,
+          "std_population": 8.093883291587021
+        },
+        "lifetime": {
+          "mean": 64.78618478961349,
+          "recordings": 49,
+          "std_population": 19.053730973729085
+        },
+        "min_act": {
+          "mean": 11.388237813464107,
+          "recordings": 49,
+          "std_population": 4.127435219917878
+        },
+        "progress": {
+          "mean": 17.992976575507477,
+          "recordings": 49,
+          "std_population": 6.856588065454837
+        }
+      },
+      "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 33.05830353100392,
+          "recordings": 49,
+          "std_population": 3.931388093322824
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 49,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 45.995038117461014,
+          "recordings": 49,
+          "std_population": 6.403806666023802
+        },
+        "progress": {
+          "mean": 32.43120690367962,
+          "recordings": 49,
+          "std_population": 2.7078934981146916
+        }
+      },
+      "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+        "checkpoint": {
+          "mean": 29.1040350909148,
+          "recordings": 50,
+          "std_population": 9.97082230994907
+        },
+        "lifetime": {
+          "mean": 70.57991731070679,
+          "recordings": 50,
+          "std_population": 17.301593590159843
+        },
+        "min_act": {
+          "mean": 45.89256849960674,
+          "recordings": 50,
+          "std_population": 14.589525334664248
+        },
+        "progress": {
+          "mean": 27.750427275867867,
+          "recordings": 50,
+          "std_population": 8.74616153729588
+        }
+      },
+      "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+        "checkpoint": {
+          "mean": 32.537794139890394,
+          "recordings": 50,
+          "std_population": 9.63095603089398
+        },
+        "lifetime": {
+          "mean": 82.22274383082714,
+          "recordings": 50,
+          "std_population": 19.65743698079757
+        },
+        "min_act": {
+          "mean": 45.02012307564421,
+          "recordings": 50,
+          "std_population": 15.45032462762979
+        },
+        "progress": {
+          "mean": 34.572033623617216,
+          "recordings": 50,
+          "std_population": 8.474978480075318
+        }
+      },
+      "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+        "checkpoint": {
+          "mean": 29.992417488425552,
+          "recordings": 50,
+          "std_population": 7.844998701068092
+        },
+        "lifetime": {
+          "mean": 77.19552826134114,
+          "recordings": 50,
+          "std_population": 17.510971925906983
+        },
+        "min_act": {
+          "mean": 47.685437299982006,
+          "recordings": 50,
+          "std_population": 15.676655146006665
+        },
+        "progress": {
+          "mean": 28.2950771061965,
+          "recordings": 50,
+          "std_population": 7.983611031461814
+        }
+      },
+      "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+        "checkpoint": {
+          "mean": 31.212708206645893,
+          "recordings": 90,
+          "std_population": 10.742364019145983
+        },
+        "lifetime": {
+          "mean": 71.65550626491104,
+          "recordings": 90,
+          "std_population": 17.06429985134206
+        },
+        "min_act": {
+          "mean": 39.55848712070177,
+          "recordings": 90,
+          "std_population": 14.45467986387719
+        },
+        "progress": {
+          "mean": 31.45242278555537,
+          "recordings": 90,
+          "std_population": 9.169230137288714
+        }
+      },
+      "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 40.994657806236646,
+          "recordings": 50,
+          "std_population": 4.43434936313545
+        },
+        "lifetime": {
+          "mean": 90.85989848081826,
+          "recordings": 50,
+          "std_population": 3.557790036192208
+        },
+        "min_act": {
+          "mean": 42.577433264490885,
+          "recordings": 50,
+          "std_population": 5.841775412083346
+        },
+        "progress": {
+          "mean": 39.41445028369456,
+          "recordings": 50,
+          "std_population": 2.8716876509946934
+        }
+      },
+      "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+        "checkpoint": {
+          "mean": 28.547616956771662,
+          "recordings": 90,
+          "std_population": 15.128527014932857
+        },
+        "lifetime": {
+          "mean": 72.64873049055277,
+          "recordings": 90,
+          "std_population": 29.554814931821525
+        },
+        "min_act": {
+          "mean": 33.86939708950519,
+          "recordings": 90,
+          "std_population": 18.224028996831606
+        },
+        "progress": {
+          "mean": 30.152076219670445,
+          "recordings": 90,
+          "std_population": 14.00897622348439
+        }
+      },
+      "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+        "checkpoint": {
+          "mean": 28.597589965146383,
+          "recordings": 50,
+          "std_population": 11.95524585561746
+        },
+        "lifetime": {
+          "mean": 66.22824201422624,
+          "recordings": 50,
+          "std_population": 17.26181703738823
+        },
+        "min_act": {
+          "mean": 36.511945257827705,
+          "recordings": 50,
+          "std_population": 13.971399361102268
+        },
+        "progress": {
+          "mean": 30.959848550657327,
+          "recordings": 50,
+          "std_population": 10.678612951676065
+        }
+      }
+    },
+    "recordings_seen": 1375,
+    "registered_bad_recordings_excluded": 7
+  },
+  "f110-sim-stoch-v2": {
+    "policies": {
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 15.45510354581166,
+          "recordings": 50,
+          "std_population": 11.539209509039937
+        },
+        "lifetime": {
+          "mean": 32.290984606425006,
+          "recordings": 50,
+          "std_population": 16.0439274129296
+        },
+        "min_act": {
+          "mean": 19.026693944845587,
+          "recordings": 50,
+          "std_population": 9.982534976324478
+        },
+        "progress": {
+          "mean": 19.219328712763623,
+          "recordings": 50,
+          "std_population": 12.225543377682689
+        }
+      },
+      "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 14.39960934707548,
+          "recordings": 49,
+          "std_population": 9.249323524851347
+        },
+        "lifetime": {
+          "mean": 33.88624588687816,
+          "recordings": 49,
+          "std_population": 14.827153384526877
+        },
+        "min_act": {
+          "mean": 20.2429717540436,
+          "recordings": 49,
+          "std_population": 9.02604094501162
+        },
+        "progress": {
+          "mean": 17.01379408619233,
+          "recordings": 49,
+          "std_population": 9.518874850346865
+        }
+      },
+      "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 14.934192555075292,
+          "recordings": 50,
+          "std_population": 6.287583671522573
+        },
+        "lifetime": {
+          "mean": 33.834220292678836,
+          "recordings": 50,
+          "std_population": 13.070578380297857
+        },
+        "min_act": {
+          "mean": 20.1698439211602,
+          "recordings": 50,
+          "std_population": 9.096881720916201
+        },
+        "progress": {
+          "mean": 13.333749223103823,
+          "recordings": 50,
+          "std_population": 7.079895661049983
+        }
+      },
+      "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+        "checkpoint": {
+          "mean": 26.05398413426809,
+          "recordings": 48,
+          "std_population": 4.543398102036525
+        },
+        "lifetime": {
+          "mean": 90.98255407906511,
+          "recordings": 48,
+          "std_population": 5.688253275467822
+        },
+        "min_act": {
+          "mean": 63.347148306651775,
+          "recordings": 48,
+          "std_population": 5.759630703977802
+        },
+        "progress": {
+          "mean": 28.70217121745362,
+          "recordings": 48,
+          "std_population": 2.6540906501437465
+        }
+      },
+      "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+        "checkpoint": {
+          "mean": 23.53864504982854,
+          "recordings": 50,
+          "std_population": 3.896652714499772
+        },
+        "lifetime": {
+          "mean": 90.4359393812242,
+          "recordings": 50,
+          "std_population": 9.634321994534247
+        },
+        "min_act": {
+          "mean": 61.72829487195037,
+          "recordings": 50,
+          "std_population": 9.832806614055045
+        },
+        "progress": {
+          "mean": 25.712692394443657,
+          "recordings": 50,
+          "std_population": 3.3875763051159398
+        }
+      },
+      "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+        "checkpoint": {
+          "mean": 26.982518737738918,
+          "recordings": 50,
+          "std_population": 4.979986982293267
+        },
+        "lifetime": {
+          "mean": 87.68833553535576,
+          "recordings": 50,
+          "std_population": 11.233035800726448
+        },
+        "min_act": {
+          "mean": 71.59317394629917,
+          "recordings": 50,
+          "std_population": 9.212202875708138
+        },
+        "progress": {
+          "mean": 25.312436548015263,
+          "recordings": 50,
+          "std_population": 3.0727400617332767
+        }
+      },
+      "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 15.882847359465957,
+          "recordings": 49,
+          "std_population": 5.153865405615769
+        },
+        "lifetime": {
+          "mean": 84.73192183739846,
+          "recordings": 49,
+          "std_population": 17.148420316632542
+        },
+        "min_act": {
+          "mean": 51.27242589634572,
+          "recordings": 49,
+          "std_population": 17.916044758133197
+        },
+        "progress": {
+          "mean": 19.267258565255062,
+          "recordings": 49,
+          "std_population": 4.123834863779378
+        }
+      },
+      "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 23.972305790370502,
+          "recordings": 49,
+          "std_population": 6.632585683645601
+        },
+        "lifetime": {
+          "mean": 78.31474310679552,
+          "recordings": 49,
+          "std_population": 20.554132469749902
+        },
+        "min_act": {
+          "mean": 60.48474274866102,
+          "recordings": 49,
+          "std_population": 15.065358392294593
+        },
+        "progress": {
+          "mean": 23.915269374263264,
+          "recordings": 49,
+          "std_population": 5.47998902542606
+        }
+      },
+      "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+        "checkpoint": {
+          "mean": 36.49488882281501,
+          "recordings": 50,
+          "std_population": 4.448519914732824
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 50,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 77.30330440513616,
+          "recordings": 50,
+          "std_population": 3.2798357505806446
+        },
+        "progress": {
+          "mean": 35.455618513437926,
+          "recordings": 50,
+          "std_population": 1.8810816313179746
+        }
+      },
+      "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+        "checkpoint": {
+          "mean": 34.1504198422727,
+          "recordings": 50,
+          "std_population": 4.268331737717222
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 50,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 75.65977957789029,
+          "recordings": 50,
+          "std_population": 3.6711766452789663
+        },
+        "progress": {
+          "mean": 35.85628005484469,
+          "recordings": 50,
+          "std_population": 1.8474986801067288
+        }
+      },
+      "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+        "checkpoint": {
+          "mean": 32.865035472838066,
+          "recordings": 50,
+          "std_population": 4.335498139460825
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 50,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 77.37366060514393,
+          "recordings": 50,
+          "std_population": 2.790452964340138
+        },
+        "progress": {
+          "mean": 31.59253275426855,
+          "recordings": 50,
+          "std_population": 1.9024599362040187
+        }
+      },
+      "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+        "checkpoint": {
+          "mean": 39.01058406837143,
+          "recordings": 90,
+          "std_population": 4.630493102308944
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 90,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 76.01303646358166,
+          "recordings": 90,
+          "std_population": 3.500746173945605
+        },
+        "progress": {
+          "mean": 39.33862677042926,
+          "recordings": 90,
+          "std_population": 1.9508296682574089
+        }
+      },
+      "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+        "checkpoint": {
+          "mean": 36.05734966316976,
+          "recordings": 50,
+          "std_population": 9.871451440415772
+        },
+        "lifetime": {
+          "mean": 82.25317966203126,
+          "recordings": 50,
+          "std_population": 20.246773463800178
+        },
+        "min_act": {
+          "mean": 64.08146293238424,
+          "recordings": 50,
+          "std_population": 15.49854069902169
+        },
+        "progress": {
+          "mean": 34.92172571140395,
+          "recordings": 50,
+          "std_population": 8.39861230123755
+        }
+      },
+      "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+        "checkpoint": {
+          "mean": 35.26596520713145,
+          "recordings": 90,
+          "std_population": 5.2906346491086715
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 90,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 73.63359295963241,
+          "recordings": 90,
+          "std_population": 4.618735718040394
+        },
+        "progress": {
+          "mean": 36.419264145460986,
+          "recordings": 90,
+          "std_population": 1.9494711591109652
+        }
+      },
+      "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+        "checkpoint": {
+          "mean": 38.679215281820866,
+          "recordings": 50,
+          "std_population": 4.041850269111437
+        },
+        "lifetime": {
+          "mean": 91.8122710947291,
+          "recordings": 50,
+          "std_population": 0.0
+        },
+        "min_act": {
+          "mean": 76.11480576233531,
+          "recordings": 50,
+          "std_population": 3.151867646304031
+        },
+        "progress": {
+          "mean": 41.61483260589766,
+          "recordings": 50,
+          "std_population": 2.188563585912693
+        }
+      }
+    },
+    "recordings_seen": 825,
+    "registered_bad_recordings_excluded": 0
+  },
+  "runtime_seconds": 0.6126647919882089
+}

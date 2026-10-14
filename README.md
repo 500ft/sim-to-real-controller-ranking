@@ -4,9 +4,10 @@ Can dispersion in the predicted performance difference between controllers,
 across physically justified models consistent with development data, identify
 rankings that should be withheld? The corrected-source qualification loads all
 15 evaluation policies on synthetic inputs, but reproduces a first-crash loader
-failure. Local archive and reward qualification is authorized under explicit research
-assumptions; ranking awaits those checks. ZIP terms and historical simulator
-identity remain unverified.
+failure. The corrected-v2 Drive census now establishes archive identity and
+recording boundaries. Shared reward aggregates have been calculated, but a
+progress-reference discrepancy and candidate-simulator import failure hold the
+reference ranking. ZIP terms and historical simulator identity remain unverified.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -27,13 +28,18 @@ Segments do not establish independent episodes; names do not establish execution
 The [corrected-source interface report](reports/ope_interface_qualification.md)
 and [executed result](runs/ope_interface_qualification/result.json) record the
 new source pins, license inspection, policy batch checks and loader failure.
-The simulator repository is now public and licensed; its required benchmark
-revision is still unconfirmed. No corrected ZIP or performance outcome was opened.
+The [corrected-v2 result](reports/ope_corrected_v2.md) binds the separate Drive
+objects by ID and hash, establishes recording boundaries and reports policy
+coverage, terminal exclusions and original-loader sensitivity. The
+[per-agent reward aggregates](runs/ope_corrected_v2/reward_aggregates.json) use
+one frozen calculation on both archives; the [reference comparison](runs/ope_corrected_v2/reference_comparison.json)
+shows the remaining reward mismatch. No controller ranking was run.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails
 4,094. [Source result](runs/ope_terminal_filter_qualification/result.json).
-The candidate has not been applied to any archive or approved as its exclusion rule.
+The adopted development rule was applied to the corrected archives only after
+their recording boundaries were established.
 
 The preserved census below uses the earlier pins:
 
@@ -72,12 +78,12 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Run the corrected ZIP census and shared-reward qualification under the
-[four accepted research assumptions](docs/OPEN_QUESTIONS.md#four-accepted-research-assumptions).
-Record hashes, recording boundaries, terminal exclusions, policy coverage and
-original-loader sensitivity. Commit the full comparison freeze before reading
-rankings. The [roadmap](ROADMAP.md) keeps M3 and reserved evaluation closed.
-No empirical ranking or finite-horizon return calculation has been run.
+Resolve the progress-reference difference and the pinned candidate simulator's
+`Config` import failure. The shared checkpoint calculation also avoids a
+duplicate full-lap threshold in the pinned source, so its published aggregate
+is not an equivalence check. The [roadmap](ROADMAP.md) keeps ranking, M3 and
+reserved evaluation closed until these gates pass. ZIP permissions and
+historical simulator identity still need external confirmation.
 
 ## Retained work
 
@@ -98,6 +104,7 @@ approves no deck design, height, fabrication or physical campaign.
 | --- | --- |
 | [Roadmap](ROADMAP.md) | Finish line and current stop condition |
 | [Qualification report](reports/ope_qualification.md) | Executed structural result and estimator gates |
+| [Corrected-v2 local result](reports/ope_corrected_v2.md) | Drive archive census, reward aggregates and current stop condition |
 | [Open questions](docs/OPEN_QUESTIONS.md) | Current unknowns and superseded questions |
 | [Reading and reproduction guide](docs/START_HERE.md) | Environments and retained checks |
 | [Data and figures](docs/data-and-figures.md) | Current and historical figure provenance |

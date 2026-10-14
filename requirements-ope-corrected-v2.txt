@@ -1,0 +1,4 @@
+# Python 3.11, local structural census and common-reward qualification only.
+numpy==1.26.4
+zarr==2.18.7
+numcodecs==0.15.1
