@@ -12,12 +12,13 @@ calibrated abstention, including near ties. This adoption supplies no data
 rights or permission to open reserved outcomes. M2 remains conditional on M1. The
 retained confidence-gate baseline, registered prediction and scope limit are in [roadmap M3](../ROADMAP.md#m3-calibrate-a-controller-difference-abstention-rule).
 
-The owner adopted qualification before reference ranking. A candidate
-terminal-filter correction is qualified on the registered synthetic domain. Applying it to archive exclusions remains pending
-the author's recording, crash, timeout and censoring interpretation. The older
-wrong-alias archive census stays historical; corrected ZIPs need separate
-permission, hashes and census. The conditional M2 ranking waits for a qualified
-shared reward and simulator revision as well as the other M1 gates.
+The owner delegated adoption and execution with “lets do these” on 2026-10-14.
+The four assumptions below are accepted for local development qualification.
+This records a research choice; it does not convert unknown ZIP terms or the
+candidate simulator's historical identity into verified facts. Corrected ZIP
+census and common-reward qualification may proceed under that stated uncertainty.
+No archive or processed subset may be redistributed. Publication rights remain
+unresolved. The wrong-alias census stays historical.
 
 Dataset qualification and owner-approved platform access are parallel possible
 routes. Failure of one source requires a route decision, rather than a claim that
@@ -44,14 +45,15 @@ accessible development data. Proposed thesis correlations are source-check
 candidates, not pass thresholds. No ranking or runtime sweep has been run under
 this decision.
 
-## Four proposed assumptions
+## Four accepted research assumptions
 
 Source: the local
 `/Users/redhose/Projects/critical-audit-20261002/implementation/sim-to-real-assumptions-20261013/ASSUMPTIONS.md`,
 SHA-256 `8ca006e41a4fed3bfdd3dcc83cf142904a14038f2fc1c30670067af039c30011`.
-It records proposals from a Claude Code conversation with the owner. The file
-explicitly says they are not yet owner accepted. The quoted sentences below are
-source proposals, not findings or permission to use data.
+It records the original proposals and remains unchanged as provenance. Under
+the owner's 2026-10-14 instruction, Codex accepts all four for the limited
+local development scope above, subject to the checks below. These are working
+assumptions, not verified licensing or historical facts.
 
 1. **Data terms.** "Use the two v2 archives (f110-real-stoch-v2, f110-sim-stoch-v2,
    Google Drive, no licence text of their own) for research under the terms
@@ -60,8 +62,9 @@ source proposals, not findings or permission to use data.
    publish derived results and figures, never redistribute the raw bytes or
    processed subsets." The inspected reply adds MIT terms to code and asks for
    thesis citation; it gives no explicit Drive-ZIP grant for research use,
-   derived publication or redistribution. This proposal does not qualify the
-   archives. An applicable data grant remains required.
+   derived publication or redistribution. Local non-redistributive qualification is authorized under this
+   disclosed uncertainty. This does not establish a third-party grant; do not
+   publish data or represent the ZIPs as MIT-licensed.
 2. **Simulator revision.** "Pin the public f110_sim_env head, commit
    0c15e5ba4e7537390777dc25c67c81628daf1d16 (2024-03-29, Unlicense,
    HyberionBrew/f110_sim_env), as the assumed revision for benchmark
@@ -75,30 +78,34 @@ source proposals, not findings or permission to use data.
    registered exclusion rule: keep the first terminal sample of a terminal run
    and drop later samples of the same run, including the final array row
    (the candidate correction qualified on the synthetic domain in PR #72)."
-   This is a proposal for archive exclusions. The helper test establishes its
-   synthetic contract only. Recording boundaries and the meaning of crash,
-   intervention and timeout flags still need qualification before any exclusion
-   rule is applied to corrected archives. The original pinned loader may then
-   serve as a separately labeled sensitivity variant.
+   Adopt this as the development exclusion rule after the census establishes
+   recording boundaries; preserve raw bytes and record every exclusion. The
+   helper test establishes its synthetic contract only, not physical crash
+   truth. Retain the original pinned loader as a sensitivity variant and report
+   changed records and outcomes. Stop if boundaries cannot be established.
 4. **Common reward.** "Recompute all four thesis rewards (progress, lifetime,
    minimum action, checkpoint) for both archives with the benchmark's reward
    setup from experiments/run_iw.py, because the sim archive lacks stored
    rewards." The pinned dataset README says simulation lacks `new_rewards`;
    collection rewards still exist. A shared calculation remains to be specified
    and checked. Matching the author's per-agent Groundtruth mean and standard
-   deviation, if access is later permitted, would check aggregates only and
+   deviation, within the authorized qualification, would check aggregates only and
    cannot establish a unique implementation or per-record equivalence. A
    mismatch would require investigation before ranking.
 
-The source also proposes a detailed comparison freeze. Its proposal status does
-not change the owner's previously accepted high-level development comparison
-direction above. Exact operational settings and source rights remain open, and
-reserved outcomes stay closed.
+The comparison direction above is adopted, with seeds 0 through 9. Before
+reading any ranking, commit the timestep, executable reward hashes, discount,
+cutoff/terminal handling, eligible starts and aggregation from the pinned
+benchmark. Read the published per-agent reward summaries only for common-reward
+qualification, not to tune a ranking. Boundary cases and aggregate agreement
+are both required; unexplained discrepancies stop M2. Run a short local runtime
+benchmark and checkpoint before extended rollouts. M3 and reserved evaluation
+remain closed.
 
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
 | Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |
-| Recording segment versus episode | Candidate correction qualified on synthetic inputs; archive exclusion unadopted | Determine whether the [candidate correction](../reports/ope_interface_qualification.md#separate-correction-qualification) applies under the author's recording, crash, timeout and censoring rules before processing permitted records |
+| Recording segment versus episode | Candidate correction qualified on synthetic inputs; development exclusion rule adopted; archive boundaries unqualified | Check the [candidate correction](../reports/ope_interface_qualification.md#separate-correction-qualification) against the author's recording, crash, timeout and censoring rules before excluding corrected-archive records |
 | Policy correspondence and execution | Synthetic batch, single-state, reset and permutation checks agree | [Executed cases](../runs/ope_interface_qualification/result.json); archived observation coverage and complete environment construction remain unqualified |
 | Loader aliases | Corrected registrations inspected; old census historical | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
@@ -112,7 +119,7 @@ reserved outcomes stay closed.
 The [corrected-source input record](../runs/ope_interface_qualification/inputs.json)
 pins the inspected benchmark, submodules and source files. The
 [interface report](../reports/ope_interface_qualification.md) records executed
-synthetic checks and the blocked archive census. The earlier
+synthetic checks; the corrected archive census is now authorized locally. The earlier
 [archive input record](../runs/ope_qualification/inputs.json) retains its original
 checksums. Do not substitute a Drive object based only on its filename.
 
