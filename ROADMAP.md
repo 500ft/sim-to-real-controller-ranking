@@ -29,8 +29,8 @@ wrong-alias registrations. They do not qualify the corrected ZIPs.
 The [corrected-source interface run](reports/ope_interface_qualification.md)
 executes synthetic policy and loader cases. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
 qualifies a candidate final-sentinel correction on its registered synthetic
-domain. Archive exclusion remains unadopted until recording, crash, timeout
-and censoring semantics are established. Corrected ZIP permission, checksums and
+domain. The development exclusion rule is now adopted conditionally on established
+recording boundaries, with the original loader retained as a sensitivity variant. Corrected ZIP permission, checksums and
 census, archive-level policy coverage and the benchmark simulator revision
 remain open. These results supply no controller-performance or refusal claim.
 
@@ -62,28 +62,30 @@ Dataset permission and platform access are parallel routes to evidence.
 Qualified existing physical data can support the real-platform branch without
 a new car. Owner-approved acquisition can supply a different route if public
 data remains unusable. One author's refusal closes that source route; it does
-not establish that no legitimate route exists. Neither route is currently ready
-for empirical ranking work.
+not establish that no legitimate route exists. The accepted-assumption route now permits local census and reward
+qualification; empirical ranking still depends on their results.
 
 ## Milestones and completion evidence
 
 ### M1. Qualify an accessible data route
 
-Status: current, blocked on external information and owner choices.
+Status: current. Local census and reward qualification authorized under the
+[four accepted research assumptions](docs/OPEN_QUESTIONS.md#four-accepted-research-assumptions).
+ZIP rights and historical simulator identity remain unverified.
 Prerequisite: the historical census and a clearly identified corrected source.
 
 - Obtain terms covering the corrected data ZIPs and intended derived outputs.
   The [contact record](docs/ope_author_request.txt) records the full reply supplied
   by the owner and inspected in this session. It describes code-license additions
   but supplies no explicit Drive-ZIP terms. The corrected-source run verifies
-  those public code licenses. The [four source proposals](docs/OPEN_QUESTIONS.md#four-proposed-assumptions)
-  do not satisfy the data, simulator or archive-semantic gates.
+  those public code licenses. The accepted assumptions permit local qualification without claiming a
+  third-party grant. Keep raw and processed data outside git and distribution.
 - Confirm the benchmark's simulator revision. The simulator is public and
   licensed, but the benchmark has no gitlink for it. The candidate helper
-  correction passes its registered synthetic cases. Do not use it to exclude
-  archive rows until the author clarifies recording, crash, timeout and
-  censoring semantics.
-- With permission, pin both corrected ZIP checksums and rerun their
+  correction passes its registered synthetic cases. Apply it only after recording boundaries are qualified, keeping an
+  exclusion ledger and the original loader sensitivity result. Do not infer
+  physical crash truth from a terminal flag.
+- Under the adopted local-use assumption, pin both corrected ZIP checksums and rerun their
   structural census. The [interface result](runs/ope_interface_qualification/result.json)
   records corrected registrations and synthetic checks; the earlier archive
   census remains historical.
@@ -97,7 +99,7 @@ Prerequisite: the historical census and a clearly identified corrected source.
   DR joint-density and support requirements. Never fill missing probabilities
   with constants. Clarify the unresolved helper source named in the report.
 
-Complete when: source-backed rights, corrected archive identity, episode/group
+Complete for local development when: disclosed source-use assumptions, corrected archive identity, episode/group
 mapping, a tested policy interface and a common reward support a declared use,
 with explicit exclusions and estimator eligibility. If a route fails, record
 that reason and let the owner choose another source or stop; do not inspect
@@ -106,9 +108,9 @@ reserved outcomes to rescue it.
 ### M2. Qualify a development reference and model set
 
 Status: conditionally owner-authorized for the published evaluation agents'
-simulation-versus-real reference ranking, stopped at M1. Prerequisite: qualified
-source rights, corrected archive and policy interfaces, a qualified common reward
-and the required environment revision. Commit the comparison rules below before
+simulation-versus-real reference ranking, waiting on the now-authorized M1 qualification. Prerequisite: qualified
+local-use assumptions, corrected archive and policy interfaces, a qualified common reward
+and the pinned candidate environment with its historical-identity limitation. Commit the comparison rules below before
 reading performance outcomes; this does not authorize M3 or M5 data use.
 
 - The owner accepted the [development comparison direction](docs/OPEN_QUESTIONS.md#accepted-development-comparison-direction)

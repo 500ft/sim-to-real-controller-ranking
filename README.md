@@ -4,8 +4,9 @@ Can dispersion in the predicted performance difference between controllers,
 across physically justified models consistent with development data, identify
 rankings that should be withheld? The corrected-source qualification loads all
 15 evaluation policies on synthetic inputs, but reproduces a first-crash loader
-failure. Ranking remains blocked by corrected data permission, archive-level
-qualification and an unpinned simulator dependency.
+failure. Local archive and reward qualification is authorized under explicit research
+assumptions; ranking awaits those checks. ZIP terms and historical simulator
+identity remain unverified.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -71,13 +72,11 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Obtain corrected ZIP permission and the required simulator revision. Confirm
-recording, crash, timeout and censoring semantics before deciding whether
-the candidate correction applies to archive exclusions. Qualify the corrected
-archive bytes, policy interfaces and a shared reward before conditional M2 ranking. The
-[roadmap](ROADMAP.md) requires outcome and uncertainty rules to be committed
-before performance data is read.
-[Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.
+Run the corrected ZIP census and shared-reward qualification under the
+[four accepted research assumptions](docs/OPEN_QUESTIONS.md#four-accepted-research-assumptions).
+Record hashes, recording boundaries, terminal exclusions, policy coverage and
+original-loader sensitivity. Commit the full comparison freeze before reading
+rankings. The [roadmap](ROADMAP.md) keeps M3 and reserved evaluation closed.
 No empirical ranking or finite-horizon return calculation has been run.
 
 ## Retained work
