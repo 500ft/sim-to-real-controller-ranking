@@ -29,8 +29,8 @@ new source pins, license inspection, policy batch checks and loader failure.
 The simulator repository is now public and licensed; its required benchmark
 revision is still unconfirmed. No corrected ZIP or performance outcome was opened.
 
-A [separately qualified correction](reports/ope_interface_qualification.md#separate-correction-qualification)
-passes all 16,380 exhaustive synthetic dtype cases; the original helper fails
+A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
+passes all 16,380 registered synthetic dtype cases; the original helper fails
 4,094. [Source result](runs/ope_terminal_filter_qualification/result.json).
 The candidate has not been applied to any archive or approved as its exclusion rule.
 
@@ -71,10 +71,12 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Obtain corrected ZIP permission, the required simulator revision and a
-disposition of the first-crash filter failure. The
-[roadmap](ROADMAP.md) keeps M2 conditional on these prerequisites. Its outcome
-and uncertainty rules must be committed before performance data is read.
+Obtain corrected ZIP permission and the required simulator revision. Confirm
+recording, crash, timeout and censoring semantics before deciding whether
+the candidate correction applies to archive exclusions. Qualify the corrected
+archive bytes, policy interfaces and a shared reward before conditional M2 ranking. The
+[roadmap](ROADMAP.md) requires outcome and uncertainty rules to be committed
+before performance data is read.
 [Open questions](docs/OPEN_QUESTIONS.md) retains the data and physical decisions.
 No empirical ranking or finite-horizon return calculation has been run.
 

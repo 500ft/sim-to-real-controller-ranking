@@ -138,3 +138,19 @@ corrected-source input manifest. No follow-up was sent, no corrected ZIP
 acquired and no ranking computed. Pending questions concern explicit ZIP
 permission and derived outputs, the simulator revision and disposition of the
 filter defect.
+
+----------------------------------------------------------------------
+Owner-adopted order and pending gates (2026-10-12)
+
+The owner adopts qualification before any reference ranking. The old wrong-alias
+archive census is historical. The candidate final-sentinel correction is
+qualified on the registered synthetic domain. Its use for archive exclusions
+has not been adopted and requires confirmation of recording, crash, timeout
+and censoring semantics. Corrected ZIP terms, exact simulator revision,
+archive hashes/census and a shared reward are still needed before M2.
+
+The latest local follow-up draft is UNSENT. It now names
+https://github.com/HyberionBrew/f110_sim_env in its simulator question. It
+also asks about the two v2 ZIP grants, terminal handling and reward settings.
+This records the draft's status and scope; it does not record an email sent or
+an author answer.
