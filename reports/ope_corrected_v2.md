@@ -55,6 +55,25 @@ reported rather than silently changing the frozen rule or tuning a ranking.
 Common-reward equivalence to all four published summaries is therefore not
 qualified, and M2 stays closed.
 
+The [pinned-class trace](../runs/ope_corrected_v2/reward_trace.json) checks a
+small sample of eligible real development recordings. It recomputes progress
+from the pinned centerline and poses, then runs the pinned `ProgressReward` and
+`MinActReward` classes. Their pre-final-row values agree with the registered
+common calculation within the numerical differences recorded there. The
+archive's stored progress reward stays positive on each sampled cutoff row,
+while the pinned progress class appends zero. The first material per-row
+stored-versus-source divergence is therefore the final cutoff row in this
+sample. The public Groundtruth aggregate gap remains unexplained; the sample
+cannot establish the provenance or cohort used to produce those files.
+
+The same trace reduces the checkpoint defect to a synthetic progress sequence.
+At its second full-lap crossing, the pinned class counts the duplicated
+threshold twice. The registered common metric counts it once. The pinned class
+also forces its last progress value to three laps; terminal zeroing hides that
+last-row effect in the declared common calculation. The original source behavior
+and the already frozen candidate correction remain separate. No metric was
+changed after reading outcomes, and no new cohort was ranked.
+
 The candidate `f110_sim_env` revision also fails an unmodified import with
 the pinned loader: `base_env.py` imports `Config` from `config_new.py`, which
 defines `RewardConfig` instead. The inspected source hashes are
@@ -65,6 +84,16 @@ unmodified candidate-simulator episode ran, so compatibility and historical
 identity remain unestablished. The local common-reward calculation completed
 in the time recorded in its aggregate JSON; this was the short runtime check
 before any extended M2 work.
+
+The [version-pinned interface probe](../runs/ope_corrected_v2/simulator_probe.json)
+applies an in-process `Config` alias, the NumPy boolean alias used by the
+candidate, and an explicit `RewardConfig` object. Import, construction and
+reset pass. The first step fails because the candidate calls the pinned
+`MixedReward` with `laser_scan`, but that class's active call signature takes
+`scan` and a dictionary observation. This is a further interface mismatch;
+patching only the keyword would not establish correct reward semantics. The
+probe leaves the third-party source unchanged. A short simulator rollout and
+the extended runtime benchmark remain unexecuted.
 
 ## Reproduce the local checks
 
@@ -89,6 +118,17 @@ python3 experiments/compare_reward_reference_v2.py /tmp/reward_aggregates.json \
 /tmp/racing-v2-env/bin/python -m experiments.summarize_loader_sensitivity_v2 \
   /private/data /private/data/exclusion-ledger.json /tmp/reward_aggregates.json \
   runs/ope_corrected_v2/eval_agents.json --out /tmp/loader_sensitivity.json
+PYTHONPATH=/private/pinned-f1tenth_orl_dataset:/private/pinned-f1tenth_gym/gym \
+  /tmp/racing-v2-env/bin/python -m experiments.trace_reward_v2 \
+  --real-root /private/data/f110-real-stoch-v2 \
+  --loader-source /private/pinned-f1tenth_orl_dataset \
+  --centerline /private/pinned-f1tenth_gym/gym/f110_gym/maps/Infsaal3/Infsaal3_centerline.csv \
+  --out /tmp/reward_trace.json
+PYTHONPATH=/private/pinned-f110_sim_env:/private/pinned-f1tenth_orl_dataset:/private/pinned-f1tenth_gym/gym \
+  /tmp/racing-v2-env/bin/python -m experiments.probe_candidate_simulator_v2 \
+  --simulator-source /private/pinned-f110_sim_env \
+  --loader-source /private/pinned-f1tenth_orl_dataset \
+  --out /tmp/simulator_probe.json
 ```
 
 The pinned benchmark, loader and candidate simulator stay outside this

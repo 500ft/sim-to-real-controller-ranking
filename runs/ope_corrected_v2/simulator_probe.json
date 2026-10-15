@@ -1,0 +1,18 @@
+{
+  "adapter": [
+    "Config=RewardConfig",
+    "np.bool=np.bool_",
+    "explicit RewardConfig object"
+  ],
+  "construction": "passed",
+  "failure": {
+    "message": "MixedReward.__call__() got an unexpected keyword argument 'laser_scan'",
+    "type": "TypeError"
+  },
+  "import": "passed",
+  "reset": "passed",
+  "source_sha256": {
+    "loader": "2ac739a12cebbfeeb5c63ff7e530104465cefeb99693def6d6156d0d1c9f85e7",
+    "simulator": "d58cf97805681326d90e807af924a0d3affbeaef2b7ce070533ac88c2880382d"
+  }
+}
