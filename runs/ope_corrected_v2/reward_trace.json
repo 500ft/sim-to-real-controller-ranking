@@ -1,0 +1,32 @@
+{
+  "min_act_source_vs_common_max_abs_before_final": 0.0,
+  "progress_source_vs_common_max_abs": 1.0517535764531516e-05,
+  "progress_stored_positive_final_count": 3,
+  "progress_stored_vs_source_max_abs_before_final": 5.814815928761874e-06,
+  "sample_recordings": 3,
+  "synthetic_checkpoint": {
+    "common_checkpoint_counts_after_terminal_zero": [
+      0.0,
+      1.0,
+      9.0,
+      1.0,
+      0.0
+    ],
+    "common_second_full_lap_count": 1.0,
+    "progress_laps_mod_one": [
+      0.95,
+      0.01,
+      0.95,
+      0.01,
+      0.05
+    ],
+    "upstream_checkpoint_counts_before_terminal_zero": [
+      0.0,
+      1.0,
+      9.0,
+      2.0,
+      9.0
+    ],
+    "upstream_second_full_lap_count": 2.0
+  }
+}

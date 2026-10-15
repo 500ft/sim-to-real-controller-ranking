@@ -34,7 +34,8 @@ both objects by ID and hash, establishes recording boundaries and applies the
 adopted development exclusion. It records policy coverage, stored log-density
 availability and original-loader sensitivity. Common-reward aggregates are
 published for local qualification, but the progress comparison remains
-unexplained and the candidate simulator fails an unmodified import. ZIP rights
+unexplained. A version-pinned adapter passes candidate simulator import and
+reset, but its first step fails at the reward interface. ZIP rights
 and the historical simulator revision remain open. These results supply no
 controller-performance or refusal claim.
 
@@ -86,8 +87,9 @@ Prerequisite: the historical census and a clearly identified corrected source.
   third-party grant. Keep raw and processed data outside git and distribution.
 - Confirm the benchmark's simulator revision. The simulator is public and
   licensed, but the benchmark has no gitlink for it. The registered public
-  candidate fails an unmodified import with the pinned loader; resolve that
-  interface before a compatibility run. The candidate terminal-helper correction
+  candidate fails an unmodified import with the pinned loader. An explicit
+  adapter now reaches reset, with a step-level reward mismatch still open. The
+  candidate terminal-helper correction
   was applied after recording boundaries were established, with a private
   exclusion ledger and original-loader sensitivity result. Do not infer
   physical crash truth from a terminal flag.
@@ -103,7 +105,14 @@ Prerequisite: the historical census and a clearly identified corrected source.
   behavior. The [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
   produces per-agent aggregates for all four rewards; resolve the unexplained
   progress aggregate difference and the checkpoint-source discrepancy before
-  treating the common reward as qualified. Simulation lacks `new_rewards`.
+  treating the common reward as qualified. The [pinned-class trace](runs/ope_corrected_v2/reward_trace.json)
+  isolates the sampled stored-progress cutoff difference and a synthetic
+  duplicate full-lap checkpoint. It does not explain the public Groundtruth
+  aggregate gap. Simulation lacks `new_rewards`.
+- The [candidate interface probe](runs/ope_corrected_v2/simulator_probe.json)
+  passes import, construction and reset with explicit compatibility aliases.
+  Its first step fails at the pinned reward call signature. Qualify a semantics-
+  preserving adapter and short rollout before M2 simulation.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities
   with constants. Clarify the unresolved helper source named in the report.
