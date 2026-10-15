@@ -18,7 +18,9 @@ This records a research choice; it does not convert unknown ZIP terms or the
 candidate simulator's historical identity into verified facts. Corrected ZIP
 census and common-reward qualification may proceed under that stated uncertainty.
 No archive or processed subset may be redistributed. Publication rights remain
-unresolved. The wrong-alias census stays historical.
+unresolved. The [corrected-v2 local result](../reports/ope_corrected_v2.md) now
+records archive identities and incomplete reward qualification; the wrong-alias
+census stays historical.
 
 Dataset qualification and owner-approved platform access are parallel possible
 routes. Failure of one source requires a route decision, rather than a claim that
@@ -28,22 +30,21 @@ what was removed and why useful historical work remains.
 ## Accepted development comparison direction
 
 The owner accepted a comparison direction for accessible development records,
-conditional on M1. These choices do not expose reserved outcomes or qualify the
-corrected ZIPs.
+conditional on M1. These choices do not expose reserved outcomes.
 
 | Element | Accepted direction and source | Still required before performance access |
 | --- | --- | --- |
 | Horizon | 250 steps, consistent with the pinned benchmark's [run_iw.py](https://github.com/HyberionBrew/f110_ope_benchmark/blob/42789222451f4ee0e679475a8798d7c47bf220b5/experiments/run_iw.py) `timesteps_to_include=(0,250)` | Confirm the timestep duration and the cutoff's timeout/terminal treatment on permitted records |
 | Starts | Use recorded real start poses. The [author reply record](ope_author_request.txt) says simulation starts came from real rollouts | Establish eligible records and a comparable start distribution; no paired episode IDs were supplied |
 | Rewards | Compare the four thesis reward definitions. The pinned [dataset README](https://github.com/HyberionBrew/f1tenth_orl_dataset/blob/536d762ad7b07076551d39ef202199cbaead6a87/README.md) names `reward_progress.json`, `reward_checkpoint.json`, `reward_lifetime.json` and `reward_min_act.json` | Match each thesis reward to executable code and a common calculation on both permitted archives; simulation lacks `new_rewards` |
-| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | Fix the exact seed list and verify how the intended simulator uses it; seeds sample simulator randomness, not independent vehicles |
+| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | The [frozen protocol](../runs/ope_corrected_v2/protocol.json) fixes seeds 0–9; verify simulator use after the import gate. Seeds sample simulator randomness, not independent vehicles |
 
-Before opening any development performance outcome, freeze the actual timestep,
-reward implementation, discounting, terminal and truncation handling, aggregation,
-eligible start distribution and exact seeds. Apply the freeze only to qualifying
-accessible development data. Proposed thesis correlations are source-check
-candidates, not pass thresholds. No ranking or runtime sweep has been run under
-this decision.
+The [reward protocol](../runs/ope_corrected_v2/protocol.json) froze the
+timestep, reward implementation, discount, terminal and truncation handling,
+aggregation, eligible start rule and seeds before local reward outcomes were
+read. Proposed thesis correlations are source-check candidates, not pass
+thresholds. No ranking or simulator runtime sweep has been run under this
+decision.
 
 ## Four accepted research assumptions
 
@@ -87,8 +88,9 @@ assumptions, not verified licensing or historical facts.
    minimum action, checkpoint) for both archives with the benchmark's reward
    setup from experiments/run_iw.py, because the sim archive lacks stored
    rewards." The pinned dataset README says simulation lacks `new_rewards`;
-   collection rewards still exist. A shared calculation remains to be specified
-   and checked. Matching the author's per-agent Groundtruth mean and standard
+   collection rewards still exist. A [shared calculation](../experiments/common_reward_v2.py)
+   is frozen and its boundary cases executed; aggregate comparison remains
+   incomplete. Matching the author's per-agent Groundtruth mean and standard
    deviation, within the authorized qualification, would check aggregates only and
    cannot establish a unique implementation or per-record equivalence. A
    mismatch would require investigation before ranking.
@@ -105,13 +107,13 @@ remain closed.
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
 | Data and code reuse rights | Public code licenses inspected; corrected ZIP permission unresolved | See the [artifact-level findings](../reports/ope_interface_qualification.md#inspected-sources-and-rights). The owner-supplied full reply confirms code-license additions without explicit external ZIP terms |
-| Recording segment versus episode | Candidate correction qualified on synthetic inputs; development exclusion rule adopted; archive boundaries unqualified | Check the [candidate correction](../reports/ope_interface_qualification.md#separate-correction-qualification) against the author's recording, crash, timeout and censoring rules before excluding corrected-archive records |
+| Recording segment versus episode | Corrected-v2 recording boundaries established and development exclusion applied | [Local census and sensitivity](../reports/ope_corrected_v2.md); independent session and physical-crash meaning remain unknown |
 | Policy correspondence and execution | Synthetic batch, single-state, reset and permutation checks agree | [Executed cases](../runs/ope_interface_qualification/result.json); archived observation coverage and complete environment construction remain unqualified |
-| Loader aliases | Corrected registrations inspected; old census historical | Distinct Drive objects replace the old simulation-v1 alias. Corrected ZIP hashes, roots and census remain unverified |
+| Loader aliases | Corrected Drive objects, ZIP hashes and roots recorded; old census historical | [Corrected census](../runs/ope_corrected_v2/census.json) binds the actual objects |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
 | External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and archive terminal semantics. No follow-up sent |
-| Simulator dependency | Public and Unlicense; benchmark revision unpinned | `.gitmodules` entry has no gitlink. Public head is not automatically the benchmark revision |
-| Reward comparison | Common outcome unqualified | Simulation lacks progress and `new_rewards`; qualify one shared reward computation before M2 performance access |
+| Simulator dependency | Public and Unlicense; benchmark revision unpinned | Candidate import fails against pinned loader's `Config` interface. Resolve compatibility and historical identity separately |
+| Reward comparison | Shared calculation and per-agent aggregates executed; full agreement unqualified | [Reference comparison](../runs/ope_corrected_v2/reference_comparison.json) leaves progress discrepancy unresolved and shows a checkpoint-source defect; resolve before M2 |
 | Reviewer, physical study, publication and campaign | No new approval supplied | Conditional M2 scope is in the roadmap; M3/M5 still require their separate prerequisites |
 
 ## Qualification pins
@@ -119,7 +121,8 @@ remain closed.
 The [corrected-source input record](../runs/ope_interface_qualification/inputs.json)
 pins the inspected benchmark, submodules and source files. The
 [interface report](../reports/ope_interface_qualification.md) records executed
-synthetic checks; the corrected archive census is now authorized locally. The earlier
+synthetic checks; the [corrected archive census](../runs/ope_corrected_v2/census.json)
+was executed locally. The earlier
 [archive input record](../runs/ope_qualification/inputs.json) retains its original
 checksums. Do not substitute a Drive object based only on its filename.
 

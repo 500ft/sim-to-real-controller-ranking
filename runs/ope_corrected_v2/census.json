@@ -1,0 +1,568 @@
+{
+  "f110-real-stoch-v2": {
+    "compute_termination_at_record_end": 772,
+    "compute_termination_rows": 53014,
+    "corrected_excluded_rows": 52242,
+    "done_rows": 440,
+    "finite_log_density_rows": 286292,
+    "length_min_max": [
+      1,
+      251
+    ],
+    "log_prob_shape": [
+      286292,
+      1,
+      2
+    ],
+    "new_rewards_present": true,
+    "original_pinned_excluded_rows": 52244,
+    "policies": {
+      "StochasticContinousFTGAgent_0.45_3_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 75,
+        "finite_joint_log_density_rows": 1208,
+        "nonzero_log_density_rows": 1208,
+        "recordings": 10,
+        "rows": 1208
+      },
+      "StochasticContinousFTGAgent_0.48_7_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 337,
+        "finite_joint_log_density_rows": 1185,
+        "nonzero_log_density_rows": 1185,
+        "recordings": 10,
+        "rows": 1185
+      },
+      "StochasticContinousFTGAgent_0.4_5_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 178,
+        "finite_joint_log_density_rows": 1163,
+        "nonzero_log_density_rows": 1163,
+        "recordings": 10,
+        "rows": 1163
+      },
+      "StochasticContinousFTGAgent_0.55_10_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 76,
+        "finite_joint_log_density_rows": 596,
+        "nonzero_log_density_rows": 596,
+        "recordings": 11,
+        "rows": 596
+      },
+      "StochasticContinousFTGAgent_0.55_3_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 212,
+        "finite_joint_log_density_rows": 2193,
+        "nonzero_log_density_rows": 2193,
+        "recordings": 11,
+        "rows": 2193
+      },
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 447,
+        "finite_joint_log_density_rows": 8669,
+        "nonzero_log_density_rows": 8669,
+        "recordings": 50,
+        "rows": 8669
+      },
+      "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 1157,
+        "finite_joint_log_density_rows": 10968,
+        "nonzero_log_density_rows": 10968,
+        "recordings": 50,
+        "rows": 10968
+      },
+      "StochasticContinousFTGAgent_0.7_5_0.5_0.02_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 502,
+        "nonzero_log_density_rows": 502,
+        "recordings": 2,
+        "rows": 502
+      },
+      "StochasticContinousFTGAgent_0.7_5_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "StochasticContinousFTGAgent_0.85_5_0.5_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 1732,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 260,
+        "finite_joint_log_density_rows": 8893,
+        "nonzero_log_density_rows": 8893,
+        "recordings": 51,
+        "rows": 8893
+      },
+      "StochasticContinousFTGAgent_1.2_5_0.5_0.03_0.1_5.0_0.3_1.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 251,
+        "nonzero_log_density_rows": 251,
+        "recordings": 1,
+        "rows": 251
+      },
+      "pure_pursuit2_0.43_0.35_raceline6_0.3_0.5": {
+        "corrected_exclusions": 631,
+        "finite_joint_log_density_rows": 3603,
+        "nonzero_log_density_rows": 3603,
+        "recordings": 20,
+        "rows": 3603
+      },
+      "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+        "corrected_exclusions": 3404,
+        "finite_joint_log_density_rows": 9904,
+        "nonzero_log_density_rows": 9904,
+        "recordings": 50,
+        "rows": 9904
+      },
+      "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.45_0.4_raceline2_0.3_0.5": {
+        "corrected_exclusions": 369,
+        "finite_joint_log_density_rows": 2309,
+        "nonzero_log_density_rows": 2309,
+        "recordings": 10,
+        "rows": 2309
+      },
+      "pure_pursuit2_0.47_0.3_raceline2_0.3_0.5": {
+        "corrected_exclusions": 445,
+        "finite_joint_log_density_rows": 2977,
+        "nonzero_log_density_rows": 2977,
+        "recordings": 20,
+        "rows": 2977
+      },
+      "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+        "corrected_exclusions": 2163,
+        "finite_joint_log_density_rows": 8481,
+        "nonzero_log_density_rows": 8481,
+        "recordings": 51,
+        "rows": 8481
+      },
+      "pure_pursuit2_0.52_0.5_raceline6_0.3_0.5": {
+        "corrected_exclusions": 253,
+        "finite_joint_log_density_rows": 2761,
+        "nonzero_log_density_rows": 2761,
+        "recordings": 11,
+        "rows": 2761
+      },
+      "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.5_0.35_raceline5_0.3_0.5": {
+        "corrected_exclusions": 1270,
+        "finite_joint_log_density_rows": 3917,
+        "nonzero_log_density_rows": 3917,
+        "recordings": 20,
+        "rows": 3917
+      },
+      "pure_pursuit2_0.5_0.4_raceline3_0.3_0.5": {
+        "corrected_exclusions": 658,
+        "finite_joint_log_density_rows": 1853,
+        "nonzero_log_density_rows": 1853,
+        "recordings": 11,
+        "rows": 1853
+      },
+      "pure_pursuit2_0.5_0.5_raceline5_0.3_0.5": {
+        "corrected_exclusions": 536,
+        "finite_joint_log_density_rows": 3012,
+        "nonzero_log_density_rows": 3012,
+        "recordings": 12,
+        "rows": 3012
+      },
+      "pure_pursuit2_0.5_0.6_raceline3_0.3_0.5": {
+        "corrected_exclusions": 203,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.5_0.6_raceline4_0.3_0.5": {
+        "corrected_exclusions": 328,
+        "finite_joint_log_density_rows": 2350,
+        "nonzero_log_density_rows": 2350,
+        "recordings": 10,
+        "rows": 2350
+      },
+      "pure_pursuit2_0.5_0.75_raceline3_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.5_0.7_raceline2_0.3_0.5": {
+        "corrected_exclusions": 204,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.5_0.8_raceline5_0.3_0.5": {
+        "corrected_exclusions": 197,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.5_0.9_raceline6_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 2761,
+        "nonzero_log_density_rows": 2761,
+        "recordings": 11,
+        "rows": 2761
+      },
+      "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+        "corrected_exclusions": 5506,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+        "corrected_exclusions": 273,
+        "finite_joint_log_density_rows": 10895,
+        "nonzero_log_density_rows": 10895,
+        "recordings": 50,
+        "rows": 10895
+      },
+      "pure_pursuit2_0.6_0.8_raceline4_0.3_0.5": {
+        "corrected_exclusions": 23,
+        "finite_joint_log_density_rows": 3263,
+        "nonzero_log_density_rows": 3263,
+        "recordings": 13,
+        "rows": 3263
+      },
+      "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+        "corrected_exclusions": 3787,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+        "corrected_exclusions": 6680,
+        "finite_joint_log_density_rows": 19883,
+        "nonzero_log_density_rows": 19883,
+        "recordings": 90,
+        "rows": 19883
+      },
+      "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+        "corrected_exclusions": 354,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.75_0.9_raceline5_0.3_0.5": {
+        "corrected_exclusions": 860,
+        "finite_joint_log_density_rows": 2304,
+        "nonzero_log_density_rows": 2304,
+        "recordings": 10,
+        "rows": 2304
+      },
+      "pure_pursuit2_0.7_0.7_raceline1_0.3_0.5": {
+        "corrected_exclusions": 422,
+        "finite_joint_log_density_rows": 5865,
+        "nonzero_log_density_rows": 5865,
+        "recordings": 24,
+        "rows": 5865
+      },
+      "pure_pursuit2_0.7_0.8_raceline2_0.3_0.5": {
+        "corrected_exclusions": 879,
+        "finite_joint_log_density_rows": 5020,
+        "nonzero_log_density_rows": 5020,
+        "recordings": 20,
+        "rows": 5020
+      },
+      "pure_pursuit2_0.7_0.9_raceline6_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 2761,
+        "nonzero_log_density_rows": 2761,
+        "recordings": 11,
+        "rows": 2761
+      },
+      "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+        "corrected_exclusions": 2329,
+        "finite_joint_log_density_rows": 19068,
+        "nonzero_log_density_rows": 19068,
+        "recordings": 90,
+        "rows": 19068
+      },
+      "pure_pursuit2_0.7_1.0_raceline1_0.3_0.5": {
+        "corrected_exclusions": 1010,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.7_1.0_raceline2_0.3_0.5": {
+        "corrected_exclusions": 1356,
+        "finite_joint_log_density_rows": 2761,
+        "nonzero_log_density_rows": 2761,
+        "recordings": 11,
+        "rows": 2761
+      },
+      "pure_pursuit2_0.7_1.0_raceline_0.3_0.5": {
+        "corrected_exclusions": 1269,
+        "finite_joint_log_density_rows": 5020,
+        "nonzero_log_density_rows": 5020,
+        "recordings": 20,
+        "rows": 5020
+      },
+      "pure_pursuit2_0.7_1.1_raceline3_0.3_0.5": {
+        "corrected_exclusions": 1170,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.7_1.5_raceline1_0.3_0.5": {
+        "corrected_exclusions": 145,
+        "finite_joint_log_density_rows": 1054,
+        "nonzero_log_density_rows": 1054,
+        "recordings": 10,
+        "rows": 1054
+      },
+      "pure_pursuit2_0.8_0.85_raceline3_0.3_0.5": {
+        "corrected_exclusions": 776,
+        "finite_joint_log_density_rows": 2669,
+        "nonzero_log_density_rows": 2669,
+        "recordings": 20,
+        "rows": 2669
+      },
+      "pure_pursuit2_0.8_0.8_raceline2_0.3_0.5": {
+        "corrected_exclusions": 1635,
+        "finite_joint_log_density_rows": 4508,
+        "nonzero_log_density_rows": 4508,
+        "recordings": 20,
+        "rows": 4508
+      },
+      "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+        "corrected_exclusions": 1568,
+        "finite_joint_log_density_rows": 7685,
+        "nonzero_log_density_rows": 7685,
+        "recordings": 50,
+        "rows": 7685
+      },
+      "pure_pursuit2_0.8_0.9_raceline6_0.3_0.5": {
+        "corrected_exclusions": 26,
+        "finite_joint_log_density_rows": 134,
+        "nonzero_log_density_rows": 134,
+        "recordings": 1,
+        "rows": 134
+      },
+      "pure_pursuit2_0.8_1.0_raceline4_0.3_0.5": {
+        "corrected_exclusions": 269,
+        "finite_joint_log_density_rows": 2510,
+        "nonzero_log_density_rows": 2510,
+        "recordings": 10,
+        "rows": 2510
+      },
+      "pure_pursuit2_0.8_1.25_raceline8_0.3_0.5": {
+        "corrected_exclusions": 1484,
+        "finite_joint_log_density_rows": 4851,
+        "nonzero_log_density_rows": 4851,
+        "recordings": 50,
+        "rows": 4851
+      },
+      "pure_pursuit2_0.8_1.2_raceline_0.3_0.5": {
+        "corrected_exclusions": 3070,
+        "finite_joint_log_density_rows": 5038,
+        "nonzero_log_density_rows": 5038,
+        "recordings": 21,
+        "rows": 5038
+      },
+      "pure_pursuit2_0.9_0.9_raceline6_0.3_0.5": {
+        "corrected_exclusions": 675,
+        "finite_joint_log_density_rows": 1722,
+        "nonzero_log_density_rows": 1722,
+        "recordings": 10,
+        "rows": 1722
+      },
+      "pure_pursuit2_0.9_1.0_raceline4_0.3_0.5": {
+        "corrected_exclusions": 175,
+        "finite_joint_log_density_rows": 1274,
+        "nonzero_log_density_rows": 1274,
+        "recordings": 10,
+        "rows": 1274
+      },
+      "pure_pursuit2_0.9_1.2_raceline_0.3_0.5": {
+        "corrected_exclusions": 1366,
+        "finite_joint_log_density_rows": 3047,
+        "nonzero_log_density_rows": 3047,
+        "recordings": 21,
+        "rows": 3047
+      },
+      "pure_pursuit2_1.2_1.1_raceline3_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 24,
+        "nonzero_log_density_rows": 24,
+        "recordings": 1,
+        "rows": 24
+      }
+    },
+    "recording_boundary_rule": "timestep resets to zero; each prior row has done or truncated",
+    "recordings": 1375,
+    "rows": 286292,
+    "sensitivity_changed_index_sha256": "0d2a461ca7cfacd4137146d1de29e959e137d6972b8443e81aa025e6ce18dbbc",
+    "sensitivity_changed_rows": 2,
+    "source_object_id": "1ryaq4F3hHIo_klvlj0KlkDBZ9Zd5qI0Q",
+    "truncated_rows": 935,
+    "zarr_root": "f110-real-stoch-v2",
+    "zip_filename": "f110-real-stoch-v2.zip",
+    "zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+    "zip_size_bytes": 103587594
+  },
+  "f110-sim-stoch-v2": {
+    "compute_termination_at_record_end": 207,
+    "compute_termination_rows": 11663,
+    "corrected_excluded_rows": 11456,
+    "done_rows": 148,
+    "finite_log_density_rows": 179721,
+    "length_min_max": [
+      8,
+      251
+    ],
+    "log_prob_shape": [
+      179721,
+      1,
+      2
+    ],
+    "new_rewards_present": false,
+    "original_pinned_excluded_rows": 11457,
+    "policies": {
+      "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 1540,
+        "finite_joint_log_density_rows": 3691,
+        "nonzero_log_density_rows": 3691,
+        "recordings": 50,
+        "rows": 3691
+      },
+      "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 1195,
+        "finite_joint_log_density_rows": 3404,
+        "nonzero_log_density_rows": 3404,
+        "recordings": 49,
+        "rows": 3404
+      },
+      "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 741,
+        "finite_joint_log_density_rows": 2950,
+        "nonzero_log_density_rows": 2950,
+        "recordings": 50,
+        "rows": 2950
+      },
+      "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+        "corrected_exclusions": 177,
+        "finite_joint_log_density_rows": 12048,
+        "nonzero_log_density_rows": 12048,
+        "recordings": 48,
+        "rows": 12048
+      },
+      "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+        "corrected_exclusions": 224,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+        "corrected_exclusions": 1082,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+        "corrected_exclusions": 1544,
+        "finite_joint_log_density_rows": 12299,
+        "nonzero_log_density_rows": 12299,
+        "recordings": 49,
+        "rows": 12299
+      },
+      "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+        "corrected_exclusions": 2997,
+        "finite_joint_log_density_rows": 12299,
+        "nonzero_log_density_rows": 12299,
+        "recordings": 49,
+        "rows": 12299
+      },
+      "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 22590,
+        "nonzero_log_density_rows": 22590,
+        "recordings": 90,
+        "rows": 22590
+      },
+      "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+        "corrected_exclusions": 1956,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      },
+      "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 22590,
+        "nonzero_log_density_rows": 22590,
+        "recordings": 90,
+        "rows": 22590
+      },
+      "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+        "corrected_exclusions": 0,
+        "finite_joint_log_density_rows": 12550,
+        "nonzero_log_density_rows": 12550,
+        "recordings": 50,
+        "rows": 12550
+      }
+    },
+    "recording_boundary_rule": "timestep resets to zero; each prior row has done or truncated",
+    "recordings": 825,
+    "rows": 179721,
+    "sensitivity_changed_index_sha256": "fd7dc9febd590f0c9f6154b316abb2071602204b9ec3d3ce5f466d47fc646c1b",
+    "sensitivity_changed_rows": 1,
+    "source_object_id": "14GnCIa9Bz4ZiOaPjFEnPZLXJIZzamKix",
+    "truncated_rows": 825,
+    "zarr_root": "f110-sim-stoch-v2",
+    "zip_filename": "f110-sim-stoch-v2.zip",
+    "zip_sha256": "d7276ea155b2598f0174c91d9ddf3a5cd9cd0cf578ca1abe1f103b2f3849e906",
+    "zip_size_bytes": 44353275
+  }
+}

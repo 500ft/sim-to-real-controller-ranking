@@ -1,0 +1,12 @@
+{
+  "f110-real-stoch-v2": {
+    "maximum_absolute_row_reward_difference": 10.0,
+    "recordings_compared": 825,
+    "recordings_with_different_checkpoint_rows": 247
+  },
+  "f110-sim-stoch-v2": {
+    "maximum_absolute_row_reward_difference": 10.0,
+    "recordings_compared": 825,
+    "recordings_with_different_checkpoint_rows": 194
+  }
+}

@@ -29,14 +29,18 @@ wrong-alias registrations. They do not qualify the corrected ZIPs.
 The [corrected-source interface run](reports/ope_interface_qualification.md)
 executes synthetic policy and loader cases. A [separate correction qualification](reports/ope_interface_qualification.md#separate-correction-qualification)
 qualifies a candidate final-sentinel correction on its registered synthetic
-domain. The development exclusion rule is now adopted conditionally on established
-recording boundaries, with the original loader retained as a sensitivity variant. Corrected ZIP permission, checksums and
-census, archive-level policy coverage and the benchmark simulator revision
-remain open. These results supply no controller-performance or refusal claim.
+domain. The [corrected Drive-v2 census](reports/ope_corrected_v2.md) now binds
+both objects by ID and hash, establishes recording boundaries and applies the
+adopted development exclusion. It records policy coverage, stored log-density
+availability and original-loader sensitivity. Common-reward aggregates are
+published for local qualification, but the progress comparison remains
+unexplained and the candidate simulator fails an unmodified import. ZIP rights
+and the historical simulator revision remain open. These results supply no
+controller-performance or refusal claim.
 
 The owner adopted qualification before the conditionally authorized reference
-ranking. Complete M1 and qualify a shared reward before reading performance
-outcomes. Preserve the reserved groups for independent evaluation.
+ranking. Resolve the common-reward discrepancy and candidate compatibility
+before M2 ranking. Preserve the reserved groups for independent evaluation.
 
 The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
@@ -69,7 +73,7 @@ qualification; empirical ranking still depends on their results.
 
 ### M1. Qualify an accessible data route
 
-Status: current. Local census and reward qualification authorized under the
+Status: current. Local census executed and reward qualification incomplete under the
 [four accepted research assumptions](docs/OPEN_QUESTIONS.md#four-accepted-research-assumptions).
 ZIP rights and historical simulator identity remain unverified.
 Prerequisite: the historical census and a clearly identified corrected source.
@@ -81,20 +85,25 @@ Prerequisite: the historical census and a clearly identified corrected source.
   those public code licenses. The accepted assumptions permit local qualification without claiming a
   third-party grant. Keep raw and processed data outside git and distribution.
 - Confirm the benchmark's simulator revision. The simulator is public and
-  licensed, but the benchmark has no gitlink for it. The candidate helper
-  correction passes its registered synthetic cases. Apply it only after recording boundaries are qualified, keeping an
-  exclusion ledger and the original loader sensitivity result. Do not infer
+  licensed, but the benchmark has no gitlink for it. The registered public
+  candidate fails an unmodified import with the pinned loader; resolve that
+  interface before a compatibility run. The candidate terminal-helper correction
+  was applied after recording boundaries were established, with a private
+  exclusion ledger and original-loader sensitivity result. Do not infer
   physical crash truth from a terminal flag.
-- Under the adopted local-use assumption, pin both corrected ZIP checksums and rerun their
-  structural census. The [interface result](runs/ope_interface_qualification/result.json)
-  records corrected registrations and synthetic checks; the earlier archive
+- The [corrected ZIP census](runs/ope_corrected_v2/census.json) pins both Drive
+  objects and records structural results. The [local result report](reports/ope_corrected_v2.md)
+  records exclusions and original-loader sensitivity. The earlier archive
   census remains historical.
 - Resolve raw segment versus episode meaning, continuing terminal flags,
   truncation, exclusions, vehicle/session groups and real/simulation pairing.
-- Map policy IDs to executable implementations. Qualify observations, action
-  conventions, clipping, internal state and reset behavior on permitted archive
-  records. Qualify one reward calculation shared by real and simulation records;
-  simulation lacks `new_rewards`, so collection rewards cannot be assumed equal.
+- The evaluation policy names occur in both corrected archives, and stored
+  two-component log densities are finite. Map those names to executable
+  implementations on archived observations, including clipping, state and reset
+  behavior. The [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
+  produces per-agent aggregates for all four rewards; resolve the unexplained
+  progress aggregate difference and the checkpoint-source discrepancy before
+  treating the common reward as qualified. Simulation lacks `new_rewards`.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities
   with constants. Clarify the unresolved helper source named in the report.
@@ -108,7 +117,7 @@ reserved outcomes to rescue it.
 ### M2. Qualify a development reference and model set
 
 Status: conditionally owner-authorized for the published evaluation agents'
-simulation-versus-real reference ranking, waiting on the now-authorized M1 qualification. Prerequisite: qualified
+simulation-versus-real reference ranking, waiting on M1 reward and simulator qualification. Prerequisite: qualified
 local-use assumptions, corrected archive and policy interfaces, a qualified common reward
 and the pinned candidate environment with its historical-identity limitation. Commit the comparison rules below before
 reading performance outcomes; this does not authorize M3 or M5 data use.
