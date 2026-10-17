@@ -77,7 +77,7 @@ def marker(ax, x, y, shape: str, filled: bool = True, **kwargs):
 
 
 def marker_handle(shape: str, label: str, filled: bool = True, **kwargs):
-    return Line2D([], [], marker=shape, mfc=fs.FILL[filled], label=label, **{**fs.MARKER, **kwargs})
+    return Line2D([], [], marker=shape, label=label, **{**fs.MARKER, "mfc": fs.FILL[filled], **kwargs})
 
 
 def span_handle(label: str):
@@ -215,7 +215,7 @@ def dynamic_replay_yaw_rate(trace: pd.DataFrame, metrics: dict[str, float], path
     t = trace["time_s"]
     overlay(axes[0], t, trace["gym_yaw_rate_radps"], trace["dynamic_yaw_rate_radps"], EVERY, "dynamic")
     fs.line(axes[1], t, trace["gym_yaw_rate_radps"], "reference", zorder=2)
-    fs.line(axes[1], t, trace["kinematic_yaw_rate_radps"], "kinematic", zorder=3)
+    fs.line(axes[1], t, trace["kinematic_yaw_rate_radps"], "kinematic", zorder=3, lw=0.6)
     low = min(trace[c].min() for c in ("gym_yaw_rate_radps", "dynamic_yaw_rate_radps", "kinematic_yaw_rate_radps"))
     high = max(trace[c].max() for c in ("gym_yaw_rate_radps", "dynamic_yaw_rate_radps", "kinematic_yaw_rate_radps"))
     pad = 0.06 * (high - low)
@@ -280,7 +280,7 @@ def kinematic_trajectory(trace: pd.DataFrame, metrics: dict[str, float], path: P
     fig, ax = fs.subplots(height_in=5.0, width_in=6.0)
     fs.line(ax, trace["gym_x_m"], trace["gym_y_m"], "reference")
     fs.line(ax, trace["model_x_m"], trace["model_y_m"], "kinematic")
-    marker(ax, trace["gym_x_m"].iloc[0], trace["gym_y_m"].iloc[0], "o", ms=7, zorder=4)
+    marker(ax, trace["gym_x_m"].iloc[0], trace["gym_y_m"].iloc[0], "o", ms=10, zorder=5).set_markerfacecolor("none")
     marker(ax, trace["gym_x_m"].iloc[-1], trace["gym_y_m"].iloc[-1], "s", zorder=4)
     marker(ax, trace["model_x_m"].iloc[-1], trace["model_y_m"].iloc[-1], "^", zorder=4)
     ax.set_aspect("equal", adjustable="datalim")
@@ -289,13 +289,13 @@ def kinematic_trajectory(trace: pd.DataFrame, metrics: dict[str, float], path: P
     ax.set_ylabel("$y$ [m]")
     fs.legend(fig, [fs.handle("reference", "Gym RK4 (reference)", marker=False),
                     fs.handle("kinematic", "Kinematic replay", marker=False),
-                    marker_handle("o", "Start", ms=7), marker_handle("s", "Gym end"), marker_handle("^", "Replay end")],
+                    marker_handle("o", "Start", filled=False, ms=10, mfc="none"), marker_handle("s", "Gym end"), marker_handle("^", "Replay end")],
               ncol=3)
     caption = (f"{SIMULATOR}, first lap. The kinematic replay leaves the Gym path: "
                f"{metrics['final_position_error_m']:.1f} m apart after {metrics['duration_replayed_s']:.1f} s "
                f"(maximum {metrics['max_position_error_m']:.1f} m). The Gym RK4 trajectory is solid and the kinematic "
-               "bicycle replay of the same inputs is dashed; the circle marks the start, the square the Gym end and "
-               f"the triangle the replay end. n = {int(metrics['num_samples']):,} samples at "
+               "bicycle replay of the same inputs is dashed; the open ring marks the start, the square the Gym end "
+               f"and the triangle the replay end. n = {int(metrics['num_samples']):,} samples at "
                f"{metrics['dt_mean_s'] * 1000:g} ms. Sources: {source}.")
     return fs.save(fig, path, caption)[0]
 

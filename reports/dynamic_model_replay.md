@@ -56,7 +56,13 @@ The state is initialized from the first RK4 telemetry row. The replay then integ
 
 ![Dynamic replay yaw-rate overlay](figures/dynamic_replay_yaw_rate_overlay.png)
 
+Simulator output, F1TENTH Gym, known parameters. The dynamic replay follows the Gym yaw rate (RMSE 0.026 rad/s); the kinematic yaw law does not (1.32 rad/s). Panel (a): Gym yaw rate (solid) with the dynamic replay as hollow triangles, one every 0.4 s. Panel (b): Gym yaw rate (solid) and the kinematic yaw law (dashed), on the same axes as (a). Panel (c): achieved steering angle in the Gym. The dotted vertical line marks t = 2.0 s. First-lap RK4 telemetry, n = 3,329 samples over 33.3 s; both models replay the same inputs. Sources: runs/dynamic_model_replay/replay_trace.csv and runs/dynamic_model_replay/metrics.csv.
+[Caption file](figures/dynamic_replay_yaw_rate_overlay.caption.md).
+
 ![Dynamic replay state errors](figures/dynamic_replay_state_errors.png)
+
+Simulator output, F1TENTH Gym, known parameters. The dynamic replay stays within 1.82 m of the Gym trajectory over 33.3 s. Panels show (a) position, (b) yaw, (c) yaw-rate and (d) speed error, each the dynamic replay minus the Gym state; the dotted line is zero. n = 3,329 RK4 samples. RMSE: position 0.844 m, yaw rate 0.026 rad/s. Sources: runs/dynamic_model_replay/replay_trace.csv and runs/dynamic_model_replay/metrics.csv.
+[Caption file](figures/dynamic_replay_state_errors.caption.md).
 
 ## Limitations
 

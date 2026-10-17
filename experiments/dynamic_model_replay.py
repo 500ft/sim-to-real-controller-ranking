@@ -271,9 +271,9 @@ The state is initialized from the first RK4 telemetry row. The replay then integ
 
 ## Figures
 
-![Dynamic replay yaw-rate overlay](figures/dynamic_replay_yaw_rate_overlay.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "dynamic_replay_yaw_rate_overlay.png", "Dynamic replay yaw-rate overlay")}
 
-![Dynamic replay state errors](figures/dynamic_replay_state_errors.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "dynamic_replay_state_errors.png", "Dynamic replay state errors")}
 
 ## Limitations
 

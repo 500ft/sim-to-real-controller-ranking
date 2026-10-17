@@ -130,7 +130,7 @@ def legend(fig, handles, ncol: int | None = None, **kwargs):
 
 def line(ax, x, y, entity: str, every: int | None = None, **kwargs):
     """Draw one series in its entity style; ``every`` places markers on a long trace."""
-    style = dict(STYLE[entity])
+    style = {**STYLE[entity], **{k: kwargs.pop(k) for k in ("lw", "ls") if k in kwargs}}
     marker = style.pop("marker")
     if every is None or marker is None:
         marker = None
