@@ -80,6 +80,12 @@ def marker_handle(shape: str, label: str, filled: bool = True, **kwargs):
     return Line2D([], [], marker=shape, label=label, **{**fs.MARKER, "mfc": fs.FILL[filled], **kwargs})
 
 
+def stems(ax, start, end, y) -> None:
+    """Thin connectors for a dot plot, one Line2D per row so the overlap audit sees each one."""
+    for a, b, yi in zip(np.broadcast_to(start, len(y)), end, y):
+        ax.plot([a, b], [yi, yi], color=fs.INK, lw=0.5, zorder=1)
+
+
 def span_handle(label: str):
     return Patch(label=label, **fs.SPAN)
 
@@ -649,7 +655,7 @@ def ekf_position_error(trace: pd.DataFrame, metadata: dict, path: Path, source: 
         for start, stop in _windows(metadata, scenario):
             ax.axvspan(start, stop, zorder=0, **fs.SPAN)
         fs.line(ax, first["time_s"], first["position_error_m"], "dead_reckoning")
-        fs.line(ax, group["time_s"], group["position_error_m"], "ekf")
+        fs.line(ax, group["time_s"], group["position_error_m"], "ekf", lw=0.6)
         ax.set_yscale("log")
         ax.set_ylabel("Position error [m]")
     axes[-1].set_xlabel("Time [s]")
@@ -670,7 +676,7 @@ def ekf_rmse_summary(summary: pd.DataFrame, path: Path, source: str) -> Path:
     pivot = summary.pivot(index="scenario", columns="estimator", values="position_rmse_m").loc[order]
     fig, ax = fs.subplots(height_in=2.6)
     y = np.arange(len(order))[::-1]
-    ax.hlines(y, pivot["ekf"], pivot["dead_reckoning"], color=fs.INK, linewidth=0.5, zorder=1)
+    stems(ax, pivot["ekf"], pivot["dead_reckoning"], y)
     marker(ax, pivot["dead_reckoning"], y, "s", zorder=3)
     marker(ax, pivot["ekf"], y, "o", zorder=3)
     ax.set_yticks(y, [SCENARIO_NAMES[s] for s in order])
@@ -745,7 +751,7 @@ def fmea_rpn(results: pd.DataFrame, path: Path, source: str) -> Path:
                     Patch(facecolor=fs.FILL[False], edgecolor=fs.INK, label="Not reproduced")])
     top = ordered.iloc[-1]
     assert (results["rpn"] < top["rpn"]).sum() == len(results) - 1, "RPN maximum is tied"
-    scores = "; ".join(f"{FMEA_NAMES.get(r.scenario, r.scenario).lower()} {r.rpn} = {r.severity_1_to_10} × "
+    scores = "; ".join(f"{FMEA_NAMES.get(r.scenario, r.scenario)} {r.rpn} = {r.severity_1_to_10} × "
                        f"{r.occurrence_1_to_10} × {r.detectability_1_to_10}" for r in ordered[::-1].itertuples(index=False))
     caption = (f"{SIMULATOR}, failure-mode screen. {FMEA_NAMES.get(top['scenario'], top['scenario'])} carries the highest "
                f"risk priority (RPN {top['rpn']}). RPN = severity × occurrence × detectability, each scored 1 to 10. "
@@ -763,28 +769,28 @@ def _signal_group(signal: str) -> str:
     return "position"
 
 
-FMEA_GROUPS = [("time", "Time to collision [s]", "detected as a collision"),
-               ("position", "Position error [m]", "detected as tracking or estimate error"),
-               ("steer", "Steering command at limit [rad]", "detected as steering dwell at the limit")]
+FMEA_GROUPS = [("time", "Time to collision [s]", "detected as a collision", "s"),
+               ("position", "Position error [m]", "detected as tracking or estimate error", "m"),
+               ("steer", "Steering command at limit [rad]", "detected as steering dwell at the limit", "rad")]
 
 
 def fmea_detection_signals(results: pd.DataFrame, path: Path, source: str) -> Path:
     data = results.assign(group=results["detection_signal"].map(_signal_group))
-    sizes = [max(int((data["group"] == g).sum()), 1) for g, _, _ in FMEA_GROUPS]
+    sizes = [max(int((data["group"] == g).sum()), 1) for g, _, _, _ in FMEA_GROUPS]
     fig, axes = fs.subplots(len(FMEA_GROUPS), 1, height_in=4.6, gridspec_kw={"height_ratios": sizes})
     panels = []
-    for letter_index, (ax, (key, xlabel, meaning)) in enumerate(zip(axes, FMEA_GROUPS)):
+    for letter_index, (ax, (key, xlabel, meaning, unit)) in enumerate(zip(axes, FMEA_GROUPS)):
         part = data[data["group"] == key].sort_values("detection_metric")
         y = np.arange(len(part))
         reproduced = part["reproduced"].astype(bool).to_numpy()
-        ax.hlines(y, 0, part["detection_metric"], color=fs.INK, linewidth=0.5, zorder=1)
+        stems(ax, 0.0, part["detection_metric"], y)
         for yi, value, r in zip(y, part["detection_metric"], reproduced):
             marker(ax, value, yi, "o", filled=bool(r), zorder=3)
         ax.set_yticks(y, [FMEA_NAMES.get(s, s) for s in part["scenario"]])
         ax.set_ylim(-0.6, len(part) - 0.4)
         ax.set_xlim(0, part["detection_metric"].max() * 1.12)
         ax.set_xlabel(xlabel)
-        values = ", ".join(f"{FMEA_NAMES.get(r.scenario, r.scenario).lower()} {r.detection_metric:.3g}"
+        values = ", ".join(f"{FMEA_NAMES.get(r.scenario, r.scenario)} {r.detection_metric:.3g} {unit}"
                            for r in part.itertuples(index=False))
         panels.append(f"({'abc'[letter_index]}) {meaning}: {values}")
     fs.letters(axes)
@@ -825,10 +831,11 @@ def parameter_id_degradation(results: pd.DataFrame, kind: str, path: Path, sourc
     x = np.arange(len(subset))
     passed = subset["acceptance_passed"].astype(bool).to_numpy()
     fig, ax = fs.subplots(height_in=3.0, width_in=6.0)
-    for param, _, shape, ls in STIFFNESS:
+    for (param, _, shape, ls), dodge in zip(STIFFNESS, (-0.06, 0.06)):
+        # A small horizontal dodge keeps coincident front and rear markers apart on the category axis.
         values = subset[f"{param}_oracle_relative_error"].to_numpy()
-        ax.plot(x, values, color=fs.INK, lw=0.9, ls=ls, zorder=2)
-        for xi, value, ok in zip(x, values, passed):
+        ax.plot(x + dodge, values, color=fs.INK, lw=0.9, ls=ls, zorder=2)
+        for xi, value, ok in zip(x + dodge, values, passed):
             marker(ax, xi, value, shape, filled=bool(ok), zorder=3)
     ax.set_xticks(x, [_scenario_label(s) for s in subset["scenario"]])
     ax.set_yscale("log")
@@ -859,7 +866,7 @@ def parameter_id_condition(results: pd.DataFrame, path: Path, source: str) -> Pa
     data = results.iloc[::-1].reset_index(drop=True)
     y = np.arange(len(data))
     fig, ax = fs.subplots(height_in=3.4, width_in=5.6)
-    ax.hlines(y, 1.0, data["jacobian_condition_number"], color=fs.INK, linewidth=0.5, zorder=1)
+    stems(ax, 1.0, data["jacobian_condition_number"], y)
     marker(ax, data["jacobian_condition_number"], y, "o", zorder=3)
     ax.axvline(1.0, zorder=1, **fs.REFERENCE)
     ax.set_yticks(y, [_scenario_label(s) for s in data["scenario"]])

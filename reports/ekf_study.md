@@ -31,9 +31,18 @@ Compare dead reckoning and EKF estimates against Gym ground truth under reproduc
 
 ![Position error over time](figures/ekf_position_error_over_time.png)
 
+Simulator output, F1TENTH Gym, simulated sensor noise. The EKF keeps position error below 1.5 m; dead reckoning drifts to 77 m. Panel (a): low-noise scenario; panel (b): 1 s dropout scenario, with all measurement channels withheld from 12 to 13 s (shaded). The EKF is solid and dead reckoning dashed, on a logarithmic axis shared by both panels. Same nominal pure-pursuit lap (38.0 s) for every scenario; seed 42, 2 ms steps. Dead reckoning uses no measurements, so its error is the same in every scenario. Sources: runs/ekf_study/trace.csv, runs/ekf_study/summary.csv and runs/ekf_study/metadata.json.
+[Caption file](figures/ekf_position_error_over_time.caption.md).
+
 ![RMSE summary](figures/ekf_rmse_summary.png)
 
+Simulator output, F1TENTH Gym, simulated sensor noise. EKF position RMSE stays below 0.71 m in every scenario; dead reckoning reaches 46.1 m. Whole-lap position RMSE per scenario for the EKF (circles) and dead reckoning (squares), on a logarithmic axis; lower is better. EKF values: clean measurements 0.0040 m; low noise 0.0164 m; high noise 0.0527 m; 1 s dropout 0.1340 m; 3 s dropout 0.7058 m. n = 1 seeded run per scenario and estimator (5 scenarios), so there are no error bars. Source: runs/ekf_study/summary.csv.
+[Caption file](figures/ekf_rmse_summary.caption.md).
+
 ![Dropout zoom](figures/ekf_dropout_zoom.png)
+
+Simulator output, F1TENTH Gym, 3 s dropout scenario. During the dropout the EKF error grows to 5.1 m, then falls to 0.02 m by 16 s. All measurement channels are withheld from 12 to 15 s (shaded). The EKF is solid and dead reckoning dashed, on a logarithmic axis. Same nominal pure-pursuit lap (38.0 s) for every scenario. Sources: runs/ekf_study/trace.csv, runs/ekf_study/summary.csv and runs/ekf_study/metadata.json.
+[Caption file](figures/ekf_dropout_zoom.caption.md).
 
 ## Interpretation
 

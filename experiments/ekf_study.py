@@ -278,11 +278,11 @@ Compare dead reckoning and EKF estimates against Gym ground truth under reproduc
 
 ## Figures
 
-![Position error over time](figures/ekf_position_error_over_time.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "ekf_position_error_over_time.png", "Position error over time")}
 
-![RMSE summary](figures/ekf_rmse_summary.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "ekf_rmse_summary.png", "RMSE summary")}
 
-![Dropout zoom](figures/ekf_dropout_zoom.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "ekf_dropout_zoom.png", "Dropout zoom")}
 
 ## Interpretation
 

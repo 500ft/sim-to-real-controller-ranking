@@ -24,6 +24,7 @@ from __future__ import annotations
 from pathlib import Path
 
 import matplotlib
+import numpy as np
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
@@ -178,12 +179,15 @@ def audit(fig) -> list[tuple[str, str]]:
     tick_labels, drawn = set(), []
     for ax in fig.axes:
         for axis in (ax.xaxis, ax.yaxis):
-            low, high = sorted(axis.get_view_interval())
+            # Compare in scale space so a log axis does not admit ticks far below its view.
+            scale = axis.get_transform()
+            low, high = sorted(scale.transform(np.asarray(axis.get_view_interval(), float)))
             slack = 1e-9 * (high - low)
             for tick in axis.get_major_ticks() + axis.get_minor_ticks():
+                loc = scale.transform(np.asarray([tick.get_loc()], float))[0]
                 for label in (tick.label1, tick.label2):
                     tick_labels.add(id(label))
-                    if label.get_visible() and label.get_text().strip() and low - slack <= tick.get_loc() <= high + slack:
+                    if label.get_visible() and label.get_text().strip() and low - slack <= loc <= high + slack:
                         drawn.append(label)
     drawn += [t for t in fig.findobj(Text)
               if id(t) not in tick_labels and t.get_visible() and t.get_text().strip()]
