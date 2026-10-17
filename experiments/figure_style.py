@@ -151,11 +151,13 @@ def zero_line(ax) -> None:
 
 
 def _data_artists(ax):
-    """Lines, collections and patches drawn as data (heatmap images excluded)."""
+    """Visible lines, collections and patches drawn as data; heatmap images and colour bars excluded."""
+    if getattr(ax, "_colorbar", None) is not None:
+        return []
     found = list(ax.lines)
     found += [c for c in ax.collections if isinstance(c, Collection)]
     found += [p for p in ax.patches if isinstance(p, Patch)]
-    return found
+    return [artist for artist in found if artist.get_visible()]
 
 
 def audit(fig) -> list[tuple[str, str]]:

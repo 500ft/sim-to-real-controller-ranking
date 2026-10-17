@@ -520,7 +520,9 @@ def pp_heatmap(results: pd.DataFrame, metadata: dict, kind: str, path: Path, sou
             r, g, b, _ = cmap(norm(value))
             ink = "black" if (0.299 * r + 0.587 * g + 0.114 * b) > 0.5 else "white"
             ax.text(j, i, f"{value:.2f}" if kind == "rms_cte" else f"{value:.1f}", ha="center", va="center",
-                    fontsize=fs.TICK_SIZE, color=ink, gid="cell")
+                    fontsize=fs.TICK_SIZE, color=ink, gid="cell",
+                    # A cell-coloured box keeps the hatching of a partial run from crossing its number.
+                    bbox={"boxstyle": "square,pad=0.2", "facecolor": cmap(norm(value)), "edgecolor": "none"})
     base = _baseline(results)
     bi, bj = gains.index(base["vgain"]), lookaheads.index(base["lookahead_m"])
     ax.add_patch(Rectangle((bj - 0.5, bi - 0.5), 1, 1, fill=False, edgecolor=fs.INK, linewidth=1.6))

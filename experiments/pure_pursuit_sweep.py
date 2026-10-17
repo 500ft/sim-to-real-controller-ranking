@@ -146,11 +146,11 @@ These thresholds are map-specific heuristics intended to select a controller bas
 
 ## Figures
 
-![RMS CTE heatmap](figures/pure_pursuit_sweep_rms_cte_heatmap.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "pure_pursuit_sweep_rms_cte_heatmap.png", "RMS CTE heatmap")}
 
-![Lap time heatmap](figures/pure_pursuit_sweep_lap_time_heatmap.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "pure_pursuit_sweep_lap_time_heatmap.png", "Lap time heatmap")}
 
-![Sweep regions](figures/pure_pursuit_sweep_regions.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "pure_pursuit_sweep_regions.png", "Sweep regions")}
 
 ## Outputs
 
