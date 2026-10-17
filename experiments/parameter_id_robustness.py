@@ -235,11 +235,11 @@ Re-run `C_Sf`/`C_Sr` identification under injected sensor noise, input latency, 
 
 ## Figures
 
-![Noise degradation](figures/parameter_id_noise_degradation.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "parameter_id_noise_degradation.png", "Noise degradation")}
 
-![Latency degradation](figures/parameter_id_latency_degradation.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "parameter_id_latency_degradation.png", "Latency degradation")}
 
-![Condition number](figures/parameter_id_condition_number.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "parameter_id_condition_number.png", "Condition number")}
 """
     REPORT_PATH.write_text(report, encoding="utf-8")
 

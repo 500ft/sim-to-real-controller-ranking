@@ -76,7 +76,13 @@ This closes the kinematic replay as a structural comparison: the implemented kin
 
 ![Kinematic replay trajectory error](figures/model_vs_gym_trajectory_error.png)
 
+Simulator output, F1TENTH Gym, first lap. The kinematic replay leaves the Gym path: 41.5 m apart after 33.3 s (maximum 98.7 m). The Gym RK4 trajectory is solid and the kinematic bicycle replay of the same inputs is dashed; the open ring marks the start, the square the Gym end and the triangle the replay end. n = 3,329 samples at 10 ms. Sources: runs/model_vs_gym_comparison/replay_trace.csv and runs/model_vs_gym_comparison/metrics.csv.
+[Caption file](figures/model_vs_gym_trajectory_error.caption.md).
+
 ![Kinematic replay state errors](figures/model_vs_gym_state_errors.png)
+
+Simulator output, F1TENTH Gym, first lap. The kinematic replay position error reaches 98.7 m while speed error stays below 0.13 m/s. Panels show (a) position, (b) yaw and (c) speed error, each the kinematic replay minus the Gym state; yaw error is wrapped to ±π rad and the dotted line is zero. n = 3,329 samples. Sources: runs/model_vs_gym_comparison/replay_trace.csv and runs/model_vs_gym_comparison/metrics.csv.
+[Caption file](figures/model_vs_gym_state_errors.caption.md).
 
 ![Kinematic yaw-rate diagnostic](figures/kinematic_yaw_rate_diagnostic.png)
 

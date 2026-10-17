@@ -55,7 +55,13 @@ Acceptance checks:
 
 ![Dynamic parameter fit](figures/dynamic_parameter_fit.png)
 
+Simulator output, F1TENTH Gym. The fitted single-track model matches the Gym within 9 × 10⁻¹⁰ on training and held-out intervals. Panel (a): yaw rate; panel (b): slip angle. The Gym state is solid and the fitted model's one-step-ahead prediction is drawn as hollow squares on every 33th interval; the shaded span holds the held-out intervals. Intervals: 1,392 training, 597 held out (final 30 %). A simulator-recovery test with Gym internal states, not vehicle identification. Source: runs/dynamic_parameter_identification/fit_trace.csv.
+[Caption file](figures/dynamic_parameter_fit.caption.md).
+
 ![Held-out residuals](figures/dynamic_parameter_residuals.png)
+
+Simulator output, F1TENTH Gym. Held-out rollout residuals stay below 8 × 10⁻¹⁰ over 6.0 s. Panels show the (a) yaw-rate, (b) slip-angle and (c) yaw residual, each the fitted model minus the Gym, in units of 10⁻⁹; the dotted line is zero. Independent rollout of the fitted model over the held-out 6.0 s; n = 598 samples. Source: runs/dynamic_parameter_identification/heldout_replay_trace.csv.
+[Caption file](figures/dynamic_parameter_residuals.caption.md).
 
 ## Interpretation
 

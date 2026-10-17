@@ -55,9 +55,18 @@ These thresholds are map-specific heuristics intended to select a controller bas
 
 ![RMS CTE heatmap](figures/pure_pursuit_sweep_rms_cte_heatmap.png)
 
+Simulator output, F1TENTH Gym, pure pursuit. Among completed laps, RMS cross-track error grows with lookahead and velocity gain. Each cell is one run, coloured and labelled by its RMS cross-track error [m]; the colour bar gives the scale. Hatched cells did not complete a lap (diagonal: no lap within the time limit; crossed: collision), so their RMS covers the partial run. The black box marks the selected baseline (1.2 m lookahead, gain 1.2). n = 30 closed-loop runs, one per setting; integration step 2 ms, control 100 Hz. Sources: runs/pure_pursuit_sweep/results.csv and runs/pure_pursuit_sweep/metadata.json.
+[Caption file](figures/pure_pursuit_sweep_rms_cte_heatmap.caption.md).
+
 ![Lap time heatmap](figures/pure_pursuit_sweep_lap_time_heatmap.png)
 
+Simulator output, F1TENTH Gym, pure pursuit. Completed laps get faster as velocity gain rises (28.9 to 45.0 s). Each cell is one run, coloured and labelled by its lap time [s]; the colour bar gives the scale. 19 runs did not complete a lap and have no lap time: their cells are white and hatched (diagonal: no lap within the time limit; crossed: collision). The black box marks the selected baseline (1.2 m lookahead, gain 1.2). n = 30 closed-loop runs, one per setting; integration step 2 ms, control 100 Hz. Sources: runs/pure_pursuit_sweep/results.csv and runs/pure_pursuit_sweep/metadata.json.
+[Caption file](figures/pure_pursuit_sweep_lap_time_heatmap.caption.md).
+
 ![Sweep regions](figures/pure_pursuit_sweep_regions.png)
+
+Simulator output, F1TENTH Gym, pure pursuit. 11 of 30 settings complete a lap; the selected baseline (1.2 m lookahead, gain 1.2, large ring) is stable. Each marker is one setting, its shape giving the run class from experiments/pure_pursuit_sweep.py; filled markers completed a lap and hollow markers did not. Counts: stable 8, oscillatory 3, no lap within time limit 9, collision 10. n = 30 closed-loop runs, one per setting; integration step 2 ms, control 100 Hz. Sources: runs/pure_pursuit_sweep/results.csv and runs/pure_pursuit_sweep/metadata.json.
+[Caption file](figures/pure_pursuit_sweep_regions.caption.md).
 
 ## Outputs
 

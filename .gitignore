@@ -79,6 +79,11 @@ evidence/item11/assets/
 !reports/figures/parameter_id_noise_degradation.png
 !reports/figures/parameter_id_latency_degradation.png
 !reports/figures/parameter_id_condition_number.png
+!reports/figures/*.caption.md
+!reports/figures/ope_structure.png
+!reports/figures/ope_structure.svg
+!reports/figures/real_command_response.png
+!reports/figures/real_command_response.svg
 runs/mast_fea/converge/
 !runs/mast_modal_attachment_20260925/*.dat
 !runs/mast_modal_attachment_20260925/*.ccx.log

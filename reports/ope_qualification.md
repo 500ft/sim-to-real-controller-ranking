@@ -40,15 +40,15 @@ and do not identify independent cars, sessions or physical experiments.
 
 ## Recording boundaries and loader aliases
 
-![Structural counts with separate segment, policy-name and flag-alignment panels; real-v1 has repeated flags within recordings](../runs/ope_qualification/structure.png)
+![Structural counts with separate segment, policy-name and flag-alignment panels](figures/ope_structure.png)
 
-*Panel C counts each `done OR truncated` row once and splits it by position
-relative to the segment end. Blue solid bars are at-end flags; orange hatched bars
-are earlier flags. The linear count axis starts at zero.
-[SVG](../runs/ope_qualification/structure.svg) ·
+Historical census at the original source pins. F110 archives, structural census of unfiltered records; episode meaning and policy execution are unresolved. Real stochastic v2 has the most recording segments (1,375); archives hold 8 to 57 policy-name strings each; Real v1 alone raises flags before a segment ends (10,502 rows). Panel (a): recording segments per archive (circles). Panel (b): exact policy-name strings per archive (squares). Panel (c): rows with done OR truncated, each counted once and split into flags at a segment end (filled) and before a segment end (hollow). All count axes are linear and start at zero. Per archive, with flagged rows as at end + before end: Real v0 213 segments, 8 names, 213 + 0 flagged rows; Sim v0 213 segments, 8 names, 213 + 0 flagged rows; Real v1 311 segments, 29 names, 311 + 10,502 flagged rows; Sim v1 298 segments, 29 names, 298 + 0 flagged rows; Real stochastic v2 1,375 segments, 57 names, 1,375 + 0 flagged rows. Resets do not establish independent episodes, and name matches do not establish executable policies. Counts only; no return or ranking analysis. Archive filenames and sources: runs/ope_qualification/structure.md. Source: runs/ope_qualification/result.json.
+[Caption file](figures/ope_structure.caption.md) ·
+[SVG](figures/ope_structure.svg) ·
 [Archive identity and count tables](../runs/ope_qualification/structure.md#archive-identity-and-recordings) ·
 [Loader registration table](../runs/ope_qualification/structure.md#loader-registrations).
-Version-paired rows do not establish paired experiments.*
+Version-paired rows do not establish paired experiments. The figure first published
+with this census stays at `runs/ope_qualification/structure.png`, which `execution.json` records.
 
 Real v1 has repeated end flags before its recording boundaries. The other
 inspected archives align those flags with structural ends. This verifies a
@@ -146,11 +146,13 @@ Use Python 3.11 with `requirements-ope-qualification.txt` installed:
 ```bash
 python experiments/plot_ope_structure.py \
   --result runs/ope_qualification/result.json \
-  --output runs/ope_qualification/structure.png
+  --tables runs/ope_qualification
 ```
 
-This writes PNG and SVG figures, `structure.md`, `structure.csv` and
-`loader_aliases.csv`. The result remains the single numerical source. The
+This writes the PNG and SVG figure with its caption to `reports/figures/ope_structure.*`,
+and `structure.md`, `structure.csv` and `loader_aliases.csv` to the `--tables`
+directory. The generator refuses to write a figure under `runs/`, so the frozen
+census figure is not overwritten. The result remains the single numerical source. The
 [figure guide](../docs/data-and-figures.md#visual-redesign-and-preservation)
 records visual choices and preservation checks.
 
@@ -169,7 +171,8 @@ python experiments/qualify_ope_archives.py \
 RACING_OPE_CACHE="$RACING_OPE_CACHE" python experiments/test_ope_qualification.py
 python experiments/plot_ope_structure.py \
   --result /tmp/racing-ope-reproduction/result.json \
-  --output /tmp/racing-ope-reproduction/structure.png
+  --output /tmp/racing-ope-reproduction/structure.png \
+  --tables /tmp/racing-ope-reproduction
 ```
 
 `result.json` is deterministic for the pinned inputs and qualification script.

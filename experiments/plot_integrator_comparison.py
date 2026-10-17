@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Create a report-quality RK4 vs Euler integrator sensitivity figure."""
+"""Draw the RK4 vs Euler integrator sensitivity figures and their captions from the committed first-lap run."""
 
 from __future__ import annotations
 
@@ -11,8 +11,10 @@ import numpy as np
 import pandas as pd
 import yaml
 
+from matplotlib.lines import Line2D
+from matplotlib.ticker import MaxNLocator
+
 import figure_style as fs
-from figure_style import COLORS as C
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
@@ -24,7 +26,6 @@ COMBINED_PATH = REPO_ROOT / "reports" / "figures" / "first_integrator_comparison
 TRAJECTORY_PATH = REPO_ROOT / "reports" / "figures" / "integrator_trajectory_overlay.png"
 TRACKING_ERROR_PATH = REPO_ROOT / "reports" / "figures" / "integrator_tracking_error_vs_progress.png"
 SUMMARY_METRICS_PATH = REPO_ROOT / "reports" / "figures" / "integrator_summary_metrics.png"
-EVIDENCE = f"{fs.SIMULATOR}, pure pursuit, first lap"
 
 
 def ensure_exists(path: Path, description: str) -> None:
@@ -231,64 +232,15 @@ def trajectory_group(telemetry: pd.DataFrame, integrator: str) -> pd.DataFrame:
     return group
 
 
-def format_summary_for_table(summary: pd.DataFrame) -> pd.DataFrame:
-    table_df = summary.copy()
-    for column in ["Final time [s]", "RMS CTE [m]", "Max CTE [m]", "Mean speed [m/s]"]:
-        table_df[column] = table_df[column].map(lambda value: f"{value:.3f}")
-    table_df["Collision"] = table_df["Collision"].map(lambda value: "Yes" if value else "No")
-    table_df["Termination"] = table_df["Termination"].map(lambda value: str(value).replace("completed_lap", "completed"))
-    return table_df.rename(
-        columns={
-            "Integrator": "Int.",
-            "Termination": "End",
-            "Final time [s]": "Final\nTime [s]",
-            "Collision": "Hit?",
-            "RMS CTE [m]": "RMS\nCTE [m]",
-            "Max CTE [m]": "Max\nCTE [m]",
-            "Mean speed [m/s]": "Mean\nSpeed [m/s]",
-        }
-    )
-
-
-def endpoint_label(group: pd.DataFrame, integrator: str) -> str:
-    end = group.iloc[-1]
-    collision = bool(pd.to_numeric(group["collision"], errors="coerce").fillna(0).max() > 0)
-    termination = str(end["termination_reason"])
-    if collision:
-        return f"{integrator} collision"
-    return f"{integrator} {termination.replace('_', ' ')}"
-
-
-def endpoint_annotation(group: pd.DataFrame, integrator: str) -> str:
-    end = group.iloc[-1]
-    return (
-        f"{endpoint_label(group, integrator)}\n"
-        f"t = {end['time_s']:.2f} s\n"
-        f"s = {end['progress_m']:.1f} m"
-    )
-
-
-def _endpoints(rk4: pd.DataFrame, euler: pd.DataFrame):
-    return rk4.iloc[0], rk4.iloc[-1], euler.iloc[-1], endpoint_label(euler, "Euler")
-
-
-def _draw_trajectory(ax, waypoints: pd.DataFrame, x_col: Any, y_col: Any, rk4: pd.DataFrame, euler: pd.DataFrame) -> None:
-    start, rk4_finish, euler_end, euler_label = _endpoints(rk4, euler)
-    ax.plot(waypoints[x_col], waypoints[y_col], linestyle="--", linewidth=0.9, color="#AAAAAA", label="Reference path", zorder=1)
-    ax.plot(rk4["x_m"], rk4["y_m"], linewidth=1.5, color=C["rk4"], label="RK4", zorder=2)
-    ax.plot(euler["x_m"], euler["y_m"], linewidth=1.5, color=C["euler"], label="Euler", zorder=2)
-    ax.plot(start["x_m"], start["y_m"], "o", markerfacecolor="none", markeredgecolor=C["neutral"], markersize=11,
-            markeredgewidth=1.2, label="Start", zorder=4)
-    ax.plot(rk4_finish["x_m"], rk4_finish["y_m"], "s", color=C["rk4"], markersize=5, label="RK4 finish", zorder=3)
-    ax.plot(euler_end["x_m"], euler_end["y_m"], "X", color=C["alarm"], markersize=8, zorder=5)
-    ax.annotate(endpoint_annotation(euler, "Euler"), xy=(euler_end["x_m"], euler_end["y_m"]), xytext=(14, -6),
-                textcoords="offset points", va="top", fontsize=fs.SMALL, color=C["neutral"],
-                arrowprops={"arrowstyle": "-", "lw": 0.6, "color": C["neutral"]})
-    ax.set_xlabel("x [m]")
-    ax.set_ylabel("y [m]")
-    ax.set_aspect("equal", adjustable="datalim")
-    ax.margins(0.06)
-    ax.legend(loc="best")
+INTEGRATORS = (("rk4", "RK4"), ("euler", "Euler"))
+# Summary column, axis label and caption name for the metric panels.
+METRICS = (("Final time [s]", "Final time [s]", "final time"),
+           ("RMS CTE [m]", "RMS cross-track error [m]", "RMS cross-track error"),
+           ("Max CTE [m]", "Peak cross-track error [m]", "peak cross-track error"),
+           ("Mean speed [m/s]", "Mean speed [m/s]", "mean speed"))
+LINE_STYLES = " RK4 is solid and Euler dashed."
+CTE_STYLES = LINE_STYLES + " The RK4 second pass is dash-dot."
+SOURCES = "Sources: runs/first_lap/telemetry.csv and examples/example_waypoints.csv."
 
 
 def _passes(group: pd.DataFrame) -> list[pd.DataFrame]:
@@ -297,118 +249,169 @@ def _passes(group: pd.DataFrame) -> list[pd.DataFrame]:
     return [part for part in np.split(group, wraps) if not part.empty]
 
 
-def _draw_tracking_error(ax, rk4: pd.DataFrame, euler: pd.DataFrame) -> None:
-    _, _, euler_end, euler_label = _endpoints(rk4, euler)
-    for number, part in enumerate(_passes(rk4), start=1):
-        ax.plot(part["progress_m"], part["abs_cte_m"], linewidth=1.1 if number == 1 else 0.8, color=C["rk4"],
-                alpha=1.0 if number == 1 else 0.5, label=f"RK4, pass {number}")
-    for number, part in enumerate(_passes(euler), start=1):
-        ax.plot(part["progress_m"], part["abs_cte_m"], linewidth=1.1, color=C["euler"], label=f"Euler, pass {number}")
-    ax.plot(euler_end["progress_m"], euler_end["abs_cte_m"], "X", color=C["alarm"], markersize=8, zorder=4)
-    ax.annotate(f"Euler {euler_label.split(' ', 1)[1]} at {euler_end['time_s']:.2f} s", (euler_end["progress_m"], euler_end["abs_cte_m"]),
-                xytext=(8, 0), textcoords="offset points", ha="left", va="center", fontsize=fs.SMALL, color=C["euler"])
+def _collided(group: pd.DataFrame) -> bool:
+    return bool(pd.to_numeric(group["collision"], errors="coerce").fillna(0).max() > 0)
+
+
+def _end_marker(ax, x, y, collided: bool) -> None:
+    """Run end: filled for the Gym's normal stop, hollow for a collision."""
+    ax.plot(x, y, marker="s" if collided else "o", mfc=fs.FILL[not collided], zorder=4, **fs.MARKER)
+
+
+def _draw_trajectory(ax, waypoints: pd.DataFrame, x_col: Any, y_col: Any, group: pd.DataFrame, entity: str) -> None:
+    fs.line(ax, waypoints[x_col], waypoints[y_col], "path", zorder=1)
+    fs.line(ax, group["x_m"], group["y_m"], entity, zorder=2)
+    end = group.iloc[-1]
+    _end_marker(ax, end["x_m"], end["y_m"], _collided(group))
+    ax.set_xlabel("$x$ [m]")
+    ax.set_ylabel("$y$ [m]")
+    xs = pd.concat([waypoints[x_col], group["x_m"]])
+    ys = pd.concat([waypoints[y_col], group["y_m"]])
+    pad = 0.05 * max(xs.max() - xs.min(), ys.max() - ys.min())
+    ax.set(xlim=(xs.min() - pad, xs.max() + pad), ylim=(ys.min() - pad, ys.max() + pad))
+    ax.set_aspect("equal", adjustable="box")
+
+
+def _draw_tracking_error(ax, group: pd.DataFrame, entity: str) -> None:
+    for number, part in enumerate(_passes(group), start=1):
+        fs.line(ax, part["progress_m"], part["abs_cte_m"], entity if number == 1 else "second_pass")
+    if _collided(group):
+        end = group.iloc[-1]
+        _end_marker(ax, end["progress_m"], end["abs_cte_m"], True)
     ax.set_xlabel("Progress along path [m]")
-    ax.set_ylabel("|Cross-track error| [m]")
-    ax.set_xlim(left=0)
-    ax.set_ylim(0, max(rk4["abs_cte_m"].max(), euler["abs_cte_m"].max()) * 1.12)
-    ax.legend(loc="center right")
+    ax.set_ylabel("$|$Cross-track error$|$ [m]")
 
 
-TABLE_COLUMNS = [  # summary column -> (header, numeric)
-    ("Integrator", "Integrator", False),
-    ("Termination", "End of run", False),
-    ("Final time [s]", "Final\ntime [s]", True),
-    ("Collision", "Collision", False),
-    ("RMS CTE [m]", "RMS cross-\ntrack error [m]", True),
-    ("Max CTE [m]", "Peak cross-\ntrack error [m]", True),
-    ("Mean speed [m/s]", "Mean\nspeed [m/s]", True),
-]
+def _shared_limits(axes, rk4: pd.DataFrame, euler: pd.DataFrame) -> None:
+    top = max(rk4["abs_cte_m"].max(), euler["abs_cte_m"].max()) * 1.08
+    right = max(rk4["progress_m"].max(), euler["progress_m"].max()) * 1.02
+    for ax in axes:
+        ax.set(xlim=(0, right), ylim=(0, top))
 
 
-def _draw_table(ax, summary: pd.DataFrame) -> None:
-    table_df = format_summary_for_table(summary)
-    table_df["Int."] = table_df["Int."].map(lambda value: "Euler" if value == "EULER" else value)
-    ax.axis("off")
-    headers = [header for _, header, _ in TABLE_COLUMNS]
-    numeric = [is_numeric for _, _, is_numeric in TABLE_COLUMNS]
-    table = ax.table(cellText=table_df.values, colLabels=headers, loc="center", cellLoc="left", edges="horizontal",
-                     colWidths=[0.12, 0.15, 0.12, 0.12, 0.17, 0.17, 0.15])
-    table.auto_set_font_size(False)
-    table.set_fontsize(fs.SMALL)
-    table.scale(1.0, 1.5)
-    for (row, col), cell in table.get_celld().items():
-        cell.set_edgecolor(C["neutral"])
-        cell.set_linewidth(0.6 if row <= 1 else 0.0)
-        cell.get_text().set_horizontalalignment("right" if numeric[col] else "left")
-        cell.PAD = 0.04
-        if row == 0:
-            cell.set_height(cell.get_height() * 1.6)
-    for col in range(len(headers)):
-        table[len(table_df), col].visible_edges = "B"
-        table[len(table_df), col].set_linewidth(0.6)
+def _handles(rk4: pd.DataFrame, euler: pd.DataFrame, cte: bool, path: bool) -> list:
+    handles = [fs.handle("rk4", "RK4", marker=False), fs.handle("euler", "Euler", marker=False)]
+    if path:
+        handles.append(fs.handle("path", "Reference path"))
+    if cte and len(_passes(rk4)) > 1:
+        handles.append(fs.handle("second_pass", "RK4, second pass"))
+    handles.append(Line2D([], [], marker="o", mfc=fs.FILL[True], label="Run end", **fs.MARKER))
+    handles.append(Line2D([], [], marker="s", mfc=fs.FILL[False], label="Collision", **fs.MARKER))
+    return handles
 
 
-def _note() -> str:
-    return ("One run per integrator, same map, waypoints and pure-pursuit controller; only the integrator differs. "
-            "The Gym stops a completed run after two passes of the path, so RK4 progress wraps once. "
-            "This is a closed-loop integrator sensitivity check, not yet a derived bicycle-model comparison.")
+def facts(telemetry: pd.DataFrame) -> dict[str, Any]:
+    """Values the captions state, read from the telemetry and checked before drawing."""
+    rk4, euler = trajectory_group(telemetry, "rk4"), trajectory_group(telemetry, "euler")
+    summary = summarize_run(telemetry).set_index("Integrator")
+    assert not _collided(rk4) and _collided(euler), "caption assumes RK4 completes and Euler collides"
+    for column in ("RMS CTE [m]", "Max CTE [m]"):
+        assert summary.loc["RK4", column] < summary.loc["EULER", column]
+    rk4_end, euler_end = rk4.iloc[-1], euler.iloc[-1]
+    return {"rk4": rk4, "euler": euler, "summary": summary,
+            "passes": len(_passes(rk4)), "rk4_stop": str(rk4_end["termination_reason"]).replace("_", " "),
+            "rk4_time": float(rk4_end["time_s"]), "euler_time": float(euler_end["time_s"]),
+            "euler_progress": float(euler_end["progress_m"])}
 
 
-def _takeaway(rk4: pd.DataFrame, euler: pd.DataFrame) -> str:
-    _, rk4_finish, euler_end, euler_label = _endpoints(rk4, euler)
-    euler_event = "collides" if euler_label.endswith("collision") else f"stops ({euler_label.split(' ', 1)[1]})"
-    return (f"Euler {euler_event} after {euler_end['time_s']:.2f} s, {euler_end['progress_m']:.1f} m along the path; "
-            f"RK4 runs to the Gym's {rk4_finish['termination_reason'].replace('_', ' ')} stop at {rk4_finish['time_s']:.1f} s")
+def _finding(f: dict[str, Any]) -> str:
+    return (f"Euler collides after {f['euler_time']:.2f} s, {f['euler_progress']:.1f} m along the path; RK4 runs "
+            f"to the Gym's {f['rk4_stop']} stop at {f['rk4_time']:.1f} s.")
 
 
-def _summary_title(summary: pd.DataFrame) -> str:
-    rows = summary.set_index("Integrator")
-    rk4, euler = rows.loc["RK4"], rows.loc["EULER"]
-    assert rk4["RMS CTE [m]"] < euler["RMS CTE [m]"] and rk4["Max CTE [m]"] < euler["Max CTE [m]"]
-    end = "collides" if euler["Collision"] else "stops"
-    return f"Euler {end} at {euler['Final time [s]']:.2f} s; RK4 finishes the run with lower RMS and peak tracking error"
+def _summary_values(f: dict[str, Any]) -> str:
+    s = f["summary"]
+    parts = []
+    for key, label in (("RK4", "RK4"), ("EULER", "Euler")):
+        parts.append(f"{label}: final time {s.loc[key, 'Final time [s]']:.3f} s, RMS cross-track error "
+                     f"{s.loc[key, 'RMS CTE [m]']:.3f} m, peak {s.loc[key, 'Max CTE [m]']:.3f} m, mean speed "
+                     f"{s.loc[key, 'Mean speed [m/s]']:.3f} m/s")
+    return "; ".join(parts) + "."
 
 
-def save_trajectory_overlay(waypoints: pd.DataFrame, x_col: Any, y_col: Any, rk4: pd.DataFrame, euler: pd.DataFrame,
-                            output_path: Path) -> None:
-    fig, ax = fs.subplots(height_in=5.0, width_in=6.0)
-    _draw_trajectory(ax, waypoints, x_col, y_col, rk4, euler)
-    fs.title(fig, EVIDENCE, _takeaway(rk4, euler))
-    fs.footnote(fig, _note())
-    fs.save(fig, output_path)
+def _conditions(f: dict[str, Any], styles: str = "") -> str:
+    return ("Simulator output, F1TENTH Gym. One closed-loop run per integrator on the example map with the same "
+            f"waypoints and pure-pursuit controller; only the integrator differs.{styles} "
+            f"The Gym stops a completed run after {f['passes']} passes of the path, so RK4 progress wraps once. "
+            "This is an integrator sensitivity check, not a derived bicycle-model "
+            "comparison; one deterministic run per integrator, so there are no error bars.")
 
 
-def save_tracking_error_plot(rk4: pd.DataFrame, euler: pd.DataFrame, output_path: Path) -> None:
-    fig, ax = fs.subplots(height_in=3.0)
-    _draw_tracking_error(ax, rk4, euler)
-    fs.title(fig, EVIDENCE, _takeaway(rk4, euler))
-    fs.footnote(fig, _note())
-    fs.save(fig, output_path)
+def caption_combined(f: dict[str, Any]) -> str:
+    return ("Panels (a) and (b): RK4 and Euler trajectories on the example map, with the reference path dotted. "
+            "Panels (c) and (d): absolute cross-track error along the path for RK4 and Euler, on the same axes. "
+            "A filled circle marks the end of a run at the Gym's normal stop; a hollow square marks a collision. "
+            f"{_finding(f)} {_summary_values(f)} {_conditions(f, CTE_STYLES)} {SOURCES}")
 
 
-def save_summary_metrics_table(summary: pd.DataFrame, output_path: Path) -> None:
-    fig, ax = fs.subplots(height_in=1.7)
-    _draw_table(ax, summary)
-    fs.title(fig, EVIDENCE, _summary_title(summary))
-    fs.footnote(fig, _note())
-    fs.save(fig, output_path)
+def caption_trajectory(f: dict[str, Any]) -> str:
+    return ("Panel (a): RK4 trajectory; panel (b): Euler trajectory, both on the example map with the reference "
+            "path dotted and the same axes. A filled circle marks the end of the run at the Gym's normal stop; a "
+            f"hollow square marks a collision. {_finding(f)} {_conditions(f, LINE_STYLES)} {SOURCES}")
 
 
-def save_combined_integrator_comparison(waypoints: pd.DataFrame, x_col: Any, y_col: Any, rk4: pd.DataFrame,
-                                        euler: pd.DataFrame, summary: pd.DataFrame, output_path: Path) -> None:
-    fig = fs.figure(height_in=5.6)
-    grid = fig.add_gridspec(2, 2, width_ratios=[1.0, 1.15], height_ratios=[3.2, 1.0])
-    ax_traj, ax_cte, ax_table = fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, :])
-    _draw_trajectory(ax_traj, waypoints, x_col, y_col, rk4, euler)
-    _draw_tracking_error(ax_cte, rk4, euler)
-    _draw_table(ax_table, summary)
-    ax_traj.set_title("Trajectories on the example map")
-    ax_cte.set_title("Tracking error along the path")
-    for letter, ax in zip("ABC", (ax_traj, ax_cte, ax_table)):
-        fs.panel_letter(ax, letter)
-    fs.title(fig, EVIDENCE, _takeaway(rk4, euler))
-    fs.footnote(fig, _note())
-    fs.save(fig, output_path)
+def caption_tracking(f: dict[str, Any]) -> str:
+    return ("Absolute cross-track error along the path for RK4 (a) and Euler (b), on the same axes. The hollow "
+            f"square marks the Euler collision. {_finding(f)} {_conditions(f, CTE_STYLES)} {SOURCES}")
+
+
+def caption_summary(f: dict[str, Any]) -> str:
+    return ("Per-run summary metrics: (a) final time, (b) RMS cross-track error, (c) peak cross-track error and "
+            "(d) mean speed, for RK4 (circles) and Euler (squares). A filled marker is a run that ended at the "
+            "Gym's normal stop; a hollow marker is a run that ended in a collision. Euler ends earlier with higher "
+            f"RMS and peak tracking error. {_summary_values(f)} {_conditions(f)} {SOURCES}")
+
+
+def figure_combined(waypoints: pd.DataFrame, x_col: Any, y_col: Any, f: dict[str, Any]):
+    fig, axes = fs.subplots(2, 2, height_in=5.8, gridspec_kw={"height_ratios": [1.5, 1]})
+    for ax, (key, _) in zip(axes[0], INTEGRATORS):
+        _draw_trajectory(ax, waypoints, x_col, y_col, f[key], key)
+    for ax, (key, _) in zip(axes[1], INTEGRATORS):
+        _draw_tracking_error(ax, f[key], key)
+    _shared_limits(axes[1], f["rk4"], f["euler"])
+    fs.letters(axes.flat)
+    fs.legend(fig, _handles(f["rk4"], f["euler"], cte=True, path=True))
+    return fig
+
+
+def figure_trajectory(waypoints: pd.DataFrame, x_col: Any, y_col: Any, f: dict[str, Any]):
+    fig, axes = fs.subplots(1, 2, height_in=3.4)
+    for ax, (key, _) in zip(axes, INTEGRATORS):
+        _draw_trajectory(ax, waypoints, x_col, y_col, f[key], key)
+    fs.letters(axes)
+    fs.legend(fig, _handles(f["rk4"], f["euler"], cte=False, path=True))
+    return fig
+
+
+def figure_tracking(f: dict[str, Any]):
+    fig, axes = fs.subplots(2, 1, height_in=3.8, sharex=True)
+    for ax, (key, _) in zip(axes, INTEGRATORS):
+        _draw_tracking_error(ax, f[key], key)
+    _shared_limits(axes, f["rk4"], f["euler"])
+    axes[0].set_xlabel("")
+    fs.letters(axes)
+    handles = _handles(f["rk4"], f["euler"], cte=True, path=False)
+    fs.legend(fig, [h for h in handles if h.get_label() != "Run end"])
+    return fig
+
+
+def figure_summary(f: dict[str, Any]):
+    s = f["summary"]
+    fig, axes = fs.subplots(1, len(METRICS), height_in=2.3)
+    for ax, (column, label, _) in zip(axes, METRICS):
+        for x, (key, name) in enumerate(INTEGRATORS):
+            row = s.loc[name.upper()]
+            ax.plot(x, row[column], marker=fs.STYLE[key]["marker"], mfc=fs.FILL[not bool(row["Collision"])],
+                    zorder=3, **fs.MARKER)
+        top = max(s[column])
+        ax.set(xlim=(-0.6, 1.6), ylim=(0, top * 1.25), ylabel=label)
+        ax.set_xticks([0, 1], [name for _, name in INTEGRATORS])
+        ax.yaxis.set_major_locator(MaxNLocator(nbins=4))
+    fs.letters(axes)
+    fs.legend(fig, [Line2D([], [], marker="o", mfc=fs.FILL[True], label="RK4", **fs.MARKER),
+                    Line2D([], [], marker="s", mfc=fs.FILL[True], label="Euler", **fs.MARKER),
+                    Line2D([], [], marker="s", mfc=fs.FILL[False], label="Hollow: collision", **fs.MARKER)])
+    return fig
 
 
 def plot_integrator_comparison(
@@ -419,17 +422,21 @@ def plot_integrator_comparison(
 ) -> None:
     x_col, y_col = infer_xy_columns(waypoints, config, f1tenth_style_waypoints)
     print(f"Using waypoint columns: x={x_col}, y={y_col}")
-
-    rk4 = trajectory_group(telemetry, "rk4")
-    euler = trajectory_group(telemetry, "euler")
-    summary = summarize_run(telemetry)
-
+    f = facts(telemetry)
     fs.apply()
-    TRAJECTORY_PATH.parent.mkdir(parents=True, exist_ok=True)
-    save_combined_integrator_comparison(waypoints, x_col, y_col, rk4, euler, summary, COMBINED_PATH)
-    save_trajectory_overlay(waypoints, x_col, y_col, rk4, euler, TRAJECTORY_PATH)
-    save_tracking_error_plot(rk4, euler, TRACKING_ERROR_PATH)
-    save_summary_metrics_table(summary, SUMMARY_METRICS_PATH)
+    fs.save(figure_combined(waypoints, x_col, y_col, f), COMBINED_PATH, caption_combined(f))
+    fs.save(figure_trajectory(waypoints, x_col, y_col, f), TRAJECTORY_PATH, caption_trajectory(f))
+    fs.save(figure_tracking(f), TRACKING_ERROR_PATH, caption_tracking(f))
+    fs.save(figure_summary(f), SUMMARY_METRICS_PATH, caption_summary(f))
+
+
+def load_inputs():
+    """Telemetry, waypoints and their x/y columns from the committed files."""
+    telemetry = load_telemetry(TELEMETRY_PATH)
+    config = load_map_config(CONFIG_PATH)
+    waypoints, f1tenth_style_waypoints = load_waypoints(WAYPOINTS_PATH, config)
+    x_col, y_col = infer_xy_columns(waypoints, config, f1tenth_style_waypoints)
+    return telemetry, waypoints, x_col, y_col
 
 
 def main() -> None:

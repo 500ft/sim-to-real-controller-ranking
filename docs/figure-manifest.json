@@ -9,57 +9,67 @@
     },
     "note": "Every command below assumes these. PYTHONPATH=gym is required because this repository's own gym/ directory must shadow the third-party gym package for the vendored f110_gym imports to resolve; without it the generators fail at import. MPLBACKEND=Agg is required for headless runs.",
     "numeric_gate": "reports/figures/dynamic_replay_*.png are NOT byte-comparable: the renderer moves glyphs and layout between font builds. Compare runs/dynamic_model_replay/metrics.csv instead, via experiments/test_replay_metrics.py (tolerance 1e-9 relative; observed cross-run spread 1e-15).",
-    "figure_rules": "experiments/figure_style.py sets fonts, colours and 300 dpi output for every generator. redraw_command entries rebuild PNGs from committed run files without a simulation, fit or bag; python experiments/test_report_figures.py checks all of them for overlapping or clipped text."
+    "figure_rules": "experiments/figure_style.py sets Computer Modern type, black-ink marker and line conventions and 600 dpi output for every generator, and refuses to save a figure whose printed items touch. Each rebuilt figure's words live in <stem>.caption.md beside the image. redraw_command entries rebuild PNGs and captions from committed run files without a simulation, fit or bag; python -m unittest discover -s experiments -p 'test_figure_*.py' checks plotted values, canvas text, the overlap audit and captions."
   },
   "figures": [
     {
       "id": "ope-archive-structure",
       "evidence_type": "raw archive structural counts",
       "generator": "experiments/plot_ope_structure.py",
-      "command": "python experiments/plot_ope_structure.py --result runs/ope_qualification/result.json --output runs/ope_qualification/structure.png",
+      "command": "python experiments/plot_ope_structure.py --result runs/ope_qualification/result.json --tables runs/ope_qualification",
       "inputs": [
         "runs/ope_qualification/result.json"
       ],
       "outputs": [
-        "runs/ope_qualification/structure.png",
-        "runs/ope_qualification/structure.svg",
+        "reports/figures/ope_structure.png",
+        "reports/figures/ope_structure.svg",
+        "reports/figures/ope_structure.caption.md",
         "runs/ope_qualification/structure.md",
         "runs/ope_qualification/structure.csv",
         "runs/ope_qualification/loader_aliases.csv"
       ],
       "environment": "requirements-ope-qualification.txt, Python 3.11; overrides historical prerequisites",
-      "caption": "Unfiltered structural counts: recording segments, policy-name strings and terminal-flag alignment. Episode semantics and execution remain unresolved.",
+      "caption": "reports/figures/ope_structure.caption.md",
       "input_sha256": {
         "runs/ope_qualification/result.json": "eafc1c220d3774a10aaba85ed0ce96e42fead88811aeacf419c7c53339693f2b"
       },
-      "notes": "Presentation-only rendering from the frozen result. Qualification script and result provenance are unchanged.",
-      "style": "experiments/figure_style.py"
+      "notes": "Presentation-only rendering from the frozen result. Qualification script and result provenance are unchanged. The figure first published with the census stays frozen under runs/; the generator refuses to write a figure there.",
+      "style": "experiments/figure_style.py",
+      "frozen_outputs": [
+        "runs/ope_qualification/structure.png",
+        "runs/ope_qualification/structure.svg"
+      ]
     },
     {
       "id": "public-command-response",
       "evidence_type": "same-run public-car development fit; uncalibrated frame and timing",
       "generator": "experiments/plot_real_command_response.py",
-      "command": "python experiments/plot_real_command_response.py --run-dir runs/real_command_response --output runs/real_command_response/comparison.png",
+      "command": "python experiments/plot_real_command_response.py --run-dir runs/real_command_response --tables runs/real_command_response",
       "inputs": [
         "runs/real_command_response/comparison.csv",
         "runs/real_command_response/result.json",
         "runs/real_command_response/delay_profile.json"
       ],
       "outputs": [
-        "runs/real_command_response/comparison.png",
-        "runs/real_command_response/comparison.svg",
+        "reports/figures/real_command_response.png",
+        "reports/figures/real_command_response.svg",
+        "reports/figures/real_command_response.caption.md",
         "runs/real_command_response/comparison_metrics.md",
         "runs/real_command_response/comparison_metrics.csv"
       ],
       "environment": "requirements-ope-qualification.txt, Python 3.11; overrides historical prerequisites",
-      "caption": "Motion, commands and existing delay search on the same correlated development samples. No held-out evaluation or uncertainty band.",
-      "notes": "No bag access or refitting. Full CSV retained, with the original display-gap rule; metric table is a generated view of result.json.",
+      "caption": "reports/figures/real_command_response.caption.md",
+      "notes": "No bag access or refitting. Full CSV retained, with the original display-gap rule; metric table is a generated view of result.json. The earlier rendering stays frozen under runs/; the generator refuses to write a figure there.",
       "input_sha256": {
         "runs/real_command_response/comparison.csv": "fe010c7d6fdf5f80b99fb9a8e222a38e5fd2640ccf4c0b4303d1926fe3497ef9",
         "runs/real_command_response/result.json": "d2e2c44dea912ae7fb43d6e743b436135ee7d91be6a1ece9230b847836d03e79",
         "runs/real_command_response/delay_profile.json": "b9ba40bced9cb721ca2f9198870b451e0f9d7d9700f8cb4fa65e5535f3070555"
       },
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "frozen_outputs": [
+        "runs/real_command_response/comparison.png",
+        "runs/real_command_response/comparison.svg"
+      ]
     },
     {
       "id": "integrator-comparison",
@@ -80,7 +90,13 @@
         "runs/first_lap/telemetry.csv",
         "examples/example_waypoints.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/first_integrator_comparison.caption.md",
+        "reports/figures/integrator_trajectory_overlay.caption.md",
+        "reports/figures/integrator_tracking_error_vs_progress.caption.md",
+        "reports/figures/integrator_summary_metrics.caption.md"
+      ]
     },
     {
       "id": "integrator-convergence",
@@ -98,7 +114,11 @@
       "redraw_inputs": [
         "runs/integrator_convergence/convergence_results.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/integrator_convergence_position_error.caption.md",
+        "reports/figures/integrator_convergence_metrics.caption.md"
+      ]
     },
     {
       "id": "dynamic-model-replay",
@@ -117,7 +137,11 @@
         "runs/dynamic_model_replay/replay_trace.csv",
         "runs/dynamic_model_replay/metrics.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/dynamic_replay_yaw_rate_overlay.caption.md",
+        "reports/figures/dynamic_replay_state_errors.caption.md"
+      ]
     },
     {
       "id": "kinematic-model-replay",
@@ -136,7 +160,11 @@
         "runs/model_vs_gym_comparison/replay_trace.csv",
         "runs/model_vs_gym_comparison/metrics.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/model_vs_gym_trajectory_error.caption.md",
+        "reports/figures/model_vs_gym_state_errors.caption.md"
+      ]
     },
     {
       "id": "kinematic-yaw-rate-diagnostic",
@@ -168,7 +196,12 @@
         "runs/sysid_steering_excitation/metadata.json",
         "runs/sysid_steering_excitation/quality_metrics.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/sysid_steering_input.caption.md",
+        "reports/figures/sysid_yaw_response.caption.md",
+        "reports/figures/sysid_speed_hold.caption.md"
+      ]
     },
     {
       "id": "dynamic-parameter-identification",
@@ -187,7 +220,11 @@
         "runs/dynamic_parameter_identification/fit_trace.csv",
         "runs/dynamic_parameter_identification/heldout_replay_trace.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/dynamic_parameter_fit.caption.md",
+        "reports/figures/dynamic_parameter_residuals.caption.md"
+      ]
     },
     {
       "id": "pure-pursuit-sweep",
@@ -207,7 +244,12 @@
         "runs/pure_pursuit_sweep/results.csv",
         "runs/pure_pursuit_sweep/metadata.json"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/pure_pursuit_sweep_rms_cte_heatmap.caption.md",
+        "reports/figures/pure_pursuit_sweep_lap_time_heatmap.caption.md",
+        "reports/figures/pure_pursuit_sweep_regions.caption.md"
+      ]
     },
     {
       "id": "lqr-controller",
@@ -255,7 +297,12 @@
         "runs/ekf_study/summary.csv",
         "runs/ekf_study/metadata.json"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/ekf_position_error_over_time.caption.md",
+        "reports/figures/ekf_rmse_summary.caption.md",
+        "reports/figures/ekf_dropout_zoom.caption.md"
+      ]
     },
     {
       "id": "failure-mode-fmea",
@@ -274,7 +321,11 @@
       "redraw_inputs": [
         "runs/failure_mode_fmea/results.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/fmea_rpn_bar.caption.md",
+        "reports/figures/fmea_detection_signals.caption.md"
+      ]
     },
     {
       "id": "parameter-id-robustness",
@@ -293,7 +344,12 @@
       "redraw_inputs": [
         "runs/parameter_id_robustness/results.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "reports/figures/parameter_id_noise_degradation.caption.md",
+        "reports/figures/parameter_id_latency_degradation.caption.md",
+        "reports/figures/parameter_id_condition_number.caption.md"
+      ]
     },
     {
       "id": "item11-steering-regression",
@@ -311,7 +367,10 @@
         "evidence/item11/telemetry/enriched_bridge.csv",
         "evidence/item11/metrics/enriched_preflight.json"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "evidence/item11/figures/steering_command_vs_achieved.caption.md"
+      ]
     },
     {
       "id": "item11-enriched-identification",
@@ -330,7 +389,11 @@
         "evidence/item11/metrics/enriched_fit/fit_trace.csv",
         "evidence/item11/metrics/enriched_fit/heldout_replay_trace.csv"
       ],
-      "style": "experiments/figure_style.py"
+      "style": "experiments/figure_style.py",
+      "captions": [
+        "evidence/item11/figures/enriched_ros_fit.caption.md",
+        "evidence/item11/figures/enriched_ros_residuals.caption.md"
+      ]
     }
   ],
   "scope_note": "Entries from the simulation and mast studies are historical. The current structural qualification uses its own Python 3.11 requirements; no ranking figure exists.",

@@ -42,9 +42,18 @@ Quality status: `passed`.
 
 ![SysID steering input](figures/sysid_steering_input.png)
 
+Simulator output, F1TENTH Gym, open occupancy map. The steering chirp stays within ±0.064 rad, far inside the ±0.40 rad steering limit, which lies outside the plotted range; saturated fraction 0. Panel (a): commanded steering (dash-dot); panel (b): achieved Gym steering state (solid), on the same axes because the two traces overlap; the dotted line is zero. 0.2 to 2 Hz chirp, 0.04 rad amplitude, 20 s at 2 m/s; n = 2,000 samples. Sources: runs/sysid_steering_excitation/telemetry.csv, runs/sysid_steering_excitation/metadata.json and runs/sysid_steering_excitation/quality_metrics.csv.
+[Caption file](figures/sysid_steering_input.caption.md).
+
 ![SysID yaw response](figures/sysid_yaw_response.png)
 
+Simulator output, F1TENTH Gym, open occupancy map. The chirp excites yaw rate over a 0.57 rad/s range and slip angle over 0.029 rad. Panel (a): Gym yaw rate; panel (b): Gym slip angle; the dotted line is zero. 0.2 to 2 Hz chirp, 0.04 rad amplitude, 20 s at 2 m/s; n = 2,000 Gym states. Sources: runs/sysid_steering_excitation/telemetry.csv, runs/sysid_steering_excitation/metadata.json and runs/sysid_steering_excitation/quality_metrics.csv.
+[Caption file](figures/sysid_yaw_response.caption.md).
+
 ![SysID speed hold](figures/sysid_speed_hold.png)
+
+Simulator output, F1TENTH Gym, open occupancy map. After 0.4 s of start-up, speed stays inside the ±15 % band (shaded) around 2 m/s. Panel (a): commanded speed (dash-dot); panel (b): achieved Gym speed (solid), on the same axes because the two traces overlap once the speed settles. 0.2 to 2 Hz chirp, 0.04 rad amplitude, 20 s at 2 m/s. Mean 1.98 m/s, coefficient of variation 7.3 %; n = 2,000. Sources: runs/sysid_steering_excitation/telemetry.csv, runs/sysid_steering_excitation/metadata.json and runs/sysid_steering_excitation/quality_metrics.csv.
+[Caption file](figures/sysid_speed_hold.caption.md).
 
 ## Limitations
 

@@ -54,7 +54,13 @@ This criterion was selected before interpreting the convergence results.
 
 ![Position error convergence](figures/integrator_convergence_position_error.png)
 
+Simulator output, F1TENTH Gym, RK4 integrator, pure pursuit. Position error shrinks with the timestep; both refinement tolerances hold from 2 ms down. Panel (a): progress-aligned position error against the 0.5 ms run. Panel (b): progress-aligned position change against the next finer timestep, with the RMS tolerance (dotted) and maximum tolerance (dash-dot), 0.05 m and 0.2 m. Circles on solid lines are RMS differences; squares on dashed lines are maximum differences. Both axes are logarithmic. n = 6 timesteps, one closed-loop lap each, so there are no error bars. The 20 ms run collided at 2.24 s, so its values cover a partial lap and are drawn hollow. Source: runs/integrator_convergence/convergence_results.csv.
+[Caption file](figures/integrator_convergence_position_error.caption.md).
+
 ![Convergence metrics](figures/integrator_convergence_metrics.png)
+
+Simulator output, F1TENTH Gym, RK4 integrator, pure pursuit. Every timestep from 10 ms down completes the lap; the 20 ms run collides at 2.24 s. Panels show (a) the progress reached when the run stopped, (b) RMS cross-track error and (c) peak absolute cross-track error against the RK4 timestep (logarithmic axis). Filled circles are completed laps; a hollow circle is a collided run, whose errors cover a partial lap and are not peers of the completed laps. n = 6 timesteps, one closed-loop lap each, so there are no error bars. Source: runs/integrator_convergence/convergence_results.csv.
+[Caption file](figures/integrator_convergence_metrics.caption.md).
 
 ## Selected Timestep
 

@@ -36,7 +36,7 @@ does not replace the authoritative protocol or task ledger.
 
 ## Visual provenance
 
-The README leads with the [structural archive census](../runs/ope_qualification/structure.png).
+The README leads with the [structural archive census](../reports/figures/ope_structure.png).
 Its count axes, generator and inputs are described in [data and figures](data-and-figures.md).
 The former simulation/mast concept diagram is retired; its source is available
 through the [pre-cleanup history](history/README.md#retired-entrypoints-and-plans).
