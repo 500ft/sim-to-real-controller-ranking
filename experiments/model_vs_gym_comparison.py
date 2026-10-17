@@ -283,9 +283,9 @@ This closes the kinematic replay as a structural comparison: the implemented kin
 
 ## Figures
 
-![Kinematic replay trajectory error](figures/model_vs_gym_trajectory_error.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "model_vs_gym_trajectory_error.png", "Kinematic replay trajectory error")}
 
-![Kinematic replay state errors](figures/model_vs_gym_state_errors.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "model_vs_gym_state_errors.png", "Kinematic replay state errors")}
 
 ![Kinematic yaw-rate diagnostic](figures/kinematic_yaw_rate_diagnostic.png)
 
