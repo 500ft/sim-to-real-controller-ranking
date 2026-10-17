@@ -886,16 +886,11 @@ def draw_item11(evidence_dir: Path = ITEM11, figure_dir: Path | None = None) -> 
 
 def item11_steering(enriched: pd.DataFrame, preflight: dict, path: Path) -> Path:
     m = preflight["metrics"]
-    fig, ax = fs.subplots(height_in=2.6)
-    fs.line(ax, enriched["time_s"], enriched["steer_rad"], "reference", zorder=2)
-    fs.line(ax, enriched["time_s"], enriched["command_steer_rad"], "command", zorder=3)
-    fs.zero_line(ax)
-    ax.set_xlabel("Simulator time [s]")
-    ax.set_ylabel("Steering angle [rad]")
-    fs.legend(fig, [fs.handle("command", "Commanded", marker=False), fs.handle("reference", "Achieved (native state)", marker=False)])
+    fig, _ = command_and_state(enriched, "command_steer_rad", "steer_rad", "Steering [rad]", "Simulator time [s]", 3.4)
     caption = (f"{SIMULATOR_ROS}. Achieved steering follows the command within {m['command_achieved_rmse_rad']:.3f} rad "
-               f"RMSE (maximum {m['command_achieved_max_abs_rad']:.3f} rad). Commanded steering is dash-dot and the "
-               "achieved native steering state is solid; the dotted line is zero. "
+               f"RMSE (maximum {m['command_achieved_max_abs_rad']:.3f} rad). Panel (a): commanded steering (dash-dot); panel "
+               "(b): achieved native steering state (solid), on the same axes because the two traces overlap; the "
+               "dotted line is zero. "
                f"Enriched bridge bag, n = {len(enriched):,} samples. Best command shift "
                f"{int(m['best_command_lag_samples'])} samples ({m['best_command_lag_s']:.3f} s). Simulator steering "
                "controller, not a physical actuator. Sources: evidence/item11/telemetry/enriched_bridge.csv and "

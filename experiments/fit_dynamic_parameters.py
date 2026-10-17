@@ -426,9 +426,9 @@ Acceptance checks:
 
 ## Figures
 
-![Dynamic parameter fit]({fit_figure})
+{report_figures.fs.caption_markdown(FIT_FIGURE_PATH, "Dynamic parameter fit", os.path.dirname(fit_figure))}
 
-![Held-out residuals]({residual_figure})
+{report_figures.fs.caption_markdown(RESIDUAL_FIGURE_PATH, "Held-out residuals", os.path.dirname(residual_figure))}
 
 ## Interpretation
 

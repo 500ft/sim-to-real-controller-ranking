@@ -36,6 +36,9 @@ The fit uses the raw native achieved state without smoothing or upsampling. This
 
 ![Command and achieved steering](figures/steering_command_vs_achieved.png)
 
+Simulator-backed ROS 2 capture, F1TENTH Gym. Achieved steering follows the command within 0.019 rad RMSE (maximum 0.044 rad). Panel (a): commanded steering (dash-dot); panel (b): achieved native steering state (solid), on the same axes because the two traces overlap; the dotted line is zero. Enriched bridge bag, n = 1,993 samples. Best command shift 2 samples (0.020 s). Simulator steering controller, not a physical actuator. Sources: evidence/item11/telemetry/enriched_bridge.csv and evidence/item11/metrics/enriched_preflight.json.
+[Caption file](figures/steering_command_vs_achieved.caption.md).
+
 ## Timing and Topic Quality
 
 | Source | Overlap | RTF | State/odom rate | Steering source | Collision |

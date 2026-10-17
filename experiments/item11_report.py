@@ -69,7 +69,7 @@ The simulator has a two-sample command buffer and a bang-bang steering controlle
 
 The fit uses the raw native achieved state without smoothing or upsampling. This demonstrates correct transport and consumption of an achieved-steering channel in simulation; it does not validate a physical actuator.
 
-![Command and achieved steering](figures/steering_command_vs_achieved.png)
+{report_figures.fs.caption_markdown(EVIDENCE / "figures" / "steering_command_vs_achieved.png", "Command and achieved steering")}
 
 ## Timing and Topic Quality
 
