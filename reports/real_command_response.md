@@ -14,26 +14,27 @@ stopped before opening another bag: acquisition-session and segment membership
 remain undocumented. The [roadmap](../ROADMAP.md) retains that blocker and the
 unanswered K2 disposition; neither closure nor resumed fitting is implied.
 
-![Same-run development comparison: tracking-frame motion and fitted response, retained commands on a separate axis, and the existing delay search with its selected minimum](../runs/real_command_response/comparison.png)
+![Same-run development comparison: tracking-frame motion and fitted response, retained commands on a separate axis, and the existing delay search with its selected minimum](figures/real_command_response.png)
 
-*All retained samples are drawn, with breaks at the original display-gap rule.
-Line styles and markers distinguish the traces; the RMSE axis includes zero.
-No confidence band is available.
-[SVG](../runs/real_command_response/comparison.svg) ·
+Public driving data, same-run development: one licensed run, fitted and scored on the same correlated samples. The delay + affine fit reaches 0.386 m/s RMSE against Vicon motion, lowest at 0.22 s apparent delay on this run. Panel (a): forward velocity from Vicon in the tracking axes (solid) and the delay + affine fit (dashed). Panel (b): commanded forward velocity for the retained samples; the dotted line is zero. Panel (c): development RMSE across the delay search from 0 to 1 s, with the no-delay affine RMSE (0.556 m/s) dotted and the selected delay as a filled circle; the RMSE axis starts at zero. All 7,891 retained samples are drawn, with breaks across excluded intervals. Frame alignment and timing remain uncalibrated; apparent delay includes the measurement and control chain; there is no held-out evaluation or uncertainty band. Sources: runs/real_command_response/comparison.csv, result.json and delay_profile.json.
+[Caption file](figures/real_command_response.caption.md) ·
+[SVG](figures/real_command_response.svg) ·
 [Accessible baseline table](../runs/real_command_response/comparison_metrics.md) ·
-[Full-precision metric CSV](../runs/real_command_response/comparison_metrics.csv).*
+[Full-precision metric CSV](../runs/real_command_response/comparison_metrics.csv).
+The earlier rendering stays at `runs/real_command_response/comparison.png` with the frozen run.
 
 ## Redraw without data acquisition or fitting
 
 ```bash
 python experiments/plot_real_command_response.py \
   --run-dir runs/real_command_response \
-  --output runs/real_command_response/comparison.png
+  --tables runs/real_command_response
 ```
 
 Use Python 3.11 with `requirements-ope-qualification.txt`. This presentation-only
-command reads the committed motion CSV, result and delay profile. It writes PNG,
-SVG and metric tables. The original analysis script and numerical derivatives
+command reads the committed motion CSV, result and delay profile. It writes the PNG
+and SVG figure with its caption to `reports/figures/real_command_response.*` and the
+metric tables to the `--tables` directory; it refuses to write a figure under `runs/`. The original analysis script and numerical derivatives
 remain unchanged; its original plot is superseded by this redraw. The bag-based
 analysis instructions below are historical reproduction, not part of this redraw.
 

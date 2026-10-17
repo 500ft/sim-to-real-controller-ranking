@@ -15,13 +15,12 @@ reference ranking. ZIP terms and historical simulator identity remain unverified
 [Results](#results) · [Roadmap](ROADMAP.md) · [Quick start](#quick-start) ·
 [Qualification report](reports/ope_qualification.md) · [History](docs/history/README.md)
 
-![Structural census of five pinned archives: recording segments, policy-name strings and terminal-flag alignment; real-v1 has flags before segment ends](runs/ope_qualification/structure.png)
+![Structural census of five pinned archives: recording segments, policy-name strings and terminal-flag alignment](reports/figures/ope_structure.png)
 
-*Historical census at the original source pins. Unfiltered counts from [result.json](runs/ope_qualification/result.json).
-Panel C separates flagged rows at recording ends from flags within recordings.
-Segments do not establish independent episodes; names do not establish execution eligibility.
+Historical census at the original source pins. F110 archives, structural census of unfiltered records; episode meaning and policy execution are unresolved. Real stochastic v2 has the most recording segments (1,375); archives hold 8 to 57 policy-name strings each; Real v1 alone raises flags before a segment ends (10,502 rows). Panel (a): recording segments per archive (circles). Panel (b): exact policy-name strings per archive (squares). Panel (c): rows with done OR truncated, each counted once and split into flags at a segment end (filled) and before a segment end (hollow). All count axes are linear and start at zero. Per archive, with flagged rows as at end + before end: Real v0 213 segments, 8 names, 213 + 0 flagged rows; Sim v0 213 segments, 8 names, 213 + 0 flagged rows; Real v1 311 segments, 29 names, 311 + 10,502 flagged rows; Sim v1 298 segments, 29 names, 298 + 0 flagged rows; Real stochastic v2 1,375 segments, 57 names, 1,375 + 0 flagged rows. Resets do not establish independent episodes, and name matches do not establish executable policies. Counts only; no return or ranking analysis. Archive filenames and sources: runs/ope_qualification/structure.md. Source: runs/ope_qualification/result.json.
+[Caption file](reports/figures/ope_structure.caption.md) ·
 [Accessible tables and archive identities](runs/ope_qualification/structure.md) ·
-[SVG](runs/ope_qualification/structure.svg).*
+[SVG](reports/figures/ope_structure.svg).
 
 ## Results
 

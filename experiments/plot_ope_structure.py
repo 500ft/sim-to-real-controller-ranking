@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render structural figures and tables from the committed result, without archives."""
+"""Render the structural figure, its caption and tables from the committed result, without archives."""
 import argparse
 import csv
 import json
@@ -7,8 +7,9 @@ from pathlib import Path
 
 from matplotlib.ticker import MaxNLocator, StrMethodFormatter
 
+from matplotlib.patches import Patch
+
 import figure_style as fs
-from figure_style import COLORS as C
 
 # Pair real/sim versions; the final archive has no corresponding sim-v2 file.
 ARCHIVES = {
@@ -20,60 +21,75 @@ ARCHIVES = {
 }
 
 
-SEGMENT_COLOR, NAME_COLOR = '#2980b9', '#7d3c98'
+REPO_ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = REPO_ROOT / 'reports' / 'figures' / 'ope_structure.png'
+FROZEN = REPO_ROOT / 'runs'
+
+
+def counts(result):
+    """Per-archive counts in figure order: segments, policy names, flags at and before a segment end."""
+    archives = result['archives']
+    rows = []
+    for name, label in ARCHIVES.items():
+        a = archives[name]
+        early = a['flags_before_segment_end']
+        rows.append(dict(label=label, segments=a['segments'], names=a['policy_names'],
+                         at_end=a['done_or_truncated_rows'] - early, early=early))
+    return rows
+
+
+def caption(result):
+    rows = counts(result)
+    most = max(rows, key=lambda r: r['segments'])
+    flagged = [r for r in rows if r['early']]
+    names = [r['names'] for r in rows]
+    listing = '; '.join(f"{r['label']} {r['segments']:,} segments, {r['names']:,} names, {r['at_end']:,} + "
+                        f"{r['early']:,} flagged rows" for r in rows)
+    early = (f"{' and '.join(r['label'] for r in flagged)} alone raises flags before a segment ends "
+             f"({sum(r['early'] for r in flagged):,} rows)" if len(flagged) == 1 else
+             f"{len(flagged)} archives raise flags before a segment ends")
+    return ('Historical census at the original source pins. F110 archives, structural census of unfiltered '
+            f'records; episode meaning and policy execution are unresolved. {most["label"]} has the most recording segments ({most["segments"]:,}); archives hold '
+            f'{min(names):,} to {max(names):,} policy-name strings each; {early}. Panel (a): recording segments '
+            'per archive (circles). Panel (b): exact policy-name strings per archive (squares). Panel (c): rows '
+            'with done OR truncated, each counted once and split into flags at a segment end (filled) and before '
+            'a segment end (hollow). All count axes are linear and start at zero. Per archive, with flagged rows as at end + before end: '
+            f'{listing}. Resets do not establish independent episodes, and name matches do not establish executable '
+            'policies. Counts only; no return or ranking analysis. Archive filenames and sources: runs/ope_qualification/structure.md. '
+            'Source: runs/ope_qualification/result.json.')
 
 
 def render_figure(result):
-    archives = result['archives']
-    names = list(ARCHIVES)
-    labels = list(ARCHIVES.values())
-    fig = fs.figure(height_in=6.2)
-    grid = fig.add_gridspec(2, 2, height_ratios=[1, 1.1])
+    rows = counts(result)
+    labels = [r['label'] for r in rows]
+    y = range(len(rows))
+    fig = fs.figure(height_in=5.2)
+    grid = fig.add_gridspec(2, 2, height_ratios=[1, 1])
     axes = [fig.add_subplot(grid[0, 0]), fig.add_subplot(grid[0, 1]), fig.add_subplot(grid[1, :])]
-    segments = [archives[n]['segments'] for n in names]
-    policy = [archives[n]['policy_names'] for n in names]
-    most = labels[segments.index(max(segments))]
-    for ax, values, title, color, marker in zip(
-        axes[:2], [segments, policy],
-        [f'{most}: most segments ({max(segments):,})',
-         f'{min(policy):,} to {max(policy):,} policy-name strings per archive'],
-        [SEGMENT_COLOR, NAME_COLOR], ['o', 's'],
-    ):
-        ax.hlines(range(len(names)), 0, values, color=color, linewidth=1.5)
-        ax.plot(values, range(len(names)), marker, color=color, markersize=5)
-        for y, value in enumerate(values):
-            ax.annotate(f'{value:,}', (value, y), xytext=(6, 0), textcoords='offset points', va='center',
-                        fontsize=fs.SMALL)
-        ax.set_xlim(0, max(values)*1.3)
+    for ax, key, shape, xlabel in zip(axes[:2], ('segments', 'names'), ('o', 's'),
+                                     ('Recording segments [count]', 'Policy-name strings [count]')):
+        values = [r[key] for r in rows]
+        for yi, value in zip(y, values):
+            ax.plot([0, value], [yi, yi], color=fs.INK, lw=0.5, zorder=1)
+        ax.plot(values, list(y), marker=shape, mfc=fs.FILL[True], zorder=3, **fs.MARKER)
+        ax.set_xlim(0, max(values) * 1.1)
         ax.xaxis.set_major_locator(MaxNLocator(4))
-        ax.set_xlabel('Recording segments [count]' if values is segments else 'Policy-name strings [count]')
-        ax.set_title(title)
-    axes[1].tick_params(labelleft=False)
+        ax.set_xlabel(xlabel)
     ax = axes[2]
-    early = [archives[n]['flags_before_segment_end'] for n in names]
-    at_end = [archives[n]['done_or_truncated_rows']-e for n, e in zip(names, early)]
-    ax.barh(range(len(names)), at_end, height=.48, color=SEGMENT_COLOR, label='At segment end')
-    ax.barh(range(len(names)), early, left=at_end, height=.48, color=C['alarm'], edgecolor='white',
-            hatch='////', label='Before segment end')
-    for y, (end, before) in enumerate(zip(at_end, early)):
-        ax.annotate(f'{end:,} + {before:,}', (end+before, y), xytext=(6, 0), textcoords='offset points',
-                    va='center', fontsize=fs.SMALL)
-    ax.set_xlim(0, max(a+b for a, b in zip(at_end, early))*1.27)
+    at_end = [r['at_end'] for r in rows]
+    early = [r['early'] for r in rows]
+    ax.barh(list(y), at_end, height=.48, color=fs.FILL[True], edgecolor=fs.INK, linewidth=0.8)
+    ax.barh(list(y), early, left=at_end, height=.48, color=fs.FILL[False], edgecolor=fs.INK, linewidth=0.8)
+    ax.set_xlim(0, max(a + b for a, b in zip(at_end, early)) * 1.05)
     ax.set_xlabel('Rows with done OR truncated [count]')
-    flagged = [label for label, e in zip(labels, early) if e]
-    ax.set_title(f'{" and ".join(flagged)} alone raises flags before a segment ends ({sum(early):,} rows)'
-                 if len(flagged) == 1 else 'Flag alignment with structural boundaries')
-    ax.legend(loc='lower right')
-    for letter, ax in zip('ABC', axes):
-        ax.set_yticks(range(len(names)), labels)
-        ax.set_ylim(len(names)-.5, -.5)
-        ax.grid(axis='y', visible=False)
+    for ax in axes:
+        ax.set_yticks(list(y), labels)
+        ax.set_ylim(len(rows) - .5, -.5)
         ax.xaxis.set_major_formatter(StrMethodFormatter('{x:,.0f}'))
-        fs.panel_letter(ax, letter)
-    fs.title(fig, 'F110 archives | STRUCTURAL CENSUS',
-             'Unfiltered records; episode meaning and policy execution unresolved')
-    fs.footnote(fig, 'Resets do not establish independent episodes. Name matches do not establish executable policies.\n'
-                     'Counts only; no return or ranking analysis. Archive filenames and sources: structure.md.')
+    axes[1].tick_params(labelleft=False)
+    fs.letters(axes)
+    fs.legend(fig, [Patch(facecolor=fs.FILL[True], edgecolor=fs.INK, label='Flag at segment end'),
+                    Patch(facecolor=fs.FILL[False], edgecolor=fs.INK, label='Flag before segment end')])
     return fig
 
 
@@ -156,13 +172,17 @@ def render_tables(result, directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--result', type=Path, required=True)
-    parser.add_argument('--output', type=Path, required=True, help='PNG path; SVG and tables saved beside it')
+    parser.add_argument('--output', type=Path, default=OUTPUT, help='PNG path; SVG and caption saved beside it')
+    parser.add_argument('--tables', type=Path, help='directory for structure.md and the CSV tables (not written by default)')
     args = parser.parse_args()
+    # runs/ holds the frozen 2026 census and its original figure; the live figure lives in reports/figures.
+    if args.output.resolve().is_relative_to(FROZEN):
+        parser.error(f'{args.output} is under runs/, which is frozen; write the figure elsewhere')
     result = json.loads(args.result.read_text())
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     fs.apply(hashsalt='racing-structure')
-    fs.save(render_figure(result), args.output, ('png', 'svg'))
-    render_tables(result, args.output.parent)
+    fs.save(render_figure(result), args.output, caption(result), ('png', 'svg'))
+    if args.tables:
+        render_tables(result, args.tables)
 
 
 if __name__ == '__main__':

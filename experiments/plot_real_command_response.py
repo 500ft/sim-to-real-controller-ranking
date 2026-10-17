@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Redraw the retained development result from derivatives, without bags or fitting."""
+"""Redraw the retained development result and its caption from derivatives, without bags or fitting."""
 import argparse
 import csv
 import json
@@ -7,61 +7,69 @@ from pathlib import Path
 
 import numpy as np
 
+from matplotlib.lines import Line2D
+
 import figure_style as fs
-from figure_style import COLORS as C
+
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+OUTPUT = REPO_ROOT / 'reports' / 'figures' / 'real_command_response.png'
+FROZEN = REPO_ROOT / 'runs'
+
+
+def with_gaps(samples, field):
+    """Insert NaN at the original 0.05 s display-gap rule so excluded intervals break the trace."""
+    t = samples['elapsed_s']
+    gaps = np.flatnonzero(np.diff(t) > .05)+1
+    return np.insert(t, gaps, np.nan), np.insert(samples[field], gaps, np.nan)
+
+
+def caption(profile, result):
+    best, base = result['delay_affine'], result['no_delay_affine']
+    lags = [p['lag_s'] for p in profile]
+    return ('Public driving data, same-run development: one licensed run, fitted and scored on the same correlated '
+            f"samples. The delay + affine fit reaches {best['rmse_m_s']:.3f} m/s RMSE against Vicon motion, lowest at "
+            f"{best['lag_s']:.2f} s apparent delay on this run. Panel (a): forward velocity from Vicon in the "
+            'tracking axes (solid) and the delay + affine fit (dashed). Panel (b): commanded forward velocity for the '
+            'retained samples; the dotted line is zero. Panel (c): '
+            f'development RMSE across the delay search from {min(lags):g} to {max(lags):g} s, with the no-delay '
+            f"affine RMSE ({base['rmse_m_s']:.3f} m/s) dotted and the selected delay as a filled circle; the RMSE axis "
+            f"starts at zero. All {result['sample_count']:,} retained samples are drawn, with breaks across excluded "
+            'intervals. Frame alignment and timing remain uncalibrated; apparent delay includes the measurement and '
+            'control chain; there is no held-out evaluation or uncertainty band. Sources: '
+            'runs/real_command_response/comparison.csv, result.json and delay_profile.json.')
 
 
 def render_figure(samples, profile, result):
-    fig, axes = fs.subplots(3, 1, height_in=6.6, gridspec_kw={'height_ratios': [1.5, .7, 1.2]})
-    t = samples['elapsed_s']
-    # Preserve the original 0.05 s display-gap rule and every committed CSV row.
-    gaps = np.flatnonzero(np.diff(t) > .05)+1
-    time = np.insert(t, gaps, np.nan)
-    base = result['no_delay_affine']['rmse_m_s']
+    fig, axes = fs.subplots(3, 1, height_in=6.2, gridspec_kw={'height_ratios': [1.5, .7, 1.2]})
     best = result['delay_affine']
-    for field, label, color, linestyle, marker in [
-        ('tracking_forward_m_s', 'Vicon in tracking axes', C['reference'], '-', 'o'),
-        ('delay_affine_m_s', 'Delay + affine fit', C['delay_affine'], '--', 's'),
-    ]:
-        axes[0].plot(time, np.insert(samples[field], gaps, np.nan), label=label,
-                     color=color, linestyle=linestyle, linewidth=1, marker=marker,
-                     markevery=300, markersize=3)
+    base = result['no_delay_affine']['rmse_m_s']
+    time, motion = with_gaps(samples, 'tracking_forward_m_s')
+    _, fit = with_gaps(samples, 'delay_affine_m_s')
+    _, command = with_gaps(samples, 'command_forward_m_s')
+    fs.line(axes[0], time, motion, 'reference', zorder=2, lw=0.6)
+    fs.line(axes[0], time, fit, 'fit', zorder=3, lw=0.8)
     axes[0].set_ylabel('Forward velocity [m/s]')
-    axes[0].set_title(f"Delay + affine fit against Vicon motion (RMSE {best['rmse_m_s']:.3f} m/s)")
-    axes[0].legend(loc='upper left')
     axes[1].sharex(axes[0])
-    axes[1].plot(time, np.insert(samples['command_forward_m_s'], gaps, np.nan),
-                 color=C['command'], linestyle='-.', linewidth=1, marker='^',
-                 markevery=300, markersize=3)
+    fs.line(axes[1], time, command, 'reference', lw=0.6)
     axes[1].set(ylabel='Command [m/s]', xlabel='Bag elapsed time [s]')
-    axes[1].set_title('Commanded forward velocity, retained samples')
     axes[0].tick_params(labelbottom=False)
     for ax in axes[:2]:
-        ax.axhline(0, color=C['neutral'], linewidth=.6)
+        fs.zero_line(ax)
     ax = axes[2]
     lags = [p['lag_s'] for p in profile]
     errors = [p['rmse_m_s'] for p in profile]
     assert min(errors) == best['rmse_m_s'], 'selected delay is not the profile minimum'
-    ax.plot(lags, errors, color=C['delay_affine'], marker='s', markevery=10, markersize=3, linewidth=1.4)
-    ax.axhline(base, linestyle='--', color=C['neutral'], linewidth=.8,
-               label=f'No-delay affine: {base:.3f} m/s')
-    ax.plot(best['lag_s'], best['rmse_m_s'], 'o', color=C['delay_affine'], markersize=6,
-            markeredgecolor='white', zorder=3)
-    ax.annotate(f"Selected on this run: {best['lag_s']:.2f} s\nRMSE {best['rmse_m_s']:.3f} m/s",
-                xy=(best['lag_s'], best['rmse_m_s']), xytext=(.35, .16),
-                textcoords='axes fraction', arrowprops={'arrowstyle': '-', 'color': C['neutral']},
-                fontsize=fs.SMALL)
-    ax.set(xlabel='Apparent delay on recording clock [s]', ylabel='Development RMSE [m/s]',
-           ylim=(0, max(errors)*1.12))
-    ax.set_title(f"RMSE is lowest at {best['lag_s']:.2f} s apparent delay on this run")
-    ax.legend(loc='upper left')
-    for letter, ax in zip('ABC', axes):
-        fs.panel_letter(ax, letter)
+    ax.plot(lags, errors, color=fs.INK, lw=0.9)
+    ax.axhline(base, zorder=1, **fs.REFERENCE)
+    ax.plot(best['lag_s'], best['rmse_m_s'], marker='o', mfc=fs.FILL[True], zorder=3, **fs.MARKER)
+    ax.set(xlabel='Apparent delay on recording clock [s]', ylabel='Development RMSE [m/s]', ylim=(0, max(errors)*1.12))
     fig.align_ylabels(axes)
-    fs.title(fig, 'Public driving data | SAME-RUN DEVELOPMENT',
-             'One licensed run; fitted and scored on the same correlated samples')
-    fs.footnote(fig, 'Gaps preserve excluded intervals. Frame alignment and timing remain uncalibrated.\n'
-                     'Apparent delay includes the measurement/control chain; no held-out evaluation or uncertainty band.')
+    fs.letters(axes)
+    fs.legend(fig, [fs.handle('reference', 'Vicon, tracking axes', marker=False),
+                    fs.handle('fit', 'Delay + affine fit', marker=False),
+                    Line2D([], [], label='No-delay affine RMSE', **fs.REFERENCE),
+                    Line2D([], [], marker='o', mfc=fs.FILL[True], label='Selected delay', **fs.MARKER)], ncol=2)
     return fig
 
 
@@ -97,15 +105,19 @@ def render_table(result, directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, default=Path('runs/real_command_response'))
-    parser.add_argument('--output', type=Path, required=True, help='PNG path; SVG and metric tables saved beside it')
+    parser.add_argument('--output', type=Path, default=OUTPUT, help='PNG path; SVG and caption saved beside it')
+    parser.add_argument('--tables', type=Path, help='directory for the metric tables (not written by default)')
     args = parser.parse_args()
+    # runs/ holds the frozen development result and its original figure; the live figure lives in reports/figures.
+    if args.output.resolve().is_relative_to(FROZEN):
+        parser.error(f'{args.output} is under runs/, which is frozen; write the figure elsewhere')
     samples = np.genfromtxt(args.run_dir/'comparison.csv', delimiter=',', names=True)
     result = json.loads((args.run_dir/'result.json').read_text())
     profile = json.loads((args.run_dir/'delay_profile.json').read_text())
-    args.output.parent.mkdir(parents=True, exist_ok=True)
     fs.apply(hashsalt='racing-command-response')
-    fs.save(render_figure(samples, profile, result), args.output, ('png', 'svg'))
-    render_table(result, args.output.parent)
+    fs.save(render_figure(samples, profile, result), args.output, caption(profile, result), ('png', 'svg'))
+    if args.tables:
+        render_table(result, args.tables)
 
 
 if __name__ == '__main__':
