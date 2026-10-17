@@ -493,7 +493,7 @@ def main() -> int:
     validation_trace.to_csv(VALIDATION_TRACE_PATH, index=False)
     metrics.to_csv(METRICS_PATH, index=False)
     write_parameters(identified, telemetry)
-    evidence = report_figures.fs.SIMULATOR_ROS if "evidence" in TELEMETRY_PATH.parts else report_figures.fs.SIMULATOR
+    evidence = report_figures.SIMULATOR_ROS if "evidence" in TELEMETRY_PATH.parts else report_figures.SIMULATOR
     report_figures.draw_parameter_fit(RUN_DIR, FIT_FIGURE_PATH, RESIDUAL_FIGURE_PATH, evidence)
     write_report(metrics, checks)
 

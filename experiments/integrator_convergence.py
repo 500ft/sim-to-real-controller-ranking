@@ -454,9 +454,9 @@ This criterion was selected before interpreting the convergence results.
 
 ## Figures
 
-![Position error convergence](figures/integrator_convergence_position_error.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "integrator_convergence_position_error.png", "Position error convergence")}
 
-![Convergence metrics](figures/integrator_convergence_metrics.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "integrator_convergence_metrics.png", "Convergence metrics")}
 
 ## Selected Timestep
 

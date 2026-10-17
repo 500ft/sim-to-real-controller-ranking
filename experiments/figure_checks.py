@@ -26,3 +26,24 @@ class FigureChecks:
             self.assertIn(image.name, body, doc)
             self.assertIn(squash(text), squash(body), doc)
             self.assertIn(fs.caption_path(image).name, body, doc)
+
+
+def capture(draw, *args, **kwargs) -> dict:
+    """Run a draw_* function without writing files: {image name: (figure, caption, path)}."""
+    built = {}
+
+    def record(fig, path, caption, formats=("png",)):
+        built[Path(path).name] = (fig, caption, Path(path))
+        return [Path(path).with_suffix(f".{f}") for f in formats]
+
+    original, fs.save = fs.save, record
+    try:
+        draw(*args, **kwargs)
+    finally:
+        fs.save = original
+    return built
+
+
+def close_all(built: dict) -> None:
+    for fig, _, _ in built.values():
+        fs.plt.close(fig)
