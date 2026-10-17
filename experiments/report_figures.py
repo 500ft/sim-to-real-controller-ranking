@@ -333,21 +333,30 @@ def _chirp_label(metadata: dict) -> str:
             f"{profile['amplitude_rad']:g} rad amplitude, {profile['duration_s']:g} s at {metadata['target_speed_mps']:g} m/s")
 
 
+def command_and_state(df: pd.DataFrame, command: str, state: str, ylabel: str, xlabel: str, height: float,
+                      band: tuple[float, float] | None = None):
+    """Commanded (a) and achieved (b) in separate panels with the same axes: the traces overlap too closely to read."""
+    fig, axes = fs.subplots(2, 1, height_in=height, sharex=True, sharey=True)
+    for ax, column, entity in zip(axes, (command, state), ("command", "reference")):
+        if band is not None:
+            ax.axhspan(*band, zorder=0, **fs.SPAN)
+        fs.line(ax, df["time_s"], df[column], entity, zorder=2, lw=0.6)
+        fs.zero_line(ax)
+        ax.set_ylabel(ylabel)
+    axes[1].set_xlabel(xlabel)
+    fs.letters(axes)
+    return fig, axes
+
+
 def sysid_steering_input(df: pd.DataFrame, metadata: dict, quality: dict, path: Path, source: str) -> Path:
-    fig, ax = fs.subplots(height_in=2.6)
-    fs.line(ax, df["time_s"], df["steer_rad"], "reference", zorder=2)
-    fs.line(ax, df["time_s"], df["command_steer_rad"], "command", zorder=3)
-    fs.zero_line(ax)
-    ax.set_xlabel("Time [s]")
-    ax.set_ylabel("Steering angle [rad]")
-    fs.legend(fig, [fs.handle("command", "Commanded", marker=False), fs.handle("reference", "Achieved (Gym state)", marker=False)])
+    fig, _ = command_and_state(df, "command_steer_rad", "steer_rad", "Steering [rad]", "Time [s]", 3.4)
     peak = float(df[["command_steer_rad", "steer_rad"]].abs().max().max())
     limit = float(metadata["saturation_threshold_rad"])
     caption = (f"{SIMULATOR}, open occupancy map. The steering chirp stays within ±{peak:.3f} rad, far inside the "
                f"±{limit:.2f} rad steering limit, which lies outside the plotted range; saturated fraction "
-               f"{quality['steering_saturation_fraction']:g}. Commanded steering is dash-dot and the achieved Gym "
-               f"steering state is solid; the dotted line is zero. {_chirp_label(metadata)}; "
-               f"n = {int(quality['num_samples']):,} samples. Sources: {source}.")
+               f"{quality['steering_saturation_fraction']:g}. Panel (a): commanded steering (dash-dot); panel (b): "
+               "achieved Gym steering state (solid), on the same axes because the two traces overlap; the dotted "
+               f"line is zero. {_chirp_label(metadata)}; n = {int(quality['num_samples']):,} samples. Sources: {source}.")
     return fs.save(fig, path, caption)[0]
 
 
@@ -373,20 +382,14 @@ def sysid_yaw_response(df: pd.DataFrame, metadata: dict, quality: dict, path: Pa
 def sysid_speed_hold(df: pd.DataFrame, metadata: dict, quality: dict, path: Path, source: str) -> Path:
     target = float(metadata["target_speed_mps"])
     low, high = 0.85 * target, 1.15 * target
-    fig, ax = fs.subplots(height_in=2.6)
-    ax.axhspan(low, high, zorder=0, **fs.SPAN)
-    fs.line(ax, df["time_s"], df["speed_mps"], "reference", zorder=2)
-    fs.line(ax, df["time_s"], df["command_speed_mps"], "command", zorder=3)
-    ax.set_xlabel("Time [s]")
-    ax.set_ylabel("Speed [m/s]")
-    ax.set_ylim(bottom=0)
-    fs.legend(fig, [fs.handle("command", "Commanded", marker=False),
-                    fs.handle("reference", "Achieved (Gym state)", marker=False),
-                    span_handle("$\\pm$15 % band")])
+    fig, axes = command_and_state(df, "command_speed_mps", "speed_mps", "Speed [m/s]", "Time [s]", 3.4, (low, high))
+    axes[0].set_ylim(bottom=0)
+    fs.legend(fig, [span_handle("$\\pm$15 % band around the target speed")])
     outside = df[(df["speed_mps"] < low) | (df["speed_mps"] > high)]
     settle = float(outside["time_s"].max()) if not outside.empty else 0.0
     caption = (f"{SIMULATOR}, open occupancy map. After {settle:.1f} s of start-up, speed stays inside the ±15 % band "
-               f"(shaded) around {target:g} m/s. Commanded speed is dash-dot and the achieved Gym speed is solid. "
+               f"(shaded) around {target:g} m/s. Panel (a): commanded speed (dash-dot); panel (b): achieved Gym speed "
+               "(solid), on the same axes because the two traces overlap once the speed settles. "
                f"{_chirp_label(metadata)}. Mean {quality['speed_mean_mps']:.2f} m/s, coefficient of variation "
                f"{quality['speed_cv'] * 100:.1f} %; n = {int(quality['num_samples']):,}. Sources: {source}.")
     return fs.save(fig, path, caption)[0]

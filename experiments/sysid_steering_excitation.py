@@ -393,11 +393,11 @@ Quality status: `{status}`.
 
 ## Figures
 
-![SysID steering input](figures/sysid_steering_input.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "sysid_steering_input.png", "SysID steering input")}
 
-![SysID yaw response](figures/sysid_yaw_response.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "sysid_yaw_response.png", "SysID yaw response")}
 
-![SysID speed hold](figures/sysid_speed_hold.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "sysid_speed_hold.png", "SysID speed hold")}
 
 ## Limitations
 
