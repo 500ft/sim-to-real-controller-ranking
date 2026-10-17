@@ -31,8 +31,8 @@ The visual reference is the enclosure project's
 [thermal-bias generator](https://github.com/500ft/sensor-enclosure-thermal-design/blob/bad572fc0902437445a5446bb5bc43098cc6211f/analysis/thermal_bias.py)
 and its thermal-bias and transient figures at that commit. The inspected local
 copies matched the owner's pinned SHA-256 hashes. White backgrounds, restrained
-grids, explicit units and coordinated panels follow that reference. Here,
-marker shapes, line styles and hatching also distinguish quantities without color.
+grids, explicit units and coordinated panels follow that reference. Marker
+shapes, line styles and fills distinguish quantities without color.
 The transient reference's dual axes are unnecessary for these results.
 
 | Active view | Rendering choice | Source and status |
@@ -65,19 +65,24 @@ decisions unchanged; contact status is maintained in the
 
 ## Figure rules and redraw
 
-Every generated report figure uses [figure_style.py](../experiments/figure_style.py):
-three font sizes by role, 300 dpi PNG, SVG without timestamps where a figure has
-an SVG, and one colour per entity in every figure. RK4 and the Gym reference
-state are blue, Euler is orange, the kinematic model is pink, the single-track
-dynamic model is green and commands are grey dashed lines. Collision, dropout
-and limit marks use vermillion. Each title states the evidence class on its
-first line and the result on its second; sample size and fixed conditions sit
-under the plot. The owner requested this pass on 2026-10-09
-([decision record](decisions/0002-figure-rules.md)).
+Every generated report figure uses [figure_style.py](../experiments/figure_style.py),
+which follows the cross-repository figure rules the owner approved on 2026-10-16
+(evidence-sufficiency-benchmark PR #26). The canvas carries only data, axes, tick
+labels, axis labels, panel letters (a), (b), ... and one framed legend. Everything
+in words (finding, conditions, sample size, sources) is in `<stem>.caption.md`
+beside each image, and the report paragraph under the image repeats that caption.
+Ink is black: line style and marker shape tell series apart, and marker fill
+carries state (filled for completed or passed, hollow for collided or failed).
+Colour appears only in the two pure-pursuit heatmap fields, with a colour bar;
+their cell numbers are the one text allowed inside a data area. Type is Computer
+Modern (matplotlib's bundled cmr10 with mathtext), PNG output is 600 dpi, and
+`figure_style.save` refuses to write a figure whose printed items touch. The
+2026-10-09 pass ([decision record](decisions/0002-figure-rules.md)) used colour per
+entity and on-canvas titles; this pass replaces those choices.
 
 [report_figures.py](../experiments/report_figures.py) redraws the simulator and
 ROS-capture figures from committed run files. It runs no simulation, fit or bag
-conversion and writes only PNG files. The experiment scripts call the same
+conversion and writes only PNG and caption files. The experiment scripts call the same
 functions after they write their run files, so a full rerun draws the same figure.
 
 ```bash
@@ -86,7 +91,8 @@ PYTHONPATH=gym MPLBACKEND=Agg python experiments/test_report_figures.py
 ```
 
 The test redraws all 29 figures into a scratch directory and fails on
-overlapping or clipped text. Redraw from committed files when only a figure
+touching or clipped text. `python -m unittest discover -s experiments -p 'test_figure_*.py'`
+checks each figure family against its data file, its caption file and the report text. Redraw from committed files when only a figure
 changes: a full rerun of the replay, fit and robustness studies changes their
 CSV values in the last digits on some machines.
 

@@ -50,8 +50,8 @@ PYTHONPATH=gym python experiments/test_report_figures.py
 - Do not replace pending mast or vehicle measurements with FEA output.
 - Keep long MPC and robustness sweeps opt-in in the default pipeline.
 - Draw report figures through `experiments/figure_style.py` and, for simulator
-  figures, `experiments/report_figures.py`, so colours and sizes stay the same
-  across figures.
+  figures, `experiments/report_figures.py`, so type, line styles and sizes stay
+  the same across figures. Put words in the generated caption file, not on the canvas.
 
 ## ROS 2 changes
 
