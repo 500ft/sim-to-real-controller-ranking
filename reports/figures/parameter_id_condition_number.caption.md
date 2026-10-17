@@ -1,0 +1,1 @@
+Simulator output, F1TENTH Gym, perturbed excitation telemetry. The Jacobian condition number stays between 1.1 and 1.8 under every perturbation, far from the acceptance limit of 100. The dotted line marks the ideal value of 1. n = 11 settings, one seeded fit each, so there are no error bars. Source: runs/parameter_id_robustness/results.csv.

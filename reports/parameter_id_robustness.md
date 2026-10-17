@@ -58,6 +58,15 @@ First failed perturbation: `noise_medium` at gate `heldout_yaw_rate`.
 
 ![Noise degradation](figures/parameter_id_noise_degradation.png)
 
+Simulator output, F1TENTH Gym, perturbed excitation telemetry. Cornering-stiffness error rises with every noise step, to 11% front and 21% rear. Relative error of the fitted front (circles, solid) and rear (squares, dashed) cornering stiffness against the Gym value, on a logarithmic axis. Filled markers passed every acceptance gate; hollow markers failed at least one. One seeded fit per setting, so there are no error bars. Source: runs/parameter_id_robustness/results.csv.
+[Caption file](figures/parameter_id_noise_degradation.caption.md).
+
 ![Latency degradation](figures/parameter_id_latency_degradation.png)
 
+Simulator output, F1TENTH Gym, perturbed excitation telemetry. Every tested latency fails parameter recovery: front error 44% to 89%, rear 5% to 17%. Relative error of the fitted front (circles, solid) and rear (squares, dashed) cornering stiffness against the Gym value, on a logarithmic axis. Filled markers passed every acceptance gate; hollow markers failed at least one. One seeded fit per setting, so there are no error bars. Source: runs/parameter_id_robustness/results.csv.
+[Caption file](figures/parameter_id_latency_degradation.caption.md).
+
 ![Condition number](figures/parameter_id_condition_number.png)
+
+Simulator output, F1TENTH Gym, perturbed excitation telemetry. The Jacobian condition number stays between 1.1 and 1.8 under every perturbation, far from the acceptance limit of 100. The dotted line marks the ideal value of 1. n = 11 settings, one seeded fit each, so there are no error bars. Source: runs/parameter_id_robustness/results.csv.
+[Caption file](figures/parameter_id_condition_number.caption.md).
