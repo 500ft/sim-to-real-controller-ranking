@@ -199,9 +199,9 @@ Reproduce controller, estimator, numerical, latency, and actuator failures and d
 
 ## Figures
 
-![FMEA RPN](figures/fmea_rpn_bar.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "fmea_rpn_bar.png", "FMEA RPN")}
 
-![FMEA detection signals](figures/fmea_detection_signals.png)
+{report_figures.fs.caption_markdown(FIGURE_DIR / "fmea_detection_signals.png", "FMEA detection signals")}
 """
     REPORT_PATH.write_text(report, encoding="utf-8")
 
