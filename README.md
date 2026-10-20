@@ -6,7 +6,7 @@ rankings that should be withheld? The corrected-source qualification loads all
 15 evaluation policies on synthetic inputs, but reproduces a first-crash loader
 failure. The corrected-v2 Drive census now establishes archive identity and
 recording boundaries. Shared reward aggregates have been calculated, but a
-progress-reference discrepancy and candidate-simulator import failure hold the
+progress-reference discrepancy and candidate-simulator reward-interface failure hold the
 reference ranking. ZIP terms and historical simulator identity remain unverified.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
@@ -33,6 +33,10 @@ coverage, terminal exclusions and original-loader sensitivity. The
 [per-agent reward aggregates](runs/ope_corrected_v2/reward_aggregates.json) use
 one frozen calculation on both archives; the [reference comparison](runs/ope_corrected_v2/reference_comparison.json)
 shows the remaining reward mismatch. No controller ranking was run.
+The [source-class trace](runs/ope_corrected_v2/reward_trace.json) isolates a
+stored-reward cutoff difference in a small sample and reproduces the duplicate
+full-lap checkpoint on synthetic input. The [candidate simulator probe](runs/ope_corrected_v2/simulator_probe.json)
+reaches reset with pinned compatibility aliases, then fails on its first step.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails
@@ -78,7 +82,7 @@ outside this repository while reuse terms remain unknown.
 ## What's next
 
 Resolve the progress-reference difference and the pinned candidate simulator's
-`Config` import failure. The shared checkpoint calculation also avoids a
+reward-call mismatch. The shared checkpoint calculation also avoids a
 duplicate full-lap threshold in the pinned source, so its published aggregate
 is not an equivalence check. The [roadmap](ROADMAP.md) keeps ranking, M3 and
 reserved evaluation closed until these gates pass. ZIP permissions and
