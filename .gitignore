@@ -18,6 +18,8 @@ flycheck_*
 
 # Keep the first frozen evidence run tracked, ignore later bulk sweeps by default.
 runs/*
+!runs/ope_reward_adapter_qualification/
+!runs/ope_reward_adapter_qualification/*.json
 !runs/first_lap/
 !runs/first_lap/**
 !runs/integrator_convergence/

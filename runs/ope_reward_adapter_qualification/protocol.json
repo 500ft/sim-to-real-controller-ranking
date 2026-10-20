@@ -1,0 +1,65 @@
+{
+  "purpose": "Diagnose the pinned simulator reward interface and qualify transition indexing before development use",
+  "parent_protocol": "runs/ope_corrected_v2/protocol.json",
+  "candidate_simulator_commit": "0c15e5ba4e7537390777dc25c67c81628daf1d16",
+  "loader_commit": "536d762ad7b07076551d39ef202199cbaead6a87",
+  "source_sha256": {
+    "simulator_base_env.py": "d58cf97805681326d90e807af924a0d3affbeaef2b7ce070533ac88c2880382d",
+    "loader_fast_reward.py": "0dea55802bc644f4447b2e2c130193286ab6364688d316c3599aa84e60a659cf",
+    "loader_config_new.py": "2ac739a12cebbfeeb5c63ff7e530104465cefeb99693def6d6156d0d1c9f85e7"
+  },
+  "prospective_hypotheses": [
+    "The effective MixedReward.__call__ is its later dict-observation definition; StepMixedReward passes an unsupported laser_scan keyword and a flat observation.",
+    "The pinned step wrapper selects reward column one. ProgressReward appends zero at that column for a two-observation input, so a class-name alias alone cannot recover progress reward.",
+    "The frozen v2 shared progress reward uses the departure row, while its checkpoint reward uses the arrival row. A transition-aligned candidate must assign both to the departure row before reading new outcomes.",
+    "Stored archive reward at a horizon cutoff may include the cutoff row, whereas the declared common calculation zeros it.",
+    "The source checkpoint class can duplicate a full-lap threshold. Recording membership, horizon, discount and truncation may also explain published aggregate differences; compare each separately without selecting the closest total."
+  ],
+  "synthetic_trajectories": {
+    "nonzero_progress": {
+      "progress_fraction": [0.2, 0.25, 0.35],
+      "expected_departure_progress_reward": [5.0, 10.0, 0.0],
+      "expected_departure_checkpoint_reward": [0.0, 10.0, 0.0]
+    },
+    "two_lap_wrap": {
+      "progress_fraction": [0.95, 0.01, 0.95, 0.01, 0.05],
+      "expected_departure_progress_reward": [6.0, 94.0, 6.0, 4.0, 0.0],
+      "expected_departure_checkpoint_reward": [10.0, 90.0, 10.0, 0.0, 0.0]
+    },
+    "reset_segments": {
+      "progress_fraction_by_segment": [[0.95, 0.01], [0.3, 0.35]],
+      "expected_departure_progress_reward_by_segment": [[6.0, 0.0], [5.0, 0.0]],
+      "no_cross_segment_reward": true
+    },
+    "terminal": {
+      "progress_fraction": [0.2, 0.25, 0.3],
+      "terminal_last_row": true,
+      "expected_lifetime_reward": [1.0, 1.0, 0.0]
+    },
+    "steering": {
+      "previous_steering_rad": [0.0, 0.1, -0.1],
+      "delta_steering_rad": [0.1, -0.2, 0.1],
+      "expected_target_steering_rad": [0.1, -0.1, 0.0],
+      "steering_limit_rad": 0.4189,
+      "expected_min_act_formula": "1 - (target_steering_rad / steering_limit_rad)^2; terminal row zero"
+    }
+  },
+  "smoke_rollout": {
+    "maximum_control_steps": 250,
+    "seed": 0,
+    "map": "Infsaal3",
+    "start": "first public centerline point with heading toward the next point, velocity 0.5 m/s",
+    "normalized_action_each_step": [0.0, 0.0],
+    "reward_definitions": ["progress", "lifetime", "min_act", "checkpoint"],
+    "stop": "first termination or truncation, or 250 executed control steps",
+    "output": "local step states and reward contributions; only compact summary in git"
+  },
+  "archive_trace": {
+    "scope": "all eligible real evaluation-agent development recordings under the previously adopted corrected exclusion; no reserved driving bags",
+    "source_zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+    "private_output": "outside git with per-record values and differences",
+    "public_output": "compact counts, difference distributions and named causes without row-level data",
+    "comparison_variants": ["frozen_v2", "departure_aligned_checkpoint_candidate", "stored_new_rewards", "pinned_source_class"],
+    "unknown": "published Groundtruth recording membership and original generating revision"
+  }
+}
