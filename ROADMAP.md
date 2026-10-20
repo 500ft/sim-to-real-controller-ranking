@@ -41,9 +41,17 @@ membership and exact generating revision remain unknown. ZIP rights
 and the historical simulator revision remain open. These results supply no
 controller-performance or refusal claim.
 
+The [development policy replay](reports/ope_policy_interface_qualification.md)
+executes the pinned FTG and PP controllers on eligible archived observations.
+Executed-action density and support agree with the source and an independent
+calculation under the registered rule. Final done rows with zero stored raw
+targets fail the registered delta-to-target check. Their executed-command
+meaning needs author clarification before the action interface is admitted.
+
 The owner adopted qualification before the conditionally authorized reference
-ranking. Resolve the common-reward discrepancy and candidate compatibility
-before M2 ranking. Preserve the reserved groups for independent evaluation.
+ranking. Resolve published reward-cohort provenance, terminal action meaning
+and historical simulator identity before M2 ranking. Preserve the reserved
+groups for independent evaluation.
 
 The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
@@ -76,7 +84,8 @@ qualification; empirical ranking still depends on their results.
 
 ### M1. Qualify an accessible data route
 
-Status: current. Local census executed and reward qualification incomplete under the
+Status: current. Local census and policy-density replay executed; the action
+interface and reward provenance remain incomplete under the
 [four accepted research assumptions](docs/OPEN_QUESTIONS.md#four-accepted-research-assumptions).
 ZIP rights and historical simulator identity remain unverified.
 Prerequisite: the historical census and a clearly identified corrected source.
@@ -104,9 +113,11 @@ Prerequisite: the historical census and a clearly identified corrected source.
 - Resolve raw segment versus episode meaning, continuing terminal flags,
   truncation, exclusions, vehicle/session groups and real/simulation pairing.
 - The evaluation policy names occur in both corrected archives, and stored
-  two-component log densities are finite. Map those names to executable
-  implementations on archived observations, including clipping, state and reset
-  behavior. The [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
+  two-component log densities are finite. The [pinned development replay](reports/ope_policy_interface_qualification.md)
+  maps all evaluation names to executable implementations and checks clipping,
+  state, resets, support and logged-action density. It leaves terminal zero
+  raw targets unresolved under its registered action-frame rule. The
+  [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
   produces per-agent aggregates for all four rewards. The
   [whole-development trace](runs/ope_reward_adapter_qualification/development_trace.json)
   checks matching records and isolates checkpoint timing, stored cutoff rows
@@ -116,7 +127,7 @@ Prerequisite: the historical census and a clearly identified corrected source.
   preserves the failed unmodified step. A [pinned-call witness](runs/ope_reward_adapter_qualification/source_call_witness.json)
   identifies the live signature and progress indexing fault. The local bridge
   passes registered synthetic cases and a [bounded smoke](runs/ope_reward_adapter_qualification/smoke.json).
-  Qualify recorded-observation policy execution and benchmark provenance before
+  Resolve terminal-row executed-action meaning and benchmark provenance before
   development ranking.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities

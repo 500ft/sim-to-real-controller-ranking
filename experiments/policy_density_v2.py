@@ -11,11 +11,9 @@ def log_normal_interval(lower, upper):
     lower = np.asarray(lower, dtype=float)
     upper = np.asarray(upper, dtype=float)
     left = upper <= 0
-    a = np.where(left, lower, -upper)
-    b = np.where(left, upper, -lower)
     # On the right tail, Phi(upper)-Phi(lower) is Phi(-lower)-Phi(-upper).
-    hi = np.where(left, b, b)
-    lo = np.where(left, a, a)
+    hi = np.where(left, upper, -lower)
+    lo = np.where(left, lower, -upper)
     log_hi = log_ndtr(hi)
     log_lo = log_ndtr(lo)
     return log_hi + np.log(-np.expm1(log_lo - log_hi))
