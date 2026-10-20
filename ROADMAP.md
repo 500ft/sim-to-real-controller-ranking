@@ -33,9 +33,11 @@ domain. The [corrected Drive-v2 census](reports/ope_corrected_v2.md) now binds
 both objects by ID and hash, establishes recording boundaries and applies the
 adopted development exclusion. It records policy coverage, stored log-density
 availability and original-loader sensitivity. Common-reward aggregates are
-published for local qualification, but the progress comparison remains
-unexplained. A version-pinned adapter passes candidate simulator import and
-reset, but its first step fails at the reward interface. ZIP rights
+published for local qualification. The [development reward trace](reports/ope_reward_adapter_qualification.md)
+now identifies the frozen checkpoint row-alignment defect and compares reward
+variants on one eligible cohort. A source-pinned local bridge executes candidate
+simulator steps and passes a short reward-alignment smoke. Published Groundtruth
+membership and exact generating revision remain unknown. ZIP rights
 and the historical simulator revision remain open. These results supply no
 controller-performance or refusal claim.
 
@@ -87,8 +89,10 @@ Prerequisite: the historical census and a clearly identified corrected source.
   third-party grant. Keep raw and processed data outside git and distribution.
 - Confirm the benchmark's simulator revision. The simulator is public and
   licensed, but the benchmark has no gitlink for it. The registered public
-  candidate fails an unmodified import with the pinned loader. An explicit
-  adapter now reaches reset, with a step-level reward mismatch still open. The
+  candidate fails with the pinned loader's effective nested reward signature.
+  The [local reward bridge](reports/ope_reward_adapter_qualification.md)
+  executes a bounded public-start smoke with the candidate physics and four
+  checked common reward contributions. Historical identity remains open. The
   candidate terminal-helper correction
   was applied after recording boundaries were established, with a private
   exclusion ledger and original-loader sensitivity result. Do not infer
@@ -103,16 +107,17 @@ Prerequisite: the historical census and a clearly identified corrected source.
   two-component log densities are finite. Map those names to executable
   implementations on archived observations, including clipping, state and reset
   behavior. The [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
-  produces per-agent aggregates for all four rewards; resolve the unexplained
-  progress aggregate difference and the checkpoint-source discrepancy before
-  treating the common reward as qualified. The [pinned-class trace](runs/ope_corrected_v2/reward_trace.json)
-  isolates the sampled stored-progress cutoff difference and a synthetic
-  duplicate full-lap checkpoint. It does not explain the public Groundtruth
-  aggregate gap. Simulation lacks `new_rewards`.
+  produces per-agent aggregates for all four rewards. The
+  [whole-development trace](runs/ope_reward_adapter_qualification/development_trace.json)
+  checks matching records and isolates checkpoint timing, stored cutoff rows
+  and source-class behavior. The published Groundtruth cohort is unidentified,
+  so its aggregate gap remains open. Simulation lacks `new_rewards`.
 - The [candidate interface probe](runs/ope_corrected_v2/simulator_probe.json)
-  passes import, construction and reset with explicit compatibility aliases.
-  Its first step fails at the pinned reward call signature. Qualify a semantics-
-  preserving adapter and short rollout before M2 simulation.
+  preserves the failed unmodified step. A [pinned-call witness](runs/ope_reward_adapter_qualification/source_call_witness.json)
+  identifies the live signature and progress indexing fault. The local bridge
+  passes registered synthetic cases and a [bounded smoke](runs/ope_reward_adapter_qualification/smoke.json).
+  Qualify recorded-observation policy execution and benchmark provenance before
+  development ranking.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities
   with constants. Clarify the unresolved helper source named in the report.
