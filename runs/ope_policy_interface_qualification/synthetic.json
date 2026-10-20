@@ -1,0 +1,173 @@
+{
+  "all_pass": true,
+  "cases_per_policy": 4,
+  "per_policy": {
+    "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 2.220446049250313e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 2.220446049250313e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    },
+    "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 4.440892098500626e-16,
+        "permutation": 0.0,
+        "reset": 0.0,
+        "scalar_batch": 0.0
+      },
+      "pass": true,
+      "support_all": true
+    }
+  },
+  "policy_count": 15,
+  "protocol": "runs/ope_policy_interface_qualification/protocol.json"
+}
