@@ -1,0 +1,19 @@
+{
+  "collision_on_final_step": true,
+  "executed_control_steps": 191,
+  "first_progress_fraction": 0.00022602595921938025,
+  "independent_step_alignment": "passed for all executed steps and four reward components",
+  "last_progress_fraction": 0.17020686236716823,
+  "physics_scope": "pinned candidate simulator and gym; fixed public start, velocity and zero normalized actions; historical simulator identity unknown",
+  "private_steps_sha256": "516b156760e8613dd63cf20dc42c3412de1ec87b9d10f065954814626f50651b",
+  "protocol": "runs/ope_reward_adapter_qualification/protocol.json",
+  "public_centerline_sha256": "a0166fee01f48cce17b70e5bfa9827a3a1969e013b33d1f818386ba382d1639b",
+  "reward_sums": {
+    "checkpoint": 10.0,
+    "lifetime": 191.0,
+    "min_act": 191.0,
+    "progress": 16.998083640794885
+  },
+  "terminated": true,
+  "truncated": false
+}

@@ -94,6 +94,9 @@ reset pass. The first step fails because the candidate calls the pinned
 patching only the keyword would not establish correct reward semantics. The
 probe leaves the third-party source unchanged. A short simulator rollout and
 the extended runtime benchmark remain unexecuted.
+The later [reward bridge qualification](ope_reward_adapter_qualification.md)
+preserves this failure and reports the subsequent bounded simulator smoke and
+development-record trace.
 
 ## Reproduce the local checks
 

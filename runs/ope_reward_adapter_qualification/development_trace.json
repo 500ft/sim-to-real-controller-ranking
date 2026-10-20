@@ -1,0 +1,125 @@
+{
+  "eligible_recordings": 825,
+  "end_reasons": {
+    "first_compute_termination": 417,
+    "horizon": 408,
+    "recording_end": 0
+  },
+  "positive_stored_final_rows": {
+    "checkpoint": 19,
+    "lifetime": 408,
+    "min_act": 408,
+    "progress": 402
+  },
+  "private_record_sha256": "234f873106956c3dd0bde2b6c99d37f6f996a89944cd0216c78593a410936298",
+  "protocol": "runs/ope_reward_adapter_qualification/protocol.json",
+  "published_groundtruth_membership": "unknown; no direct equivalence claim",
+  "real_zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+  "same_cohort_return_differences": {
+    "frozen_v2_minus_aligned_candidate": {
+      "checkpoint": {
+        "count": 825,
+        "max_abs": 7.936142836436554,
+        "mean": -0.3996461612245719,
+        "nonzero_over_1e_6": 800
+      },
+      "lifetime": {
+        "count": 825,
+        "max_abs": 0.0,
+        "mean": 0.0,
+        "nonzero_over_1e_6": 0
+      },
+      "min_act": {
+        "count": 825,
+        "max_abs": 1.4210854715202004e-14,
+        "mean": -3.014423727467092e-17,
+        "nonzero_over_1e_6": 0
+      },
+      "progress": {
+        "count": 825,
+        "max_abs": 0.0,
+        "mean": 0.0,
+        "nonzero_over_1e_6": 0
+      }
+    },
+    "pinned_source_class_minus_aligned_candidate": {
+      "checkpoint": {
+        "count": 825,
+        "max_abs": 7.936142836436554,
+        "mean": -0.02105148345637244,
+        "nonzero_over_1e_6": 800
+      },
+      "lifetime": {
+        "count": 825,
+        "max_abs": 0.0,
+        "mean": 0.0,
+        "nonzero_over_1e_6": 0
+      },
+      "min_act": {
+        "count": 825,
+        "max_abs": 1.4210854715202004e-14,
+        "mean": -3.014423727467092e-17,
+        "nonzero_over_1e_6": 0
+      },
+      "progress": {
+        "count": 825,
+        "max_abs": 8.86527388033187e-06,
+        "mean": -8.918053269325835e-09,
+        "nonzero_over_1e_6": 425
+      }
+    },
+    "stored_minus_aligned_candidate": {
+      "checkpoint": {
+        "count": 825,
+        "max_abs": 7.936142836436554,
+        "mean": 0.0017749122795341454,
+        "nonzero_over_1e_6": 800
+      },
+      "lifetime": {
+        "count": 825,
+        "max_abs": 0.08187728905271285,
+        "mean": 0.040492041131523444,
+        "nonzero_over_1e_6": 408
+      },
+      "min_act": {
+        "count": 825,
+        "max_abs": 0.08188028039916873,
+        "mean": 0.02073068044356894,
+        "nonzero_over_1e_6": 801
+      },
+      "progress": {
+        "count": 825,
+        "max_abs": 0.17757566109759182,
+        "mean": 0.01879702949484332,
+        "nonzero_over_1e_6": 519
+      }
+    }
+  },
+  "same_cohort_return_means": {
+    "aligned_candidate": {
+      "checkpoint": 31.884661990691296,
+      "lifetime": 76.6262915857915,
+      "min_act": 36.9226640981258,
+      "progress": 32.30333416713084
+    },
+    "frozen_v2": {
+      "checkpoint": 31.485015829466725,
+      "lifetime": 76.6262915857915,
+      "min_act": 36.9226640981258,
+      "progress": 32.30333416713084
+    },
+    "pinned_source_class": {
+      "checkpoint": 31.86361050723492,
+      "lifetime": 76.6262915857915,
+      "min_act": 36.9226640981258,
+      "progress": 32.303334158212785
+    },
+    "stored": {
+      "checkpoint": 31.88643690297083,
+      "lifetime": 76.66678362692303,
+      "min_act": 36.94339477856937,
+      "progress": 32.32213119662569
+    }
+  },
+  "skipped_registered_bad_recordings": 7
+}

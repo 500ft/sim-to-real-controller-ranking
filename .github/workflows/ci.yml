@@ -70,5 +70,5 @@ jobs:
       with:
         python-version: "3.11"
     - run: python -m pip install -r requirements-ope-corrected-v2.txt
-    - name: Common reward boundary cases (no third-party archive download)
-      run: python -m unittest experiments.test_common_reward_v2
+    - name: Common reward and simulator bridge boundary cases (no third-party archive download)
+      run: python -m unittest experiments.test_common_reward_v2 experiments.test_simulator_reward_adapter_v2

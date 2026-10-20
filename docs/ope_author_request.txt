@@ -154,3 +154,9 @@ https://github.com/HyberionBrew/f110_sim_env in its simulator question. It
 also asks about the two v2 ZIP grants, terminal handling and reward settings.
 This records the draft's status and scope; it does not record an email sent or
 an author answer.
+
+The later, precise unsent question is in
+reports/ope_reward_adapter_qualification.md. It asks for the exact simulator,
+archive, loader and reward-run provenance of the published Groundtruth JSONs,
+and explicit corrected-ZIP analysis and derived-aggregate terms. No follow-up
+was sent.

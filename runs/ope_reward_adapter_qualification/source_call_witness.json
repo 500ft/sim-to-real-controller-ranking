@@ -1,0 +1,27 @@
+{
+  "effective_mixed_reward_signature": "(self, obs: dict, action, collision, scan)",
+  "fast_reward_sha256": "0dea55802bc644f4447b2e2c130193286ab6364688d316c3599aa84e60a659cf",
+  "flat_observation_shape": [
+    1,
+    11
+  ],
+  "mixed_reward_call_definition_lines": [
+    247,
+    273
+  ],
+  "nested_call_failure": {
+    "message": "MixedReward.__call__() got an unexpected keyword argument 'laser_scan'",
+    "type": "TypeError"
+  },
+  "selected_progress_value_if_keyword_and_layout_were_repaired": 0.0,
+  "source_progress_vector": [
+    9.999999999999998,
+    0.0
+  ],
+  "step_mixed_reward_signature": "(self, obs, action, collision, done, laser_scan=None)",
+  "step_wrapper_selected_column": 1,
+  "synthetic_progress_pair": [
+    0.2,
+    0.3
+  ]
+}
