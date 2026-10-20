@@ -81,6 +81,8 @@ def main():
     private = []
     skipped_bad = 0
     reason_counts = {"first_compute_termination": 0, "horizon": 0, "recording_end": 0}
+    final_transition_checkpoint = {reason: {"recordings": 0, "reward_total": 0.0}
+                                   for reason in reason_counts}
     cutoff_positive = {name: 0 for name in REWARDS}
     for start, end in zip(starts, ends):
         if str(names[start]) not in agents:
@@ -127,11 +129,15 @@ def main():
         stored_slice = {name: stored[name][start:stop] for name in REWARDS}
         for name in REWARDS:
             cutoff_positive[name] += int(stored_slice[name][-1] > 1e-6)
+        last_crossing = float(aligned["checkpoint"][-2])
+        final_transition_checkpoint[reason]["recordings"] += int(last_crossing > 0)
+        final_transition_checkpoint[reason]["reward_total"] += last_crossing
         returns = {"frozen_v2": discounted(v2), "aligned_candidate": discounted(aligned),
                    "pinned_source_class": discounted(source), "stored": discounted(stored_slice)}
         private.append({"start": int(start), "end_exclusive": int(end),
                         "retained_end_exclusive": int(stop), "policy": str(names[start]),
                         "end_reason": reason,
+                        "last_departure_checkpoint_reward": last_crossing,
                         "returns": returns,
                         "differences_from_aligned_candidate": {
                             variant: {name: returns[variant][name] - returns["aligned_candidate"][name]
@@ -149,6 +155,7 @@ def main():
         "private_record_sha256": digest(args.private_records),
         "eligible_recordings": len(private), "skipped_registered_bad_recordings": skipped_bad,
         "end_reasons": reason_counts, "positive_stored_final_rows": cutoff_positive,
+        "final_transition_checkpoint": final_transition_checkpoint,
         "same_cohort_return_means": {
             variant: {name: float(np.mean([row["returns"][variant][name] for row in private]))
                       for name in REWARDS} for variant in variants},

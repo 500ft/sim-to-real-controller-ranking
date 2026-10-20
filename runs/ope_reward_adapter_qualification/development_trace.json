@@ -5,13 +5,27 @@
     "horizon": 408,
     "recording_end": 0
   },
+  "final_transition_checkpoint": {
+    "first_compute_termination": {
+      "recordings": 8,
+      "reward_total": 80.0
+    },
+    "horizon": {
+      "recordings": 19,
+      "reward_total": 190.0
+    },
+    "recording_end": {
+      "recordings": 0,
+      "reward_total": 0.0
+    }
+  },
   "positive_stored_final_rows": {
     "checkpoint": 19,
     "lifetime": 408,
     "min_act": 408,
     "progress": 402
   },
-  "private_record_sha256": "234f873106956c3dd0bde2b6c99d37f6f996a89944cd0216c78593a410936298",
+  "private_record_sha256": "1463362e6d83e3192e3c154d7da84820d5847d0c9c39f600e17e4c964c88f5ba",
   "protocol": "runs/ope_reward_adapter_qualification/protocol.json",
   "published_groundtruth_membership": "unknown; no direct equivalence claim",
   "real_zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",

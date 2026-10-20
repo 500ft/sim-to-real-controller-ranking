@@ -48,11 +48,15 @@ previously registered exclusion and cutoff. It verifies the ZIP and reward
 source hashes. For each recording it keeps frozen-v2, departure-aligned,
 pinned-source-class and stored reward returns, their differences, terminal
 reason and final stored values in a private ledger. The public result gives
-cohort counts, cutoff behavior and distribution summaries. The frozen-v2
+cohort counts, cutoff behavior, final-transition checkpoint crossings and
+distribution summaries. The frozen-v2
 checkpoint calculation places a crossing on the arrival row, while its
 progress calculation uses the departure row. The bridge resolves this
 alignment for the candidate metric. Stored horizon-end rewards and the
 source-class duplicate full-lap checkpoint remain separate explanations.
+Moving a checkpoint by one row changes its discounted return even away from a
+cutoff. A final-transition crossing may also be lost under final-row zeroing;
+the result separates those cases by end reason.
 The comparison uses the same local recording set for each variant and does
 not select a metric by closeness to a published total.
 
