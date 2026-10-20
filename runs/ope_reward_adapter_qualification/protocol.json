@@ -42,6 +42,14 @@
       "expected_target_steering_rad": [0.1, -0.1, 0.0],
       "steering_limit_rad": 0.4189,
       "expected_min_act_formula": "1 - (target_steering_rad / steering_limit_rad)^2; terminal row zero"
+    },
+    "source_action_mapping": {
+      "initial_target_steering_rad": 0.0,
+      "initial_target_speed_m_per_s": 0.5,
+      "normalized_input": [0.4, -0.2],
+      "expected_delta_steering_rad": 0.02,
+      "expected_delta_speed_m_per_s": -0.01,
+      "expected_physical_target": [0.02, 0.49]
     }
   },
   "smoke_rollout": {
