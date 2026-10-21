@@ -100,6 +100,9 @@ def summarize() -> dict:
                               "worst": [name for name in order if key(name) == key(order[-1])]}
     return {"protocol_sha256": sha(PROTOCOL), "cases_per_architecture": len(cases),
             "architecture_count": len(names), "run_count": len(runs),
+            "min_run_peak_lateral_proxy_mps2": min(r["max_abs_lateral_proxy_mps2"] for r in runs.values()),
+            "min_run_peak_forward_accel_mps2": min(r["max_forward_accel_mps2"] for r in runs.values()),
+            "excluded_architectures": protocol["architecture_exclusion"],
             "has_qualifying_overall_winner": any(r["qualifies"] for r in ranking),
             "overall_order": [r["architecture"] for r in ranking],
             "ranking": ranking, "criterion_orders": criteria,

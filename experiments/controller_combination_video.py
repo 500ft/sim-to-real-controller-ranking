@@ -37,21 +37,24 @@ def render(track: str, scenario: str, timing: str) -> tuple[Path, Path]:
     protocol = json.loads((OUT / "protocol.json").read_text())
     line = np.loadtxt(ROOT / protocol["tracks"][track]["line"], delimiter=";", skiprows=3)
     names = [item[0] for group in GROUPS for item in group]
-    traces = {name: pd.read_csv(OUT / f"{track}_{scenario}_{timing}_{name}.csv.gz") for name in names}
     results = {name: json.loads((OUT / f"{track}_{scenario}_{timing}_{name}.json").read_text()) for name in names}
+    traces = {name: pd.read_csv(ROOT / results[name]["telemetry"]) for name in names}
     meta = yaml.safe_load(yaml_path.read_text())
     raster = np.asarray(Image.open(image_path).convert("L").transpose(Image.FLIP_TOP_BOTTOM))
     ox, oy, _ = meta["origin"]
     resolution = meta["resolution"]
     extent = (ox, ox + raster.shape[1] * resolution, oy, oy + raster.shape[0] * resolution)
     plt.rcParams.update({"font.size": 9, "axes.titlesize": 11})
-    fig, axes = plt.subplots(2, 2, figsize=(12.8, 8.0), dpi=100)
-    fig.subplots_adjust(left=.07, right=.98, bottom=.08, top=.90, wspace=.18, hspace=.36)
+    fig = plt.figure(figsize=(12.8, 7.2), dpi=100)
+    grid = fig.add_gridspec(2, 3, height_ratios=[1.2, .8],
+                            left=.06, right=.98, bottom=.09, top=.87,
+                            wspace=.22, hspace=.48)
+    map_axes = [fig.add_subplot(grid[0, col]) for col in range(3)]
     x, y = line[:, 1], line[:, 2]
     artists = {}
     trails = {}
     labels = {}
-    for ax, group, title in zip(axes.flat[:3], GROUPS,
+    for ax, group, title in zip(map_axes, GROUPS,
                                 ("Frozen baselines", "Diagnostic shadows", "Fallback and blend")):
         ax.imshow(raster, cmap="gray", origin="lower", extent=extent, vmin=0, vmax=255)
         ax.plot(x, y, color=".55", ls="--", lw=.8)
@@ -66,13 +69,14 @@ def render(track: str, scenario: str, timing: str) -> tuple[Path, Path]:
         ax.set_ylabel("y [m]")
         ax.set_title(title)
         ax.grid(color=".8", alpha=.25, lw=.5)
-        ax.legend(loc="upper center", bbox_to_anchor=(.5, -.14), ncol=len(group), frameon=False, fontsize=8)
-        labels[title] = ax.text(.01, .01, "", transform=ax.transAxes, ha="left", va="bottom",
-                                fontsize=8, bbox={"facecolor": "white", "alpha": .85, "edgecolor": "none"})
-    ax_command = axes.flat[3]
-    for name, _, color, marker in GROUPS[2]:
+        ax.legend(loc="upper center", bbox_to_anchor=(.5, -.12), ncol=len(group), frameon=False, fontsize=7)
+        labels[title] = ax.text(.5, .54, "", transform=ax.transAxes, ha="center", va="center",
+                                fontsize=7.5, linespacing=1.3,
+                                bbox={"facecolor": "white", "alpha": .88, "edgecolor": "none"})
+    ax_command = fig.add_subplot(grid[1, :])
+    for name, label, color, marker in GROUPS[2]:
         frame = traces[name]
-        ax_command.plot(frame["time_s"], frame["command_steer_rad"], color=color, lw=1.1, label=name)
+        ax_command.plot(frame["time_s"], frame["command_steer_rad"], color=color, lw=1.1, label=label)
     cursor = ax_command.axvline(0, color="#BE933A", ls="--", lw=1)
     ax_command.set_xlabel("Simulation time [s]")
     ax_command.set_ylabel("Applied steering [rad]")
@@ -101,13 +105,23 @@ def render(track: str, scenario: str, timing: str) -> tuple[Path, Path]:
                     state = ("running" if at < times[-1] else results[name]["termination_reason"])
                     active = trace["applied_active_component"].iloc[index]
                     shadow = trace["applied_shadow_component"].iloc[index]
+                    if pd.isna(active):
+                        active = "pending"
                     if pd.isna(shadow):
                         shadow = "none"
                     event_rows = trace.iloc[:index + 1].drop_duplicates("applied_call_index")
                     switch_count = int(event_rows["applied_switch_reason"].isin(
                         ["mpc_failure_or_deadline", "mpc_recovered"]).sum())
-                    status.append(f"{label}: {state}; active {active}; shadow {shadow}; "
-                                  f"switches {switch_count}; applied {trace['command_steer_rad'].iloc[index]:+.2f} rad")
+                    short = {"completed_lap": "finish", "collision": "crash", "max_steps": "limit"}.get(state, state)
+                    steer = trace["command_steer_rad"].iloc[index]
+                    if name == "mpc_lqr_fallback":
+                        status.append(f"{active.upper()} active · {switch_count} sw\n{short} · {steer:+.2f} rad")
+                    else:
+                        short_name = {"pp": "PP", "pp_lqr": "LQR", "pp_mpc": "MPC",
+                                      "lqr_active_mpc_shadow": "LQR/MPCsh",
+                                      "mpc_active_lqr_shadow": "MPC/LQRsh",
+                                      "pp_blend": "Blend"}[name]
+                        status.append(f"{short_name} {short} {steer:+.2f} rad")
                 labels[title].set_text("\n".join(status))
             writer.grab_frame()
     plt.close(fig)

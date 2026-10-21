@@ -262,6 +262,15 @@ optimization. The model variants are paired synthetic-identification sensitivity
 assumptions, not a measured vehicle uncertainty region. This work leaves the
 paper's real-data gates and reserved evaluation unchanged.
 
+The authorized [controller-combination development comparison](reports/controller_combinations.md)
+tests the existing PP corrections, both shadow directions, an MPC-to-LQR fallback
+and a frozen blend on those two lines. The executed cases all reached the Gym
+finish, but every candidate exceeded the registered closed-loop motion limits.
+There is no qualifying overall winner; the linked result retains a conditional
+order, timing-aware outcomes and the failed first actuator-rate cohort. This
+simulation result does not advance the paper's M1/M2/M3/M5 gates or reopen
+reserved outcomes.
+
 D2 mounting and physical-study scope, K2 disposition of the earlier driving
 study, fleet access/adoption, funding, purchases, naming, reviewer and publication
 remain unresolved. No mast result constitutes success for the current question.

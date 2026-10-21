@@ -543,6 +543,118 @@
         "runs/controller_pipeline/model_sensitivity/summary.json": "f7ff644f1ebdc46eac4ef3b60307e1e93c5042e10a53a1aa9e8db4bf79d6b88c"
       },
       "notes": "Paired stiffness values derive from prior synthetic fits; no physical uncertainty distribution or paper ranking claim."
+    },
+    {
+      "id": "controller-combinations-example-timeout",
+      "evidence_type": "simulation-only synchronized controller-combination comparison video",
+      "generator": "experiments/controller_combination_video.py",
+      "command": "python -m experiments.controller_combination_video example mpc_timeout deadline_aware",
+      "inputs": [
+        "runs/controller_combinations/protocol.json",
+        "runs/controller_pipeline/reference_constrained.csv",
+        "examples/example_map.yaml",
+        "examples/example_map.png",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_lqr.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_lqr_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_mpc.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_mpc_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_lqr_active_mpc_shadow.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_lqr_active_mpc_shadow_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_active_lqr_shadow.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_active_lqr_shadow_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_lqr_fallback.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_lqr_fallback_control.csv.gz",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_blend.json",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_blend_control.csv.gz"
+      ],
+      "outputs": [
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_preview.png"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_combinations/protocol.json": "05eac57e78f7a9049f15cb6a7b3cc7d5e0dd024a0251d6295b6c460c84accced",
+        "runs/controller_pipeline/reference_constrained.csv": "579a35f3431196df68fbb0eaf30c527445335777f3017fb6e6680eedb4bc6b8d",
+        "examples/example_map.yaml": "11d7fb0ffe281e22ba9e6607c8571048de5ff5bc92c09fa78fe6deb332aa605c",
+        "examples/example_map.png": "7b77de5e7aff40c35172db9b57a78ece8e468b167b8edd2082e7b13ba4c980e4",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp.json": "91981e2d62cf4daeb9051d3b9f7e0e2fa9fc786bb23cfa8cfba27f37d3ab0642",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_control.csv.gz": "237d682cd60ed14055d28d74548678a9db46dab9f7b76631e088c5785ff19c9d",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_lqr.json": "ad42ca16e70777302965965a775c2c69df94600992adda8f0c3b6e16ac494cba",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_lqr_control.csv.gz": "89a52189e1b02e1463424e2705fa10b9e518b65ac1330f8e389cbed1a7cb551d",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_mpc.json": "cbd712c2db41bb8e7fa42a662e6620ab0b37f1394793ef5efc573b102b2ce111",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_mpc_control.csv.gz": "86e8a2531542ebcd4eff373a0f5d0887a9c3e3a18cf3c906ac6dfed4559df028",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_lqr_active_mpc_shadow.json": "7b076cacdb992b33f7fc318f31a06fc4aef52492af3e6978977568ee714f9278",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_lqr_active_mpc_shadow_control.csv.gz": "abab000630d62b6511e1a31ba5648a127f98f55e8426bacf99769b9cd627bdc4",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_active_lqr_shadow.json": "52758e891b9aa7eb6f253b4c7ff6c87cdf326e29d168d7a46e5254b0101d9ec0",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_active_lqr_shadow_control.csv.gz": "4082449bceaff0ef86e1edb3ab16c071ed728476ee28a83643ab910100df9c47",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_lqr_fallback.json": "9056a8fccdb78696e820a2f16e2e97c282c796cb51961d57d57c0d998e1ccba8",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_lqr_fallback_control.csv.gz": "b5459ac81c382532902736d3c892ae172fcf06ee3f00eb7d9f72b9d62944a555",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_blend.json": "4157b942d103a7c02d6a4fa131e6f4debee589eb637ddf0b2aa4e1eb407637ea",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_pp_blend_control.csv.gz": "cdedc749e61d6b7166689c6a3731b53d9601b709502f3a5dbdc4694d31566c85"
+      },
+      "output_sha256": {
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4": "f800d3b0b8fd2067b5fadf0344acd0a50a58c379a555a675cc650b6e5fa5917e",
+        "runs/controller_combinations/example_mpc_timeout_deadline_aware_preview.png": "1edeee137bbfa57b7609fff320fa48245898bef8078e6ec849286687f2df24e8"
+      },
+      "notes": "Positions sampled from committed control-tick telemetry without invented pose interpolation; active/shadow and applied-command status from the same logged run. The timeout is injected simulation development, not hardware timing."
+    },
+    {
+      "id": "controller-combinations-mapzoo_berlin-timeout",
+      "evidence_type": "simulation-only synchronized controller-combination comparison video",
+      "generator": "experiments/controller_combination_video.py",
+      "command": "python -m experiments.controller_combination_video mapzoo_berlin mpc_timeout deadline_aware",
+      "inputs": [
+        "runs/controller_combinations/protocol.json",
+        "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv",
+        "third_party/mapzoo_berlin/berlin.yaml",
+        "third_party/mapzoo_berlin/berlin.png",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_lqr.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_lqr_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_mpc.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_mpc_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_lqr_active_mpc_shadow.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_lqr_active_mpc_shadow_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_active_lqr_shadow.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_active_lqr_shadow_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_lqr_fallback.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_lqr_fallback_control.csv.gz",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_blend.json",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_blend_control.csv.gz"
+      ],
+      "outputs": [
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_comparison.mp4",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_preview.png"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_combinations/protocol.json": "05eac57e78f7a9049f15cb6a7b3cc7d5e0dd024a0251d6295b6c460c84accced",
+        "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+        "third_party/mapzoo_berlin/berlin.yaml": "ecbf0733c2898eca301be9b4e215ab1a08530a9ed4178a0fb3e82ca742de8331",
+        "third_party/mapzoo_berlin/berlin.png": "546d9cc73b2b493f22d07bda93c082c4dbbd28c2f0c8521598bcd3c3ce302267",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp.json": "3b6f7aabd6c0e3faa6950578cb81a6ebdde3a5c3b01d7257bbedbc3442c1c194",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_control.csv.gz": "e0b84fb6545997821d0424551b0c8e093bda82138894fa31a5dedde0fe92f0e7",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_lqr.json": "0f039596be0f41d0cd5d31a0beeaf46b15f8f3c1fb348cbe68100b573f8ef20b",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_lqr_control.csv.gz": "50fbc5cf3bc0fd260e5ff176981127653c41fe987446878e02e2c377fd2c4b0e",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_mpc.json": "008fb3e24f696cc16afda2bf5fb1d79f2a4103422ed437aa169e0ebb0cd6e9cd",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_mpc_control.csv.gz": "a2e3430c1082613492661cde385099b930fd0c55a1a49328373bc67cdcdddb23",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_lqr_active_mpc_shadow.json": "e49ac65c6283cee82493fa7aa45cff1730b596175909c709de2cb33c6c707c4c",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_lqr_active_mpc_shadow_control.csv.gz": "e96837480c4483daaaffc6bb43ab68a543b0b68b9cc9aa468ef1a7acd2120205",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_active_lqr_shadow.json": "7892df12952ae237d1f2ae589ff4ca28af7f9e95534fe0e51d21d428f326b882",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_active_lqr_shadow_control.csv.gz": "fdf4e9bf723764e0acdfcc4e258830bbcebd109b1499483aeda1abd5f900dc85",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_lqr_fallback.json": "3e60f765ac45ce2b0f554408228f50a79f9872d20166840c4162d2372b292856",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_mpc_lqr_fallback_control.csv.gz": "a483e3ca3eb6b439f091cd4f8adcb2d7cdc4458049646020d90ec5ecc2fbb44b",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_blend.json": "7c7cfbbd03b31a2cd9b296e3b81b2643fb69f0c3ab0eb01c0ec4631a66108c28",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_pp_blend_control.csv.gz": "7fb9360d7d2178b22625b5e16ef35bdf7a5106085e1ddb74d6143e1115816d7a"
+      },
+      "output_sha256": {
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_comparison.mp4": "bbf952bbe3bf4516662811bb708d52e70c0e15a2e467eae7a38d0155d4adec7f",
+        "runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_preview.png": "2fa0e04d4a755a9bb3d1bb35ee1399b23e08305e7db95b87a5eb4e5f9591820a"
+      },
+      "notes": "Positions sampled from committed control-tick telemetry without invented pose interpolation; active/shadow and applied-command status from the same logged run. The timeout is injected simulation development, not hardware timing."
     }
   ],
   "scope_note": "Historical simulation and mast studies remain preserved. The active paper qualification has no ranking figure; the controller video and delay plot are simulation-only development outputs.",

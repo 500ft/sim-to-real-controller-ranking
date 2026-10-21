@@ -60,6 +60,11 @@ def render():
                   f"The conditional development order begins with **{LABELS[rows[0]['architecture']]}** "
                   f"and ends with **{LABELS[rows[-1]['architecture']]}**. "
                   "This is an ordering of measured candidates under failed requirements, not a recommended vehicle controller.", ""]
+    lines += [f"Every run exceeded the 4 m/s² lateral speed-times-yaw-rate proxy target and the 2 m/s² "
+              f"forward-acceleration target: even the lowest run peak was "
+              f"{value(summary['min_run_peak_lateral_proxy_mps2'], 2)} m/s² laterally and "
+              f"{value(summary['min_run_peak_forward_accel_mps2'], 2)} m/s² forward. "
+              "The lateral proxy omits lateral-velocity derivative; it is a registered screening signal, not a full tire-force measurement.", ""]
     lines += ["| Conditional order | Architecture | Completed / attempted | Motion-failed runs | Deadline-aware misses | Mean completed Gym finish [s] | Mean completed RMS distance [m] | Max whole-call compute [ms] |",
               "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for index, row in enumerate(rows, 1):
@@ -68,18 +73,43 @@ def render():
                      f"{value(row['mean_completed_gym_finish_s'])} | "
                      f"{value(row['mean_completed_rms_reference_distance_m'], 4)} | "
                      f"{value(row['max_whole_compute_s'] * 1000, 2)} |")
+    lines += ["", f"The first two candidates have the same completed, motion-failed and deadline-miss counts; "
+              f"the conditional leader is decided by the next registered worst-finish comparison. "
+              f"The last candidate has the most deadline-aware misses. Host wall-clock tails are variable, so the "
+              "compute ordering is a development observation rather than target-hardware timing evidence."]
     lines += ["", "Completed-time and tracking averages include only completed cases, so compare them alongside coverage. "
               "The 0.1 s near-tie rule and 2 ms Gym integration grid bound interpretation of small finish differences; "
               "[pairwise differences](../runs/controller_combinations/ranking.json) retain each common case.", "",
               "## Criterion-specific order", "",
               "| Criterion | Best measured candidate | Worst measured candidate | Scope |",
               "| --- | --- | --- | --- |"]
+    scope = {"completion_and_constraints": "Equal coverage; motion failures and deadline counts break ties.",
+             "finish_time": "Completed cases only; 0.1 s near-tie band.",
+             "tracking": "Mean completed RMS reference distance.",
+             "compute_deadlines": "Measured deadline counts; maximum is host-dependent.",
+             "disturbance_robustness": "Non-nominal completion count only; all candidates tied."}
     for criterion, order in summary["criterion_orders"].items():
         extrema = summary["criterion_tied_extrema"][criterion]
-        best = ", ".join(LABELS[name] for name in extrema["best"])
-        worst = ", ".join(LABELS[name] for name in extrema["worst"])
-        lines.append(f"| {criterion.replace('_', ' ')} | {best} | {worst} | "
-                     "Ties use the registered near-tie bound for finish, exact counts for coverage and deadline misses. |")
+        if len(extrema["best"]) == len(order) and len(extrema["worst"]) == len(order):
+            best = worst = "All seven tied"
+        else:
+            best = ", ".join(LABELS[name] for name in extrema["best"])
+            worst = ", ".join(LABELS[name] for name in extrema["worst"])
+        lines.append(f"| {criterion.replace('_', ' ')} | {best} | {worst} | {scope[criterion]} |")
+    lines += ["", "### Fault-case trade-off", "",
+              "| Track | Timing | PP + MPC Gym finish [s] | MPC→LQR fallback Gym finish [s] | Fallback switches |",
+              "| --- | --- | ---: | ---: | ---: |"]
+    for track in protocol["tracks"]:
+        for timing in ("ideal", "deadline_aware"):
+            mpc_path = SOURCE.parent / f"{track}_mpc_timeout_{timing}_pp_mpc.json"
+            fallback_path = SOURCE.parent / f"{track}_mpc_timeout_{timing}_mpc_lqr_fallback.json"
+            mpc, fallback = json.loads(mpc_path.read_text()), json.loads(fallback_path.read_text())
+            lines.append(f"| {track} | {timing.replace('_', ' ')} | "
+                         f"[{value(mpc['lap_time_s'])}](../runs/controller_combinations/{mpc_path.name}) | "
+                         f"[{value(fallback['lap_time_s'])}](../runs/controller_combinations/{fallback_path.name}) | "
+                         f"{fallback['switch_count']} |")
+    lines += ["", "The fallback improves the injected-fault finish relative to PP + MPC in these runs, "
+              "but it is slower on Berlin without the injected fault. Every listed fault run fails the shared motion target."]
     lines += ["", "## Execution and interpretation", "",
               f"The ledger contains {summary['run_count']} executed full-horizon runs, "
               f"{summary['cases_per_architecture']} common cases per architecture on two tracks. "
@@ -91,7 +121,8 @@ def render():
               "Each [run JSON](../runs/controller_combinations/ranking.json) links a compressed control-tick trace and its SHA-256. "
               "The final terminal integration row is retained. Full 2 ms integration traces and their hashes were kept locally "
               "outside git after extracting compact telemetry; the runner regenerates them. Earlier source errors and exploratory "
-              "runs remain in [history](../runs/controller_combinations/history/pre_sync/README.md).", "",
+              "runs remain in [history](../runs/controller_combinations/history/pre_sync/README.md), and the first full "
+              "cohort's failed actuator-rate check is [retained](../runs/controller_combinations/history/rate_limit_failure/README.md).", "",
               "The synchronized videos show real sampled simulator positions, applied steering, active and shadow identities, "
               "switches and terminal status. They do not infer a shadow controller's hypothetical trajectory.", "",
               "- [Example timeout comparison video](../runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4) "
