@@ -211,6 +211,9 @@ def run_closed_loop(
         nonlocal command_steer, command_speed, applied_time_s, applied_command_generated_s, applied_diagnostics
         while actuator_queue and actuator_queue[0][0] <= step:
             _, command_steer, command_speed, applied_command_generated_s, applied_diagnostics = actuator_queue.pop(0)
+            bound = getattr(controller, "bound_applied", None)
+            if callable(bound):
+                command_steer, command_speed = bound((command_steer, command_speed))
             applied_time_s = step * integration_dt
             notify = getattr(controller, "on_applied", None)
             if callable(notify):

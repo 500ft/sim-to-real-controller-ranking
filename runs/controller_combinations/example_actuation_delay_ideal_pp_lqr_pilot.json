@@ -31,8 +31,8 @@
   "per_step_collision_count": 0,
   "per_step_finish_count": 0,
   "control_call_count": 200,
-  "control_compute_p95_s": 0.00024220420000016217,
-  "control_compute_max_s": 0.00028920799999987423,
+  "control_compute_p95_s": 0.00023822149999993547,
+  "control_compute_max_s": 0.0002955410000000658,
   "control_deadline_misses": 0,
   "track": "example",
   "scenario": "actuation_delay",
@@ -57,13 +57,13 @@
   "max_forward_accel_mps2": 4.959897239,
   "max_brake_abs_mps2": 0.0,
   "motion_constraint_pass": false,
-  "whole_compute_p95_s": 0.00024220420000016217,
-  "whole_compute_max_s": 0.00028920799999987423,
+  "whole_compute_p95_s": 0.00023822149999993547,
+  "whole_compute_max_s": 0.0002955410000000658,
   "whole_compute_deadline_misses": 0,
   "switch_count": 0,
   "fault_rejections": 0,
   "n_steps": 1000,
   "n_control_calls": 200,
   "telemetry": "runs/controller_combinations/example_actuation_delay_ideal_pp_lqr_pilot.csv.gz",
-  "telemetry_sha256": "5cbb9ac0bca2cc75ab5eeef53b91354c0feeec831c8b65e63716926c90c1bcbc"
+  "telemetry_sha256": "8559fe38ec90ac1495513a9ef6f752f9d65bff0a9910c7c8a9c34ab521180904"
 }

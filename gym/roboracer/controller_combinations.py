@@ -57,6 +57,10 @@ class CombinationController:
         return (float(np.clip(steer, self.applied[0] - steer_step, self.applied[0] + steer_step)),
                 float(np.clip(speed, self.applied[1] - speed_step, self.applied[1] + speed_step)))
 
+    def bound_applied(self, proposal: tuple[float, float]) -> tuple[float, float]:
+        """Enforce actuator limits against the action actually applied before this tick."""
+        return self._limit(proposal)
+
     def _compute(self, component: object, state: dict, path_info: dict) -> tuple[float, float]:
         result = tuple(map(float, component.command(state, path_info)))
         if len(result) != 2:

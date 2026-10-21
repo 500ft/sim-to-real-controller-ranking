@@ -120,6 +120,14 @@ class CombinationTests(unittest.TestCase):
         self.assertEqual(combo.last_diagnostics["active_component"], "lqr")
         self.assertEqual(combo.last_diagnostics["switch_reason"], "mpc_failure_or_deadline")
 
+    def test_queued_proposal_is_bounded_again_against_actual_previous_action(self):
+        actions = {"pure_pursuit": (0.3, 5.0), "lqr": (0.3, 5.0), "mpc": (0.3, 5.0)}
+        combo = CombinationController("pp", factory(actions), LIMITS)
+        queued = combo.command(STATE, {})
+        self.assertEqual(queued, (0.032, 0.0951))
+        combo.applied = (-0.032, 0.0)
+        self.assertEqual(combo.bound_applied(queued), (0.0, 0.0951))
+
 
 if __name__ == "__main__":
     unittest.main()
