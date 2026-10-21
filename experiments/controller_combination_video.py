@@ -99,12 +99,12 @@ def render(track: str, scenario: str, timing: str) -> tuple[Path, Path]:
                     artists[name].set_data([trace["x_m"].iloc[index]], [trace["y_m"].iloc[index]])
                     trails[name].set_data(trace["x_m"].iloc[:index + 1:25], trace["y_m"].iloc[:index + 1:25])
                     state = ("running" if at < times[-1] else results[name]["termination_reason"])
-                    active = trace["active_component"].iloc[index]
-                    shadow = trace["shadow_component"].iloc[index]
+                    active = trace["applied_active_component"].iloc[index]
+                    shadow = trace["applied_shadow_component"].iloc[index]
                     if pd.isna(shadow):
                         shadow = "none"
-                    event_rows = trace.iloc[:index + 1].drop_duplicates("call_index")
-                    switch_count = int(event_rows["switch_reason"].isin(
+                    event_rows = trace.iloc[:index + 1].drop_duplicates("applied_call_index")
+                    switch_count = int(event_rows["applied_switch_reason"].isin(
                         ["mpc_failure_or_deadline", "mpc_recovered"]).sum())
                     status.append(f"{label}: {state}; active {active}; shadow {shadow}; "
                                   f"switches {switch_count}; applied {trace['command_steer_rad'].iloc[index]:+.2f} rad")

@@ -41,6 +41,7 @@ class CombinationController:
         self.valid_streak = 0
         self.last_diagnostics: dict[str, object] = {}
         self._bases: dict[str, tuple[float, float]] = {}
+        self._contexts: dict[float, tuple[dict[str, tuple[float, float]], str, bool]] = {}
 
     def _limit(self, proposal: tuple[float, float]) -> tuple[float, float]:
         steer, speed = map(float, proposal)
@@ -61,6 +62,12 @@ class CombinationController:
         if len(result) != 2:
             raise ValueError("Controller must return steering and speed")
         return result
+
+    def _within_shared_command_limits(self, proposal: tuple[float, float]) -> bool:
+        steer, speed = proposal
+        bounds = self.limits
+        return bool(-bounds["command_steer_abs_rad"] <= steer <= bounds["command_steer_abs_rad"]
+                    and bounds["command_speed_min_mps"] <= speed <= bounds["command_speed_max_mps"])
 
     def command(self, state: dict, path_info: dict) -> tuple[float, float]:
         self.call_index += 1
@@ -109,7 +116,7 @@ class CombinationController:
             if not mpc_ok:
                 reason = "invalid_mpc_hold"
         elif self.name == "mpc_lqr_fallback":
-            valid = mpc_ok and not mpc_deadline
+            valid = mpc_ok and not mpc_deadline and self._within_shared_command_limits(proposed["mpc"])
             if self.mode == "mpc" and not valid:
                 self.mode, self.dwell, self.valid_streak = "lqr", 5, 0
                 reason = "mpc_failure_or_deadline"
@@ -150,13 +157,17 @@ class CombinationController:
             "command_observation_time_s": state["time_s"],
             "bounded_proposal_steer_rad": limited[0], "bounded_proposal_speed_mps": limited[1],
         }
+        self._contexts[float(state["time_s"])] = (dict(self._bases), active,
+                                                   reason in {"invalid_mpc_hold", "nonfinite_hold"})
         return limited
 
-    def on_applied(self, command: tuple[float, float]) -> None:
+    def on_applied(self, command: tuple[float, float], generated_at_s: float | None = None) -> None:
         self.applied = tuple(map(float, command))
-        active = self.last_diagnostics.get("active_component")
-        rejected = self.last_diagnostics.get("switch_reason") in {"invalid_mpc_hold", "nonfinite_hold"}
-        for key, base in self._bases.items():
+        context = self._contexts.pop(float(generated_at_s), None) if generated_at_s is not None else None
+        bases, active, rejected = context if context is not None else (
+            self._bases, self.last_diagnostics.get("active_component"),
+            self.last_diagnostics.get("switch_reason") in {"invalid_mpc_hold", "nonfinite_hold"})
+        for key, base in bases.items():
             if key == active and not rejected:
                 continue
             component = getattr(self, key)

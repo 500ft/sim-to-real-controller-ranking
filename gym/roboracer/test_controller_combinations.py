@@ -113,6 +113,13 @@ class CombinationTests(unittest.TestCase):
         self.assertEqual(combo.last_diagnostics["switch_reason"], "mpc_failure_or_deadline")
         self.assertEqual(combo.last_diagnostics["injected_compute_delay_s"], .02)
 
+    def test_out_of_shared_domain_mpc_triggers_fallback(self):
+        actions = {"pure_pursuit": (0.0, 1.0), "lqr": (0.01, 1.0), "mpc": (0.02, 9.0)}
+        combo = CombinationController("mpc_lqr_fallback", factory(actions), LIMITS)
+        combo.command(STATE, {})
+        self.assertEqual(combo.last_diagnostics["active_component"], "lqr")
+        self.assertEqual(combo.last_diagnostics["switch_reason"], "mpc_failure_or_deadline")
+
 
 if __name__ == "__main__":
     unittest.main()

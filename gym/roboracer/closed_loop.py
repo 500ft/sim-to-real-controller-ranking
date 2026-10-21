@@ -194,15 +194,27 @@ def run_closed_loop(
     command_steer = 0.0
     command_speed = 0.0
     command_queue: list[tuple[float, float, float]] = []
-    pending: tuple[int, float, float, float] | None = None
+    pending_compute: tuple[int, float, float, float, dict[str, object]] | None = None
+    actuator_queue: list[tuple[int, float, float, float, dict[str, object]]] = []
+    command_delay_ticks = int(math.ceil(command_delay_s / actual_control_period - 1e-12))
     generated_time_s = float("nan")
     applied_time_s = float("nan")
     applied_command_generated_s = float("nan")
+    applied_diagnostics: dict[str, object] = {}
     control_compute_s = float("nan")
     mpc_solve_s = float("nan")
     mpc_success: bool | None = None
     termination_reason = "max_steps"
     rows: list[dict[str, object]] = []
+
+    def apply_due(step: int) -> None:
+        nonlocal command_steer, command_speed, applied_time_s, applied_command_generated_s, applied_diagnostics
+        while actuator_queue and actuator_queue[0][0] <= step:
+            _, command_steer, command_speed, applied_command_generated_s, applied_diagnostics = actuator_queue.pop(0)
+            applied_time_s = step * integration_dt
+            notify = getattr(controller, "on_applied", None)
+            if callable(notify):
+                notify((command_steer, command_speed), applied_command_generated_s)
 
     try:
         for step in range(max_steps):
@@ -223,14 +235,14 @@ def run_closed_loop(
             }
 
             if step % hold_steps == 0:
-                if timing_mode != "legacy" and pending is not None and step >= pending[0]:
-                    _, command_steer, command_speed, applied_command_generated_s = pending
-                    applied_time_s = step * integration_dt
-                    pending = None
-                    notify = getattr(controller, "on_applied", None)
-                    if callable(notify):
-                        notify((command_steer, command_speed))
-                if timing_mode == "legacy" or pending is None:
+                if timing_mode != "legacy":
+                    if pending_compute is not None and step >= pending_compute[0]:
+                        _, ready_steer, ready_speed, ready_generated, ready_diagnostics = pending_compute
+                        actuator_queue.append((step + command_delay_ticks * hold_steps,
+                                               ready_steer, ready_speed, ready_generated, ready_diagnostics))
+                        pending_compute = None
+                    apply_due(step)
+                if timing_mode == "legacy" or pending_compute is None:
                     call_start = time.perf_counter()
                     new_command = controller.command(state, path_info)
                     control_compute_s = time.perf_counter() - call_start
@@ -245,19 +257,18 @@ def run_closed_loop(
                             command_steer, command_speed, applied_time_s = command_queue.pop(0)
                     else:
                         extra = float(getattr(controller, "last_diagnostics", {}).get("injected_compute_delay_s", 0.0))
-                        delay = command_delay_s + (control_compute_s + extra if timing_mode == "deadline_aware" else 0.0)
+                        compute_delay = control_compute_s + extra if timing_mode == "deadline_aware" else 0.0
                         ticks = max(1 if timing_mode == "deadline_aware" else 0,
-                                    int(math.ceil(delay / actual_control_period - 1e-12)))
+                                    int(math.ceil(compute_delay / actual_control_period - 1e-12)))
+                        snapshot = dict(getattr(controller, "last_diagnostics", {}))
                         if ticks == 0:
-                            command_steer, command_speed, applied_time_s = (
-                                float(new_command[0]), float(new_command[1]), generated_time_s)
-                            applied_command_generated_s = generated_time_s
-                            notify = getattr(controller, "on_applied", None)
-                            if callable(notify):
-                                notify((command_steer, command_speed))
+                            actuator_queue.append((step + command_delay_ticks * hold_steps,
+                                                   float(new_command[0]), float(new_command[1]),
+                                                   generated_time_s, snapshot))
+                            apply_due(step)
                         else:
-                            pending = (step + ticks * hold_steps, float(new_command[0]),
-                                       float(new_command[1]), generated_time_s)
+                            pending_compute = (step + ticks * hold_steps, float(new_command[0]),
+                                               float(new_command[1]), generated_time_s, snapshot)
                 else:
                     control_compute_s = float("nan")
 
@@ -337,6 +348,10 @@ def run_closed_loop(
             )
             if timing_mode != "legacy":
                 rows[-1].update(getattr(controller, "last_diagnostics", {}))
+                rows[-1].update({"applied_active_component": applied_diagnostics.get("active_component", ""),
+                                 "applied_shadow_component": applied_diagnostics.get("shadow_component", ""),
+                                 "applied_switch_reason": applied_diagnostics.get("switch_reason", ""),
+                                 "applied_call_index": applied_diagnostics.get("call_index", float("nan"))})
 
             if done or termination_reason in {"completed_lap", "collision"}:
                 break
