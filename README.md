@@ -121,6 +121,20 @@ targets. The paper's sim-to-real ranking remains unresolved.
 [Play the MapZoo Berlin MP4](runs/controller_pipeline/mapzoo_berlin/controller_overlay.mp4) ·
 [Pinned map source and run data](reports/controller_pipeline.md)
 
+The [controller-combination comparison](reports/controller_combinations.md) runs
+PP, bounded PP+LQR and PP+MPC corrections, both pure-shadow directions, an
+MPC-to-LQR fallback and one frozen correction blend on the two qualified tracks.
+All 98 registered simulation cases completed, but every candidate exceeded the
+shared closed-loop motion limits. There is no qualifying overall winner. The
+report gives the conditional best-to-worst development order, criterion-specific
+ties, retained failures and reproduction commands.
+
+[![Simulation-only controller combinations and fallback comparison on the example track](runs/controller_combinations/example_mpc_timeout_deadline_aware_preview.png)](runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4)
+
+[Play the example-track comparison](runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4) ·
+[Play the MapZoo Berlin comparison](runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_comparison.mp4) ·
+[Run data and interpretation](reports/controller_combinations.md)
+
 ## Documentation
 
 | Document | Purpose |
@@ -133,6 +147,7 @@ targets. The paper's sim-to-real ranking remains unresolved.
 | [Data and figures](docs/data-and-figures.md) | Current and historical figure provenance |
 | [History](docs/history/README.md) | Preserved driving, simulation and mechanical work |
 | [Simulation controller pipeline](reports/controller_pipeline.md) | Executed PP/LQR/MPC telemetry, video and map-line limits |
+| [Controller combinations](reports/controller_combinations.md) | Executed two-track shadow, fallback and blend comparison with conditional rankings |
 
 ## Contributing
 

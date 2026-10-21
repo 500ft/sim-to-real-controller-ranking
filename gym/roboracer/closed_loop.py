@@ -159,6 +159,8 @@ def run_closed_loop(
     seed: int = 12345,
     vehicle_params: dict[str, float] | None = None,
     run_id: str | None = None,
+    timing_mode: str = "legacy",
+    command_delay_s: float = 0.0,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     if control_rate_hz <= 0.0:
         raise ValueError("control_rate_hz must be positive.")
@@ -166,6 +168,10 @@ def run_closed_loop(
     actual_control_period = hold_steps * integration_dt
     max_steps = math.ceil(max_sim_time_s / integration_dt)
     run_id = run_id or controller.name
+    if timing_mode not in {"legacy", "ideal", "deadline_aware"}:
+        raise ValueError("Unknown timing mode")
+    if command_delay_s < 0.0:
+        raise ValueError("Negative command delay")
 
     env_kwargs = dict(
         map=conf.map_path,
@@ -188,13 +194,30 @@ def run_closed_loop(
     command_steer = 0.0
     command_speed = 0.0
     command_queue: list[tuple[float, float, float]] = []
+    pending_compute: tuple[int, float, float, float, dict[str, object]] | None = None
+    actuator_queue: list[tuple[int, float, float, float, dict[str, object]]] = []
+    command_delay_ticks = int(math.ceil(command_delay_s / actual_control_period - 1e-12))
     generated_time_s = float("nan")
     applied_time_s = float("nan")
+    applied_command_generated_s = float("nan")
+    applied_diagnostics: dict[str, object] = {}
     control_compute_s = float("nan")
     mpc_solve_s = float("nan")
     mpc_success: bool | None = None
     termination_reason = "max_steps"
     rows: list[dict[str, object]] = []
+
+    def apply_due(step: int) -> None:
+        nonlocal command_steer, command_speed, applied_time_s, applied_command_generated_s, applied_diagnostics
+        while actuator_queue and actuator_queue[0][0] <= step:
+            _, command_steer, command_speed, applied_command_generated_s, applied_diagnostics = actuator_queue.pop(0)
+            bound = getattr(controller, "bound_applied", None)
+            if callable(bound):
+                command_steer, command_speed = bound((command_steer, command_speed))
+            applied_time_s = step * integration_dt
+            notify = getattr(controller, "on_applied", None)
+            if callable(notify):
+                notify((command_steer, command_speed), applied_command_generated_s)
 
     try:
         for step in range(max_steps):
@@ -215,17 +238,42 @@ def run_closed_loop(
             }
 
             if step % hold_steps == 0:
-                call_start = time.perf_counter()
-                new_command = controller.command(state, path_info)
-                control_compute_s = time.perf_counter() - call_start
-                generated_time_s = step * integration_dt
-                solve_times = getattr(controller, "solve_times_s", [])
-                success_flags = getattr(controller, "success_flags", [])
-                mpc_solve_s = float(solve_times[-1]) if solve_times else float("nan")
-                mpc_success = bool(success_flags[-1]) if success_flags else None
-                command_queue.append((float(new_command[0]), float(new_command[1]), generated_time_s))
-                if len(command_queue) > control_delay_steps:
-                    command_steer, command_speed, applied_time_s = command_queue.pop(0)
+                if timing_mode != "legacy":
+                    if pending_compute is not None and step >= pending_compute[0]:
+                        _, ready_steer, ready_speed, ready_generated, ready_diagnostics = pending_compute
+                        actuator_queue.append((step + command_delay_ticks * hold_steps,
+                                               ready_steer, ready_speed, ready_generated, ready_diagnostics))
+                        pending_compute = None
+                    apply_due(step)
+                if timing_mode == "legacy" or pending_compute is None:
+                    call_start = time.perf_counter()
+                    new_command = controller.command(state, path_info)
+                    control_compute_s = time.perf_counter() - call_start
+                    generated_time_s = step * integration_dt
+                    solve_times = getattr(controller, "solve_times_s", [])
+                    success_flags = getattr(controller, "success_flags", [])
+                    mpc_solve_s = float(solve_times[-1]) if solve_times else float("nan")
+                    mpc_success = bool(success_flags[-1]) if success_flags else None
+                    if timing_mode == "legacy":
+                        command_queue.append((float(new_command[0]), float(new_command[1]), generated_time_s))
+                        if len(command_queue) > control_delay_steps:
+                            command_steer, command_speed, applied_time_s = command_queue.pop(0)
+                    else:
+                        extra = float(getattr(controller, "last_diagnostics", {}).get("injected_compute_delay_s", 0.0))
+                        compute_delay = control_compute_s + extra if timing_mode == "deadline_aware" else 0.0
+                        ticks = max(1 if timing_mode == "deadline_aware" else 0,
+                                    int(math.ceil(compute_delay / actual_control_period - 1e-12)))
+                        snapshot = dict(getattr(controller, "last_diagnostics", {}))
+                        if ticks == 0:
+                            actuator_queue.append((step + command_delay_ticks * hold_steps,
+                                                   float(new_command[0]), float(new_command[1]),
+                                                   generated_time_s, snapshot))
+                            apply_due(step)
+                        else:
+                            pending_compute = (step + ticks * hold_steps, float(new_command[0]),
+                                               float(new_command[1]), generated_time_s, snapshot)
+                else:
+                    control_compute_s = float("nan")
 
             obs, step_reward, done, info = env.step(np.array([[command_steer, command_speed]], dtype=float))
             step_dt = float(step_reward)
@@ -261,6 +309,8 @@ def run_closed_loop(
                     "control_period_s": f"{actual_control_period:.6f}",
                     "hold_steps": hold_steps,
                     "control_delay_steps": control_delay_steps,
+                    "timing_mode": timing_mode,
+                    "command_delay_s": command_delay_s,
                     "seed": seed,
                     "init_lateral_offset_m": f"{init_lateral_offset_m:.6f}",
                     "step": step + 1,
@@ -272,9 +322,13 @@ def run_closed_loop(
                     "steer_rad": f"{float(env.sim.agents[0].state[2]):.9f}",
                     "command_speed_mps": f"{command_speed:.9f}",
                     "command_steer_rad": f"{command_steer:.9f}",
-                    "command_generated_at_s": generated_time_s,
+                    "command_generated_at_s": (generated_time_s if timing_mode == "legacy"
+                                               else applied_command_generated_s),
                     "command_applied_at_s": applied_time_s,
                     "command_age_s": (step * integration_dt - applied_time_s) if math.isfinite(applied_time_s) else float("nan"),
+                    "prediction_age_s": ((step * integration_dt - applied_command_generated_s)
+                                         if timing_mode != "legacy" and math.isfinite(applied_command_generated_s)
+                                         else float("nan")),
                     "control_compute_s": control_compute_s if step % hold_steps == 0 else float("nan"),
                     "mpc_solve_s": mpc_solve_s if step % hold_steps == 0 else float("nan"),
                     "mpc_success": mpc_success if step % hold_steps == 0 else None,
@@ -295,6 +349,12 @@ def run_closed_loop(
                     "termination_reason": termination_reason,
                 }
             )
+            if timing_mode != "legacy":
+                rows[-1].update(getattr(controller, "last_diagnostics", {}))
+                rows[-1].update({"applied_active_component": applied_diagnostics.get("active_component", ""),
+                                 "applied_shadow_component": applied_diagnostics.get("shadow_component", ""),
+                                 "applied_switch_reason": applied_diagnostics.get("switch_reason", ""),
+                                 "applied_call_index": applied_diagnostics.get("call_index", float("nan"))})
 
             if done or termination_reason in {"completed_lap", "collision"}:
                 break

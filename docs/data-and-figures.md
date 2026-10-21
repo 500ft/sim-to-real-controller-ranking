@@ -191,6 +191,19 @@ Shading marks the registered near-tie region, not an uncertainty interval. The
 three timing scenarios use one map and fixed vehicle physics; they cannot stand
 in for an identified vehicle-model distribution.
 
+The [controller-combination result](../reports/controller_combinations.md) uses
+the same qualified lines. Its [registered protocol](../runs/controller_combinations/protocol.json),
+[frozen blend choice](../runs/controller_combinations/frozen_blend.json),
+[per-run control-tick telemetry](../runs/controller_combinations/example_mpc_timeout_deadline_aware_mpc_lqr_fallback_control.csv.gz) and
+[ranked aggregate](../runs/controller_combinations/ranking.json) are the numeric
+sources. Public compressed traces retain every control tick and the terminal
+integration step; hashes of the full local integration traces remain in each run
+JSON. [controller_combination_video.py](../experiments/controller_combination_video.py)
+renders synchronized sampled trajectories, applied steering and active/shadow
+status for the [example](../runs/controller_combinations/example_mpc_timeout_deadline_aware_comparison.mp4)
+and [MapZoo Berlin](../runs/controller_combinations/mapzoo_berlin_mpc_timeout_deadline_aware_comparison.mp4)
+fault scenarios. The first actuator-rate failure remains in the linked report.
+
 ## Full simulation reproduction
 
 From the pinned `f1tenth-gym` environment:

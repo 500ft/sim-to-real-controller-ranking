@@ -1,0 +1,1 @@
+These exploratory tuning and pilot artifacts preceded applied-action synchronization of bypassed controllers. They are excluded from the final cohort; the selected blend must be frozen again from corrected runs. The full matrix had not been admitted.

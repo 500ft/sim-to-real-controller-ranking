@@ -1,0 +1,25 @@
+{
+  "protocol_sha256": "05eac57e78f7a9049f15cb6a7b3cc7d5e0dd024a0251d6295b6c460c84accced",
+  "tracks": {
+    "example": {
+      "status": "constraint_failed_selection",
+      "weight": 0.75,
+      "run_id": "tune_example_blend_0.75",
+      "candidates": [
+        "tune_example_blend_0.25",
+        "tune_example_blend_0.50",
+        "tune_example_blend_0.75"
+      ]
+    },
+    "mapzoo_berlin": {
+      "status": "constraint_failed_selection",
+      "weight": 0.75,
+      "run_id": "tune_mapzoo_berlin_blend_0.75",
+      "candidates": [
+        "tune_mapzoo_berlin_blend_0.25",
+        "tune_mapzoo_berlin_blend_0.50",
+        "tune_mapzoo_berlin_blend_0.75"
+      ]
+    }
+  }
+}
