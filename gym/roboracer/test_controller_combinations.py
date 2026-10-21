@@ -20,6 +20,9 @@ class Fake:
         self.success_flags = []
         self.solve_times_s = []
         self.last_solution = np.ones((2, 2))
+        self.max_steer_correction_rad = .005
+        self.desired_steer_rad = 0.0
+        self.desired_speed_delta_mps = 0.0
 
     def reset(self):
         self.calls = 0
@@ -51,6 +54,8 @@ class CombinationTests(unittest.TestCase):
             shadow.on_applied(command)
         self.assertEqual(shadow.mpc.calls, 8)
         self.assertEqual(one.mpc.calls, 0)
+        self.assertTrue(np.all(shadow.mpc.last_solution == 0.0))
+        self.assertAlmostEqual(shadow.mpc.desired_steer_rad, .005)
 
     def test_blend_uses_one_pp_base_and_bounds_rate(self):
         actions = {"pure_pursuit": (0.1, 3.0), "lqr": (0.2, 4.0), "mpc": (0.3, 5.0)}

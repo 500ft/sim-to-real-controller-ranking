@@ -40,6 +40,7 @@ class CombinationController:
         self.dwell = 0
         self.valid_streak = 0
         self.last_diagnostics: dict[str, object] = {}
+        self._bases: dict[str, tuple[float, float]] = {}
 
     def _limit(self, proposal: tuple[float, float]) -> tuple[float, float]:
         steer, speed = map(float, proposal)
@@ -66,6 +67,7 @@ class CombinationController:
         before = self.mode
         proposed: dict[str, tuple[float, float]] = {}
         timings: dict[str, float] = {}
+        self._bases = {}
         need = {
             "pp": ("pp",), "pp_lqr": ("lqr",), "pp_mpc": ("mpc",),
             "lqr_active_mpc_shadow": ("lqr", "mpc"),
@@ -74,6 +76,10 @@ class CombinationController:
             "pp_blend": ("pp", "lqr", "mpc"),
         }[self.name]
         for key in need:
+            if key in {"lqr", "mpc"}:
+                feedforward = getattr(getattr(self, key), "feedforward_controller", None)
+                self._bases[key] = self._compute(feedforward if feedforward is not None else self.pp,
+                                                 state, path_info)
             start = time.perf_counter()
             proposed[key] = self._compute(getattr(self, key), state, path_info)
             timings[key] = time.perf_counter() - start
@@ -147,8 +153,17 @@ class CombinationController:
 
     def on_applied(self, command: tuple[float, float]) -> None:
         self.applied = tuple(map(float, command))
-        # Bypassed MPC state cannot reuse an optimizer trajectory generated for
-        # another controller's plant path. The next solve starts from zero.
-        if self.name in {"lqr_active_mpc_shadow", "mpc_lqr_fallback"} and self.last_diagnostics.get("active_component") != "mpc":
-            self.mpc.last_solution[:] = 0.0
+        active = self.last_diagnostics.get("active_component")
+        rejected = self.last_diagnostics.get("switch_reason") in {"invalid_mpc_hold", "nonfinite_hold"}
+        for key, base in self._bases.items():
+            if key == active and not rejected:
+                continue
+            component = getattr(self, key)
+            component.desired_steer_rad = float(np.clip(
+                self.applied[0] - base[0], -component.max_steer_correction_rad,
+                component.max_steer_correction_rad))
+            component.desired_speed_delta_mps = float(np.clip(self.applied[1] - base[1], -1.0, 1.0))
+            if key == "mpc":
+                # A prediction made for a bypassed command is not a valid warm start.
+                component.last_solution[:] = 0.0
 
