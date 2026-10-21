@@ -13,6 +13,16 @@ from roboracer.reference_line import map_clearance, qualify_line, resample_close
 
 
 class ReferenceLineTests(unittest.TestCase):
+    def test_example_geometry_does_not_certify_legacy_speed(self):
+        root = Path(__file__).resolve().parents[2]
+        waypoints = np.loadtxt(root / "examples/example_waypoints.csv", delimiter=";", skiprows=3)
+        import json
+        rules = json.loads((root / "runs/controller_pipeline/protocol.json").read_text())["line_validation"]
+        result = qualify_line(waypoints, root / "examples/example_map.yaml", rules)
+        self.assertTrue(result["geometry_eligible"])
+        self.assertFalse(result["source_speed_profile_eligible"])
+        self.assertFalse(result["eligible"])
+
     def test_closed_ordered_line_and_speed_bounds(self):
         theta = np.linspace(0, 2 * math.pi, 121)
         xy = np.column_stack([3 * np.cos(theta), 3 * np.sin(theta)])

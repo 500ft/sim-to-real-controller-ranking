@@ -154,7 +154,8 @@ def qualify():
 
 
 def run(name: str, scenario: str = "nominal", params: dict | None = None,
-        offset_m: float = 0.0, prefix: str = "baseline", line_kind: str = "legacy") -> dict:
+        offset_m: float = 0.0, prefix: str = "baseline", line_kind: str = "legacy",
+        max_sim_time_s: float | None = None) -> dict:
     protocol, conf, waypoints = setup(line_kind)
     if not json.loads((OUT / "line_qualification.json").read_text())["geometry_eligible"]:
         raise RuntimeError("Line geometry did not qualify")
@@ -165,7 +166,7 @@ def run(name: str, scenario: str = "nominal", params: dict | None = None,
     frame, summary = run_closed_loop(controller, conf, waypoints,
                                      integration_dt=base["integration_dt_s"],
                                      control_rate_hz=base["control_rate_hz"],
-                                     max_sim_time_s=base["max_sim_time_s"],
+                                     max_sim_time_s=max_sim_time_s or base["max_sim_time_s"],
                                      init_lateral_offset_m=offset_m,
                                      control_delay_steps=delay,
                                      seed=base["environment_seed"],
@@ -180,7 +181,8 @@ def run(name: str, scenario: str = "nominal", params: dict | None = None,
                     "initial_offset_m": offset_m, "telemetry": str(path.relative_to(ROOT)),
                     "telemetry_sha256": sha256(path), "n_steps": len(frame),
                     "line_kind": line_kind, "line_sha256": sha256(Path(conf.wpt_path)),
-                    "effective_seed": base["environment_seed"]})
+                    "effective_seed": base["environment_seed"],
+                    "max_sim_time_s": max_sim_time_s or base["max_sim_time_s"]})
     (OUT / f"{run_id}.json").write_text(json.dumps(summary, indent=2, allow_nan=False) + "\n")
     print(f"{run_id}: {summary['termination_reason']} at {summary['final_time_s']:.3f} s, "
           f"RMS {summary['rms_cte_m']:.4f} m")
@@ -189,7 +191,7 @@ def run(name: str, scenario: str = "nominal", params: dict | None = None,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("phase", choices=["qualify", "baseline", "constrained_baseline", "sensitivity", "tune", "freeze", "evaluate"])
+    parser.add_argument("phase", choices=["qualify", "baseline", "constrained_baseline", "constrained60_pp", "sensitivity", "tune", "freeze", "evaluate"])
     args = parser.parse_args()
     if args.phase == "qualify":
         if not qualify():
@@ -201,6 +203,9 @@ def main():
         for name in ("pure_pursuit", "lqr", "mpc"):
             run(name, params={"vgain": 1.0} if name == "pure_pursuit" else None,
                 prefix="constrained", line_kind="constrained")
+    elif args.phase == "constrained60_pp":
+        run("pure_pursuit", params={"vgain": 1.0}, prefix="constrained60",
+            line_kind="constrained", max_sim_time_s=60.0)
     elif args.phase == "sensitivity":
         for scenario in ("control_delay_20ms", "control_delay_50ms"):
             for name in ("pure_pursuit", "lqr", "mpc"):
