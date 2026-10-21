@@ -23,6 +23,7 @@ class Fake:
         self.max_steer_correction_rad = .005
         self.desired_steer_rad = 0.0
         self.desired_speed_delta_mps = 0.0
+        self.feedforward_controller = None
 
     def reset(self):
         self.calls = 0
@@ -67,6 +68,21 @@ class CombinationTests(unittest.TestCase):
         blend.on_applied(out)
         # Unbounded raw blend is 0.275 rad, 4.75 m/s, not PP plus both full commands.
         self.assertEqual(blend._limit((0.275, 4.75)), (0.064, 0.1902))
+
+    def test_blend_extracts_each_composite_correction_from_its_own_feedforward(self):
+        actions = {"pure_pursuit": (0.1, 3.0), "lqr": (0.25, 4.0), "mpc": (0.35, 5.0)}
+        def make(name):
+            item = Fake(name, actions[name])
+            if name == "lqr":
+                item.feedforward_controller = Fake("pure_pursuit", (0.2, 3.5))
+            if name == "mpc":
+                item.feedforward_controller = Fake("pure_pursuit", (0.3, 4.5))
+            return item
+        blend = CombinationController("pp_blend", make, LIMITS)
+        blend.applied = (0.15, 4.0)
+        self.assertAlmostEqual(blend.command(STATE, {})[0], 0.15)
+        # Selected PP 0.1 + two 0.05-rad corrections weighted at 0.5.
+        self.assertNotAlmostEqual(blend.last_diagnostics["bounded_proposal_steer_rad"], 0.30)
 
     def test_failed_mpc_falls_back_and_dwell_prevents_chatter(self):
         actions = {"pure_pursuit": (0.0, 1.0), "lqr": (0.01, 1.0), "mpc": (0.02, 1.0)}

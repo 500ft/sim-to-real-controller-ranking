@@ -126,7 +126,8 @@ class CombinationController:
             active = "blend"
             if mpc_ok:
                 base, lqr, mpc = (np.asarray(proposed[key]) for key in ("pp", "lqr", "mpc"))
-                raw = tuple(base + self.weight * (lqr - base) + (1.0 - self.weight) * (mpc - base))
+                raw = tuple(base + self.weight * (lqr - np.asarray(self._bases["lqr"]))
+                            + (1.0 - self.weight) * (mpc - np.asarray(self._bases["mpc"])))
             else:
                 raw = self.applied
                 reason = "invalid_mpc_hold"
