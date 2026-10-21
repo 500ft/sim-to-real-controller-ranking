@@ -75,11 +75,35 @@ def summarize() -> dict:
                                                     next(x for x in ranking if x["architecture"] == n)["max_whole_compute_s"])),
         "disturbance_robustness": sorted(names, key=lambda n: -next(x for x in ranking if x["architecture"] == n)["non_nominal_completed"]),
     }
+    by_name = {row["architecture"]: row for row in ranking}
+    def tied_extrema(order, score, tolerance=0.0):
+        best, worst = score(by_name[order[0]]), score(by_name[order[-1]])
+        return {"best": [name for name in order if score(by_name[name]) == best or abs(score(by_name[name]) - best) <= tolerance],
+                "worst": [name for name in order if score(by_name[name]) == worst or abs(score(by_name[name]) - worst) <= tolerance]}
+    extrema = {
+        "finish_time": tied_extrema(criteria["finish_time"],
+                                    lambda row: row["mean_completed_gym_finish_s"] if row["mean_completed_gym_finish_s"] is not None else float("inf"),
+                                    protocol["ranking"]["near_tie_s"]),
+        "tracking": tied_extrema(criteria["tracking"],
+                                 lambda row: row["mean_completed_rms_reference_distance_m"] if row["mean_completed_rms_reference_distance_m"] is not None else float("inf"),
+                                 protocol["shared_limits"]["numeric_tolerance"]),
+        "disturbance_robustness": tied_extrema(criteria["disturbance_robustness"],
+                                                lambda row: -row["non_nominal_completed"]),
+    }
+    for criterion, fields in (("completion_and_constraints", ("completed", "motion_failed_runs", "deadline_aware_misses")),
+                              ("compute_deadlines", ("deadline_aware_misses",))):
+        order = criteria[criterion]
+        def key(name):
+            row = by_name[name]
+            return tuple(row[field] for field in fields)
+        extrema[criterion] = {"best": [name for name in order if key(name) == key(order[0])],
+                              "worst": [name for name in order if key(name) == key(order[-1])]}
     return {"protocol_sha256": sha(PROTOCOL), "cases_per_architecture": len(cases),
             "architecture_count": len(names), "run_count": len(runs),
             "has_qualifying_overall_winner": any(r["qualifies"] for r in ranking),
             "overall_order": [r["architecture"] for r in ranking],
-            "ranking": ranking, "criterion_orders": criteria, "pairwise": pairs}
+            "ranking": ranking, "criterion_orders": criteria,
+            "criterion_tied_extrema": extrema, "pairwise": pairs}
 
 
 def main():
