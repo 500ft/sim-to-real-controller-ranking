@@ -33,8 +33,8 @@
     "freeze": "commit chosen parameters and line hashes before evaluation"
   },
   "fixed_world_tuning_pose_xytheta": [
-    -8.291150596147123,
-    -17.593295136054966,
+    -8.292534469269121,
+    -17.593463953004346,
     0.11860071125004641
   ],
   "fixed_world_evaluation_pose_xytheta": [
@@ -55,5 +55,6 @@
   "noncompletion": "null lap time for selection, preserve status and telemetry; no finite collision penalty",
   "scope": "simulation development only; no physical validation, paper abstention threshold, reserved outcomes or real-data campaign",
   "numeric_speed_tolerance_mps2": 1e-07,
-  "numeric_tolerance_basis": "Nine-decimal CSV export moves squared-speed acceleration boundary by about 3.1e-8 m/s^2; 1e-7 only covers numeric serialization, while source-line violations exceed limits by whole m/s^2."
+  "numeric_tolerance_basis": "Nine-decimal CSV export moves squared-speed acceleration boundary by about 3.1e-8 m/s^2; 1e-7 only covers numeric serialization, while source-line violations exceed limits by whole m/s^2.",
+  "fixed_pose_basis": "Exact initial_pose() projection onto the first source-line segment, matching the already registered MapZoo Berlin tuning runs; the earlier central-heading estimate differed by 0.001394 m."
 }
