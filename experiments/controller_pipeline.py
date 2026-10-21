@@ -191,7 +191,7 @@ def run(name: str, scenario: str = "nominal", params: dict | None = None,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("phase", choices=["qualify", "baseline", "constrained_baseline", "constrained60_pp", "sensitivity", "tune", "freeze", "evaluate"])
+    parser.add_argument("phase", choices=["qualify", "baseline", "constrained_baseline", "constrained60_pp", "sensitivity", "tune_constrained", "freeze_constrained", "evaluate_constrained"])
     args = parser.parse_args()
     if args.phase == "qualify":
         if not qualify():
@@ -210,21 +210,22 @@ def main():
         for scenario in ("control_delay_20ms", "control_delay_50ms"):
             for name in ("pure_pursuit", "lqr", "mpc"):
                 run(name, scenario)
-    elif args.phase == "tune":
-        protocol, _, _ = setup()
-        for name, values in protocol["tuning"]["candidate_ranges"].items():
-            for index in range(protocol["tuning"]["budget_per_controller_candidates"]):
+    elif args.phase == "tune_constrained":
+        settings = json.loads((OUT / "tuning_constrained_protocol.json").read_text())
+        for name, values in settings["candidate_ranges"].items():
+            for index in range(settings["budget_per_controller_candidates"]):
                 params = {key: value[index] if len(value) > 1 else value[0]
                           for key, value in values.items()}
-                run(name, params=params, offset_m=protocol["tuning"]["tuning_start_offset_m"],
-                    prefix=f"tune{index}")
-    elif args.phase == "freeze":
-        protocol, _, _ = setup()
+                run(name, params=params, offset_m=settings["tuning_start_offset_m"],
+                    prefix=f"ctune{index}", line_kind="constrained",
+                    max_sim_time_s=settings["max_sim_time_s"])
+    elif args.phase == "freeze_constrained":
+        settings = json.loads((OUT / "tuning_constrained_protocol.json").read_text())
         selections = {}
-        for name in protocol["tuning"]["candidate_ranges"]:
+        for name in settings["candidate_ranges"]:
             candidates = []
-            for index in range(protocol["tuning"]["budget_per_controller_candidates"]):
-                path = OUT / f"tune{index}_nominal_{name}.json"
+            for index in range(settings["budget_per_controller_candidates"]):
+                path = OUT / f"ctune{index}_nominal_{name}.json"
                 if not path.exists():
                     raise FileNotFoundError(path)
                 data = json.loads(path.read_text())
@@ -238,19 +239,20 @@ def main():
                                     "parameters": chosen["parameters"],
                                     "rms_reference_distance_m": chosen["rms_reference_distance_m"],
                                     "candidates": [c["run_id"] for c in candidates]}
-        artifact = {"line_sha256": protocol["maps"]["example"]["line_sha256"],
-                    "protocol_sha256": sha256(PROTOCOL), "selections": selections}
-        (OUT / "frozen_selection.json").write_text(json.dumps(artifact, indent=2) + "\n")
+        artifact = {"line_sha256": settings["line_sha256"],
+                    "protocol_sha256": sha256(OUT / "tuning_constrained_protocol.json"), "selections": selections}
+        (OUT / "frozen_constrained_selection.json").write_text(json.dumps(artifact, indent=2) + "\n")
         print(json.dumps(artifact, indent=2))
-    elif args.phase == "evaluate":
-        protocol, _, _ = setup()
-        frozen = json.loads((OUT / "frozen_selection.json").read_text())
-        if frozen["protocol_sha256"] != sha256(PROTOCOL):
+    elif args.phase == "evaluate_constrained":
+        settings = json.loads((OUT / "tuning_constrained_protocol.json").read_text())
+        frozen = json.loads((OUT / "frozen_constrained_selection.json").read_text())
+        if frozen["protocol_sha256"] != sha256(OUT / "tuning_constrained_protocol.json"):
             raise ValueError("Protocol changed after freeze")
         for name, chosen in frozen["selections"].items():
             if chosen["status"] == "selected":
                 run(name, params=chosen["parameters"],
-                    offset_m=protocol["tuning"]["evaluation_start_offset_m"], prefix="evaluation")
+                    offset_m=settings["evaluation_start_offset_m"], prefix="ceval",
+                    line_kind="constrained", max_sim_time_s=settings["max_sim_time_s"])
 
 
 if __name__ == "__main__":
