@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 from pathlib import Path
@@ -22,12 +23,32 @@ STYLES = {"pure_pursuit": ("#0072B2", "o", "PP"),
           "lqr": ("#D55E00", "s", "LQR"), "mpc": ("#009E73", "^", "MPC")}
 
 
-def render() -> None:
-    traces = {name: pd.read_csv(OUT / f"baseline_nominal_{name}.csv.gz") for name in STYLES}
-    results = {name: json.loads((OUT / f"baseline_nominal_{name}.json").read_text()) for name in STYLES}
-    waypoints = np.loadtxt(ROOT / "examples/example_waypoints.csv", delimiter=";", skiprows=3)
-    meta = yaml.safe_load((ROOT / "examples/example_map.yaml").read_text())
-    image = np.asarray(Image.open(ROOT / "examples/example_map.png").convert("L").transpose(Image.FLIP_TOP_BOTTOM))
+def render(track: str = "example") -> None:
+    if track == "example":
+        run_dir = OUT
+        stem = "baseline_nominal"
+        waypoints_path = ROOT / "examples/example_waypoints.csv"
+        map_yaml = ROOT / "examples/example_map.yaml"
+        map_image = ROOT / "examples/example_map.png"
+        title = "Example-track controller replay | simulation"
+        destination = run_dir / "example_controller_overlay.mp4"
+        preview = run_dir / "example_controller_preview.png"
+    elif track == "mapzoo_berlin":
+        run_dir = OUT / "mapzoo_berlin"
+        stem = "baseline"
+        waypoints_path = run_dir / "reference_constrained.csv"
+        map_yaml = ROOT / "third_party/mapzoo_berlin/berlin.yaml"
+        map_image = ROOT / "third_party/mapzoo_berlin/berlin.png"
+        title = "MapZoo Berlin controller replay | simulation"
+        destination = run_dir / "controller_overlay.mp4"
+        preview = run_dir / "controller_preview.png"
+    else:
+        raise ValueError(track)
+    traces = {name: pd.read_csv(run_dir / f"{stem}_{name}.csv.gz") for name in STYLES}
+    results = {name: json.loads((run_dir / f"{stem}_{name}.json").read_text()) for name in STYLES}
+    waypoints = np.loadtxt(waypoints_path, delimiter=";", skiprows=3)
+    meta = yaml.safe_load(map_yaml.read_text())
+    image = np.asarray(Image.open(map_image).convert("L").transpose(Image.FLIP_TOP_BOTTOM))
     ox, oy, _ = meta["origin"]
     resolution = meta["resolution"]
     extent = (ox, ox + image.shape[1] * resolution, oy, oy + image.shape[0] * resolution)
@@ -49,7 +70,7 @@ def render() -> None:
     ax.set_aspect("equal", adjustable="box")
     ax.set_xlabel("x [m]")
     ax.set_ylabel("y [m]")
-    ax.set_title("Example-track controller replay | simulation")
+    ax.set_title(title)
     ax.grid(color="0.7", alpha=0.2, lw=0.5)
     ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), frameon=False)
     time_text = fig.text(0.79, 0.66, "", fontsize=12)
@@ -60,7 +81,6 @@ def render() -> None:
     fps = 12
     writer = FFMpegWriter(fps=fps, codec="libx264", bitrate=1200,
                           extra_args=["-pix_fmt", "yuv420p", "-movflags", "+faststart"])
-    destination = OUT / "example_controller_overlay.mp4"
     with writer.saving(fig, str(destination), dpi=100):
         for frame_idx in range(int(np.ceil(duration * fps)) + 1):
             t = min(frame_idx / fps, duration)
@@ -80,9 +100,11 @@ def render() -> None:
             writer.grab_frame()
     plt.close(fig)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(duration / 2), "-i", str(destination),
-                    "-frames:v", "1", str(OUT / "example_controller_preview.png")], check=True)
+                    "-frames:v", "1", str(preview)], check=True)
     print(destination)
 
 
 if __name__ == "__main__":
-    render()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--track", choices=["example", "mapzoo_berlin"], default="example")
+    render(parser.parse_args().track)

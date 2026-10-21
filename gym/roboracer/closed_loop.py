@@ -157,6 +157,7 @@ def run_closed_loop(
     init_lateral_offset_m: float = 0.0,
     control_delay_steps: int = 0,
     seed: int = 12345,
+    vehicle_params: dict[str, float] | None = None,
     run_id: str | None = None,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     if control_rate_hz <= 0.0:
@@ -166,14 +167,19 @@ def run_closed_loop(
     max_steps = math.ceil(max_sim_time_s / integration_dt)
     run_id = run_id or controller.name
 
-    env = gym.make(
-        "f110_gym:f110-v0",
+    env_kwargs = dict(
         map=conf.map_path,
         map_ext=conf.map_ext,
         num_agents=1,
         timestep=integration_dt,
         integrator=integrator,
         seed=seed,
+    )
+    if vehicle_params is not None:
+        env_kwargs["params"] = dict(vehicle_params)
+    env = gym.make(
+        "f110_gym:f110-v0",
+        **env_kwargs,
     )
 
     controller.reset()

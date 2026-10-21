@@ -101,7 +101,8 @@ def map_clearance(points: np.ndarray, heading: np.ndarray, map_yaml: Path,
     return min_clearance
 
 
-def qualify_line(waypoints: np.ndarray, map_yaml: Path, rules: dict) -> dict:
+def qualify_line(waypoints: np.ndarray, map_yaml: Path, rules: dict,
+                 speed_tolerance: float = 1e-9) -> dict:
     xy = np.asarray(waypoints[:, 1:3], dtype=float)
     closure = float(np.linalg.norm(xy[0] - xy[-1]))
     if closure > rules["max_closure_gap_m"]:
@@ -133,11 +134,12 @@ def qualify_line(waypoints: np.ndarray, map_yaml: Path, rules: dict) -> dict:
     # Text export and floating-point squaring can exceed an exact boundary by
     # a few ulps. This tolerance is numerical only; it cannot admit a physical
     # exceedance at the precision of the source waypoints.
-    tolerance = 1e-9
-    source_speed_eligible = (source_lateral <= rules["lateral_accel_limit_mps2"] + tolerance
-                             and source_forward <= rules["longitudinal_accel_limit_mps2"] + tolerance
-                             and source_braking <= rules["brake_limit_mps2"] + tolerance
-                             and float(np.max(source_speed)) <= rules["speed_cap_mps"] + tolerance)
+    if speed_tolerance < 0:
+        raise ValueError("Numerical speed tolerance must be nonnegative")
+    source_speed_eligible = (source_lateral <= rules["lateral_accel_limit_mps2"] + speed_tolerance
+                             and source_forward <= rules["longitudinal_accel_limit_mps2"] + speed_tolerance
+                             and source_braking <= rules["brake_limit_mps2"] + speed_tolerance
+                             and float(np.max(source_speed)) <= rules["speed_cap_mps"] + speed_tolerance)
     return {"eligible": bool(geometry_eligible and source_speed_eligible),
             "geometry_eligible": bool(geometry_eligible),
             "source_speed_profile_eligible": bool(source_speed_eligible),
@@ -149,4 +151,5 @@ def qualify_line(waypoints: np.ndarray, map_yaml: Path, rules: dict) -> dict:
             "source_max_lateral_accel_mps2": source_lateral,
             "source_max_forward_accel_mps2": source_forward,
             "source_max_braking_mps2": source_braking,
+            "numeric_speed_tolerance": speed_tolerance,
             "profile_min_speed_mps": float(np.min(speed)), "profile_max_speed_mps": float(np.max(speed))}
