@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import math
+import time
 from argparse import Namespace
 from typing import Protocol
 
@@ -74,6 +75,8 @@ def project_to_path(x: float, y: float, waypoints: np.ndarray, conf: Namespace) 
         "abs_cte_m": abs(float(cte)),
         "path_heading_rad": heading,
         "path_curvature_1pm": curvature,
+        "reference_x_m": float(projections[idx, 0]),
+        "reference_y_m": float(projections[idx, 1]),
     }
 
 
@@ -153,6 +156,7 @@ def run_closed_loop(
     max_sim_time_s: float = 45.0,
     init_lateral_offset_m: float = 0.0,
     control_delay_steps: int = 0,
+    seed: int = 12345,
     run_id: str | None = None,
 ) -> tuple[pd.DataFrame, dict[str, object]]:
     if control_rate_hz <= 0.0:
@@ -169,6 +173,7 @@ def run_closed_loop(
         num_agents=1,
         timestep=integration_dt,
         integrator=integrator,
+        seed=seed,
     )
 
     controller.reset()
@@ -176,7 +181,12 @@ def run_closed_loop(
     previous_speed = scalar(obs, "linear_vels_x")
     command_steer = 0.0
     command_speed = 0.0
-    command_queue: list[tuple[float, float]] = []
+    command_queue: list[tuple[float, float, float]] = []
+    generated_time_s = float("nan")
+    applied_time_s = float("nan")
+    control_compute_s = float("nan")
+    mpc_solve_s = float("nan")
+    mpc_success: bool | None = None
     termination_reason = "max_steps"
     rows: list[dict[str, object]] = []
 
@@ -199,10 +209,17 @@ def run_closed_loop(
             }
 
             if step % hold_steps == 0:
+                call_start = time.perf_counter()
                 new_command = controller.command(state, path_info)
-                command_queue.append((float(new_command[0]), float(new_command[1])))
+                control_compute_s = time.perf_counter() - call_start
+                generated_time_s = step * integration_dt
+                solve_times = getattr(controller, "solve_times_s", [])
+                success_flags = getattr(controller, "success_flags", [])
+                mpc_solve_s = float(solve_times[-1]) if solve_times else float("nan")
+                mpc_success = bool(success_flags[-1]) if success_flags else None
+                command_queue.append((float(new_command[0]), float(new_command[1]), generated_time_s))
                 if len(command_queue) > control_delay_steps:
-                    command_steer, command_speed = command_queue.pop(0)
+                    command_steer, command_speed, applied_time_s = command_queue.pop(0)
 
             obs, step_reward, done, info = env.step(np.array([[command_steer, command_speed]], dtype=float))
             step_dt = float(step_reward)
@@ -216,6 +233,7 @@ def run_closed_loop(
             y = scalar(obs, "poses_y")
             theta = scalar(obs, "poses_theta")
             nearest_idx, progress_m, cte_m, abs_cte_m = nearest_waypoint_metrics(x, y, waypoints, conf)
+            reference = project_to_path(x, y, waypoints, conf)
             collision = bool(scalar(obs, "collisions"))
             completed_lap = bool(np.asarray(info.get("checkpoint_done", [False]))[0])
 
@@ -237,6 +255,7 @@ def run_closed_loop(
                     "control_period_s": f"{actual_control_period:.6f}",
                     "hold_steps": hold_steps,
                     "control_delay_steps": control_delay_steps,
+                    "seed": seed,
                     "init_lateral_offset_m": f"{init_lateral_offset_m:.6f}",
                     "step": step + 1,
                     "time_s": f"{(step + 1) * step_dt:.6f}",
@@ -247,6 +266,12 @@ def run_closed_loop(
                     "steer_rad": f"{float(env.sim.agents[0].state[2]):.9f}",
                     "command_speed_mps": f"{command_speed:.9f}",
                     "command_steer_rad": f"{command_steer:.9f}",
+                    "command_generated_at_s": generated_time_s,
+                    "command_applied_at_s": applied_time_s,
+                    "command_age_s": (step * integration_dt - applied_time_s) if math.isfinite(applied_time_s) else float("nan"),
+                    "control_compute_s": control_compute_s if step % hold_steps == 0 else float("nan"),
+                    "mpc_solve_s": mpc_solve_s if step % hold_steps == 0 else float("nan"),
+                    "mpc_success": mpc_success if step % hold_steps == 0 else None,
                     "yaw_rate_radps": f"{yaw_rate:.9f}",
                     "slip_angle_rad": f"{float(env.sim.agents[0].state[6]):.9f}",
                     "accel_x_mps2": f"{accel_x:.9f}",
@@ -255,6 +280,8 @@ def run_closed_loop(
                     "progress_m": f"{progress_m:.9f}",
                     "cte_m": f"{cte_m:.9f}",
                     "abs_cte_m": f"{abs_cte_m:.9f}",
+                    "reference_x_m": f"{reference['reference_x_m']:.9f}",
+                    "reference_y_m": f"{reference['reference_y_m']:.9f}",
                     "lap_time_s": f"{float(obs['lap_times'][0]):.6f}",
                     "lap_count": f"{float(obs['lap_counts'][0]):.0f}",
                     "collision": int(collision),
@@ -275,12 +302,8 @@ def run_closed_loop(
     if not rows[-1]["termination_reason"]:
         rows[-1]["termination_reason"] = termination_reason
     final_reason = rows[-1]["termination_reason"]
-    final_completed = rows[-1]["completed_lap"]
-    final_collision = rows[-1]["collision"]
     for row in rows:
         row["termination_reason"] = final_reason
-        row["completed_lap"] = final_completed
-        row["collision"] = final_collision
 
     frame = normalize_rows(rows)
     return frame, summarize_run(frame)
