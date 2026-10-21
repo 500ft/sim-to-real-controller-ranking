@@ -130,10 +130,14 @@ def qualify_line(waypoints: np.ndarray, map_yaml: Path, rules: dict) -> dict:
     source_acceleration = np.diff(source_speed ** 2) / (2 * np.diff(s))
     source_forward = float(np.max(source_acceleration))
     source_braking = float(-np.min(source_acceleration))
-    source_speed_eligible = (source_lateral <= rules["lateral_accel_limit_mps2"]
-                             and source_forward <= rules["longitudinal_accel_limit_mps2"]
-                             and source_braking <= rules["brake_limit_mps2"]
-                             and float(np.max(source_speed)) <= rules["speed_cap_mps"])
+    # Text export and floating-point squaring can exceed an exact boundary by
+    # a few ulps. This tolerance is numerical only; it cannot admit a physical
+    # exceedance at the precision of the source waypoints.
+    tolerance = 1e-9
+    source_speed_eligible = (source_lateral <= rules["lateral_accel_limit_mps2"] + tolerance
+                             and source_forward <= rules["longitudinal_accel_limit_mps2"] + tolerance
+                             and source_braking <= rules["brake_limit_mps2"] + tolerance
+                             and float(np.max(source_speed)) <= rules["speed_cap_mps"] + tolerance)
     return {"eligible": bool(geometry_eligible and source_speed_eligible),
             "geometry_eligible": bool(geometry_eligible),
             "source_speed_profile_eligible": bool(source_speed_eligible),
