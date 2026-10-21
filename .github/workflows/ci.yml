@@ -39,6 +39,7 @@ jobs:
         python experiments/test_replay_metrics.py
         python experiments/test_report_figures.py
         python experiments/test_controller_pipeline_results.py
+        python experiments/test_controller_multitrack_results.py
         python -m unittest discover -s experiments -p "test_figure_*.py"
     - name: Equipment acquisition tooling (replay only; no device, no pyserial)
       run: |

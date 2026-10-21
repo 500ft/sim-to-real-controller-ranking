@@ -251,12 +251,15 @@ calibration tools and frozen evidence. Retired fabrication instructions and
 planning checkers are removed from active use.
 
 The owner-authorized [simulation controller pipeline](reports/controller_pipeline.md)
-retains PP/LQR/MPC telemetry, a synchronized example-track video, an ordered-line
-qualification and timing-sensitivity runs as development work. Only the example
-map has a qualified ordered line; its source speed schedule exceeds the registered
-target limits. The derived line and frozen tuning results remain simulation-only.
-Additional permitted track lines and an identified vehicle-model region are needed
-before a multi-track improvement or model-dispersion claim. This work leaves the
+retains PP/LQR/MPC telemetry, synchronized videos, ordered-line qualifications,
+frozen offline tuning and paired simulation sensitivity as development work. The
+checked-in example and separately pinned public MapZoo Berlin provide two usable
+derived target-speed lines; five original installed maps still lack qualified
+ordered lines. The Berlin line search produced faster Gym finishes, but the
+closed-loop speed and acceleration checks exceed the registered targets, so this
+is a retained negative qualification result rather than accepted speed
+optimization. The model variants are paired synthetic-identification sensitivity
+assumptions, not a measured vehicle uncertainty region. This work leaves the
 paper's real-data gates and reserved evaluation unchanged.
 
 D2 mounting and physical-study scope, K2 disposition of the earlier driving
