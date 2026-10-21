@@ -394,9 +394,51 @@
         "evidence/item11/figures/enriched_ros_fit.caption.md",
         "evidence/item11/figures/enriched_ros_residuals.caption.md"
       ]
+    },
+    {
+      "id": "controller-delay-sensitivity",
+      "evidence_type": "one-track simulator command-delay sensitivity; not vehicle-model uncertainty",
+      "generator": "experiments/controller_dispersion.py",
+      "command": "python experiments/controller_dispersion.py",
+      "inputs": [
+        "runs/controller_pipeline/delay_sensitivity.json"
+      ],
+      "outputs": [
+        "reports/figures/controller_delay_sensitivity.png",
+        "reports/figures/controller_delay_sensitivity.svg",
+        "reports/figures/controller_delay_sensitivity.caption.md"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8",
+      "caption": "reports/figures/controller_delay_sensitivity.caption.md",
+      "input_sha256": {
+        "runs/controller_pipeline/delay_sensitivity.json": "4636e5db7f3b5bc1d6597081672330f97b56141dd1977ce998a3f2ea06cb5b23"
+      },
+      "style": "experiments/figure_style.py"
+    },
+    {
+      "id": "example-controller-overlay",
+      "evidence_type": "simulation-only controller telemetry video",
+      "generator": "experiments/controller_video.py",
+      "command": "python experiments/controller_video.py",
+      "inputs": [
+        "runs/controller_pipeline/baseline_nominal_pure_pursuit.csv.gz",
+        "runs/controller_pipeline/baseline_nominal_lqr.csv.gz",
+        "runs/controller_pipeline/baseline_nominal_mpc.csv.gz"
+      ],
+      "outputs": [
+        "runs/controller_pipeline/example_controller_overlay.mp4",
+        "runs/controller_pipeline/example_controller_preview.png"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg",
+      "input_sha256": {
+        "runs/controller_pipeline/baseline_nominal_pure_pursuit.csv.gz": "dfdac6dfc6cb2a8319cd62fd9562ebea0fbd5ea92ac0691fb34a9dd78a1f5de2",
+        "runs/controller_pipeline/baseline_nominal_lqr.csv.gz": "3426a5fd351abcaa500757eb48dcc0cb9dfe1099321323cda83f9f68b5f737ac",
+        "runs/controller_pipeline/baseline_nominal_mpc.csv.gz": "ea0ff7f045f34b5df1be78952f0cabccea3785ac479092ee8cd4734884491a31"
+      },
+      "notes": "Positions sampled from 2 ms telemetry without interpolation; preview is extracted from the MP4."
     }
   ],
-  "scope_note": "Entries from the simulation and mast studies are historical. The current structural qualification uses its own Python 3.11 requirements; no ranking figure exists.",
+  "scope_note": "Historical simulation and mast studies remain preserved. The active paper qualification has no ranking figure; the controller video and delay plot are simulation-only development outputs.",
   "visual_reference": {
     "repository": "500ft/sensor-enclosure-thermal-design",
     "commit": "bad572fc0902437445a5446bb5bc43098cc6211f",

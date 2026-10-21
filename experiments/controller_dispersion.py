@@ -9,16 +9,15 @@ from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
 import numpy as np
 import pandas as pd
+import figure_style
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/controller_pipeline"
 SCENARIOS = ("nominal", "control_delay_20ms", "control_delay_50ms")
 CONTROLLERS = ("pure_pursuit", "lqr", "mpc")
-NAMES = {"pure_pursuit": "PP", "lqr": "LQR", "mpc": "MPC"}
-COLORS = {"pure_pursuit": "#0072B2", "lqr": "#D55E00", "mpc": "#009E73"}
 
 
 def analyze() -> dict:
@@ -56,23 +55,29 @@ def analyze() -> dict:
               "comparisons": comparisons}
     (OUT / "delay_sensitivity.json").write_text(json.dumps(result, indent=2) + "\n")
 
-    fig, axes = plt.subplots(1, 3, figsize=(10, 3.5), sharey=True, constrained_layout=True)
+    figure_style.apply("controller-delay-sensitivity")
+    fig, axes = figure_style.subplots(1, 3, height_in=3.1, width_in=7.5, sharey=True)
     labels = ["Nominal", "20 ms", "50 ms"]
-    for ax, (a, b) in zip(axes, combinations(CONTROLLERS, 2)):
+    for index, (ax, (a, b)) in enumerate(zip(axes, combinations(CONTROLLERS, 2))):
         subset = [item for item in comparisons if item["pair"] == f"{a}|{b}"]
-        ax.axhspan(-near, near, color="#E7E7E7", label="registered near tie")
-        ax.axhline(0, color="black", lw=0.8)
+        ax.axhspan(-near, near, color="0.88")
+        figure_style.zero_line(ax)
         values = [item["delta_lap_s"] for item in subset]
-        ax.plot(range(3), values, marker="o", color=COLORS[a], lw=1.7)
+        ax.plot(range(3), values, marker="o", color="black", lw=1.0, ms=3.5)
         ax.set_xticks(range(3), labels)
-        ax.set_title(f"{NAMES[a]} − {NAMES[b]}")
-        ax.grid(axis="y", alpha=0.2)
-        ax.set_xlabel("command delay assumption")
-    axes[0].set_ylabel("Gym finish-time difference [s]")
-    fig.suptitle("Paired controller timing sensitivity | example simulation")
-    fig.savefig(OUT / "delay_sensitivity.png", dpi=180)
-    fig.savefig(OUT / "delay_sensitivity.svg")
-    plt.close(fig)
+        figure_style.letter(ax, index)
+        ax.set_xlabel("delay")
+        ax.set_ylim(-0.13, 0.37)
+    axes[0].set_ylabel("Gym finish difference [s]")
+    figure_style.legend(fig, [Patch(facecolor="0.88", edgecolor="black", label="registered near tie")], ncol=1)
+    caption = ("One example-track simulation with fixed nominal physics and source-listed command delays. "
+               "Panels (a), (b), (c) show PP minus LQR, PP minus MPC, and LQR minus MPC. "
+               "The shaded region is the registered ±0.1 s near-tie interval, not uncertainty. "
+               "All three pairs completed in every scenario; none reversed outside that interval. "
+               "Source: runs/controller_pipeline/delay_sensitivity.json. "
+               "The delay values are perturbation assumptions, not an identified model distribution.")
+    figure_style.save(fig, ROOT / "reports/figures/controller_delay_sensitivity.png", caption,
+                      formats=("png", "svg"))
     return result
 
 

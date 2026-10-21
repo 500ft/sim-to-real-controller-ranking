@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import subprocess
 from pathlib import Path
 
 import matplotlib
@@ -78,6 +79,8 @@ def render() -> None:
                 statuses[name].set_text(f"{label}: {status}")
             writer.grab_frame()
     plt.close(fig)
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", str(duration / 2), "-i", str(destination),
+                    "-frames:v", "1", str(OUT / "example_controller_preview.png")], check=True)
     print(destination)
 
 

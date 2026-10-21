@@ -103,6 +103,17 @@ tooling. Same-model simulator consistency does not validate real controller
 rankings. Mast mounting and physical scope remain pending; this software pivot
 approves no deck design, height, fabrication or physical campaign.
 
+The [simulation controller pipeline](reports/controller_pipeline.md) replays PP,
+LQR and MPC with per-step telemetry on the qualified example-map geometry. It
+preserves the source speed-limit failure, the derived target-speed line and the
+missing-line exclusions for the other installed maps. The paper's sim-to-real
+ranking remains unresolved.
+
+[![Simulation-only PP, LQR and MPC example-track overlay preview](runs/controller_pipeline/example_controller_preview.png)](runs/controller_pipeline/example_controller_overlay.mp4)
+
+[Play the synchronized MP4](runs/controller_pipeline/example_controller_overlay.mp4) ·
+[Run data and reproduction](reports/controller_pipeline.md)
+
 ## Documentation
 
 | Document | Purpose |
@@ -114,6 +125,7 @@ approves no deck design, height, fabrication or physical campaign.
 | [Reading and reproduction guide](docs/START_HERE.md) | Environments and retained checks |
 | [Data and figures](docs/data-and-figures.md) | Current and historical figure provenance |
 | [History](docs/history/README.md) | Preserved driving, simulation and mechanical work |
+| [Simulation controller pipeline](reports/controller_pipeline.md) | Executed PP/LQR/MPC telemetry, video and map-line limits |
 
 ## Contributing
 

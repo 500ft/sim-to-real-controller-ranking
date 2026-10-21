@@ -250,6 +250,15 @@ original FEA results with their corrections, protected CAD generators/contracts,
 calibration tools and frozen evidence. Retired fabrication instructions and
 planning checkers are removed from active use.
 
+The owner-authorized [simulation controller pipeline](reports/controller_pipeline.md)
+retains PP/LQR/MPC telemetry, a synchronized example-track video, an ordered-line
+qualification and timing-sensitivity runs as development work. Only the example
+map has a qualified ordered line; its source speed schedule exceeds the registered
+target limits. The derived line and frozen tuning results remain simulation-only.
+Additional permitted track lines and an identified vehicle-model region are needed
+before a multi-track improvement or model-dispersion claim. This work leaves the
+paper's real-data gates and reserved evaluation unchanged.
+
 D2 mounting and physical-study scope, K2 disposition of the earlier driving
 study, fleet access/adoption, funding, purchases, naming, reviewer and publication
 remain unresolved. No mast result constitutes success for the current question.
