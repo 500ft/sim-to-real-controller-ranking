@@ -82,6 +82,16 @@ class CombinationTests(unittest.TestCase):
         self.assertEqual(combo.command(STATE, {}), (0.0, 0.0))
         self.assertEqual(combo.last_diagnostics["switch_reason"], "invalid_mpc_hold")
 
+    def test_registered_timeout_fault_is_rejected_on_twentieth_call(self):
+        actions = {"pure_pursuit": (0.0, 1.0), "lqr": (0.01, 1.0), "mpc": (0.02, 1.0)}
+        combo = CombinationController("mpc_lqr_fallback", factory(actions), LIMITS,
+                                      fault="Reject every twentieth MPC result")
+        for index in range(1, 21):
+            combo.command({"time_s": index * .01}, {})
+        self.assertEqual(combo.last_diagnostics["active_component"], "lqr")
+        self.assertEqual(combo.last_diagnostics["switch_reason"], "mpc_failure_or_deadline")
+        self.assertEqual(combo.last_diagnostics["injected_compute_delay_s"], .02)
+
 
 if __name__ == "__main__":
     unittest.main()

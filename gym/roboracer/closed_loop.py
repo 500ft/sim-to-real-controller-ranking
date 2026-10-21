@@ -197,6 +197,7 @@ def run_closed_loop(
     pending: tuple[int, float, float, float] | None = None
     generated_time_s = float("nan")
     applied_time_s = float("nan")
+    applied_command_generated_s = float("nan")
     control_compute_s = float("nan")
     mpc_solve_s = float("nan")
     mpc_success: bool | None = None
@@ -223,7 +224,8 @@ def run_closed_loop(
 
             if step % hold_steps == 0:
                 if timing_mode != "legacy" and pending is not None and step >= pending[0]:
-                    _, command_steer, command_speed, applied_time_s = pending
+                    _, command_steer, command_speed, applied_command_generated_s = pending
+                    applied_time_s = step * integration_dt
                     pending = None
                     notify = getattr(controller, "on_applied", None)
                     if callable(notify):
@@ -249,6 +251,7 @@ def run_closed_loop(
                         if ticks == 0:
                             command_steer, command_speed, applied_time_s = (
                                 float(new_command[0]), float(new_command[1]), generated_time_s)
+                            applied_command_generated_s = generated_time_s
                             notify = getattr(controller, "on_applied", None)
                             if callable(notify):
                                 notify((command_steer, command_speed))
@@ -305,9 +308,13 @@ def run_closed_loop(
                     "steer_rad": f"{float(env.sim.agents[0].state[2]):.9f}",
                     "command_speed_mps": f"{command_speed:.9f}",
                     "command_steer_rad": f"{command_steer:.9f}",
-                    "command_generated_at_s": generated_time_s,
+                    "command_generated_at_s": (generated_time_s if timing_mode == "legacy"
+                                               else applied_command_generated_s),
                     "command_applied_at_s": applied_time_s,
                     "command_age_s": (step * integration_dt - applied_time_s) if math.isfinite(applied_time_s) else float("nan"),
+                    "prediction_age_s": ((step * integration_dt - applied_command_generated_s)
+                                         if timing_mode != "legacy" and math.isfinite(applied_command_generated_s)
+                                         else float("nan")),
                     "control_compute_s": control_compute_s if step % hold_steps == 0 else float("nan"),
                     "mpc_solve_s": mpc_solve_s if step % hold_steps == 0 else float("nan"),
                     "mpc_success": mpc_success if step % hold_steps == 0 else None,

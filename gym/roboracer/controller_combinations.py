@@ -82,9 +82,9 @@ class CombinationController:
             flags = self.mpc.success_flags
             mpc_ok = bool(flags and flags[-1]) and all(map(math.isfinite, proposed["mpc"]))
             # This declared fault is independent of whether the optimizer happens to succeed.
-            if self.fault == "mpc_timeout" and self.call_index % 20 == 0:
+            if self.fault is not None and self.call_index % 20 == 0:
                 mpc_ok = False
-        injected = 0.02 if self.fault == "mpc_timeout" and self.call_index % 20 == 0 and "mpc" in proposed else 0.0
+        injected = 0.02 if self.fault is not None and self.call_index % 20 == 0 and "mpc" in proposed else 0.0
         mpc_deadline = "mpc" in timings and timings["mpc"] + injected > self.period
         reason = ""
         shadow = ""

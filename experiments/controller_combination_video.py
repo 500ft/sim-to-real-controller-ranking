@@ -103,10 +103,11 @@ def render(track: str, scenario: str, timing: str) -> tuple[Path, Path]:
                     shadow = trace["shadow_component"].iloc[index]
                     if pd.isna(shadow):
                         shadow = "none"
-                    switch_count = int(trace["switch_reason"].iloc[:index + 1].isin(
+                    event_rows = trace.iloc[:index + 1].drop_duplicates("call_index")
+                    switch_count = int(event_rows["switch_reason"].isin(
                         ["mpc_failure_or_deadline", "mpc_recovered"]).sum())
                     status.append(f"{label}: {state}; active {active}; shadow {shadow}; "
-                                  f"switch rows {switch_count}; applied {trace['command_steer_rad'].iloc[index]:+.2f} rad")
+                                  f"switches {switch_count}; applied {trace['command_steer_rad'].iloc[index]:+.2f} rad")
                 labels[title].set_text("\n".join(status))
             writer.grab_frame()
     plt.close(fig)
