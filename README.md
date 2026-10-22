@@ -7,8 +7,11 @@ rankings that should be withheld? The corrected-source qualification loads all
 failure. The corrected-v2 Drive census now establishes archive identity and
 recording boundaries. A source-pinned reward bridge now executes candidate
 simulator steps, and a full development trace exposes the frozen checkpoint
-timing defect. Published Groundtruth membership, ZIP terms and historical
-simulator identity remain unverified, so reference ranking stays closed.
+timing defect. A development replay finds agreement for logged-action density
+and support across the 15 executable policies, but zero stored raw targets on
+terminal rows fail the registered action-frame check. Published Groundtruth
+membership, ZIP terms and historical simulator identity remain unverified, so
+reference ranking stays closed.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -41,6 +44,9 @@ reaches reset with pinned compatibility aliases, then fails on its first step.
 The later [reward bridge result](reports/ope_reward_adapter_qualification.md)
 retains that failure, executes a bounded simulator smoke, and compares the
 registered reward variants on the same eligible development recordings.
+The [policy replay](reports/ope_policy_interface_qualification.md) checks
+archived actions and densities under the pinned controller code and records the
+terminal raw-target mismatch that keeps the action gate open.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails
@@ -85,8 +91,10 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Resolve published Groundtruth cohort and generation provenance, qualify policy
-execution on archived observations, and obtain explicit corrected-ZIP terms.
+Resolve terminal-row executed-action meaning and published Groundtruth cohort
+and generation provenance, and obtain explicit corrected-ZIP terms. The
+[policy replay report](reports/ope_policy_interface_qualification.md) records
+the current action gate.
 The [roadmap](ROADMAP.md) keeps ranking, M3 and reserved evaluation closed
 until their gates pass.
 

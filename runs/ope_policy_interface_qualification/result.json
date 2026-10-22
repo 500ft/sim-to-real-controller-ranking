@@ -1,0 +1,309 @@
+{
+  "agents_revision": "c42146ca40d9d075ecf8fe4642cddbf2435032ad",
+  "archive_drive_object_id": "1ryaq4F3hHIo_klvlj0KlkDBZ9Zd5qI0Q",
+  "archive_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+  "comparison_rule": {
+    "absolute_only": "No post hoc tolerance adjustment; report max and exceedance counts even if gate fails",
+    "density_formula_abs_tolerance": 1e-06,
+    "deterministic_mean_abs_tolerance": 0.0001,
+    "exclusion": "nonfinite or source-exception rows reported, never silently dropped",
+    "stored_log_density_abs_tolerance": 0.001,
+    "support_tolerance": 1e-06
+  },
+  "counts": {
+    "attempted_recordings": 832,
+    "eligible_recordings": 825,
+    "excluded_recordings": 7,
+    "executed_recordings": 825,
+    "executed_rows": 148529,
+    "independent_density_mismatch_rows": 0,
+    "nonfinite_rows": 0,
+    "source_density_mismatch_rows": 0,
+    "target_mismatch_done_zero_final_rows": 69,
+    "target_mismatch_rows": 69,
+    "unsupported_rows": 0
+  },
+  "exact_stochastic_draw_replay": "unavailable: original RNG state or innovation not archived",
+  "exceptions": {},
+  "gate": "failed",
+  "policy_coverage": {
+    "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 8200,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 16,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 7.412651359395284e-07,
+        "source_density": 8.597784986186241e-07,
+        "target": 1.0764487646520138
+      }
+    },
+    "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "excluded_recordings": 1,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 9755,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 3,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 7.412651363836176e-07,
+        "source_density": 7.79956469632026e-07,
+        "target": 0.6868723481893539
+      }
+    },
+    "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 10778,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 4.403985589540582e-07,
+        "source_density": 8.077899846803405e-07,
+        "target": 2.3760367184877396e-07
+      }
+    },
+    "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 48,
+        "excluded_recordings": 3,
+        "executed_recordings": 48,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 8037,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 17,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 7.412651359395284e-07,
+        "source_density": 7.115252782519121e-07,
+        "target": 0.6395596265792847
+      }
+    },
+    "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 6494,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 7,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 7.412651359395284e-07,
+        "source_density": 3.11186594950108e-05,
+        "target": 1.787555213924178
+      }
+    },
+    "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 2.3571018411772116e-05,
+        "target": 1.0880998191353797e-07
+      }
+    },
+    "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "excluded_recordings": 2,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 6013,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 1,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 7.412651363836176e-07,
+        "source_density": 2.1547309255298686e-05,
+        "target": 0.5
+      }
+    },
+    "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "excluded_recordings": 1,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12250,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 1.8328311623960758e-05,
+        "target": 1.1896170182268406e-07
+      }
+    },
+    "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 7041,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.4495137235524e-07,
+        "source_density": 1.7455932468379842e-05,
+        "target": 1.1901749807918804e-07
+      }
+    },
+    "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 10583,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 8,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 2.0814378855149585e-05,
+        "target": 1.7897862795458324
+      }
+    },
+    "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 8746,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 2.2008395575312534e-05,
+        "target": 1.1893900175863337e-07
+      }
+    },
+    "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 90,
+        "executed_recordings": 90,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 13188,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 3,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 2.0337474260223587e-05,
+        "target": 2.266624433807146
+      }
+    },
+    "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12151,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513732434184e-07,
+        "source_density": 1.796593069602892e-05,
+        "target": 1.1919613562838549e-07
+      }
+    },
+    "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 90,
+        "executed_recordings": 90,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 16676,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 5,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 2.74496134036184e-05,
+        "target": 1.977545292728758
+      }
+    },
+    "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 6117,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 9,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 3.449513727993292e-07,
+        "source_density": 1.4795725359562084e-05,
+        "target": 0.5
+      }
+    }
+  },
+  "private_rows_sha256": "23d9e127ad1adc3e232b72c4602558931b1a4a5900e39a38e4818a808862c196",
+  "protocol": "runs/ope_policy_interface_qualification/protocol.json",
+  "unreconstructible_exact_draw_recordings": 825,
+  "unreconstructible_exact_draw_rows": 148529
+}
