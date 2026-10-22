@@ -1,0 +1,149 @@
+{
+  "protocol_sha256": "97185849e232d1aaebc6358aac37e72de92e83ce4e8675a296959906e7d3d924",
+  "candidate_geometry_sha256": "c0423a2ee10f3b030de34b8cc4f06564a4ae8c91f8de6d4e08c8e3cdcb1ca0c3",
+  "candidates": {
+    "0": {
+      "eligible": true,
+      "mean_tuning_gym_finish_s": 41.656,
+      "line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+      "controller_selections": {
+        "pure_pursuit": {
+          "status": "selected",
+          "run_id": "tune0_pure_pursuit",
+          "lap_time_s": 43.846,
+          "parameters": {
+            "lookahead_m": 1.0,
+            "vgain": 1.0
+          },
+          "all_run_ids": [
+            "tune0_pure_pursuit",
+            "tune1_pure_pursuit",
+            "tune2_pure_pursuit"
+          ]
+        },
+        "lqr": {
+          "status": "selected",
+          "run_id": "tune0_lqr",
+          "lap_time_s": 40.902,
+          "parameters": {
+            "max_steer_correction_rad": 0.0025
+          },
+          "all_run_ids": [
+            "tune0_lqr",
+            "tune1_lqr",
+            "tune2_lqr"
+          ]
+        },
+        "mpc": {
+          "status": "selected",
+          "run_id": "tune0_mpc",
+          "lap_time_s": 40.22,
+          "parameters": {
+            "horizon": 8
+          },
+          "all_run_ids": [
+            "tune0_mpc",
+            "tune1_mpc",
+            "tune2_mpc"
+          ]
+        }
+      }
+    },
+    "1000": {
+      "eligible": true,
+      "mean_tuning_gym_finish_s": 41.34866666666667,
+      "line_sha256": "d01174e163a26d90475a28eab1dbb001bfc2c44875b88b429d95e10e7d3c99e6",
+      "controller_selections": {
+        "pure_pursuit": {
+          "status": "selected",
+          "run_id": "offline_w1000_tune0_pure_pursuit",
+          "lap_time_s": 43.406,
+          "parameters": {
+            "lookahead_m": 1.0,
+            "vgain": 1.0
+          },
+          "all_run_ids": [
+            "offline_w1000_tune0_pure_pursuit",
+            "offline_w1000_tune1_pure_pursuit",
+            "offline_w1000_tune2_pure_pursuit"
+          ]
+        },
+        "lqr": {
+          "status": "selected",
+          "run_id": "offline_w1000_tune0_lqr",
+          "lap_time_s": 40.682,
+          "parameters": {
+            "max_steer_correction_rad": 0.0025
+          },
+          "all_run_ids": [
+            "offline_w1000_tune0_lqr",
+            "offline_w1000_tune1_lqr",
+            "offline_w1000_tune2_lqr"
+          ]
+        },
+        "mpc": {
+          "status": "selected",
+          "run_id": "offline_w1000_tune0_mpc",
+          "lap_time_s": 39.958,
+          "parameters": {
+            "horizon": 8
+          },
+          "all_run_ids": [
+            "offline_w1000_tune0_mpc",
+            "offline_w1000_tune1_mpc",
+            "offline_w1000_tune2_mpc"
+          ]
+        }
+      }
+    },
+    "3000": {
+      "eligible": true,
+      "mean_tuning_gym_finish_s": 41.080000000000005,
+      "line_sha256": "e8505e8f2a0470afefdfd9f89b98c7b924672765783929d10848b7d89acb19c9",
+      "controller_selections": {
+        "pure_pursuit": {
+          "status": "selected",
+          "run_id": "offline_w3000_tune0_pure_pursuit",
+          "lap_time_s": 43.076,
+          "parameters": {
+            "lookahead_m": 1.0,
+            "vgain": 1.0
+          },
+          "all_run_ids": [
+            "offline_w3000_tune0_pure_pursuit",
+            "offline_w3000_tune1_pure_pursuit",
+            "offline_w3000_tune2_pure_pursuit"
+          ]
+        },
+        "lqr": {
+          "status": "selected",
+          "run_id": "offline_w3000_tune0_lqr",
+          "lap_time_s": 40.454,
+          "parameters": {
+            "max_steer_correction_rad": 0.0025
+          },
+          "all_run_ids": [
+            "offline_w3000_tune0_lqr",
+            "offline_w3000_tune1_lqr",
+            "offline_w3000_tune2_lqr"
+          ]
+        },
+        "mpc": {
+          "status": "selected",
+          "run_id": "offline_w3000_tune0_mpc",
+          "lap_time_s": 39.71,
+          "parameters": {
+            "horizon": 8
+          },
+          "all_run_ids": [
+            "offline_w3000_tune0_mpc",
+            "offline_w3000_tune1_mpc",
+            "offline_w3000_tune2_mpc"
+          ]
+        }
+      }
+    }
+  },
+  "chosen_weight": 3000,
+  "chosen_line_sha256": "e8505e8f2a0470afefdfd9f89b98c7b924672765783929d10848b7d89acb19c9"
+}

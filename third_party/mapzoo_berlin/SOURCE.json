@@ -1,0 +1,13 @@
+{
+  "repository": "zhouhengli/MapZoo",
+  "commit": "9fcd716722ccfefdb7b00af53e9c91994ffd8233",
+  "source_url": "https://github.com/zhouhengli/MapZoo/tree/9fcd716722ccfefdb7b00af53e9c91994ffd8233/berlin",
+  "license": "MIT as declared by repository LICENSE at pinned commit; copyright 2026 Zhouheng Li",
+  "use": "new separate public development track, not the installed f1tenth_gym Berlin map",
+  "files_sha256": {
+    "LICENSE": "b4a9f61cdf516cb1a90a930c599a9bfaa4cb83d95f9c34aba02c61033459d4e5",
+    "berlin_racing_line.csv": "822cf4a8a00c25fa7b9e4fa7dd999c87d1f1dd5ba5310af5b0e2d6fdae24a264",
+    "berlin.png": "546d9cc73b2b493f22d07bda93c082c4dbbd28c2f0c8521598bcd3c3ce302267",
+    "berlin.yaml": "ecbf0733c2898eca301be9b4e215ab1a08530a9ed4178a0fb3e82ca742de8331"
+  }
+}

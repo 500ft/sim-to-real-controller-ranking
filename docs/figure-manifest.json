@@ -394,9 +394,158 @@
         "evidence/item11/figures/enriched_ros_fit.caption.md",
         "evidence/item11/figures/enriched_ros_residuals.caption.md"
       ]
+    },
+    {
+      "id": "controller-delay-sensitivity",
+      "evidence_type": "one-track simulator command-delay sensitivity; not vehicle-model uncertainty",
+      "generator": "experiments/controller_dispersion.py",
+      "command": "python experiments/controller_dispersion.py",
+      "inputs": [
+        "runs/controller_pipeline/delay_sensitivity.json"
+      ],
+      "outputs": [
+        "reports/figures/controller_delay_sensitivity.png",
+        "reports/figures/controller_delay_sensitivity.svg",
+        "reports/figures/controller_delay_sensitivity.caption.md"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8",
+      "caption": "reports/figures/controller_delay_sensitivity.caption.md",
+      "input_sha256": {
+        "runs/controller_pipeline/delay_sensitivity.json": "4636e5db7f3b5bc1d6597081672330f97b56141dd1977ce998a3f2ea06cb5b23"
+      },
+      "style": "experiments/figure_style.py"
+    },
+    {
+      "id": "example-controller-overlay",
+      "evidence_type": "simulation-only controller telemetry video",
+      "generator": "experiments/controller_video.py",
+      "command": "python experiments/controller_video.py",
+      "inputs": [
+        "runs/controller_pipeline/baseline_nominal_pure_pursuit.csv.gz",
+        "runs/controller_pipeline/baseline_nominal_lqr.csv.gz",
+        "runs/controller_pipeline/baseline_nominal_mpc.csv.gz"
+      ],
+      "outputs": [
+        "runs/controller_pipeline/example_controller_overlay.mp4",
+        "runs/controller_pipeline/example_controller_preview.png"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg",
+      "input_sha256": {
+        "runs/controller_pipeline/baseline_nominal_pure_pursuit.csv.gz": "dfdac6dfc6cb2a8319cd62fd9562ebea0fbd5ea92ac0691fb34a9dd78a1f5de2",
+        "runs/controller_pipeline/baseline_nominal_lqr.csv.gz": "3426a5fd351abcaa500757eb48dcc0cb9dfe1099321323cda83f9f68b5f737ac",
+        "runs/controller_pipeline/baseline_nominal_mpc.csv.gz": "ea0ff7f045f34b5df1be78952f0cabccea3785ac479092ee8cd4734884491a31"
+      },
+      "notes": "Positions sampled from 2 ms telemetry without interpolation; preview is extracted from the MP4."
+    },
+    {
+      "id": "mapzoo-berlin-controller-overlay",
+      "evidence_type": "simulation-only two-track controller telemetry video",
+      "generator": "experiments/controller_video.py",
+      "command": "python experiments/controller_video.py --track mapzoo_berlin",
+      "inputs": [
+        "runs/controller_pipeline/mapzoo_berlin/baseline_pure_pursuit.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/baseline_lqr.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/baseline_mpc.csv.gz"
+      ],
+      "outputs": [
+        "runs/controller_pipeline/mapzoo_berlin/controller_overlay.mp4",
+        "runs/controller_pipeline/mapzoo_berlin/controller_preview.png"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_pipeline/mapzoo_berlin/baseline_pure_pursuit.csv.gz": "4bd54f42349140757ea45d6f779f2b6c273908a36ff2087db58272f07aa07d8e",
+        "runs/controller_pipeline/mapzoo_berlin/baseline_lqr.csv.gz": "e41e67171f892fe12b06a1c913886c23655fdf7b91cbbe608c52f115ed6260c3",
+        "runs/controller_pipeline/mapzoo_berlin/baseline_mpc.csv.gz": "b009e102db50b65d4ac5f9f39f5409ddc33d2aa62e54f46d51cbbacf8bdce017"
+      },
+      "notes": "Pinned public MIT MapZoo Berlin geometry; positions sampled from 2 ms telemetry, no interpolation."
+    },
+    {
+      "id": "controller-offline-progress",
+      "evidence_type": "frozen line search and Gym finish comparison",
+      "generator": "experiments/controller_multitrack_figures.py",
+      "command": "python experiments/controller_multitrack_figures.py",
+      "inputs": [
+        "runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_pure_pursuit.json",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_lqr.json",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_mpc.json",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_pure_pursuit.json",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.json",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.json"
+      ],
+      "outputs": [
+        "reports/figures/controller_offline_progress.png",
+        "reports/figures/controller_offline_progress.svg",
+        "reports/figures/controller_offline_progress.caption.md"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json": "bb79b0f619a08a8cf5cbd7ff1e75177fbee18021f44a2bcafe5d07b6fb24b9c4",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_pure_pursuit.json": "3892a2ff21e5b3e3d5f21aba4370b70a9c0689b3b7b870d5a88d44297d8eefae",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_lqr.json": "2ededa8afb25fa333e93993b7f70cfa24ab10c8a11fc756bc7a2488f501ea0b6",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_mpc.json": "18804f29e7df611cd969acc83318d9237f8bc46dc749e131a3af3510b0e8a813",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_pure_pursuit.json": "39511ea725d35ea71961034946120a70de1c6104da6e7046b997d85e337f4d72",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.json": "35934f14102a8c440955a2a19c934e0c1c6343feb815661d54786090e9fc3438",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.json": "16f1b3fbc85ec996621779a0f3bc5e1cbc4bbdaa6642a241b3ebdfd247e8cf02"
+      },
+      "notes": "Faster times are retained as constraint-failing simulation development; target profile limits do not qualify closed-loop motion."
+    },
+    {
+      "id": "controller-offline-overlay",
+      "evidence_type": "zoomed source and selected line trajectories",
+      "generator": "experiments/controller_multitrack_figures.py",
+      "command": "python experiments/controller_multitrack_figures.py",
+      "inputs": [
+        "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv",
+        "runs/controller_pipeline/mapzoo_berlin/offline_line_weight_3000.csv",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_pure_pursuit.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_lqr.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_mpc.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_pure_pursuit.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.csv.gz",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.csv.gz"
+      ],
+      "outputs": [
+        "reports/figures/controller_offline_overlay.png",
+        "reports/figures/controller_offline_overlay.svg",
+        "reports/figures/controller_offline_overlay.caption.md"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+        "runs/controller_pipeline/mapzoo_berlin/offline_line_weight_3000.csv": "e8505e8f2a0470afefdfd9f89b98c7b924672765783929d10848b7d89acb19c9",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_pure_pursuit.csv.gz": "63461c5976aa223af2b6fb0fd39de9e97df015f7e509d6b48aacfa72a77caf56",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_lqr.csv.gz": "78f0e4d85cd529f9eacc4e29acd7c578e9cd195e177d7f52a04120eb7c56554e",
+        "runs/controller_pipeline/mapzoo_berlin/evaluation_mpc.csv.gz": "91e08621effa37236e0032a209bf58c6bd5a8c41d2e7262eae0d47a88d8f0d1d",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_pure_pursuit.csv.gz": "542bd211a19cd46c361277b8ce9580129b9c8b42752d5a6f9d3c15301d271616",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.csv.gz": "3e9f64d508cd9e523a80959ec9d5403507ffcb7fbc6b89564d266d326720346d",
+        "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.csv.gz": "94e28d95f0995d478d0a781c04fe3e050cb2c685a20789e0ee7e19584d21b484"
+      },
+      "notes": "Zoom centered at largest nearest-point line displacement; trajectories sampled from committed telemetry."
+    },
+    {
+      "id": "controller-model-dispersion",
+      "evidence_type": "paired deterministic simulation stiffness sensitivity",
+      "generator": "experiments/controller_multitrack_figures.py",
+      "command": "python experiments/controller_multitrack_figures.py",
+      "inputs": [
+        "runs/controller_pipeline/model_sensitivity_protocol.json",
+        "runs/controller_pipeline/model_sensitivity/summary.json"
+      ],
+      "outputs": [
+        "reports/figures/controller_model_dispersion.png",
+        "reports/figures/controller_model_dispersion.svg",
+        "reports/figures/controller_model_dispersion.caption.md"
+      ],
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "input_sha256": {
+        "runs/controller_pipeline/model_sensitivity_protocol.json": "33aece0875d4f50ad5fd6c39031205bca3de01ab511ba36693f3a0295c68cf03",
+        "runs/controller_pipeline/model_sensitivity/summary.json": "f7ff644f1ebdc46eac4ef3b60307e1e93c5042e10a53a1aa9e8db4bf79d6b88c"
+      },
+      "notes": "Paired stiffness values derive from prior synthetic fits; no physical uncertainty distribution or paper ranking claim."
     }
   ],
-  "scope_note": "Entries from the simulation and mast studies are historical. The current structural qualification uses its own Python 3.11 requirements; no ranking figure exists.",
+  "scope_note": "Historical simulation and mast studies remain preserved. The active paper qualification has no ranking figure; the controller video and delay plot are simulation-only development outputs.",
   "visual_reference": {
     "repository": "500ft/sensor-enclosure-thermal-design",
     "commit": "bad572fc0902437445a5446bb5bc43098cc6211f",

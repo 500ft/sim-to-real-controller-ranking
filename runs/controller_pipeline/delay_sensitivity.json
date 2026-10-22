@@ -1,0 +1,136 @@
+{
+  "scope": "one example track, fixed nominal physics, source-listed command delays only",
+  "seed_provenance": "F110Env default 12345 in pinned checked-in source; legacy baseline traces omit explicit seed column",
+  "distribution_claim": "none; delay values are sensitivity assumptions, not an identified joint region",
+  "near_tie_s": 0.1,
+  "runs": {
+    "nominal|pure_pursuit": {
+      "status": "completed_lap",
+      "lap_time_s": 38.042,
+      "n_steps": 19021
+    },
+    "nominal|lqr": {
+      "status": "completed_lap",
+      "lap_time_s": 38.064,
+      "n_steps": 19032
+    },
+    "nominal|mpc": {
+      "status": "completed_lap",
+      "lap_time_s": 37.86,
+      "n_steps": 18930
+    },
+    "control_delay_20ms|pure_pursuit": {
+      "status": "completed_lap",
+      "lap_time_s": 38.068,
+      "n_steps": 19034
+    },
+    "control_delay_20ms|lqr": {
+      "status": "completed_lap",
+      "lap_time_s": 38.1,
+      "n_steps": 19050
+    },
+    "control_delay_20ms|mpc": {
+      "status": "completed_lap",
+      "lap_time_s": 37.864,
+      "n_steps": 18932
+    },
+    "control_delay_50ms|pure_pursuit": {
+      "status": "completed_lap",
+      "lap_time_s": 38.13,
+      "n_steps": 19065
+    },
+    "control_delay_50ms|lqr": {
+      "status": "completed_lap",
+      "lap_time_s": 38.214,
+      "n_steps": 19107
+    },
+    "control_delay_50ms|mpc": {
+      "status": "completed_lap",
+      "lap_time_s": 37.89,
+      "n_steps": 18945
+    }
+  },
+  "comparisons": [
+    {
+      "pair": "pure_pursuit|lqr",
+      "scenario": "nominal",
+      "delta_lap_s": -0.021999999999998465,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": true,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "pure_pursuit|lqr",
+      "scenario": "control_delay_20ms",
+      "delta_lap_s": -0.03200000000000358,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": true,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "pure_pursuit|lqr",
+      "scenario": "control_delay_50ms",
+      "delta_lap_s": -0.08399999999999608,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": true,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "pure_pursuit|mpc",
+      "scenario": "nominal",
+      "delta_lap_s": 0.18200000000000216,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "pure_pursuit|mpc",
+      "scenario": "control_delay_20ms",
+      "delta_lap_s": 0.20400000000000063,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "pure_pursuit|mpc",
+      "scenario": "control_delay_50ms",
+      "delta_lap_s": 0.240000000000002,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "lqr|mpc",
+      "scenario": "nominal",
+      "delta_lap_s": 0.20400000000000063,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "lqr|mpc",
+      "scenario": "control_delay_20ms",
+      "delta_lap_s": 0.2360000000000042,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "pair": "lqr|mpc",
+      "scenario": "control_delay_50ms",
+      "delta_lap_s": 0.32399999999999807,
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "purpose": "one-track offline line-improvement demonstration after two-track PP/LQR/MPC feasibility; no within-lap adaptation",
+  "source_line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+  "source_map_sha256": "546d9cc73b2b493f22d07bda93c082c4dbbd28c2f0c8521598bcd3c3ce302267",
+  "candidate_weights": [
+    0,
+    1000,
+    3000
+  ],
+  "line_objective": "minimize sum ||p-p0||^2 + weight*sum ||p[i-1]-2p[i]+p[i+1]||^2 on periodic vertices; this is quadratic smoothness, not exact minimum curvature",
+  "geometry_gate": "each candidate must pass closure, ordering, intersection, true curvature, expanded vehicle-footprint map clearance and target speed-profile limits from the frozen line rules",
+  "candidate_budget": "three candidate lines including unchanged baseline; three controller settings per line, identical setting ranges and one tuning run per setting",
+  "controller_settings": {
+    "candidates_per_controller": 3,
+    "pure_pursuit_lookahead_m": [
+      1.0,
+      1.2,
+      1.5
+    ],
+    "lqr_max_steer_correction_rad": [
+      0.0025,
+      0.005,
+      0.01
+    ],
+    "mpc_horizon": [
+      8,
+      12,
+      15
+    ],
+    "tuning_lateral_offset_m": 0.25,
+    "evaluation_lateral_offset_m": 0.0,
+    "selection": "completion without collision, then minimum independent RMS reference distance; every candidate retained",
+    "freeze": "commit chosen parameters and line hashes before evaluation"
+  },
+  "fixed_world_tuning_pose_xytheta": [
+    -8.292534469269121,
+    -17.593463953004346,
+    0.11860071125004641
+  ],
+  "fixed_world_evaluation_pose_xytheta": [
+    -8.26156988,
+    -17.84153893,
+    0.11860071125004641
+  ],
+  "model": "same nominal per-track LQR/MPC linear model in expansion_protocol.json for every line candidate",
+  "source_reuse": "weight 0 line equals reference_constrained.csv byte-for-byte; previously registered nine MapZoo Berlin tuning runs may be reused only if their line hash, seed, world start and controller parameters match this protocol",
+  "selection": "for each line choose each controller setting by complete noncolliding minimum independent RMS reference distance on fixed tuning pose; line eligible only if all three selected runs complete without collision; among eligible lines choose lowest mean Gym finish time on tuning pose, all candidates retained",
+  "final_freeze": "commit selected line SHA and three controller configurations before one zero-offset evaluation run per controller",
+  "evaluation": "compare each frozen final-line controller to the previous frozen MapZoo Berlin zero-offset evaluation on the source constrained line; report signed Gym finish difference, completion, tracking and footprint/compute limits; no best-lap selection",
+  "seed": 12345,
+  "integration_dt_s": 0.002,
+  "control_rate_hz": 100,
+  "max_sim_time_s": 90,
+  "latency": "ideal simulator time; measured controller wall-clock duration and missed 10 ms deadlines reported separately",
+  "noncompletion": "null lap time for selection, preserve status and telemetry; no finite collision penalty",
+  "scope": "simulation development only; no physical validation, paper abstention threshold, reserved outcomes or real-data campaign",
+  "numeric_speed_tolerance_mps2": 1e-07,
+  "numeric_tolerance_basis": "Nine-decimal CSV export moves squared-speed acceleration boundary by about 3.1e-8 m/s^2; 1e-7 only covers numeric serialization, while source-line violations exceed limits by whole m/s^2.",
+  "fixed_pose_basis": "Exact initial_pose() projection onto the first source-line segment, matching the already registered MapZoo Berlin tuning runs; the earlier central-heading estimate differed by 0.001394 m."
+}

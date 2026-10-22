@@ -1,0 +1,238 @@
+{
+  "baseline": {
+    "comparison_lap_abs_tolerance_s": 0.05,
+    "control_rate_hz": 100,
+    "controller_delay_steps": 0,
+    "controllers": [
+      "pure_pursuit",
+      "lqr",
+      "mpc"
+    ],
+    "cte_abs_tolerance_m": 0.01,
+    "environment_seed": 12345,
+    "existing_csv": "runs/controller_comparison/results.csv",
+    "integration_dt_s": 0.002,
+    "lap": "Gym checkpoint_done retained; independent forward start-plane crossing after >0.5 line length and >2 m departure, linear interpolation between telemetry samples",
+    "lqr": {
+      "max_steer_correction_rad": 0.005,
+      "q_diag": [
+        20,
+        12,
+        1,
+        0.5,
+        2,
+        2
+      ],
+      "r_diag": [
+        2,
+        0.5
+      ]
+    },
+    "max_sim_time_s": 45,
+    "mpc": {
+      "horizon": 15,
+      "max_steer_correction_rad": 0.005
+    },
+    "pp": {
+      "lookahead_m": 1.2,
+      "vgain": 1.2
+    },
+    "start_pose_xytheta": [
+      0.7,
+      0,
+      1.37079632679
+    ],
+    "telemetry": "every simulator integration step; generated and applied command times, state, reference, flags, MPC status",
+    "timing": "wall clock per control call reported separately; 10 ms deadline, tail and maximum required",
+    "track": "example"
+  },
+  "dispersion_sandbox": {
+    "near_tie_s": 0.1,
+    "noncompletion": "null lap time and separate status; no fabricated penalty",
+    "pairing": "same map,start pose,scenario and seed for every controller",
+    "pairs": [
+      "pure_pursuit|lqr",
+      "pure_pursuit|mpc",
+      "lqr|mpc"
+    ],
+    "pilot": "one delayed three-controller batch before extension",
+    "scenario_source": "runs/parameter_id_robustness/metadata.json lists delays as perturbation experiments, not confidence region",
+    "scenarios": [
+      "nominal",
+      "control_delay_20ms",
+      "control_delay_50ms"
+    ],
+    "seed": 12345,
+    "status": "conditional on feasible track and source-supported scenarios; not a fitted uncertainty distribution"
+  },
+  "line_validation": {
+    "brake_limit_mps2": 4.0,
+    "extra_clearance_m": 0.05,
+    "lateral_accel_limit_mps2": 4.0,
+    "longitudinal_accel_limit_mps2": 2.0,
+    "max_closure_gap_m": 0.25,
+    "max_curvature_1pm": 3.0,
+    "max_tangent_jump_rad": 0.35,
+    "resample_spacing_m": 0.2,
+    "speed_cap_mps": 8.0,
+    "vehicle_length_m": 0.58,
+    "vehicle_width_m": 0.31
+  },
+  "maps": {
+    "berlin": {
+      "eligibility": "excluded: no ordered source line; map raster alone does not select a unique closed loop",
+      "image": "gym/f110_gym/envs/maps/berlin.png",
+      "image_sha256": "7c6ecc147f5187bef4ce21258ec768b8892b0a710ded6877f558c55e54661942",
+      "line": null,
+      "line_sha256": null,
+      "map_yaml": "gym/f110_gym/envs/maps/berlin.yaml",
+      "map_yaml_sha256": "b74e19b07c68319d6dff5cd8d02710b02e8f472c4c0aa5fbd3f88365cf958d29",
+      "origin_xytheta": [
+        -11.60654,
+        -26.520793,
+        0.0
+      ],
+      "resolution_m_per_px": 0.05,
+      "source": "f1tenth/f1tenth_gym 4fdb9c7e6fb7c701290f4dc18377d07c1681724f, MIT; checked-in bytes match"
+    },
+    "example": {
+      "eligibility": "existing line pending geometry check",
+      "image": "examples/example_map.png",
+      "image_sha256": "7b77de5e7aff40c35172db9b57a78ece8e468b167b8edd2082e7b13ba4c980e4",
+      "line": "examples/example_waypoints.csv",
+      "line_sha256": "ff8b4cf0317009661b2a09046823b199fc85deae4a47b5b1da8ac620d994de0d",
+      "map_yaml": "examples/example_map.yaml",
+      "map_yaml_sha256": "11d7fb0ffe281e22ba9e6607c8571048de5ff5bc92c09fa78fe6deb332aa605c",
+      "origin_xytheta": [
+        -78.21853769831466,
+        -44.37590462453829,
+        0.0
+      ],
+      "resolution_m_per_px": 0.0625,
+      "source": "checked-in example assets, matching same MIT upstream commit"
+    },
+    "levine": {
+      "eligibility": "excluded: no ordered source line; map raster alone does not select a unique closed loop",
+      "image": "gym/f110_gym/envs/maps/levine.png",
+      "image_sha256": null,
+      "line": null,
+      "line_sha256": null,
+      "map_yaml": "gym/f110_gym/envs/maps/levine.yaml",
+      "map_yaml_sha256": "44f0e419e0fd26e3217ab651b497464fa11bbcc55a28a84e267203aaf2617a8d",
+      "origin_xytheta": [
+        -51.224998,
+        -51.224998,
+        0.0
+      ],
+      "resolution_m_per_px": 0.05,
+      "source": "f1tenth/f1tenth_gym 4fdb9c7e6fb7c701290f4dc18377d07c1681724f, MIT; checked-in bytes match"
+    },
+    "skirk": {
+      "eligibility": "excluded: no ordered source line; map raster alone does not select a unique closed loop",
+      "image": "gym/f110_gym/envs/maps/skirk.png",
+      "image_sha256": "7af605d5487fbd7bbd3d7db286aa240cc0ce5ebfb7c6e144767aad8e2fd02aea",
+      "line": null,
+      "line_sha256": null,
+      "map_yaml": "gym/f110_gym/envs/maps/skirk.yaml",
+      "map_yaml_sha256": "e1eb3c4d5535834232911eb6428cd432898507e265ce0d9a40a7e04c986ededb",
+      "origin_xytheta": [
+        -7.801,
+        -16.388,
+        0.0
+      ],
+      "resolution_m_per_px": 0.05,
+      "source": "f1tenth/f1tenth_gym 4fdb9c7e6fb7c701290f4dc18377d07c1681724f, MIT; checked-in bytes match"
+    },
+    "stata_basement": {
+      "eligibility": "excluded: no ordered source line; map raster alone does not select a unique closed loop",
+      "image": "gym/f110_gym/envs/maps/stata_basement.png",
+      "image_sha256": "b0ea5bed595dc3dd68f7d3c12a8b337c476c66a09fd7bf5c818c25c461b2aa2b",
+      "line": null,
+      "line_sha256": null,
+      "map_yaml": "gym/f110_gym/envs/maps/stata_basement.yaml",
+      "map_yaml_sha256": "1363973d0e66d0fcbaa6a8b5e9c744ab4199619428dff760d2c0fb8a90b3c105",
+      "origin_xytheta": [
+        -26.9,
+        -16.5,
+        0.0
+      ],
+      "resolution_m_per_px": 0.0504,
+      "source": "f1tenth/f1tenth_gym 4fdb9c7e6fb7c701290f4dc18377d07c1681724f, MIT; checked-in bytes match"
+    },
+    "vegas": {
+      "eligibility": "excluded: no ordered source line; map raster alone does not select a unique closed loop",
+      "image": "gym/f110_gym/envs/maps/vegas.png",
+      "image_sha256": "61488e01a9fdfac31a9df708f428da85577f4515276653020051e3d5bebcaa68",
+      "line": null,
+      "line_sha256": null,
+      "map_yaml": "gym/f110_gym/envs/maps/vegas.yaml",
+      "map_yaml_sha256": "6e8844d4c1416432d802ecdbec9e094bc46c42d8abe034dca30f6d376cc5db87",
+      "origin_xytheta": [
+        -11.60654,
+        -27.320793,
+        0.0
+      ],
+      "resolution_m_per_px": 0.05,
+      "source": "f1tenth/f1tenth_gym 4fdb9c7e6fb7c701290f4dc18377d07c1681724f, MIT; checked-in bytes match"
+    }
+  },
+  "offline_improvement": {
+    "comparison": "equal offline budgets; frozen candidates; independent evaluation laps",
+    "gate": "defer speed optimization until at least two eligible tracks and all three controllers complete under frozen tuning; retain failures",
+    "objective": "quadratic second-difference smoothness approximation, not exact minimum curvature"
+  },
+  "scope": "simulation-only PP/LQR/MPC controller development; no Kresse archive or reserved outcomes",
+  "source": {
+    "candidate_byte_check": "all checked-in simulator env and example files match candidate upstream commit",
+    "candidate_license": "MIT",
+    "candidate_upstream_commit": "4fdb9c7e6fb7c701290f4dc18377d07c1681724f",
+    "gym": "0.19.0",
+    "historical_commit_verified": false,
+    "historical_first_lap_commit_claim": "8578485dd641c6571c44bd985bcc48921ad863f6",
+    "numpy": "1.21.6",
+    "python": "3.9.23",
+    "scipy": "1.11.2",
+    "vendored_source_sha256": {
+      "gym/f110_gym/envs/base_classes.py": "8f198397851c5eebfa27562b8d56222e4cc4731eac92344a5128695ffd3b53f6",
+      "gym/f110_gym/envs/dynamic_models.py": "e9bebc447179163c11d536228c29a5cc155b6d9916f06e5ad2358259d03af6f6",
+      "gym/f110_gym/envs/f110_env.py": "81d0e7c5ab310ec2fadc376bf2b629dec8c33597c78cd211f11791bedb626436",
+      "gym/roboracer/closed_loop.py": "ff007ac0ecf66b340a5a02a3cfbb1cb50751bb7086dba41f358faa50342b8086",
+      "gym/roboracer/controllers.py": "e50e30e7ea09b094df2b4804d9c04f07b2fb04510de071d9af3151e5a93b84c9"
+    }
+  },
+  "tuning": {
+    "budget_per_controller_candidates": 3,
+    "candidate_ranges": {
+      "lqr": {
+        "max_steer_correction_rad": [
+          0.0025,
+          0.005,
+          0.01
+        ]
+      },
+      "mpc": {
+        "horizon": [
+          8,
+          12,
+          15
+        ]
+      },
+      "pure_pursuit": {
+        "lookahead_m": [
+          1.0,
+          1.2,
+          1.5
+        ],
+        "vgain": [
+          1.2
+        ]
+      }
+    },
+    "evaluation_start_offset_m": 0,
+    "freeze": "selected config and line SHA before evaluation",
+    "objective": "completion without collision first, then lowest RMS CTE; incomplete candidates retained",
+    "status": "conditional on qualified line",
+    "tuning_start_offset_m": 0.25
+  },
+  "waypoint_format": "semicolon, 3 header rows; s_m,x_m,y_m,psi_rad,kappa_1pm,vx_mps,ax_mps2; explicit duplicate closing point"
+}

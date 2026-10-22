@@ -250,6 +250,18 @@ original FEA results with their corrections, protected CAD generators/contracts,
 calibration tools and frozen evidence. Retired fabrication instructions and
 planning checkers are removed from active use.
 
+The owner-authorized [simulation controller pipeline](reports/controller_pipeline.md)
+retains PP/LQR/MPC telemetry, synchronized videos, ordered-line qualifications,
+frozen offline tuning and paired simulation sensitivity as development work. The
+checked-in example and separately pinned public MapZoo Berlin provide two usable
+derived target-speed lines; five original installed maps still lack qualified
+ordered lines. The Berlin line search produced faster Gym finishes, but the
+closed-loop speed and acceleration checks exceed the registered targets, so this
+is a retained negative qualification result rather than accepted speed
+optimization. The model variants are paired synthetic-identification sensitivity
+assumptions, not a measured vehicle uncertainty region. This work leaves the
+paper's real-data gates and reserved evaluation unchanged.
+
 D2 mounting and physical-study scope, K2 disposition of the earlier driving
 study, fleet access/adoption, funding, purchases, naming, reviewer and publication
 remain unresolved. No mast result constitutes success for the current question.

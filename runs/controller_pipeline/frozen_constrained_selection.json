@@ -1,0 +1,46 @@
+{
+  "line_sha256": "579a35f3431196df68fbb0eaf30c527445335777f3017fb6e6680eedb4bc6b8d",
+  "protocol_sha256": "972d348fc31e373a25e7582b56f8bb7c75ab63926000a2f335ff5a498aa44b6c",
+  "selections": {
+    "pure_pursuit": {
+      "status": "selected",
+      "run_id": "ctune0_nominal_pure_pursuit",
+      "parameters": {
+        "lookahead_m": 1.0,
+        "vgain": 1.0
+      },
+      "rms_reference_distance_m": 0.08275801167288714,
+      "candidates": [
+        "ctune0_nominal_pure_pursuit",
+        "ctune1_nominal_pure_pursuit",
+        "ctune2_nominal_pure_pursuit"
+      ]
+    },
+    "lqr": {
+      "status": "selected",
+      "run_id": "ctune0_nominal_lqr",
+      "parameters": {
+        "max_steer_correction_rad": 0.0025
+      },
+      "rms_reference_distance_m": 0.13000024754348916,
+      "candidates": [
+        "ctune0_nominal_lqr",
+        "ctune1_nominal_lqr",
+        "ctune2_nominal_lqr"
+      ]
+    },
+    "mpc": {
+      "status": "selected",
+      "run_id": "ctune0_nominal_mpc",
+      "parameters": {
+        "horizon": 8
+      },
+      "rms_reference_distance_m": 0.13012245051927682,
+      "candidates": [
+        "ctune0_nominal_mpc",
+        "ctune1_nominal_mpc",
+        "ctune2_nominal_mpc"
+      ]
+    }
+  }
+}

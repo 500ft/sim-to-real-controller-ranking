@@ -1,0 +1,32 @@
+{
+  "purpose": "paired, deterministic simulation-development sensitivity; no physical parameter distribution or paper abstention calibration",
+  "source_results": "runs/parameter_id_robustness/results.csv",
+  "source_results_sha256": "9412a752d938adccc8a981c9eb1021ebdb04c9855ecceb46d3f299db0b4259a6",
+  "source_metadata": "runs/parameter_id_robustness/metadata.json",
+  "source_metadata_sha256": "ea407d7249caaed122e8b4927c5ec8fab25c725ec7c608cd6b6388ab9a52ca5e",
+  "simulator_source": "gym/f110_gym/envs/f110_env.py",
+  "simulator_source_sha256": "81d0e7c5ab310ec2fadc376bf2b629dec8c33597c78cd211f11791bedb626436",
+  "model_set_basis": "Use only the four passing paired front/rear fits from prior synthetic identification; keep each pair together. These are sensitivity assumptions, not measured car uncertainty or independent draws.",
+  "models": {
+    "nominal": {"C_Sf": 4.718, "C_Sr": 5.4562},
+    "noise_low": {"C_Sf": 4.712180319286493, "C_Sr": 5.458652698583598},
+    "quantization_low": {"C_Sf": 4.7210071525266635, "C_Sr": 5.455371436930202},
+    "quantization_medium": {"C_Sf": 4.71288367656932, "C_Sr": 5.439218264719417}
+  },
+  "default_vehicle_params": {"mu": 1.0489, "C_Sf": 4.718, "C_Sr": 5.4562, "lf": 0.15875, "lr": 0.17145, "h": 0.074, "m": 3.74, "I": 0.04712, "s_min": -0.4189, "s_max": 0.4189, "sv_min": -3.2, "sv_max": 3.2, "v_switch": 7.319, "a_max": 9.51, "v_min": -5.0, "v_max": 20.0, "width": 0.31, "length": 0.58},
+  "other_vehicle_parameters": "exact F110Env default values at pinned simulator source; only C_Sf and C_Sr vary",
+  "tracks": {
+    "example": {"line": "runs/controller_pipeline/reference_constrained.csv", "frozen": "runs/controller_pipeline/frozen_constrained_selection.json", "start_offset_m": 0.0, "seed": 12345, "max_sim_time_s": 60.0},
+    "mapzoo_berlin": {"line": "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv", "frozen": "runs/controller_pipeline/mapzoo_berlin/frozen_selection.json", "start_offset_m": 0.0, "seed": 12345, "max_sim_time_s": 90.0}
+  },
+  "controllers": ["pure_pursuit", "lqr", "mpc"],
+  "pairing": "all three unordered controller pairs on identical map, line, model, start, seed and integration/control schedules; each scenario has one deterministic run per controller",
+  "nominal_rule": "rerun nominal with explicit default params and verify against previously frozen evaluation to 0.002 s Gym finish and 0.00001 m independent RMS; stop if it differs",
+  "pilot": "run example nominal PP for 2 simulated seconds with explicit params and confirm finite telemetry, valid hashes, full parameter pass-through and no collision; then run full nominal before nonnominal models",
+  "integration_dt_s": 0.002,
+  "control_rate_hz": 100,
+  "near_tie_s": 0.1,
+  "comparison": "signed Gym finish time A minus B; report noncompletion separately with null lap time; sign reversal only when nominal and variant absolute differences both exceed the near-tie bound",
+  "latency": "ideal simulated-time actuation, measured compute duration and 10 ms deadline misses reported; fixed command-delay sensitivity remains separate and is not a probability distribution",
+  "scope": "development simulation only; no real-platform transfer, inferred model distribution, reserved group, physical driving or paper ranking"
+}

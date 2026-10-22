@@ -1,0 +1,46 @@
+{
+  "cohort": "constrained example-line tuning; legacy pilot excluded",
+  "line_sha256": "579a35f3431196df68fbb0eaf30c527445335777f3017fb6e6680eedb4bc6b8d",
+  "source_protocol_sha256": "1166f373fa50abc981aef13c1699fb1bc3c7ec00dda342baf646440b2e34447e",
+  "baseline_evidence": [
+    "constrained_nominal_lqr.json",
+    "constrained_nominal_mpc.json",
+    "constrained60_nominal_pure_pursuit.json"
+  ],
+  "max_sim_time_s": 60.0,
+  "seed": 12345,
+  "integration_dt_s": 0.002,
+  "control_rate_hz": 100,
+  "budget_per_controller_candidates": 3,
+  "candidate_ranges": {
+    "pure_pursuit": {
+      "lookahead_m": [
+        1.0,
+        1.2,
+        1.5
+      ],
+      "vgain": [
+        1.0
+      ]
+    },
+    "lqr": {
+      "max_steer_correction_rad": [
+        0.0025,
+        0.005,
+        0.01
+      ]
+    },
+    "mpc": {
+      "horizon": [
+        8,
+        12,
+        15
+      ]
+    }
+  },
+  "tuning_start_offset_m": 0.25,
+  "evaluation_start_offset_m": 0.0,
+  "selection_rule": "complete without collision, then minimum independently recomputed RMS reference distance; retain all candidates and failures",
+  "evaluation_rule": "one replay per frozen selection at common zero-offset start; report Gym finish, first geometric crossing, RMS/max reference distance, steering and compute time. No best-lap choice.",
+  "constraint_scope": "derived target speed profile respects registered 4 m/s^2 lateral, 2 m/s^2 forward, 4 m/s^2 braking; actual closed-loop accelerations and compute deadline remain separate reported checks; tuning does not claim physical compliance or real-time execution"
+}

@@ -1,0 +1,89 @@
+{
+  "cohort": "prospective public-map expansion after the original six-map inventory; MapZoo Berlin is distinct from installed gym Berlin",
+  "source_register": "third_party/mapzoo_berlin/SOURCE.json",
+  "source_repository": "zhouhengli/MapZoo",
+  "source_commit": "9fcd716722ccfefdb7b00af53e9c91994ffd8233",
+  "publisher_license": "MIT as declared by repository LICENSE at pinned commit; copyright 2026 Zhouheng Li",
+  "source_file_sha256": {
+    "LICENSE": "b4a9f61cdf516cb1a90a930c599a9bfaa4cb83d95f9c34aba02c61033459d4e5",
+    "berlin_racing_line.csv": "822cf4a8a00c25fa7b9e4fa7dd999c87d1f1dd5ba5310af5b0e2d6fdae24a264",
+    "berlin.png": "546d9cc73b2b493f22d07bda93c082c4dbbd28c2f0c8521598bcd3c3ce302267",
+    "berlin.yaml": "ecbf0733c2898eca301be9b4e215ab1a08530a9ed4178a0fb3e82ca742de8331"
+  },
+  "source_native_sha256": "3e8365b35cac5c8a679bcc769553a86fb568bdd456b138704d64d44c8f23e52b",
+  "derived_line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+  "qualification_sha256": "d9e3602835bca1a72693e3bdcb4373a2b1c8df6925b9335163f0c13b1ab94f3d",
+  "source_format": "11 semicolon columns with named header; select s,x,y,psi,kappa,vx,ax by name, then arc-length resample",
+  "native_format": "three header rows, 7 semicolon columns s,x,y,psi,kappa,vx,ax, explicit duplicate closure",
+  "map": "third_party/mapzoo_berlin/berlin.yaml and berlin.png",
+  "track_status": "source geometry passes; source speed fails registered limits; derived target speed passes",
+  "start_pose_xytheta": [
+    -8.26156988,
+    -17.84153893,
+    0.11860071125004641
+  ],
+  "seed": 12345,
+  "integration_dt_s": 0.002,
+  "control_rate_hz": 100,
+  "max_sim_time_s": 90,
+  "finish": "Gym checkpoint_done retained; first geometric crossing separately interpolated after departure and half-line progress",
+  "controller_model": {
+    "control_dt_s": 0.01,
+    "v0_mps": 6.921521164226918,
+    "kappa0_1pm": 0.058779594325187735,
+    "q_diag": [
+      20,
+      12,
+      1,
+      0.5,
+      2,
+      2
+    ],
+    "r_diag": [
+      2,
+      0.5
+    ]
+  },
+  "baseline": {
+    "pure_pursuit": {
+      "lookahead_m": 1.2,
+      "vgain": 1.0
+    },
+    "lqr": {
+      "max_steer_correction_rad": 0.005,
+      "feedforward_pp_lookahead_m": 1.2,
+      "feedforward_pp_vgain": 1.0
+    },
+    "mpc": {
+      "horizon": 15,
+      "max_steer_correction_rad": 0.005,
+      "feedforward_pp_lookahead_m": 1.2,
+      "feedforward_pp_vgain": 1.0
+    }
+  },
+  "tuning": {
+    "candidates_per_controller": 3,
+    "pure_pursuit_lookahead_m": [
+      1.0,
+      1.2,
+      1.5
+    ],
+    "lqr_max_steer_correction_rad": [
+      0.0025,
+      0.005,
+      0.01
+    ],
+    "mpc_horizon": [
+      8,
+      12,
+      15
+    ],
+    "tuning_lateral_offset_m": 0.25,
+    "evaluation_lateral_offset_m": 0.0,
+    "selection": "completion without collision, then minimum independent RMS reference distance; every candidate retained",
+    "freeze": "commit chosen parameters and line hashes before evaluation"
+  },
+  "timing": "wall clock per control call is reported; ideal simulated-time actuation, no compute delay injected in nominal results; 10 ms control deadline",
+  "noncompletion": "null comparison lap time, retain terminal reason and telemetry; no finite collision penalty",
+  "scope": "public simulation development only; no Kresse archive, reserved group, physical car or historical simulator-identity claim"
+}
