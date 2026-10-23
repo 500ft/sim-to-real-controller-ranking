@@ -31,8 +31,11 @@ def main():
     parser.add_argument("--agents-source", type=Path, required=True)
     parser.add_argument("--private-rows", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--protocol", type=Path, default=ROOT / "runs/ope_policy_interface_qualification/protocol.json",
+                        help="registered protocol; the default is the real-v2 replay, the sim-v2 replay passes its own")
     args = parser.parse_args()
-    protocol = json.loads((ROOT / "runs/ope_policy_interface_qualification/protocol.json").read_text())
+    protocol = json.loads(args.protocol.read_text())
+    protocol_path = str(args.protocol.resolve().relative_to(ROOT))
     agents_root = args.agents_source.resolve()
     import subprocess
     revision = subprocess.check_output(["git", "-C", str(agents_root), "rev-parse", "HEAD"], text=True).strip()
@@ -163,7 +166,7 @@ def main():
                 output.write(json.dumps({"recording_start": int(start), "policy": name,
                                          "exception": f"{type(exc).__name__}: {exc}"}) + "\n")
     result = {
-        "protocol": "runs/ope_policy_interface_qualification/protocol.json",
+        "protocol": protocol_path,
         "archive_drive_object_id": protocol["archive"]["drive_object_id"],
         "archive_sha256": digest(args.real_zip),
         "agents_revision": revision,
