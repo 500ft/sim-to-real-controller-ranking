@@ -36,8 +36,10 @@ availability and original-loader sensitivity. Common-reward aggregates are
 published for local qualification. The [development reward trace](reports/ope_reward_adapter_qualification.md)
 now identifies the frozen checkpoint row-alignment defect and compares reward
 variants on one eligible cohort. A source-pinned local bridge executes candidate
-simulator steps and passes a short reward-alignment smoke. Published Groundtruth
-membership and exact generating revision remain unknown. ZIP rights
+simulator steps and passes a short reward-alignment smoke. The
+[Groundtruth reconciliation](reports/ope_groundtruth_reconciliation.md)
+reproduces all published per-agent aggregates with the pinned classes and the
+gym's resampled centerline; the author's exact revision stays unconfirmed. ZIP rights
 and the historical simulator revision remain open. These results supply no
 controller-performance or refusal claim.
 
@@ -110,8 +112,11 @@ Prerequisite: the historical census and a clearly identified corrected source.
   produces per-agent aggregates for all four rewards. The
   [whole-development trace](runs/ope_reward_adapter_qualification/development_trace.json)
   checks matching records and isolates checkpoint timing, stored cutoff rows
-  and source-class behavior. The published Groundtruth cohort is unidentified,
-  so its aggregate gap remains open. Simulation lacks `new_rewards`.
+  and source-class behavior. The [reconciliation](runs/ope_groundtruth_reconciliation/result.json)
+  closes the aggregate gap: the published files use the eligible cohort, a
+  zeroed final row, the pinned classes and progress on the gym's resampled
+  centerline. Choose the development reward definition before M2. Simulation
+  lacks `new_rewards`.
 - The [candidate interface probe](runs/ope_corrected_v2/simulator_probe.json)
   preserves the failed unmodified step. A [pinned-call witness](runs/ope_reward_adapter_qualification/source_call_witness.json)
   identifies the live signature and progress indexing fault. The local bridge
