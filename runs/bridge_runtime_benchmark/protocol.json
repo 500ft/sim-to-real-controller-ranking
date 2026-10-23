@@ -14,7 +14,18 @@
     "public_record": "start row index and SHA-256 of the JSON list [x, y, theta, velocity]; the values stay in the private step ledger",
     "measured_linear_vels_x_note": "the measured longitudinal speed at that row is recorded privately; it is near rest and is not used as the start velocity"
   },
-  "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
   "runs_per_seed": 2,
   "maximum_control_steps": 250,
   "stop": "first termination or truncation, or 250 executed control steps",
@@ -32,10 +43,22 @@
   },
   "seed_propagation_hypothesis": "from source inspection: AccelerationAndDeltaSteeringWrapper.reset and PoseStartPosition.reset call the inner reset without the seed; F110Env.reset reseeds numpy.random with its config seed 12345 whenever any seed arrives; RaceCar.reset recreates the scan generator from the config seed; RandomResetVelocity draws from the unseeded global generator; so the reset seed is expected to be inert and env_velocity runs are expected to differ between repeats",
   "checkpoint": {
-    "run": "seeded_actions, seed 0, second run",
-    "step": 125,
+    "run": "see checks; the first entry is the originally registered run",
+    "step": "see checks",
     "method": "pickle.dumps of the bridge environment and the action generator after step 125; if pickling fails, record the error and use copy.deepcopy; if both fail, record both errors and restart by replaying the first 125 actions in a fresh environment",
-    "check": "the restored copy executes steps 126 to 250 with the same actions and must be bitwise identical to the uninterrupted run; checkpoint size in bytes and save and restore time are recorded"
+    "check": "the restored copy executes steps 126 to 250 with the same actions and must be bitwise identical to the uninterrupted run; checkpoint size in bytes and save and restore time are recorded",
+    "checks": [
+      {
+        "run": "seeded_actions/seed0/run2",
+        "step": 125,
+        "registered": "before the first execution"
+      },
+      {
+        "run": "seeded_actions/seed9/run2",
+        "step": 80,
+        "registered": "amendment after the first execution showed the seed 0 run collides at step 126, leaving one step to compare; seed 9 was the longest executed seeded_actions run at 161 steps, chosen on step count only, so 81 steps are compared"
+      }
+    ]
   },
   "runtime": "control steps per second per run from time.perf_counter over the executed steps; minimum, median and maximum per mode; environment construction time",
   "memory": "resource.getrusage(RUSAGE_SELF).ru_maxrss after environment construction and at the end of all runs, with the platform recorded",
