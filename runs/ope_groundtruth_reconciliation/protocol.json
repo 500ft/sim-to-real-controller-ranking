@@ -1,0 +1,76 @@
+{
+  "purpose": "Reconcile per-agent real-v2 reward aggregates with the pinned published Groundtruth under registered cohort and reward variants; aggregate check only, no ranking",
+  "parent_protocols": [
+    "runs/ope_corrected_v2/protocol.json",
+    "runs/ope_reward_adapter_qualification/protocol.json"
+  ],
+  "archive": {
+    "name": "f110-real-stoch-v2",
+    "drive_object_id": "1ryaq4F3hHIo_klvlj0KlkDBZ9Zd5qI0Q",
+    "zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+    "raw_and_processed_location": "outside git"
+  },
+  "published_groundtruth": {
+    "benchmark_commit": "42789222451f4ee0e679475a8798d7c47bf220b5",
+    "files": "Groundtruth/gt_reward_{progress,lifetime,min_act,checkpoint}.json",
+    "sha256": {
+      "progress": "75342f582586c89b6d58ed3891050c280f324a50a7601c6a955e54383490cf9f",
+      "lifetime": "c8af4e62d2f9cb98794b46fb63e1e276ebbcf54b483267ee1067de84db7c3b2b",
+      "min_act": "1172404593a01b0e8b1fb0184b5f0256da7e16e80b00c498118b5fbd3df5e340",
+      "checkpoint": "c271b17f4d029bde43aab4bb5c5042ec15b659c7e6e4e8627dd57d04813cd7e6"
+    },
+    "generating_path_as_inspected": "experiments/compute_reward_from_ds.py in the pinned benchmark: loader get_dataset with use_compute_termination, remove_cons_terminals, registered bad_trajectories, eval_only, timesteps_to_include (0, 250) and set_terminals; progress recomputed from poses with the loader Progress tracker; pinned reward classes; rewards at and after the termination index set to the zero collision penalty; discount 0.99; numpy mean and population std per agent",
+    "membership_and_revision": "unknown; the files carry no per-record membership or generating revision"
+  },
+  "loader_commit": "536d762ad7b07076551d39ef202199cbaead6a87",
+  "gym_commit": "886dde048d4095a8b5170d2790fb68d4af6e80fc",
+  "source_sha256": {
+    "f110_orl_dataset/fast_reward.py": "0dea55802bc644f4447b2e2c130193286ab6364688d316c3599aa84e60a659cf",
+    "f110_orl_dataset/compute_progress.py": "03129a57adcdcb7efff3d4fc4bd10508db2bec6e8e64ca087a712cb3544cdad4",
+    "f110_gym/maps/Infsaal3/Infsaal3_centerline.csv": "a0166fee01f48cce17b70e5bfa9827a3a1969e013b33d1f818386ba382d1639b"
+  },
+  "selection": {
+    "agents": "runs/ope_corrected_v2/eval_agents.json",
+    "recording_start": "timestep resets to zero; prior row done or truncated",
+    "excluded_recording_starts": [82322, 152551, 155685, 161312, 161444, 202835, 268314, 278488, 283691],
+    "horizon_rows": 250,
+    "discount_per_row": 0.99,
+    "aggregation": "discounted sum per whole retained recording; unweighted mean and population standard deviation (ddof=0) across recordings per agent",
+    "reserved_groups": "no access"
+  },
+  "variant_axes": {
+    "loader": {
+      "corrected": "first compute_termination row of a recording retained; later rows of that recording excluded",
+      "original": "pinned helper scans consecutive compute_termination rows across the whole array; a reset row that continues a run from the previous recording is excluded"
+    },
+    "final_row": {
+      "zero": "reward of the final retained row set to zero, as the frozen rule and the inspected published path do",
+      "keep": "final retained row keeps its reward; progress and checkpoint use the next archive row of the same recording when one exists, otherwise zero; lifetime and minimum action keep their formula values"
+    },
+    "reward_source": {
+      "frozen_v2": "experiments/common_reward_v2.reward_vectors on progress decoded from progress_sin and progress_cos; checkpoint credited on the arrival row",
+      "departure_aligned": "experiments/simulator_reward_adapter_v2.TransitionRewards on decoded progress; progress and checkpoint credited on the departure row",
+      "pinned_source_class": "pinned ProgressReward, LifetimeReward, MinActReward(-0.4189, 0.4189) and 10 x CheckpointReward on progress recomputed from poses_x and poses_y with the pinned Progress tracker (lookahead 200) and the pinned Infsaal3 centerline, tracker reset at each recording start, float64 arithmetic",
+      "stored_new_rewards": "archive new_rewards rows with their stored alignment and cutoff values"
+    }
+  },
+  "enumeration": "all 2 x 2 x 4 = 16 combinations on the same eligible recordings; the loader axis is expected to be inert for the 15 evaluation agents on real-v2 because runs/ope_corrected_v2/loader_sensitivity.json records zero changed evaluation reset rows",
+  "comparison": {
+    "mean_abs_tolerance": 0.0001,
+    "std_abs_tolerance": 0.0001,
+    "rule": "an agent and reward match under a variant when both the mean and the population standard deviation are within tolerance of the published values; absolute differences only; no post hoc tolerance change; exact maximum differences and failing agents are reported even when no variant matches",
+    "tolerance_basis": "runs/ope_corrected_v2/reference_comparison.json registers no tolerance; 1e-4 is about 30 times the largest minimum-action residual recorded there and about 85 times smaller than the largest progress residual, so it separates numerical residue from unexplained differences"
+  },
+  "self_check": "the corrected/zero/frozen_v2 combination must reproduce the real-v2 means and standard deviations in runs/ope_corrected_v2/reward_aggregates.json within 1e-9 before any comparison is read",
+  "prospective_expectations": [
+    "lifetime matches only with a zero final row; keep moves every horizon recording by about 0.99 to the power 249",
+    "checkpoint can match only under pinned_source_class because the published files carry the duplicated full-lap threshold that the frozen rule and the bridge both count once",
+    "no registered axis is expected to remove the progress mean residual of up to 0.0085 recorded in reference_comparison.json; if none does, that residual stays attributed to cohort membership or generating revision, which these files cannot identify",
+    "the minimum-action residual of about 3e-6 is not explained by any registered axis and is expected to persist under every variant"
+  ],
+  "output": {
+    "public": "runs/ope_groundtruth_reconciliation/result.json with per-variant per-agent means, standard deviations, differences and match flags",
+    "private": "per-recording returns under every variant, outside git, with SHA-256 recorded in the public result"
+  },
+  "no_ranking": "nothing from this run enters any controller ranking"
+}
