@@ -20,6 +20,8 @@ flycheck_*
 runs/*
 !runs/ope_policy_interface_qualification/
 !runs/ope_policy_interface_qualification/*.json
+!runs/ope_policy_interface_qualification_sim/
+!runs/ope_policy_interface_qualification_sim/*.json
 !runs/ope_reward_adapter_qualification/
 !runs/ope_reward_adapter_qualification/*.json
 !runs/first_lap/

@@ -1,0 +1,311 @@
+{
+  "actions": {
+    "archive_actions": "delta [steering rad, speed m/s]; raw_actions absolute target [steering rad, speed m/s]",
+    "bounds": "source max_delta and current physical steering/speed bounds; check support in original delta coordinates; compare raw target to prior+delta separately; never substitute target into delta density",
+    "density_components": "[speed,steering] in delta coordinates; sum only for conditionally independent truncated normals",
+    "exact_draw": "unavailable unless original random state or recorded innovation exists; do not compare a fresh sample to logged draw",
+    "policy_output": "sampled delta [steering,speed]"
+  },
+  "agents_revision": "c42146ca40d9d075ecf8fe4642cddbf2435032ad",
+  "archive": {
+    "drive_object_id": "14GnCIa9Bz4ZiOaPjFEnPZLXJIZzamKix",
+    "name": "f110-sim-stoch-v2",
+    "raw_and_processed_location": "outside git",
+    "zip_sha256": "d7276ea155b2598f0174c91d9ddf3a5cd9cd0cf578ca1abe1f103b2f3849e906"
+  },
+  "comparison": {
+    "absolute_only": "No post hoc tolerance adjustment; report max and exceedance counts even if gate fails",
+    "density_formula_abs_tolerance": 1e-06,
+    "deterministic_mean_abs_tolerance": 0.0001,
+    "exclusion": "nonfinite or source-exception rows reported, never silently dropped",
+    "frozen_from": "runs/ope_policy_interface_qualification/protocol.json, unchanged",
+    "stored_log_density_abs_tolerance": 0.001,
+    "support_tolerance": 1e-06
+  },
+  "configs": {
+    "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "class": "FTGAgent",
+      "parameters": {
+        "deterministic": false,
+        "gap_blocker": 2,
+        "horizon": 0.7,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "speed_multiplier": 0.5,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "b0572a240bd5a7e09c6fc966d9cd0cc3dc55270a681d8013b3c74af0b0e5bb1e"
+    },
+    "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+      "class": "FTGAgent",
+      "parameters": {
+        "deterministic": false,
+        "gap_blocker": 2,
+        "horizon": 0.8,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "speed_multiplier": 0.6,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "fe3b52140697e73b09d467f9c54a017775b0a8d8a40ef674f11d225177285d6e"
+    },
+    "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "class": "FTGAgent",
+      "parameters": {
+        "deterministic": false,
+        "gap_blocker": 2,
+        "horizon": 0.7,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "speed_multiplier": 0.8,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "2859b577e726aae828fa6808c0e27b2c41483de0b732dc2e2333c44b5a124f88"
+    },
+    "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+      "class": "FTGAgent",
+      "parameters": {
+        "deterministic": false,
+        "gap_blocker": 1,
+        "horizon": 0.2,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "speed_multiplier": 1.0,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "718626fe0ce15c518ed8935f38bd4ed8bade00dd1f1d7be8d700cadc5f437f76"
+    },
+    "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.3,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline1.csv",
+        "resetting": false,
+        "speed_multiplier": 0.44,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "593c91c77747689f44b768cb91be13dc07aab216d9d6b90f7f30886faf95e039"
+    },
+    "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.85,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline1.csv",
+        "resetting": false,
+        "speed_multiplier": 0.44,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "983bd109a96470039f8c58866b7251b03207ec057f8980cbb9fad2dffdd00861"
+    },
+    "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.3,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline4.csv",
+        "resetting": false,
+        "speed_multiplier": 0.4,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "7218b1edac9477e9a18d906f8e48a6d9c5193a581d8015bc09219e8cbfc9118f"
+    },
+    "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.9,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline4.csv",
+        "resetting": false,
+        "speed_multiplier": 0.52,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "1d7eb4e3ba59247f3de1f09544ecc49b29ad5eb2a5f18b765144cfd89ff4167a"
+    },
+    "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 1.2,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "centerline.csv",
+        "resetting": false,
+        "speed_multiplier": 0.65,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "0c760dae6872416727127dfbb5e1f1ef7585ef754d66a8697e5778ae6743fb0b"
+    },
+    "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 1.1,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline8.csv",
+        "resetting": false,
+        "speed_multiplier": 0.68,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "d6e26904721a635c92a3b148eb6fc8cc366c4d9fd5d46627972ab057f2c08bf7"
+    },
+    "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 1.0,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline2.csv",
+        "resetting": false,
+        "speed_multiplier": 0.6,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "d2d6e5a80288faf1e60ecc7d7272cecacef8f7787e135d467142fc4be8547692"
+    },
+    "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.95,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "centerline.csv",
+        "resetting": false,
+        "speed_multiplier": 0.73,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "cde5a1e95097f30b883e1d1e26966f36efd8bc2cd9fc5b6523af9592625e6eee"
+    },
+    "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.95,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline4.csv",
+        "resetting": false,
+        "speed_multiplier": 0.73,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "6a14bb1294ecaa6022b0d5d31c0f8a8f921fce93b390952ee61b601fbea3466b"
+    },
+    "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.9,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline8.csv",
+        "resetting": false,
+        "speed_multiplier": 0.7,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "3f6bd29be3b4bf0af7c93d9f75e5aa8b27b4801166de18c827067bf6f8095121"
+    },
+    "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+      "class": "PPAgent",
+      "parameters": {
+        "deterministic": false,
+        "lookahead_distance": 0.95,
+        "max_delta": 0.3,
+        "max_speed": 5.0,
+        "min_speed": 0.5,
+        "raceline_file": "raceline3.csv",
+        "resetting": false,
+        "speed_multiplier": 0.8,
+        "std_steer": 0.03,
+        "std_vel": 0.1
+      },
+      "sha256": "395859974e3daada48b69dcac8e3d876ea62bb438197cf3432d925edf0435ac9"
+    }
+  },
+  "hypotheses": [
+    "The same pinned policies, configurations and source hashes apply to the simulation archive, which the loader registers with the same evaluation names and no bad trajectories.",
+    "Source and independent densities agree within the frozen rule where they agreed on real-v2; a disagreement would point at archive-specific preprocessing or state handling.",
+    "The terminal raw-target mismatch seen on real-v2 is a recording convention of the real car, so the count of final rows failing the action-frame gate on sim-v2 is expected to be zero; a nonzero count would place the convention in the shared collection code instead."
+  ],
+  "observations": {
+    "dtype_note": "sim-v2 stores previous_action_steer and previous_action_speed as float64 and linear_vels_x as float32; the real archive stores the previous actions as float32; the replay casts nothing",
+    "fields": [
+      "lidar_occupancy",
+      "poses_x",
+      "poses_y",
+      "theta_sin",
+      "theta_cos",
+      "previous_action_steer",
+      "previous_action_speed"
+    ],
+    "lidar": "already normalized in archive; no second normalization",
+    "pose": "meters; heading encoded as sin/cos",
+    "previous_action": "physical prior steering rad and speed m/s; reset policy at each recording; no cross-record history",
+    "shape": "batch first; lidar source shape (N,1,54), agent accepts (batch,54) or (batch,1,54); scalar fields (N,)"
+  },
+  "output": "private per-row ledger outside git, compact per-policy aggregates and source hashes in git; no return or ranking outcomes; written to a separate runs directory from the real-v2 result",
+  "parent": "runs/ope_policy_interface_qualification/protocol.json",
+  "purpose": "Qualified source-pinned policy interface on corrected sim-v2 evaluation-agent DEVELOPMENT recordings under the real-v2 protocol's frozen rules; no ranking",
+  "selection": {
+    "archive": "sim-v2 only",
+    "excluded_recording_starts": [],
+    "exclusion_rule": "same rule as real-v2: the registered bad-trajectory list for this archive, which the pinned loader registers as empty, plus retention through the first compute_termination row",
+    "policies": "exact eval_agents.json names",
+    "recording_start": "timestep reset; prior row done or truncated",
+    "reserved_groups": "no access",
+    "retained_rows": "through first compute_termination row inclusive or first 250 rows; all retained action rows inspected, terminal row counted separately"
+  },
+  "source_sha256": {
+    "f110_agents/agent.py": "3f5c1d9c9447e02b02410b2042abaf8bab1c459b157b70e54b020f155439362e",
+    "f110_agents/agents_numpy.py": "c161f5e2a2270f86f07e0074988d576cbd8c9a42a2571a1640395b0c295e5b92",
+    "f110_agents/pure_pursuit.py": "2152a4eefb22bf3a4b180709d4c6bc4e88bf9916dcdc37bcda96529dc2c7c6ac"
+  },
+  "synthetic_cases": [
+    "interior density and normalization",
+    "positive and negative tail",
+    "lower and upper support boundaries and outside support",
+    "speed/steering component swap",
+    "delta versus absolute target",
+    "scalar versus batch",
+    "batch permutation",
+    "episode reset"
+  ]
+}

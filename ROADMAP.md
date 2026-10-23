@@ -116,7 +116,10 @@ Prerequisite: the historical census and a clearly identified corrected source.
   two-component log densities are finite. The [pinned development replay](reports/ope_policy_interface_qualification.md)
   maps all evaluation names to executable implementations and checks clipping,
   state, resets, support and logged-action density. It leaves terminal zero
-  raw targets unresolved under its registered action-frame rule. The
+  raw targets unresolved under its registered action-frame rule; the
+  [simulation replay](runs/ope_policy_interface_qualification_sim/result.json)
+  passes that rule with no zero raw target, so the convention belongs to the
+  real recordings. The
   [frozen shared calculation](runs/ope_corrected_v2/protocol.json)
   produces per-agent aggregates for all four rewards. The
   [whole-development trace](runs/ope_reward_adapter_qualification/development_trace.json)
