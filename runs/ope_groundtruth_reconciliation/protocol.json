@@ -32,7 +32,17 @@
   "selection": {
     "agents": "runs/ope_corrected_v2/eval_agents.json",
     "recording_start": "timestep resets to zero; prior row done or truncated",
-    "excluded_recording_starts": [82322, 152551, 155685, 161312, 161444, 202835, 268314, 278488, 283691],
+    "excluded_recording_starts": [
+      82322,
+      152551,
+      155685,
+      161312,
+      161444,
+      202835,
+      268314,
+      278488,
+      283691
+    ],
     "horizon_rows": 250,
     "discount_per_row": 0.99,
     "aggregation": "discounted sum per whole retained recording; unweighted mean and population standard deviation (ddof=0) across recordings per agent",
@@ -51,10 +61,11 @@
       "frozen_v2": "experiments/common_reward_v2.reward_vectors on progress decoded from progress_sin and progress_cos; checkpoint credited on the arrival row",
       "departure_aligned": "experiments/simulator_reward_adapter_v2.TransitionRewards on decoded progress; progress and checkpoint credited on the departure row",
       "pinned_source_class": "pinned ProgressReward, LifetimeReward, MinActReward(-0.4189, 0.4189) and 10 x CheckpointReward on progress recomputed from poses_x and poses_y with the pinned Progress tracker (lookahead 200) and the pinned Infsaal3 centerline, tracker reset at each recording start, float64 arithmetic",
-      "stored_new_rewards": "archive new_rewards rows with their stored alignment and cutoff values"
+      "stored_new_rewards": "archive new_rewards rows with their stored alignment and cutoff values",
+      "pinned_source_class_gym_track": "same pinned classes and tracker as pinned_source_class, but the tracker is built from the pinned gym Track.from_track_name('Infsaal3').centerline, whose Raceline.from_centerline_file closes the loop and resamples the CSV with a cubic spline at 0.1 m into float32 points; this is the track object the inspected published path hands to F110Env.compute_progress"
     }
   },
-  "enumeration": "all 2 x 2 x 4 = 16 combinations on the same eligible recordings; the loader axis is expected to be inert for the 15 evaluation agents on real-v2 because runs/ope_corrected_v2/loader_sensitivity.json records zero changed evaluation reset rows",
+  "enumeration": "all 2 x 2 x 5 = 20 combinations on the same eligible recordings; the loader axis is expected to be inert for the 15 evaluation agents on real-v2 because runs/ope_corrected_v2/loader_sensitivity.json records zero changed evaluation reset rows",
   "comparison": {
     "mean_abs_tolerance": 0.0001,
     "std_abs_tolerance": 0.0001,
@@ -65,12 +76,18 @@
   "prospective_expectations": [
     "lifetime matches only with a zero final row; keep moves every horizon recording by about 0.99 to the power 249",
     "checkpoint can match only under pinned_source_class because the published files carry the duplicated full-lap threshold that the frozen rule and the bridge both count once",
-    "no registered axis is expected to remove the progress mean residual of up to 0.0085 recorded in reference_comparison.json; if none does, that residual stays attributed to cohort membership or generating revision, which these files cannot identify",
+    "no registered CSV-centerline axis is expected to remove the progress mean residual of up to 0.0085 recorded in reference_comparison.json; if none does, that residual stays attributed to cohort membership or generating revision, which these files cannot identify",
     "the minimum-action residual of about 3e-6 is not explained by any registered axis and is expected to persist under every variant"
   ],
   "output": {
     "public": "runs/ope_groundtruth_reconciliation/result.json with per-variant per-agent means, standard deviations, differences and match flags",
     "private": "per-recording returns under every variant, outside git, with SHA-256 recorded in the public result"
   },
-  "no_ranking": "nothing from this run enters any controller ranking"
+  "no_ranking": "nothing from this run enters any controller ranking",
+  "amendment_before_execution": {
+    "added": "reward_source.pinned_source_class_gym_track",
+    "when": "after the first sixteen variants were executed and before any gym-track outcome was computed",
+    "reason": "the sixteen registered variants left identical progress residuals (maximum mean difference 0.008537) under every progress source, so the remaining inspected difference between the reconstruction and the published path, the resampled gym centerline, is registered as a further variant rather than tuned in",
+    "expectation": "if the resampled centerline generated the published files, progress and checkpoint residuals fall to numerical levels under this variant; otherwise they persist and stay attributed to cohort or revision differences"
+  }
 }

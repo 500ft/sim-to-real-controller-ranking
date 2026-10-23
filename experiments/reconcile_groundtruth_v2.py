@@ -24,7 +24,8 @@ PROTOCOL = "runs/ope_groundtruth_reconciliation/protocol.json"
 REWARDS = ("progress", "lifetime", "min_act", "checkpoint")
 LOADERS = ("corrected", "original")
 FINAL_ROWS = ("zero", "keep")
-SOURCES = ("frozen_v2", "departure_aligned", "pinned_source_class", "stored_new_rewards")
+SOURCES = ("frozen_v2", "departure_aligned", "pinned_source_class", "pinned_source_class_gym_track",
+           "stored_new_rewards")
 
 
 def digest(path):
@@ -113,6 +114,8 @@ def recording_variants(window, lookahead, data, pinned=None):
         }
         if pinned is not None:
             vectors["pinned_source_class"] = pinned_vectors(pinned, data["source_progress"][:rows], previous, action)
+            vectors["pinned_source_class_gym_track"] = pinned_vectors(
+                pinned, data["source_progress_gym_track"][:rows], previous, action)
         for source, value in vectors.items():
             value = {name: np.asarray(value[name], dtype=float)[:n].copy() for name in REWARDS}
             if terminal:
@@ -166,6 +169,14 @@ def main():
     pinned = {"progress": ProgressReward(), "lifetime": LifetimeReward(),
               "min_act": MinActReward(-STEERING_LIMIT, STEERING_LIMIT), "checkpoint": CheckpointReward()}
     tracker = Progress(Track(args.centerline), lookahead=200)
+    from f110_gym.envs.track import Track as GymTrack
+    gym_track = GymTrack.from_track_name("Infsaal3")
+    gym_tracker = Progress(gym_track, lookahead=200)
+    gym_centerline = {
+        "points": int(gym_track.centerline.n),
+        "dtype": str(gym_track.centerline.xs.dtype),
+        "xy_sha256": hashlib.sha256(np.column_stack((gym_track.centerline.xs, gym_track.centerline.ys)).tobytes()).hexdigest(),
+    }
 
     agents = json.loads((ROOT / protocol["selection"]["agents"]).read_text())
     bad = set(protocol["selection"]["excluded_recording_starts"])
@@ -205,9 +216,11 @@ def main():
             m = b - a + int(lookahead)
             poses = np.column_stack((x[a:a + m], y[a:a + m])).astype(float)
             tracker.reset(poses[:1])
-            source_progress = np.array([tracker.get_progress(poses[i:i + 1])[0] for i in range(m)])
+            gym_tracker.reset(poses[:1])
             data = {"sin": sin[a:a + m], "cos": cos[a:a + m], "action": actions[a:a + m],
-                    "previous": previous[a:a + m], "source_progress": source_progress,
+                    "previous": previous[a:a + m],
+                    "source_progress": np.array([tracker.get_progress(poses[i:i + 1])[0] for i in range(m)]),
+                    "source_progress_gym_track": np.array([gym_tracker.get_progress(poses[i:i + 1])[0] for i in range(m)]),
                     "stored": {name: stored[name][a:a + m] for name in REWARDS}}
             record["retained_end_exclusive"][loader] = b
             for key, value in recording_variants(window, lookahead, data, pinned).items():
@@ -274,6 +287,7 @@ def main():
         "recordings_by_loader": counts,
         "frozen_self_check_max_abs_difference": self_check,
         "tolerance": tolerance,
+        "gym_resampled_centerline": gym_centerline,
         "loader_axis_inert_for_evaluation_agents": loader_inert,
         "variants_matching_all_agents_on_all_rewards": complete,
         "best_variant_by_reward": best,
