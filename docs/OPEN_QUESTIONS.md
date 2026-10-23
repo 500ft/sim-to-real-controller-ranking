@@ -89,11 +89,14 @@ assumptions, not verified licensing or historical facts.
    setup from experiments/run_iw.py, because the sim archive lacks stored
    rewards." The pinned dataset README says simulation lacks `new_rewards`;
    collection rewards still exist. A [shared calculation](../experiments/common_reward_v2.py)
-   is frozen and its boundary cases executed; aggregate comparison remains
-   incomplete. Matching the author's per-agent Groundtruth mean and standard
-   deviation, within the authorized qualification, would check aggregates only and
-   cannot establish a unique implementation or per-record equivalence. A
-   mismatch would require investigation before ranking.
+   is frozen and its boundary cases executed. The
+   [reconciliation](../reports/ope_groundtruth_reconciliation.md) reproduces
+   the author's per-agent Groundtruth mean and standard deviation for all four
+   rewards under one registered variant. That checks aggregates only and
+   cannot establish a unique implementation or per-record equivalence. The
+   frozen calculation differs from the reproduced definition on the progress
+   centerline and the duplicated checkpoint threshold; which definition the
+   development comparison uses is an open owner choice.
 
 The comparison direction above is adopted, with seeds 0 through 9. Before
 reading any ranking, commit the timestep, executable reward hashes, discount,
@@ -113,7 +116,7 @@ remain closed.
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
 | External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and archive terminal semantics. No follow-up sent |
 | Simulator dependency | Public and Unlicense; benchmark revision unpinned | Unmodified candidate import fails against the pinned loader's `Config` interface. The [pinned probe](../runs/ope_corrected_v2/simulator_probe.json) reaches reset with aliases and fails at its first step; the [local reward bridge](../reports/ope_reward_adapter_qualification.md) executes a bounded smoke with candidate physics. Historical identity remains unresolved |
-| Reward comparison | Shared calculation, per-agent aggregates and whole-development trace executed; full agreement unqualified | The [development trace](../runs/ope_reward_adapter_qualification/development_trace.json) isolates the stored-progress cutoff row and the frozen checkpoint row-alignment defect. The [reference comparison](../runs/ope_corrected_v2/reference_comparison.json) gap stays open because the published Groundtruth cohort is unidentified; resolve before M2 |
+| Reward comparison | Published aggregates reproduced under one registered variant; development reward definition unchosen | The [reconciliation](../runs/ope_groundtruth_reconciliation/result.json) matches all 15 agents on all four rewards with the pinned classes and the gym's resampled centerline; the [reference comparison](../runs/ope_corrected_v2/reference_comparison.json) gap is explained by the CSV centerline and the single-count checkpoint. Decide whether M2 uses the frozen or the reproduced definition |
 | Reviewer, physical study, publication and campaign | No new approval supplied | Conditional M2 scope is in the roadmap; M3/M5 still require their separate prerequisites |
 
 ## Qualification pins
