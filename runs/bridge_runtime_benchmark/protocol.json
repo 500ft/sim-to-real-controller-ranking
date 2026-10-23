@@ -1,0 +1,70 @@
+{
+  "purpose": "Short local runtime, memory, determinism and checkpoint benchmark of the registered simulator reward bridge before any extended rollout; no reward from these runs enters a ranking",
+  "parent_protocols": [
+    "runs/ope_corrected_v2/protocol.json",
+    "runs/ope_reward_adapter_qualification/protocol.json"
+  ],
+  "candidate_simulator_commit": "0c15e5ba4e7537390777dc25c67c81628daf1d16",
+  "loader_commit": "536d762ad7b07076551d39ef202199cbaead6a87",
+  "gym_commit": "886dde048d4095a8b5170d2790fb68d4af6e80fc",
+  "bridge": "experiments/simulator_reward_adapter_v2.make_compatible_env with map Infsaal3, random_start false, pose_start true, min_vel 0, max_vel 2, eval false, as the registered smoke used",
+  "start": {
+    "rule": "the eligible corrected real-v2 evaluation-agent recording with the lowest start row under the registered exclusion; pose is poses_x, poses_y and atan2(theta_sin, theta_cos) of its first row; velocity is previous_action_speed of that row, the commanded speed in effect at the recording start",
+    "archive_zip_sha256": "de348abe5e5b27a8f23a55d88818ba24d4aed6513855003d8a45983208cc4474",
+    "public_record": "start row index and SHA-256 of the JSON list [x, y, theta, velocity]; the values stay in the private step ledger",
+    "measured_linear_vels_x_note": "the measured longitudinal speed at that row is recorded privately; it is near rest and is not used as the start velocity"
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "runs_per_seed": 2,
+  "maximum_control_steps": 250,
+  "stop": "first termination or truncation, or 250 executed control steps",
+  "environment_reuse": "one bridge environment per mode, reset before every run, as an extended rollout loop would do; the restart run uses the restored copy",
+  "modes": {
+    "fixed": "registered pose and velocity; normalized action [0, 0] every step; env.reset(seed=seed)",
+    "seeded_actions": "registered pose and velocity; normalized action drawn each step from numpy.random.default_rng(seed).uniform(-1, 1, size=2); env.reset(seed=seed)",
+    "env_velocity": "registered pose, no velocity supplied so the candidate RandomResetVelocity wrapper draws one; normalized action [0, 0]; env.reset(seed=seed)"
+  },
+  "recorded_per_step": "normalized action, the returned observation arrays, the four reward components, the selected reward, terminated, truncated and collision; each step hashed with SHA-256 over the raw bytes in a fixed key order",
+  "determinism_checks": {
+    "same_seed": "the two runs of one seed in one mode are bitwise identical in every recorded step (state, action, reward)",
+    "across_seeds": "in fixed mode, seeds are expected to be inert; in seeded_actions mode, different seeds are expected to differ; in env_velocity mode, differences between the two runs of one seed show that env.reset(seed) does not control the velocity draw",
+    "global_rng": "numpy.random.get_state() is compared before and after each env_velocity reset to record whether the reset consumed or reseeded the global generator"
+  },
+  "seed_propagation_hypothesis": "from source inspection: AccelerationAndDeltaSteeringWrapper.reset and PoseStartPosition.reset call the inner reset without the seed; F110Env.reset reseeds numpy.random with its config seed 12345 whenever any seed arrives; RaceCar.reset recreates the scan generator from the config seed; RandomResetVelocity draws from the unseeded global generator; so the reset seed is expected to be inert and env_velocity runs are expected to differ between repeats",
+  "checkpoint": {
+    "run": "see checks; the first entry is the originally registered run",
+    "step": "see checks",
+    "method": "pickle.dumps of the bridge environment and the action generator after step 125; if pickling fails, record the error and use copy.deepcopy; if both fail, record both errors and restart by replaying the first 125 actions in a fresh environment",
+    "check": "the restored copy executes steps 126 to 250 with the same actions and must be bitwise identical to the uninterrupted run; checkpoint size in bytes and save and restore time are recorded",
+    "checks": [
+      {
+        "run": "seeded_actions/seed0/run2",
+        "step": 125,
+        "registered": "before the first execution"
+      },
+      {
+        "run": "seeded_actions/seed9/run2",
+        "step": 80,
+        "registered": "amendment after the first execution showed the seed 0 run collides at step 126, leaving one step to compare; seed 9 was the longest executed seeded_actions run at 161 steps, chosen on step count only, so 81 steps are compared"
+      }
+    ]
+  },
+  "runtime": "control steps per second per run from time.perf_counter over the executed steps; minimum, median and maximum per mode; environment construction time; per-step wall time recorded in the private ledger and summarized per mode as the mean step time in step-index bins 0-49, 50-99, 100-149 and 150-249 (added after the first execution showed lower rates on longer runs; this adds a measurement and changes no comparison)",
+  "memory": "resource.getrusage(RUSAGE_SELF).ru_maxrss after environment construction and at the end of all runs, with the platform recorded",
+  "output": {
+    "public": "runs/bridge_runtime_benchmark/result.json with per-run summaries, determinism verdicts, checkpoint result, runtime and memory",
+    "private": "per-step ledger outside git with its SHA-256 in the public result"
+  },
+  "no_ranking": "steps, rewards and collisions here characterize the bridge, not any controller"
+}

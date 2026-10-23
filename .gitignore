@@ -124,3 +124,5 @@ runs/mast_fea/converge/
 # Corrected Drive-v2 qualification summaries; archive payloads stay outside git.
 !runs/ope_corrected_v2/
 !runs/ope_corrected_v2/*.json
+!runs/bridge_runtime_benchmark/
+!runs/bridge_runtime_benchmark/*.json
