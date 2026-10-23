@@ -41,6 +41,10 @@ reaches reset with pinned compatibility aliases, then fails on its first step.
 The later [reward bridge result](reports/ope_reward_adapter_qualification.md)
 retains that failure, executes a bounded simulator smoke, and compares the
 registered reward variants on the same eligible development recordings.
+The [bridge benchmark](reports/bridge_runtime_benchmark.md) measures step
+rate, memory, bitwise same-seed repeatability and pickle checkpoint restart;
+its [result](runs/bridge_runtime_benchmark/result.json) shows the candidate's
+reset seed is inert.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails
