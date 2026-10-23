@@ -68,14 +68,16 @@ def execute(env, obs, actions, first_step, max_steps, ledger, label):
     started = time.perf_counter()
     for step in range(first_step, max_steps):
         action = np.asarray([actions(step)], dtype=np.float32)
+        step_started = time.perf_counter()
         obs, selected, terminated, truncated, info = env.step(action)
+        step_seconds = time.perf_counter() - step_started
         components = info["qualified_reward_components"]
         collision = bool(info["collision"])
         record = {"run": label, "step": step, "action": action[0].tolist(),
                   "hash": step_hash(action, obs, components, selected, terminated, truncated, collision),
                   "pose": [float(np.asarray(info["observations"]["poses_x"])[0]),
                            float(np.asarray(info["observations"]["poses_y"])[0])],
-                  "progress_after": decode_progress(obs),
+                  "progress_after": decode_progress(obs), "step_seconds": step_seconds,
                   "components": {name: float(components[name]) for name in REWARDS},
                   "terminated": bool(terminated), "truncated": bool(truncated), "collision": collision}
         records.append(record)
@@ -86,8 +88,20 @@ def execute(env, obs, actions, first_step, max_steps, ledger, label):
     return records, elapsed
 
 
+BINS = ((0, 50), (50, 100), (100, 150), (150, 250))
+
+
+def binned_step_seconds(records):
+    out = {}
+    for low, high in BINS:
+        values = [r["step_seconds"] for r in records if low <= r["step"] < high]
+        out[f"{low}-{high - 1}"] = {"steps": len(values), "mean_seconds": float(np.mean(values)) if values else None}
+    return out
+
+
 def summarize(records, elapsed, label, mode, seed, repeat, start_velocity, rng_note):
     return {"label": label, "mode": mode, "seed": seed, "repeat": repeat,
+            "step_seconds_by_index": binned_step_seconds(records),
             "executed_steps": len(records), "elapsed_seconds": elapsed,
             "steps_per_second": len(records) / elapsed if elapsed else None,
             "terminated": records[-1]["terminated"], "truncated": records[-1]["truncated"],
@@ -215,8 +229,16 @@ def main():
             pair = [r for r in runs if r["mode"] == mode and r["seed"] == seed]
             same_seed[str(seed)] = (len(pair) == 2 and pair[0]["trajectory_sha256"] == pair[1]["trajectory_sha256"]
                                     and pair[0]["executed_steps"] == pair[1]["executed_steps"])
+        mode_records = [r for r in runs if r["mode"] == mode]
+        step_bins = {}
+        for label_bin in (f"{low}-{high - 1}" for low, high in BINS):
+            total = sum(r["step_seconds_by_index"][label_bin]["steps"] for r in mode_records)
+            weighted = sum(r["step_seconds_by_index"][label_bin]["steps"] * r["step_seconds_by_index"][label_bin]["mean_seconds"]
+                           for r in mode_records if r["step_seconds_by_index"][label_bin]["steps"])
+            step_bins[label_bin] = {"steps": int(total), "mean_seconds": float(weighted / total) if total else None}
         by_mode[mode] = {
             "runs": len(rates), "executed_steps_total": int(sum(r["executed_steps"] for r in runs if r["mode"] == mode)),
+            "step_seconds_by_index": step_bins,
             "steps_per_second": {"min": float(min(rates)), "median": float(np.median(rates)), "max": float(max(rates))},
             "same_seed_bitwise_identical": same_seed,
             "all_same_seed_pairs_identical": all(same_seed.values()),

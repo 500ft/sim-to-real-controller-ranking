@@ -60,7 +60,7 @@
       }
     ]
   },
-  "runtime": "control steps per second per run from time.perf_counter over the executed steps; minimum, median and maximum per mode; environment construction time",
+  "runtime": "control steps per second per run from time.perf_counter over the executed steps; minimum, median and maximum per mode; environment construction time; per-step wall time recorded in the private ledger and summarized per mode as the mean step time in step-index bins 0-49, 50-99, 100-149 and 150-249 (added after the first execution showed lower rates on longer runs; this adds a measurement and changes no comparison)",
   "memory": "resource.getrusage(RUSAGE_SELF).ru_maxrss after environment construction and at the end of all runs, with the platform recorded",
   "output": {
     "public": "runs/bridge_runtime_benchmark/result.json with per-run summaries, determinism verdicts, checkpoint result, runtime and memory",
