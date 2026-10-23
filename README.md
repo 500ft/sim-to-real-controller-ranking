@@ -9,7 +9,8 @@ recording boundaries. A source-pinned reward bridge now executes candidate
 simulator steps, and a full development trace exposes the frozen checkpoint
 timing defect. A development replay finds agreement for logged-action density
 and support across the 15 executable policies, but zero stored raw targets on
-terminal rows fail the registered action-frame check. Published Groundtruth
+terminal rows fail the registered action-frame check on the real archive; the
+simulation archive passes the same check. Published Groundtruth
 membership, ZIP terms and historical simulator identity remain unverified, so
 reference ranking stays closed.
 
@@ -46,7 +47,9 @@ retains that failure, executes a bounded simulator smoke, and compares the
 registered reward variants on the same eligible development recordings.
 The [policy replay](reports/ope_policy_interface_qualification.md) checks
 archived actions and densities under the pinned controller code and records the
-terminal raw-target mismatch that keeps the action gate open.
+terminal raw-target mismatch that keeps the action gate open. The
+[simulation replay](runs/ope_policy_interface_qualification_sim/result.json)
+passes the same rule with no zero raw target.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails

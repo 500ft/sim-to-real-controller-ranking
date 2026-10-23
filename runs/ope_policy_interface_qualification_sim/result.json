@@ -1,0 +1,305 @@
+{
+  "agents_revision": "c42146ca40d9d075ecf8fe4642cddbf2435032ad",
+  "archive_drive_object_id": "14GnCIa9Bz4ZiOaPjFEnPZLXJIZzamKix",
+  "archive_sha256": "d7276ea155b2598f0174c91d9ddf3a5cd9cd0cf578ca1abe1f103b2f3849e906",
+  "comparison_rule": {
+    "absolute_only": "No post hoc tolerance adjustment; report max and exceedance counts even if gate fails",
+    "density_formula_abs_tolerance": 1e-06,
+    "deterministic_mean_abs_tolerance": 0.0001,
+    "exclusion": "nonfinite or source-exception rows reported, never silently dropped",
+    "frozen_from": "runs/ope_policy_interface_qualification/protocol.json, unchanged",
+    "stored_log_density_abs_tolerance": 0.001,
+    "support_tolerance": 1e-06
+  },
+  "counts": {
+    "attempted_recordings": 825,
+    "eligible_recordings": 825,
+    "executed_recordings": 825,
+    "executed_rows": 167647,
+    "independent_density_mismatch_rows": 0,
+    "nonfinite_rows": 0,
+    "source_density_mismatch_rows": 0,
+    "target_mismatch_done_zero_final_rows": 0,
+    "target_mismatch_rows": 0,
+    "unsupported_rows": 0
+  },
+  "exact_stochastic_draw_replay": "unavailable: original RNG state or innovation not archived",
+  "exceptions": {},
+  "gate": "pass",
+  "policy_coverage": {
+    "StochasticContinousFTGAgent_0.5_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 2151,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "source_density": 8.881784197001252e-16,
+        "target": 0.0
+      }
+    },
+    "StochasticContinousFTGAgent_0.6_2_0.8_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 2209,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 1.3322676295501878e-15,
+        "target": 0.0
+      }
+    },
+    "StochasticContinousFTGAgent_0.8_2_0.7_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 2209,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "source_density": 4.440892098500626e-16,
+        "target": 0.0
+      }
+    },
+    "StochasticContinousFTGAgent_1.0_1_0.2_0.03_0.1_5.0_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 48,
+        "executed_recordings": 48,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 11824,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "FTGAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 8.881784197001252e-16,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.44_0.3_raceline1_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12277,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.7763568394002505e-15,
+        "source_density": 7.70507373335505e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.44_0.85_raceline1_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 11427,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.7763568394002505e-15,
+        "source_density": 2.3379932617473287e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.4_0.3_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 10717,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "source_density": 6.398829794562744e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.52_0.9_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 49,
+        "executed_recordings": 49,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 9275,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 2.2797167602561785e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.65_1.2_centerline_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 2.4268927882431512e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.68_1.1_raceline8_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 2.2423325255260806e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.6_1.0_raceline2_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "source_density": 2.039244713891719e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.73_0.95_centerline_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 90,
+        "executed_recordings": 90,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 22500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.1102230246251565e-15,
+        "source_density": 2.4166444998030556e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.73_0.95_raceline4_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 10558,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 8.881784197001252e-16,
+        "source_density": 2.619327103658975e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.7_0.9_raceline8_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 90,
+        "executed_recordings": 90,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 22500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.7763568394002505e-15,
+        "source_density": 3.141451620436442e-05,
+        "target": 0.0
+      }
+    },
+    "pure_pursuit2_0.8_0.95_raceline3_0.3_0.5": {
+      "counts": {
+        "eligible_recordings": 50,
+        "executed_recordings": 50,
+        "independent_density_mismatch_rows": 0,
+        "nonfinite_rows": 0,
+        "rows": 12500,
+        "source_density_mismatch_rows": 0,
+        "target_mismatch_rows": 0,
+        "unsupported_rows": 0
+      },
+      "family": "PPAgent",
+      "max_abs_error": {
+        "independent_density": 1.7763568394002505e-15,
+        "source_density": 2.343009235339366e-05,
+        "target": 0.0
+      }
+    }
+  },
+  "private_rows_sha256": "353af427fea210183f5e8739378f80c2842241b8e7c27c35c2aba0606aedc120",
+  "protocol": "runs/ope_policy_interface_qualification_sim/protocol.json",
+  "unreconstructible_exact_draw_recordings": 825,
+  "unreconstructible_exact_draw_rows": 167647
+}
