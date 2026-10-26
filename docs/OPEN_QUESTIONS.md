@@ -5,39 +5,38 @@ The [roadmap](../ROADMAP.md) is the only plan.
 
 ## Current software scope
 
-The owner adopted the dependency roadmap and authorized removal of obsolete
-active implementation, work orders and presentation assets. The active method
-question concerns dispersion of paired controller-performance differences and
-calibrated abstention, including near ties. This adoption supplies no data
-rights or permission to open reserved outcomes. M2 remains conditional on M1. The
-retained confidence-gate baseline, registered prediction and scope limit are in [roadmap M3](../ROADMAP.md#m3-calibrate-a-controller-difference-abstention-rule).
+The active study asks whether variation in predicted performance differences
+between controller pairs can guide a choice or abstention, including near ties.
+The [roadmap](../ROADMAP.md) states the prerequisites. Its adoption supplied no
+data rights or permission to open reserved outcomes. M2 remains conditional on
+M1. The confidence-gate baseline, registered prediction and scope limit are in
+[roadmap M3](../ROADMAP.md#m3-calibrate-a-controller-difference-abstention-rule).
 
-The owner delegated adoption and execution with “lets do these” on 2026-10-14.
-The four assumptions below are accepted for local development qualification.
-This records a research choice; it does not convert unknown ZIP terms or the
-candidate simulator's historical identity into verified facts. Corrected ZIP
-census and common-reward qualification may proceed under that stated uncertainty.
+The owner's 2026-10-14 “lets do these” instruction accepted the four assumptions
+below for local development checks. That research choice did not establish ZIP
+reuse terms or the candidate simulator's historical identity. The corrected ZIP
+census and common-reward checks used those disclosed assumptions.
 No archive or processed subset may be redistributed. Publication rights remain
 unresolved. The [corrected-v2 local result](../reports/ope_corrected_v2.md) now
 records archive identities and incomplete reward qualification; the wrong-alias
 census stays historical.
 
-Dataset qualification and owner-approved platform access are parallel possible
-routes. Failure of one source requires a route decision, rather than a claim that
-all legitimate routes are closed. The [history index](history/README.md) records
-what was removed and why useful historical work remains.
+An existing dataset and separately approved physical-platform access are two
+possible evidence routes. If one source fails, a new route requires a decision;
+failure of that source alone does not close every route. The [history
+index](history/README.md) records earlier work and removed active instructions.
 
 ## Accepted development comparison direction
 
-The owner accepted a comparison direction for accessible development records,
-conditional on M1. These choices do not expose reserved outcomes.
+The following comparison direction is accepted for accessible development
+records after M1. Reserved outcomes remain closed.
 
 | Element | Accepted direction and source | Still required before performance access |
 | --- | --- | --- |
 | Horizon | 250 steps, consistent with the pinned benchmark's [run_iw.py](https://github.com/HyberionBrew/f110_ope_benchmark/blob/42789222451f4ee0e679475a8798d7c47bf220b5/experiments/run_iw.py) `timesteps_to_include=(0,250)` | Confirm the timestep duration and the cutoff's timeout/terminal treatment on permitted records |
 | Starts | Use recorded real start poses. The [author reply record](ope_author_request.txt) says simulation starts came from real rollouts | Establish eligible records and a comparable start distribution; no paired episode IDs were supplied |
 | Rewards | Compare the four thesis reward definitions. The pinned [dataset README](https://github.com/HyberionBrew/f1tenth_orl_dataset/blob/536d762ad7b07076551d39ef202199cbaead6a87/README.md) names `reward_progress.json`, `reward_checkpoint.json`, `reward_lifetime.json` and `reward_min_act.json` | Match each thesis reward to executable code and a common calculation on both permitted archives; simulation lacks `new_rewards` |
-| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | The [frozen protocol](../runs/ope_corrected_v2/protocol.json) fixes seeds 0–9; verify simulator use after the import gate. Seeds sample simulator randomness, not independent vehicles |
+| Simulator seeds | Start with 10 development seeds, as instructed | The [protocol fixed before reward outcomes](../runs/ope_corrected_v2/protocol.json) specifies seeds 0–9; verify simulator use after the import check. Seeds sample simulator randomness, not independent vehicles |
 
 The [reward protocol](../runs/ope_corrected_v2/protocol.json) froze the
 timestep, reward implementation, discount, terminal and truncation handling,

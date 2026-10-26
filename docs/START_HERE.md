@@ -12,14 +12,17 @@ the plan. This guide is for reading the work quickly or rerunning part of it.
 | Understand what remains unresolved | [Roadmap](../ROADMAP.md), [open questions](OPEN_QUESTIONS.md) |
 | Reuse earlier work | [History index](history/README.md), [data and figures](data-and-figures.md) |
 
-The ranking-refusal question concerns paired performance differences and
-calibrated abstention. The [roadmap](../ROADMAP.md) gives prerequisites and
-completion evidence for each milestone. The original archive census is preserved.
-[Corrected-source interface checks](../reports/ope_interface_qualification.md)
-found a loader defect; corrected ZIP permission, census and environment revision
-remain unresolved. Earlier
-command-response, simulator and mast studies are retained at their original paths.
-Their historical next steps do not authorize a new campaign.
+The study asks whether variation in predicted differences between controller
+pairs can identify choices likely to reverse on a real platform. Abstention
+means withholding a controller choice when the evidence is insufficient. The
+[roadmap](../ROADMAP.md) states each milestone's prerequisites and completion
+evidence. The original archive census remains available. [Corrected-source
+checks](../reports/ope_interface_qualification.md) found a loader defect, and
+the [corrected-v2 census](../reports/ope_corrected_v2.md) established archive
+identity and recording boundaries. Corrected ZIP reuse terms, reward agreement
+with the published reference and the benchmark's historical simulator revision
+remain unresolved. Earlier command-response, simulator and mast studies remain
+at their original paths; their old task lists do not restart those studies.
 
 ## Reproduce by environment
 

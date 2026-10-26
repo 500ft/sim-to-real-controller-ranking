@@ -74,16 +74,18 @@ not plans; don't add status there that belongs in the roadmap.
 
 ## Writing — owner rule, 2026-09-30
 
-The owner finds much of this repository's text reads as machine-written. New
-and edited text should read like an engineer wrote it for another engineer.
+Write public research text for another researcher. State the question, method,
+result and next requirement directly. Keep authorization and operating limits
+explicit where they control an action, rather than repeating them in every
+result paragraph.
 
 - Lead with the result or the action and its number. Context comes after.
 - State each limitation once, where limits are discussed. Don't hang a
   "this does not establish…" clause on every sentence.
 - Avoid "X, not Y" and "not X but Y" framings unless the contrast is the point.
-- Skip filler and house jargon: honest(ly), robust, comprehensive, crucial,
-  leverage, fail-closed, canonical, bounded, evidence boundary, source-linked,
-  defensible, "it is worth noting".
+- Replace vague status words with the actual finding: a check passed or failed,
+  a source term is unknown, or a test has not run. Keep technical terms when
+  they name a method, measurement or exact data role.
 - Short sentences, active voice, plain words. Bold at most one term per
   section. Don't chain clauses with em dashes.
 - Keep dates and changelog entries out of README and roadmap prose unless the
