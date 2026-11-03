@@ -1,5 +1,8 @@
 #!/usr/bin/env python
-"""Draw the RK4 vs Euler integrator sensitivity figures and their captions from the committed first-lap run."""
+"""Write the RK4 vs Euler integrator figure captions from the committed first-lap run.
+
+MATLAB draws the figures (experiments/matlab/make_integrator.m).
+"""
 
 from __future__ import annotations
 
@@ -452,10 +455,8 @@ def main() -> None:
         config=config,
         f1tenth_style_waypoints=f1tenth_style_waypoints,
     )
-    print(f"Wrote combined figure to {COMBINED_PATH}")
-    print(f"Wrote trajectory figure to {TRAJECTORY_PATH}")
-    print(f"Wrote tracking error figure to {TRACKING_ERROR_PATH}")
-    print(f"Wrote summary metrics figure to {SUMMARY_METRICS_PATH}")
+    for path in (COMBINED_PATH, TRAJECTORY_PATH, TRACKING_ERROR_PATH, SUMMARY_METRICS_PATH):
+        print(f"Wrote caption {fs.caption_path(path)}")
 
 
 if __name__ == "__main__":

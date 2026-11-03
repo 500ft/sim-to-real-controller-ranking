@@ -46,11 +46,17 @@ The state is initialized from the first RK4 telemetry row. The replay then integ
 
 ## Comparison Against Kinematic Replay
 
+![Yaw-rate RMSE table](figures/tables/dynamic_replay_yaw_rate.png)
+
+<details><summary>Table as text</summary>
+
 | Metric | Value | Units |
 | --- | ---: | --- |
 | Kinematic yaw-rate RMSE | 1.32389 | rad/s |
 | Dynamic yaw-rate RMSE | 0.0263791 | rad/s |
 | Yaw-rate RMSE improvement | 98.0075 | % |
+
+</details>
 
 ## Figures
 

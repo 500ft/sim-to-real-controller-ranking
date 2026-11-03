@@ -63,9 +63,9 @@ where `a_lat,peak` is the **simulated peak lateral acceleration** from the ride-
 ## 3. LiDAR Mast — Free-Body Diagram + Hand Calculation (REQUIRED)
 
 > TEMPLATE / TODO. Required deliverable: a labeled FBD of the mast as a cantilever with the LiDAR mass at the tip, loaded by `F_lateral, governing = m_LiDAR_tip × a_lat,peak × SF` applied at the optical-center height (moment arm). Hand-calc bending stress and tip deflection from beam theory:
-- Bending moment at root: `M = F_lateral × h_arm`
-- Max bending stress: `σ = M·c / I`
-- Tip deflection: `δ = F_lateral·L³ / (3·E·I)`
+- Bending moment at root: $M = F_\mathrm{lateral}\, h_\mathrm{arm}$
+- Max bending stress: $\sigma = Mc/I$
+- Tip deflection: $\delta = F_\mathrm{lateral} L^3 / (3EI)$
 
 Record the section (I, c), the numbers, and the margin against σ_yield. **This hand calc is the ground truth the FEA must match.** Also run the **crash/drop case** as a separate FBD/hand calc.
 
@@ -161,12 +161,12 @@ Under the historical criterion, the §3.1 baseline **passed strength but failed 
 | Mast self-mass | 22.1 g | 23.5 g (**+1.4 g**) |
 
 **Why it works (stiffness rises far faster than mass).** Because the 0.175 kg tip mass dominates `m_eff` (mast self-mass ≈ 0.02 kg), `m_eff` is nearly constant and `f1 ≈ √(3EI/L³)`. The two levers attack `k = 3EI/L³` directly:
-- **Shorter `L`:** `k ∝ L⁻³`, so 120→100 mm raises `k` by `(120/100)³ = 1.73×` (`f1 ∝ L⁻¹·⁵`) at essentially **zero mass cost**.
-- **Larger `OD`:** for a thin wall `I ∝ OD³·t`, so 16→20 mm raises `I` by `2.07×`, while the extra material it adds to `m_eff` is second-order (tip mass dominates).
+- **Shorter `L`:** $k \propto L^{-3}$, so 120→100 mm raises $k$ by $(120/100)^3 = 1.73\times$ ($f_1 \propto L^{-1.5}$) at essentially **zero mass cost**.
+- **Larger `OD`:** for a thin wall $I \propto \mathrm{OD}^3 t$, so 16→20 mm raises $I$ by $2.07\times$, while the extra material it adds to `m_eff` is second-order (tip mass dominates).
 
 Together they lift `k` by `3.58×` and `f1` from 174.7 → 330.1 Hz. The same geometry change **also lowers** the crash stress (more `I` ⇒ less `M·c/I`), so the fix is **monotonic in both checks** — strength margin actually improves (SF 4.05 → 8.05). The same 100 mm/20 mm tube in CFRP would reach ≈ 400 Hz at ≈ 14 g, but aluminum is kept for its defined yield.
 
-**Hand sanity-check of the recommended `f1`:** `I = π/64·(20⁴−17⁴) = 3754 mm⁴`; `k = 3·68.9e9·3.754e-9/0.1³ = 7.76×10⁵ N/m`; `m_eff = 0.175 + 0.23·0.0235 = 0.1804 kg`; `f1 = (1/2π)·√(7.76e5/0.1804) = 330.1 Hz`. ✔ matches the sweep.
+**Hand sanity-check of the recommended $f_1$:** $I = \frac{\pi}{64}(20^4 - 17^4) = 3754\ \mathrm{mm^4}$; $k = 3 \cdot 68.9\times10^{9} \cdot 3.754\times10^{-9} / 0.1^3 = 7.76\times10^5\ \mathrm{N/m}$; $m_\mathrm{eff} = 0.175 + 0.23 \cdot 0.0235 = 0.1804\ \mathrm{kg}$; $f_1 = \frac{1}{2\pi}\sqrt{7.76\times10^5 / 0.1804} = 330.1\ \mathrm{Hz}$. ✔ matches the sweep.
 
 > **Historical FEA result retained.** The [committed comparison](../../runs/mast_fea/fea_summary.txt)
 > lies within the selected hand/FEA comparison band. This is model-to-model

@@ -44,11 +44,15 @@ and do not identify independent cars, sessions or physical experiments.
 
 Historical census at the original source pins. F110 archives, structural census of unfiltered records; episode meaning and policy execution are unresolved. Real stochastic v2 has the most recording segments (1,375); archives hold 8 to 57 policy-name strings each; Real v1 alone raises flags before a segment ends (10,502 rows). Panel (a): recording segments per archive (circles). Panel (b): exact policy-name strings per archive (squares). Panel (c): rows with done OR truncated, each counted once and split into flags at a segment end (filled) and before a segment end (hollow). All count axes are linear and start at zero. Per archive, with flagged rows as at end + before end: Real v0 213 segments, 8 names, 213 + 0 flagged rows; Sim v0 213 segments, 8 names, 213 + 0 flagged rows; Real v1 311 segments, 29 names, 311 + 10,502 flagged rows; Sim v1 298 segments, 29 names, 298 + 0 flagged rows; Real stochastic v2 1,375 segments, 57 names, 1,375 + 0 flagged rows. Resets do not establish independent episodes, and name matches do not establish executable policies. Counts only; no return or ranking analysis. Archive filenames and sources: runs/ope_qualification/structure.md. Source: runs/ope_qualification/result.json.
 [Caption file](figures/ope_structure.caption.md) ·
-[SVG](figures/ope_structure.svg) ·
+[PDF](figures/ope_structure.pdf) ·
 [Archive identity and count tables](../runs/ope_qualification/structure.md#archive-identity-and-recordings) ·
 [Loader registration table](../runs/ope_qualification/structure.md#loader-registrations).
 Version-paired rows do not establish paired experiments. The figure first published
 with this census stays at `runs/ope_qualification/structure.png`, which `execution.json` records.
+
+![Rows, segments, policy-name strings and flag positions for each archive](figures/tables/ope_structure.png)
+
+The typeset table is drawn from [structure.csv](../runs/ope_qualification/structure.csv); the [text tables](../runs/ope_qualification/structure.md#archive-identity-and-recordings) hold the same counts.
 
 Real v1 has repeated end flags before its recording boundaries. The other
 inspected archives align those flags with structural ends. This verifies a
@@ -149,9 +153,11 @@ python experiments/plot_ope_structure.py \
   --tables runs/ope_qualification
 ```
 
-This writes the PNG and SVG figure with its caption to `reports/figures/ope_structure.*`,
+This writes the caption to `reports/figures/ope_structure.caption.md`,
 and `structure.md`, `structure.csv` and `loader_aliases.csv` to the `--tables`
-directory. The generator refuses to write a figure under `runs/`, so the frozen
+directory. MATLAB then draws the PNG and PDF from `structure.csv` with
+`matlab -batch "addpath('experiments/matlab'); render_figures([], [], {'ope-structure'})"`.
+The generator refuses to write a figure under `runs/`, so the frozen
 census figure is not overwritten. The result remains the single numerical source. The
 [figure guide](../docs/data-and-figures.md#visual-redesign-and-preservation)
 records visual choices and preservation checks.

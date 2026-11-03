@@ -18,10 +18,14 @@ unanswered K2 disposition; neither closure nor resumed fitting is implied.
 
 Public driving data, same-run development: one licensed run, fitted and scored on the same correlated samples. The delay + affine fit reaches 0.386 m/s RMSE against Vicon motion, lowest at 0.22 s apparent delay on this run. Panel (a): forward velocity from Vicon in the tracking axes (solid) and the delay + affine fit (dashed). Panel (b): commanded forward velocity for the retained samples; the dotted line is zero. Panel (c): development RMSE across the delay search from 0 to 1 s, with the no-delay affine RMSE (0.556 m/s) dotted and the selected delay as a filled circle; the RMSE axis starts at zero. All 7,891 retained samples are drawn, with breaks across excluded intervals. Frame alignment and timing remain uncalibrated; apparent delay includes the measurement and control chain; there is no held-out evaluation or uncertainty band. Sources: runs/real_command_response/comparison.csv, result.json and delay_profile.json.
 [Caption file](figures/real_command_response.caption.md) ·
-[SVG](figures/real_command_response.svg) ·
+[PDF](figures/real_command_response.pdf) ·
 [Accessible baseline table](../runs/real_command_response/comparison_metrics.md) ·
 [Full-precision metric CSV](../runs/real_command_response/comparison_metrics.csv).
 The earlier rendering stays at `runs/real_command_response/comparison.png` with the frozen run.
+
+![Development RMSE and apparent delay for the two baselines and the two affine fits](figures/tables/command_response.png)
+
+The typeset table is drawn from [comparison_metrics.csv](../runs/real_command_response/comparison_metrics.csv); the [text table](../runs/real_command_response/comparison_metrics.md) holds the same values.
 
 ## Redraw without data acquisition or fitting
 
@@ -32,9 +36,11 @@ python experiments/plot_real_command_response.py \
 ```
 
 Use Python 3.11 with `requirements-ope-qualification.txt`. This presentation-only
-command reads the committed motion CSV, result and delay profile. It writes the PNG
-and SVG figure with its caption to `reports/figures/real_command_response.*` and the
-metric tables to the `--tables` directory; it refuses to write a figure under `runs/`. The original analysis script and numerical derivatives
+command reads the committed motion CSV, result and delay profile. It writes the
+caption to `reports/figures/real_command_response.caption.md` and the
+metric tables to the `--tables` directory. MATLAB then draws the PNG and PDF with
+`matlab -batch "addpath('experiments/matlab'); render_figures([], [], {'command-response'})"`.
+The Python command refuses to write a figure under `runs/`. The original analysis script and numerical derivatives
 remain unchanged; its original plot is superseded by this redraw. The bag-based
 analysis instructions below are historical reproduction, not part of this redraw.
 
@@ -70,11 +76,11 @@ sequence after an initial value; it does not establish measured wheel angle.
    alignment because the command has no header. Inspect the large offset
    between header and bag clocks rather than mixing them.
 2. Match each Vicon twist to the most recent pose on their shared header clock.
-   Normalize its quaternion and calculate `v_tracking = R(q).T @ v_world`.
+   Normalize its quaternion and calculate $v_\mathrm{tracking} = R(q)^\top v_\mathrm{world}$.
    Use tracking-frame forward velocity as the exploratory target. Maximum pose
    age and command age are recorded under `method` in the result.
 3. For each candidate nonnegative delay, hold the latest command causally and
-   fit `v_tracking(t) = gain * command(t - delay) + offset` by least squares.
+   fit $v_\mathrm{tracking}(t) = g\,u(t - \tau) + c$ by least squares, with gain $g$, command $u$, delay $\tau$ and offset $c$.
    Use the same intersection of valid samples for all delays and baselines.
    Report mean-only, identity-command and no-delay affine baselines. No filter
    or interpolation fills command gaps.
@@ -144,6 +150,6 @@ curl -fL --max-filesize 90000000 --max-time 300 \
 Owner exercise: use `owner_frame_exercise` in the result to independently
 construct the quaternion rotation matrix and reproduce the transformed velocity.
 Then recompute the minimum of the delay profile and the RMSE from the CSV as
-`sqrt(mean((tracking_forward_m_s - delay_affine_m_s)**2))`. Explain why this is a
+$\sqrt{\overline{(\mathtt{tracking\_forward\_m\_s} - \mathtt{delay\_affine\_m\_s})^2}}$. Explain why this is a
 development error. Held-out error must wait for the whole-run split and analysis
 choices to be frozen; this PR does not evaluate it.

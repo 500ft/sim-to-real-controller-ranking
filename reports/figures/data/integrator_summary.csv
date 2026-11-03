@@ -1,0 +1,3 @@
+integrator,label,collision,final_time_s,rms_cte_m,max_cte_m,mean_speed_mps
+rk4,RK4,0,33.29,0.1363753481080457,0.367882108,9.50590826772394
+euler,Euler,1,7.14,0.2020104561230257,0.811744395,9.220870594595239
