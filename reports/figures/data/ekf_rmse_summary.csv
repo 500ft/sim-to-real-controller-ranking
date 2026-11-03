@@ -1,0 +1,6 @@
+scenario,label,ekf_position_rmse_m,dead_reckoning_position_rmse_m
+clean_measurements,Clean measurements,0.0039725900487247,46.10188961364725
+low_noise,Low noise,0.0163569367107555,46.10188961364725
+high_noise,High noise,0.0527242558474592,46.10188961364725
+dropout_1s,1 s dropout,0.1339753731426357,46.10188961364725
+dropout_3s,3 s dropout,0.7058078327667466,46.10188961364725

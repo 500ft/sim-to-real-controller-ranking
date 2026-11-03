@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Redraw the retained development result and its caption from derivatives, without bags or fitting."""
+"""Write the retained development result caption and metric table from derivatives, without bags or fitting.
+
+MATLAB draws the figure (experiments/matlab/make_command_response.m).
+"""
 import argparse
 import csv
 import json
@@ -105,7 +108,7 @@ def render_table(result, directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--run-dir', type=Path, default=Path('runs/real_command_response'))
-    parser.add_argument('--output', type=Path, default=OUTPUT, help='PNG path; SVG and caption saved beside it')
+    parser.add_argument('--output', type=Path, default=OUTPUT, help='figure PNG path; the caption is written beside it and MATLAB draws the PNG and PDF')
     parser.add_argument('--tables', type=Path, help='directory for the metric tables (not written by default)')
     args = parser.parse_args()
     # runs/ holds the frozen development result and its original figure; the live figure lives in reports/figures.
@@ -115,7 +118,7 @@ def main():
     result = json.loads((args.run_dir/'result.json').read_text())
     profile = json.loads((args.run_dir/'delay_profile.json').read_text())
     fs.apply(hashsalt='racing-command-response')
-    fs.save(render_figure(samples, profile, result), args.output, caption(profile, result), ('png', 'svg'))
+    fs.save(render_figure(samples, profile, result), args.output, caption(profile, result))
     if args.tables:
         render_table(result, args.tables)
 

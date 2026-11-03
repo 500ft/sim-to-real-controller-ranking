@@ -1,20 +1,24 @@
 """Shared figure rules: a data-only canvas with the words in a caption file.
 
-Every generator under experiments/ that writes a report figure calls
-``apply()`` before drawing and ``save()`` to write the image and its caption.
-Only presentation lives here; no plotted value is computed in this module.
+MATLAB draws the committed report figures (experiments/matlab/, see its
+README). The Python generators keep the plotted values, the caption text and
+the checks. Every generator calls ``apply()`` before building its figure in
+memory and ``save()`` to audit it and write ``<stem>.caption.md``. ``save``
+writes no image unless a preview directory is given; the committed PNG and PDF
+come from ``experiments/matlab/render_figures.m``. Only presentation lives here;
+no plotted value is computed in this module.
 
-Rules every report figure follows:
+Rules the in-memory figures follow, so the tests can read plotted values back:
 
 - The canvas carries data, axes, tick labels, axis labels, panel letters and
-  one framed legend. Titles, takeaways, sample sizes and notes live in the
-  caption file written next to the image and in the report under it.
+  one legend. Titles, takeaways, sample sizes and notes live in the caption
+  file written next to the image and in the report under it.
 - Condition (which model, integrator or estimator) is carried by line style
   and marker shape. State (completed or collided, passed or failed) is carried
-  by marker fill: filled is the nominal state, hollow the failed one. Colour is
-  used only for heatmap fields, with a colourbar; text is never coloured.
+  by marker fill: filled is the nominal state, hollow the failed one. The
+  MATLAB figures keep these encodings and add MATLAB's default blue and orange.
 - Nothing printed may touch another printed thing or the data. ``audit``
-  returns every pair that does, and ``save`` refuses to write unless it is empty.
+  returns every pair that does, and ``save`` refuses to continue unless it is empty.
 - Type is Computer Modern (matplotlib's bundled ``cmr10``) with mathtext "cm".
   cmr10 has no underscore, minus or multiplication glyphs, so labels that need
   them use mathtext.
@@ -60,7 +64,7 @@ STYLE = {
 # letters, then tick labels and heatmap cell numbers.
 LABEL_SIZE, LETTER_SIZE, TICK_SIZE = 9, 9, 7
 WIDTH_IN = 7.0  # the repository's report width (178 mm)
-DPI = 600
+DPI = 300  # resolution of the committed MATLAB PNGs (export_pair.m)
 
 
 def apply(hashsalt: str = "sim-to-real-figures") -> None:
@@ -231,25 +235,25 @@ def allowed_text(fig) -> set[str]:
     return allowed
 
 
-def save(fig, path: Path, caption: str, formats: tuple[str, ...] = ("png",)) -> list[Path]:
-    """Refuse a touching canvas, write each format and ``<stem>.caption.md``, then close the figure."""
+def save(fig, path: Path, caption: str, formats: tuple[str, ...] = ("png",),
+         preview_dir: Path | None = None) -> list[Path]:
+    """Refuse a touching canvas, write ``<stem>.caption.md``, then close the figure.
+
+    Returns the image paths for ``formats``; MATLAB writes those files. With
+    ``preview_dir`` the in-memory figure is also saved there as a matplotlib
+    preview, which is never committed.
+    """
     path = Path(path)
     hits = audit(fig)
     if hits:
         raise ValueError(f"{path.name}: printed items touch: {hits}")
     path.parent.mkdir(parents=True, exist_ok=True)
-    written = []
-    for fmt in formats:
-        out = path.with_suffix(f".{fmt}")
-        metadata = {"png": {"Software": None}, "svg": {"Date": None}}[fmt]
-        fig.savefig(out, dpi=DPI, metadata=metadata)
-        if fmt == "svg":
-            # Matplotlib path lines carry trailing spaces; normalize the text export.
-            out.write_text("\n".join(row.rstrip() for row in out.read_text().splitlines()) + "\n")
-        written.append(out)
+    if preview_dir is not None:
+        Path(preview_dir).mkdir(parents=True, exist_ok=True)
+        fig.savefig(Path(preview_dir) / path.with_suffix(".png").name, dpi=DPI, metadata={"Software": None})
     caption_path(path).write_text(caption + "\n", encoding="utf-8")
     plt.close(fig)
-    return written
+    return [path.with_suffix(f".{fmt}") for fmt in formats]
 
 
 def caption_path(path: Path) -> Path:

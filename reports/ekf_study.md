@@ -14,6 +14,10 @@ Compare dead reckoning and EKF estimates against Gym ground truth under reproduc
 
 ## Results
 
+![EKF summary table](figures/tables/ekf_summary.png)
+
+<details><summary>Table as text</summary>
+
 | scenario | estimator | position_rmse_m | max_position_error_m | theta_rmse_rad | ekf_position_rmse_improvement_fraction |
 | --- | --- | --- | --- | --- | --- |
 | clean_measurements | dead_reckoning | 46.1019 | 77.0896 | 2.35197 | 0.999914 |
@@ -26,6 +30,8 @@ Compare dead reckoning and EKF estimates against Gym ground truth under reproduc
 | high_noise | ekf | 0.0527243 | 0.320156 | 0.00711609 | 0.998856 |
 | low_noise | dead_reckoning | 46.1019 | 77.0896 | 2.35197 | 0.999645 |
 | low_noise | ekf | 0.0163569 | 0.320156 | 0.00337296 | 0.999645 |
+
+</details>
 
 ## Figures
 

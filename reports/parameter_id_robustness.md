@@ -6,6 +6,10 @@ Re-run `C_Sf`/`C_Sr` identification under injected sensor noise, input latency, 
 
 ## Results
 
+![Parameter-ID robustness table](figures/tables/parameter_id_robustness.png)
+
+<details><summary>Table as text</summary>
+
 | scenario | kind | fitted_C_Sf | fitted_C_Sr | C_Sf_oracle_relative_error | C_Sr_oracle_relative_error | jacobian_condition_number | acceptance_passed | first_failed_gate |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | nominal | nominal | 4.718 | 5.4562 | 5.19743e-10 | 6.52704e-10 | 1.34014 | True |  |
@@ -19,6 +23,8 @@ Re-run `C_Sf`/`C_Sr` identification under injected sensor noise, input latency, 
 | quantization_medium | quantization | 4.71288 | 5.43922 | 0.00108443 | 0.00311237 | 1.33792 | True |  |
 | quantization_high | quantization | 4.84796 | 5.37615 | 0.0275448 | 0.0146708 | 1.32463 | False | heldout_yaw_rate |
 | combined_medium | combined | 0.532886 | 4.70612 | 0.887053 | 0.137473 | 1.75929 | False | oracle_recovery |
+
+</details>
 
 First failed perturbation: `noise_medium` at gate `heldout_yaw_rate`.
 

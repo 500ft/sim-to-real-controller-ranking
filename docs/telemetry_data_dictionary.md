@@ -47,6 +47,6 @@ This document defines the columns in `runs/first_lap/telemetry.csv` so the first
 
 - `command_steer_rad` is the controller-requested steering angle; `steer_rad` is the simulator's steering state after steering-rate limits and dynamics.
 - `accel_x_mps2` is a finite-difference estimate from logged speed, not a direct accelerometer measurement.
-- `accel_y_mps2` is a derived diagnostic using \(a_y \approx v r\), not a direct simulator sensor channel.
+- `accel_y_mps2` is a derived diagnostic using $a_y \approx v r$, not a direct simulator sensor channel.
 - The exact positive steering/yaw convention for model replay must be checked against `docs/vehicle_model.md` before comparing signs.
 - Any new telemetry columns added by later experiments must be appended here before the data is used as evidence.

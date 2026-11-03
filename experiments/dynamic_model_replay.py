@@ -20,6 +20,7 @@ from roboracer.dynamics import DEFAULT_DYNAMIC_PARAMS, dynamic_rk4_step, kinemat
 from roboracer.numerics import rmse, validate_uniform_time, wrap_angle
 from roboracer.telemetry import load_rk4_telemetry
 import report_figures
+import report_tables
 
 vehicle_dynamics_st = load_vehicle_dynamics_st(REPO_ROOT, module_name="dynamic_models")
 
@@ -267,7 +268,7 @@ The state is initialized from the first RK4 telemetry row. The replay then integ
 
 ## Comparison Against Kinematic Replay
 
-{metric_table(metrics, comparison_keys)}
+{report_tables.block("figures/tables/dynamic_replay_yaw_rate.png", "Yaw-rate RMSE table", metric_table(metrics, comparison_keys))}
 
 ## Figures
 

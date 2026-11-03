@@ -1,0 +1,4 @@
+{
+  "rms_refinement_tol_m": 0.05,
+  "max_refinement_tol_m": 0.2
+}

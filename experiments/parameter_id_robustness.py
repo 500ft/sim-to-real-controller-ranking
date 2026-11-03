@@ -25,6 +25,7 @@ from roboracer.identification import (
     validate_identification_telemetry,
 )
 import report_figures
+import report_tables
 
 TELEMETRY_PATH = REPO_ROOT / "runs" / "sysid_steering_excitation" / "telemetry.csv"
 RUN_DIR = REPO_ROOT / "runs" / "parameter_id_robustness"
@@ -221,7 +222,7 @@ Re-run `C_Sf`/`C_Sr` identification under injected sensor noise, input latency, 
 
 ## Results
 
-{markdown_table(compact)}
+{report_tables.block("figures/tables/parameter_id_robustness.png", "Parameter-ID robustness table", markdown_table(compact))}
 
 {failure_sentence}
 
