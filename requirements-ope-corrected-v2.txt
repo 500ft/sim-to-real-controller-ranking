@@ -3,3 +3,5 @@ numpy==1.26.4
 zarr==2.18.7
 numcodecs==0.15.1
 gymnasium==0.29.1
+scipy==1.17.1
+setuptools==80.9.0
