@@ -7,8 +7,9 @@ rankings that should be withheld? The corrected-source qualification loads all
 failure. The corrected-v2 Drive census now establishes archive identity and
 recording boundaries. A source-pinned reward bridge now executes candidate
 simulator steps, and a full development trace exposes the frozen checkpoint
-timing defect. Published Groundtruth membership, ZIP terms and historical
-simulator identity remain unverified, so reference ranking stays closed.
+timing defect. The published Groundtruth aggregates are now reproduced from
+the corrected archive. ZIP terms and historical simulator identity remain
+unverified, so reference ranking stays closed.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -41,6 +42,10 @@ reaches reset with pinned compatibility aliases, then fails on its first step.
 The later [reward bridge result](reports/ope_reward_adapter_qualification.md)
 retains that failure, executes a bounded simulator smoke, and compares the
 registered reward variants on the same eligible development recordings.
+The [Groundtruth reconciliation](reports/ope_groundtruth_reconciliation.md)
+reproduces all published per-agent aggregates under one registered variant;
+the [result](runs/ope_groundtruth_reconciliation/result.json) lists which
+agents match under each of the 20 variants.
 
 A [candidate correction](reports/ope_interface_qualification.md#separate-correction-qualification)
 passes all 16,380 registered synthetic dtype cases; the original helper fails
@@ -85,8 +90,8 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Resolve published Groundtruth cohort and generation provenance, qualify policy
-execution on archived observations, and obtain explicit corrected-ZIP terms.
+Choose the development reward definition, qualify policy execution on
+archived observations, and obtain explicit corrected-ZIP terms.
 The [roadmap](ROADMAP.md) keeps ranking, M3 and reserved evaluation closed
 until their gates pass.
 
