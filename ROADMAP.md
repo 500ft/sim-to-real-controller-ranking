@@ -36,7 +36,10 @@ availability and original-loader sensitivity. Common-reward aggregates are
 published for local qualification. The [development reward trace](reports/ope_reward_adapter_qualification.md)
 now identifies the frozen checkpoint row-alignment defect and compares reward
 variants on one eligible cohort. A source-pinned local bridge executes candidate
-simulator steps and passes a short reward-alignment smoke. Published Groundtruth
+simulator steps and passes a short reward-alignment smoke. The
+[runtime benchmark](reports/bridge_runtime_benchmark.md) measures bridge
+speed, memory, bitwise determinism and checkpoint restart, and shows the reset
+seed is inert. Published Groundtruth
 membership and exact generating revision remain unknown. ZIP rights
 and the historical simulator revision remain open. These results supply no
 controller-performance or refusal claim.
@@ -116,7 +119,10 @@ Prerequisite: the historical census and a clearly identified corrected source.
   preserves the failed unmodified step. A [pinned-call witness](runs/ope_reward_adapter_qualification/source_call_witness.json)
   identifies the live signature and progress indexing fault. The local bridge
   passes registered synthetic cases and a [bounded smoke](runs/ope_reward_adapter_qualification/smoke.json).
-  Qualify recorded-observation policy execution and benchmark provenance before
+  The [benchmark result](runs/bridge_runtime_benchmark/result.json) records
+  bitwise same-seed repeatability when every stochastic input is supplied, a
+  working pickle checkpoint, and an inert reset seed. Qualify
+  recorded-observation policy execution and benchmark provenance before
   development ranking.
 - Keep FQE target-action execution and coverage separate from IS/WIS/ratio-based
   DR joint-density and support requirements. Never fill missing probabilities

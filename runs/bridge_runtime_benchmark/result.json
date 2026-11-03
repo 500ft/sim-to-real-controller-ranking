@@ -1,0 +1,2896 @@
+{
+  "candidate_simulator_commit": "0c15e5ba4e7537390777dc25c67c81628daf1d16",
+  "checkpoints": [
+    {
+      "checkpoint_bytes": 250038,
+      "errors": {},
+      "identical_after_restart": true,
+      "method": "pickle",
+      "restarted_steps_after_checkpoint": 1,
+      "restore_seconds": 0.025259542046114802,
+      "run": "seeded_actions/seed0/run2",
+      "save_seconds": 0.007117834058590233,
+      "step": 125,
+      "steps_compared": 1,
+      "uninterrupted_steps_after_checkpoint": 1
+    },
+    {
+      "checkpoint_bytes": 250037,
+      "errors": {},
+      "identical_after_restart": true,
+      "method": "pickle",
+      "restarted_steps_after_checkpoint": 81,
+      "restore_seconds": 0.0008117919787764549,
+      "run": "seeded_actions/seed9/run2",
+      "save_seconds": 0.0021684160456061363,
+      "step": 80,
+      "steps_compared": 81,
+      "uninterrupted_steps_after_checkpoint": 81
+    }
+  ],
+  "environment_construction_seconds": {
+    "env_velocity": 2.8356593750650063,
+    "fixed": 2.0376555409748107,
+    "seeded_actions": 5.468310249969363
+  },
+  "memory": {
+    "ru_maxrss_after_first_construction": 194478080,
+    "ru_maxrss_final": 227770368,
+    "unit": "bytes on Darwin, kilobytes on Linux"
+  },
+  "modes": {
+    "env_velocity": {
+      "all_same_seed_pairs_identical": false,
+      "distinct_trajectories_across_seeds_first_run": 10,
+      "executed_steps_total": 785,
+      "global_numpy_rng_changed_by_any_reset": true,
+      "global_numpy_rng_reseeded_to_config_seed_by_any_reset": false,
+      "runs": 20,
+      "same_seed_bitwise_identical": {
+        "0": false,
+        "1": false,
+        "2": false,
+        "3": false,
+        "4": false,
+        "5": false,
+        "6": false,
+        "7": false,
+        "8": false,
+        "9": false
+      },
+      "start_velocity_in_wrapper_by_seed": {
+        "0": [
+          0.731711408685465,
+          0.8398917920334474
+        ],
+        "1": [
+          1.2017570555359143,
+          0.8950279741941058
+        ],
+        "2": [
+          0.8952214972957937,
+          0.5049399501195022
+        ],
+        "3": [
+          1.2100039586560838,
+          1.2139214764693251
+        ],
+        "4": [
+          1.868814792992522,
+          1.786849531263442
+        ],
+        "5": [
+          0.980635712795521,
+          0.5482146920913471
+        ],
+        "6": [
+          0.408861242582482,
+          0.9317294048169327
+        ],
+        "7": [
+          0.26835930267532215,
+          1.0379858631436443
+        ],
+        "8": [
+          1.4429555864321353,
+          1.4054895570065413
+        ],
+        "9": [
+          0.11682484039900753,
+          0.5686445465253409
+        ]
+      },
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004608514434096668,
+          "steps": 589
+        },
+        "100-149": {
+          "mean_seconds": 0.0033328357711434366,
+          "steps": 50
+        },
+        "150-249": {
+          "mean_seconds": 0.0019600939654566825,
+          "steps": 47
+        },
+        "50-99": {
+          "mean_seconds": 0.004215009223594509,
+          "steps": 99
+        }
+      },
+      "steps_per_second": {
+        "max": 463.67226484421303,
+        "median": 199.00262932662602,
+        "min": 96.38916962129102
+      }
+    },
+    "fixed": {
+      "all_same_seed_pairs_identical": true,
+      "distinct_trajectories_across_seeds_first_run": 1,
+      "executed_steps_total": 940,
+      "global_numpy_rng_changed_by_any_reset": false,
+      "global_numpy_rng_reseeded_to_config_seed_by_any_reset": false,
+      "runs": 20,
+      "same_seed_bitwise_identical": {
+        "0": true,
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true
+      },
+      "start_velocity_in_wrapper_by_seed": {
+        "0": [
+          0.5,
+          0.5
+        ],
+        "1": [
+          0.5,
+          0.5
+        ],
+        "2": [
+          0.5,
+          0.5
+        ],
+        "3": [
+          0.5,
+          0.5
+        ],
+        "4": [
+          0.5,
+          0.5
+        ],
+        "5": [
+          0.5,
+          0.5
+        ],
+        "6": [
+          0.5,
+          0.5
+        ],
+        "7": [
+          0.5,
+          0.5
+        ],
+        "8": [
+          0.5,
+          0.5
+        ],
+        "9": [
+          0.5,
+          0.5
+        ]
+      },
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0016494098032745434,
+          "steps": 940
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": {
+        "max": 799.9512132129336,
+        "median": 619.723008143297,
+        "min": 357.82056824637954
+      }
+    },
+    "seeded_actions": {
+      "all_same_seed_pairs_identical": true,
+      "distinct_trajectories_across_seeds_first_run": 10,
+      "executed_steps_total": 1538,
+      "global_numpy_rng_changed_by_any_reset": false,
+      "global_numpy_rng_reseeded_to_config_seed_by_any_reset": false,
+      "runs": 20,
+      "same_seed_bitwise_identical": {
+        "0": true,
+        "1": true,
+        "2": true,
+        "3": true,
+        "4": true,
+        "5": true,
+        "6": true,
+        "7": true,
+        "8": true,
+        "9": true
+      },
+      "start_velocity_in_wrapper_by_seed": {
+        "0": [
+          0.5,
+          0.5
+        ],
+        "1": [
+          0.5,
+          0.5
+        ],
+        "2": [
+          0.5,
+          0.5
+        ],
+        "3": [
+          0.5,
+          0.5
+        ],
+        "4": [
+          0.5,
+          0.5
+        ],
+        "5": [
+          0.5,
+          0.5
+        ],
+        "6": [
+          0.5,
+          0.5
+        ],
+        "7": [
+          0.5,
+          0.5
+        ],
+        "8": [
+          0.5,
+          0.5
+        ],
+        "9": [
+          0.5,
+          0.5
+        ]
+      },
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012882566844405702,
+          "steps": 936
+        },
+        "100-149": {
+          "mean_seconds": 0.0013200433814505998,
+          "steps": 190
+        },
+        "150-249": {
+          "mean_seconds": 0.0011493085502562199,
+          "steps": 22
+        },
+        "50-99": {
+          "mean_seconds": 0.0012458217040731165,
+          "steps": 390
+        }
+      },
+      "steps_per_second": {
+        "max": 813.7603038692329,
+        "median": 757.9154712223562,
+        "min": 578.1848781545207
+      }
+    }
+  },
+  "platform": {
+    "machine": "arm64",
+    "numpy": "1.26.4",
+    "python": "3.11.15",
+    "release": "23.6.0",
+    "system": "Darwin"
+  },
+  "private_steps_sha256": "ef10b7c5b24e9f507ef765ac85a5901ca613c0a2dd5ba7b940c32ada3a9943bf",
+  "protocol": "runs/bridge_runtime_benchmark/protocol.json",
+  "runs": [
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06639458297286183,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed0/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012320877830596997,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 707.8890761195204,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.060567500069737434,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed0/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011820886160266843,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 775.9937251146933,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.059089292073622346,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed1/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001191455702436097,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 795.4063816070146,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0587535829981789,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed1/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011836011284724513,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 799.9512132129336,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.05956887500360608,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed2/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001203435161051915,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 789.002646048877,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06404504191596061,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed2/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012875150869342876,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 733.8585250935275,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07798687496688217,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed3/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015766232279426557,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 602.6655128822507,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07684545801021159,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed3/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015459548548220636,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 611.6171497573015,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06433687510434538,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed4/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.00129144866158195,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 730.5297300152145,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07426345895510167,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed4/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0014800956903738862,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 632.8819134106767,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07516945898532867,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed5/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015143448477016484,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 625.253934702035,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.13135074998717755,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed5/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.002606811244635189,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 357.82056824637954,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.12327966594602913,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed6/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.002496883042770973,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 381.24697726368134,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.13027449999935925,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed6/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0025755984267774733,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 360.77666773030154,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0954805410001427,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed7/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001916686120007108,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 492.24689667321593,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.11713216593489051,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed7/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0022876595092461783,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 401.2561334016958,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0799690829589963,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed8/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015384476468402971,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 587.7271347990696,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07289595797192305,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed8/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0014743032107288217,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 644.7545420570882,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07652329199481755,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed9/run1",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015445488029496466,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 614.1920815845588,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.09285750007256866,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "fixed/seed9/run2",
+      "last_progress_fraction": 0.3524587465979032,
+      "mode": "fixed",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.699671080392937
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001858607301131842,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 506.1518990202109,
+      "terminated": true,
+      "trajectory_sha256": "52d436d346a79cfe5ca180c12ddc8f8c95b5803802bcd3d1244caf7520ca04d0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.21792337496299297,
+      "executed_steps": 126,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed0/run1",
+      "last_progress_fraction": 0.42047681807811604,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 10.0,
+        "lifetime": 126.0,
+        "min_act": 74.05159848359636,
+        "progress": 11.750026790384485
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0018043316761031747,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0016813992271916224,
+          "steps": 26
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0014234141819179059,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 578.1848781545207,
+      "terminated": true,
+      "trajectory_sha256": "62e4e8b2dacef7e25a16fe5fbbfb60716d3d23bc8baf01b59f01eaf6997c2a18",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.18608266592491418,
+      "executed_steps": 126,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed0/run2",
+      "last_progress_fraction": 0.42047681807811604,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 10.0,
+        "lifetime": 126.0,
+        "min_act": 74.05159848359636,
+        "progress": 11.750026790384485
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0015453091845847667,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0015975095716734917,
+          "steps": 26
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0011421667598187923,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 677.11841602077,
+      "terminated": true,
+      "trajectory_sha256": "62e4e8b2dacef7e25a16fe5fbbfb60716d3d23bc8baf01b59f01eaf6997c2a18",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.058945541037246585,
+      "executed_steps": 38,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed1/run1",
+      "last_progress_fraction": 0.34813066449140223,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 38.0,
+        "min_act": 37.51923909276093,
+        "progress": 4.266862869742838
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012949353917256783,
+          "steps": 38
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 644.6628418592088,
+      "terminated": true,
+      "trajectory_sha256": "31910beab6503fa1b38cde84715d93bec114dd323064ec172be2f35cd4c15b99",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.05159341590479016,
+      "executed_steps": 38,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed1/run2",
+      "last_progress_fraction": 0.34813066449140223,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 38.0,
+        "min_act": 37.51923909276093,
+        "progress": 4.266862869742838
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011972675443087753,
+          "steps": 38
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 736.5280885864336,
+      "terminated": true,
+      "trajectory_sha256": "31910beab6503fa1b38cde84715d93bec114dd323064ec172be2f35cd4c15b99",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0678535409970209,
+      "executed_steps": 54,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed2/run1",
+      "last_progress_fraction": 0.3550719522423059,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 54.0,
+        "min_act": 53.144939196968885,
+        "progress": 4.960991644833207
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011994674988090991,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0010994479816872627,
+          "steps": 4
+        }
+      },
+      "steps_per_second": 795.8317164666596,
+      "terminated": true,
+      "trajectory_sha256": "749192f43f7fe1fe389e4e4258592eef96a1af959c02b2425936855d6cc0585d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06871912500355393,
+      "executed_steps": 54,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed2/run2",
+      "last_progress_fraction": 0.3550719522423059,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 54.0,
+        "min_act": 53.144939196968885,
+        "progress": 4.960991644833207
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001175893284380436,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0010855519794858992,
+          "steps": 4
+        }
+      },
+      "steps_per_second": 785.8074443934975,
+      "terminated": true,
+      "trajectory_sha256": "749192f43f7fe1fe389e4e4258592eef96a1af959c02b2425936855d6cc0585d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06054924998898059,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed3/run1",
+      "last_progress_fraction": 0.34852061684541835,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 44.55954431867399,
+        "progress": 4.305858105144449
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012208333986989679,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 776.2276165031535,
+      "terminated": true,
+      "trajectory_sha256": "97051f523a00af8dc23792d96fb1f09ea02385ed210e1d64e090b240da203411",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.062238083919510245,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed3/run2",
+      "last_progress_fraction": 0.34852061684541835,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 44.55954431867399,
+        "progress": 4.305858105144449
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012503714186753682,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 755.1646361861496,
+      "terminated": true,
+      "trajectory_sha256": "97051f523a00af8dc23792d96fb1f09ea02385ed210e1d64e090b240da203411",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.11391808302141726,
+      "executed_steps": 91,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed4/run1",
+      "last_progress_fraction": 0.39438147909360277,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 91.0,
+        "min_act": 46.11858939251809,
+        "progress": 8.96565591099952
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.001162624207790941,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0011436798774478276,
+          "steps": 41
+        }
+      },
+      "steps_per_second": 798.8196218408228,
+      "terminated": true,
+      "trajectory_sha256": "274d07b8dee85246a37fe64abb02eccba097bcc78cbf59469ccf3ce4a69eab65",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.11182654101867229,
+      "executed_steps": 91,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed4/run2",
+      "last_progress_fraction": 0.39438147909360277,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 91.0,
+        "min_act": 46.11858939251809,
+        "progress": 8.96565591099952
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011349250143393875,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0011735283996818996,
+          "steps": 41
+        }
+      },
+      "steps_per_second": 813.7603038692329,
+      "terminated": true,
+      "trajectory_sha256": "274d07b8dee85246a37fe64abb02eccba097bcc78cbf59469ccf3ce4a69eab65",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0653319580014795,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed5/run1",
+      "last_progress_fraction": 0.3523687133195685,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 46.41364164256454,
+        "progress": 4.690667752559463
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011956976290712965,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 719.4028992508634,
+      "terminated": true,
+      "trajectory_sha256": "6d1b1e07627fb81fbbcdcfa2158485989a2c066a1d4136ee8de75a5e03d5d6fd",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.05977916705887765,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed5/run2",
+      "last_progress_fraction": 0.3523687133195685,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 46.41364164256454,
+        "progress": 4.690667752559463
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0011995824380837223,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 786.2270806434757,
+      "terminated": true,
+      "trajectory_sha256": "6d1b1e07627fb81fbbcdcfa2158485989a2c066a1d4136ee8de75a5e03d5d6fd",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.055316290934570134,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed6/run1",
+      "last_progress_fraction": 0.3507672359630374,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 42.48635597162385,
+        "progress": 4.530520016906354
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012192470671305823,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 777.3478531100678,
+      "terminated": true,
+      "trajectory_sha256": "7bc67e4cd8e0d839f3a00da7ac984a449b16c034b8b919d6015b6d2b0053809d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06586445798166096,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed6/run2",
+      "last_progress_fraction": 0.3507672359630374,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 42.48635597162385,
+        "progress": 4.530520016906354
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0014545164222634116,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 652.855900096722,
+      "terminated": true,
+      "trajectory_sha256": "7bc67e4cd8e0d839f3a00da7ac984a449b16c034b8b919d6015b6d2b0053809d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.05648774991277605,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed7/run1",
+      "last_progress_fraction": 0.3474541669314903,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 41.95423244539033,
+        "progress": 4.1992131137516395
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012364796563159935,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 761.2269928683161,
+      "terminated": true,
+      "trajectory_sha256": "b6c040220b522e1c2ad68acaa47ec66dff63c9e8fbe62049b5956ad095228202",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.06000129098538309,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed7/run2",
+      "last_progress_fraction": 0.3474541669314903,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 41.95423244539033,
+        "progress": 4.1992131137516395
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012554137989185578,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 716.651246895258,
+      "terminated": true,
+      "trajectory_sha256": "b6c040220b522e1c2ad68acaa47ec66dff63c9e8fbe62049b5956ad095228202",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.1599685000255704,
+      "executed_steps": 119,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed8/run1",
+      "last_progress_fraction": 0.34464476410767164,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 119.0,
+        "min_act": 107.48812158138509,
+        "progress": 3.918272831369777
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012585191382095218,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.001309059113018999,
+          "steps": 19
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0012720075016841293,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 743.896454495593,
+      "terminated": true,
+      "trajectory_sha256": "5a6890259a9834bd3e5edcd1827bc5f34444330c18d0e4cedec10a53d4b74d2d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.15644179191440344,
+      "executed_steps": 119,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed8/run2",
+      "last_progress_fraction": 0.34464476410767164,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 119.0,
+        "min_act": 107.48812158138509,
+        "progress": 3.918272831369777
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012139150500297547,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0012845173661940191,
+          "steps": 19
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.001268301666714251,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 760.666306258563,
+      "terminated": true,
+      "trajectory_sha256": "5a6890259a9834bd3e5edcd1827bc5f34444330c18d0e4cedec10a53d4b74d2d",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.20116774993948638,
+      "executed_steps": 161,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed9/run1",
+      "last_progress_fraction": 0.5508875484786189,
+      "mode": "seeded_actions",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 20.0,
+        "lifetime": 161.0,
+        "min_act": 134.6009619903498,
+        "progress": 24.542551268464507
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0012235025269910693,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0011062724259681999,
+          "steps": 50
+        },
+        "150-249": {
+          "mean_seconds": 0.001174408826045692,
+          "steps": 11
+        },
+        "50-99": {
+          "mean_seconds": 0.0012068508355878294,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 800.3270904428304,
+      "terminated": true,
+      "trajectory_sha256": "27fab6280718a35a4a1bc9c7f7687549b4dd8aa98c32799e4c967054893e0df9",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.22636045806575567,
+      "executed_steps": 161,
+      "global_numpy_rng_at_reset": {
+        "changed": false,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "seeded_actions/seed9/run2",
+      "last_progress_fraction": 0.5508875484786189,
+      "mode": "seeded_actions",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 20.0,
+        "lifetime": 161.0,
+        "min_act": 134.6009619903498,
+        "progress": 24.542551268464507
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.5,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0014866425562649966,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0012193007860332727,
+          "steps": 50
+        },
+        "150-249": {
+          "mean_seconds": 0.0011242082744667475,
+          "steps": 11
+        },
+        "50-99": {
+          "mean_seconds": 0.0013297575619071723,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 711.254966418344,
+      "terminated": true,
+      "trajectory_sha256": "27fab6280718a35a4a1bc9c7f7687549b4dd8aa98c32799e4c967054893e0df9",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.11274020804557949,
+      "executed_steps": 33,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed0/run1",
+      "last_progress_fraction": 0.3532136148363572,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 33.0,
+        "min_act": 33.0,
+        "progress": 4.764793217707592
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.731711408685465,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0032563485296894655,
+          "steps": 33
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 292.7083475547473,
+      "terminated": true,
+      "trajectory_sha256": "37a9c50e344c31b5cf46f4a7bdf1ec7da33f92868f14644ff1f4a36c63531855",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.2801144579425454,
+      "executed_steps": 27,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed0/run2",
+      "last_progress_fraction": 0.3509954773249712,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 27.0,
+        "min_act": 27.0,
+        "progress": 4.538140359006724
+      },
+      "seed": 0,
+      "start_velocity_in_wrapper": 0.8398917920334474,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.00936084717977792,
+          "steps": 27
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 96.38916962129102,
+      "terminated": true,
+      "trajectory_sha256": "38a88fd5446a58c2b909e4bb44aa2d1adae727700b39687abbe5bf415ea0d061",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.0923702089348808,
+      "executed_steps": 20,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed1/run1",
+      "last_progress_fraction": 0.353180672069372,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 20.0,
+        "min_act": 20.0,
+        "progress": 4.740472638021737
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 1.2017570555359143,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.003998033265816048,
+          "steps": 20
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 216.52002556473172,
+      "terminated": true,
+      "trajectory_sha256": "9ab7da5a900e7df6377827297d7236f94388c4dbe0776653485e4ea604a80ca2",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.13411320897284895,
+      "executed_steps": 27,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed1/run2",
+      "last_progress_fraction": 0.3533123618082091,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 27.0,
+        "min_act": 27.0,
+        "progress": 4.76736228648439
+      },
+      "seed": 1,
+      "start_velocity_in_wrapper": 0.8950279741941058,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004710689950216975,
+          "steps": 27
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 201.32245143329703,
+      "terminated": true,
+      "trajectory_sha256": "348bf2c24792c6a822a3a33eb2387fd33386d7dfe06086f3bef87db5f8c83408",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.14164349995553493,
+      "executed_steps": 27,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed2/run1",
+      "last_progress_fraction": 0.35332238151030826,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 27.0,
+        "min_act": 27.0,
+        "progress": 4.7683544900686865
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.8952214972957937,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004985748436646881,
+          "steps": 27
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 190.6194072334834,
+      "terminated": true,
+      "trajectory_sha256": "048ec0ee0c4ab64fbd38c2197bf05904763a14986404532470757402732193dd",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.24682791694067419,
+      "executed_steps": 47,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed2/run2",
+      "last_progress_fraction": 0.35265218333308757,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 47.0,
+        "min_act": 47.0,
+        "progress": 4.718793575213941
+      },
+      "seed": 2,
+      "start_velocity_in_wrapper": 0.5049399501195022,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.005089861687589833,
+          "steps": 47
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 190.41606226129028,
+      "terminated": true,
+      "trajectory_sha256": "7794834e2200f01742ef00f28fe37713dd015643052c0540734f6d8f05e5943e",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.09315962495747954,
+      "executed_steps": 20,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed3/run1",
+      "last_progress_fraction": 0.35303727847389055,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 20.0,
+        "min_act": 20.0,
+        "progress": 4.725763538653198
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 1.2100039586560838,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004441766638774425,
+          "steps": 20
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 214.68527818922112,
+      "terminated": true,
+      "trajectory_sha256": "6e782ae7d60aa9c20dd431668ccbace275e49a58332f888fcd56ecf1fcf4a8ba",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.10322045802604407,
+      "executed_steps": 20,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed3/run2",
+      "last_progress_fraction": 0.3531862444470027,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 20.0,
+        "min_act": 20.0,
+        "progress": 4.740485033101465
+      },
+      "seed": 3,
+      "start_velocity_in_wrapper": 1.2139214764693251,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004604858550010249,
+          "steps": 20
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 193.76003926424838,
+      "terminated": true,
+      "trajectory_sha256": "9143df8678d20d6a6bbf98b41e415474afcf83a04bcafff2531b4d2df5547990",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.08423120900988579,
+      "executed_steps": 12,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed4/run1",
+      "last_progress_fraction": 0.35090725598372685,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 12.0,
+        "min_act": 12.0,
+        "progress": 4.483291560651625
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 1.868814792992522,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0065783018944785,
+          "steps": 12
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 142.4650095974714,
+      "terminated": true,
+      "trajectory_sha256": "45fe9946dcbea0faf5919eeaafc81949752e04dc3b263b72f3403e6681132460",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07710616698022932,
+      "executed_steps": 13,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed4/run2",
+      "last_progress_fraction": 0.3510470680833384,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 13.0,
+        "min_act": 13.0,
+        "progress": 4.500938937565835
+      },
+      "seed": 4,
+      "start_velocity_in_wrapper": 1.786849531263442,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.005704278842760966,
+          "steps": 13
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 168.59870629197937,
+      "terminated": true,
+      "trajectory_sha256": "f788ec631ee2b20607dd375076f6273a0ae73a68d75d28b8e139666600d30a40",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.1137130829738453,
+      "executed_steps": 24,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed5/run1",
+      "last_progress_fraction": 0.35233326653312375,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 24.0,
+        "min_act": 24.0,
+        "progress": 4.665623300681566
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.980635712795521,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004447140609651494,
+          "steps": 24
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 211.05750870830005,
+      "terminated": true,
+      "trajectory_sha256": "7ab9cee0f8ea3be7af93c7beee3290bbc728c096c84bb867012a0f8f869d99b0",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.21862612501718104,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed5/run2",
+      "last_progress_fraction": 0.3526193870122362,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 43.0,
+        "progress": 4.713578810810713
+      },
+      "seed": 5,
+      "start_velocity_in_wrapper": 0.5482146920913471,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004778096890943342,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 196.682807219955,
+      "terminated": true,
+      "trajectory_sha256": "61e6895d63f610647140990fa1938babf65f1a7b7dc1af670b07b9074dfb5b95",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.3078573750099167,
+      "executed_steps": 59,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed6/run1",
+      "last_progress_fraction": 0.35304583903072656,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 59.0,
+        "min_act": 59.0,
+        "progress": 4.76245721902237
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.408861242582482,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.005092671599704772,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.004113240878925555,
+          "steps": 9
+        }
+      },
+      "steps_per_second": 191.6471872668293,
+      "terminated": true,
+      "trajectory_sha256": "a4e63261642412e53f8893ef93565b9a55e3fc6de39fdb6f9a4214ac70baf620",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.17784895794466138,
+      "executed_steps": 26,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed6/run2",
+      "last_progress_fraction": 0.35308458171656515,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 26.0,
+        "min_act": 26.0,
+        "progress": 4.742941969500851
+      },
+      "seed": 6,
+      "start_velocity_in_wrapper": 0.9317294048169327,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.006547075347043574,
+          "steps": 26
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 146.19146662692302,
+      "terminated": true,
+      "trajectory_sha256": "63a8a514b43f0c0f6c3c220ad47efd9676ec3d7eafaea4163c73ae981f73752e",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.24717541702557355,
+      "executed_steps": 90,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed7/run1",
+      "last_progress_fraction": 0.35304854078137116,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 90.0,
+        "min_act": 90.0,
+        "progress": 4.769012471753324
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 0.26835930267532215,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0026372209494002164,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": 0.0024717426393181087,
+          "steps": 40
+        }
+      },
+      "steps_per_second": 364.11387945868546,
+      "terminated": true,
+      "trajectory_sha256": "65d93214abd19fcedbf4818527b5ba7c3b55a03afd8ea28c95efcce93dacca00",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.07847299997229129,
+      "executed_steps": 23,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed7/run2",
+      "last_progress_fraction": 0.35265218333308757,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 23.0,
+        "min_act": 23.0,
+        "progress": 4.694949540173498
+      },
+      "seed": 7,
+      "start_velocity_in_wrapper": 1.0379858631436443,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0031415559503290315,
+          "steps": 23
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 293.0944402293944,
+      "terminated": true,
+      "trajectory_sha256": "5bdf8d0205d9958775317b92ee08bc8e33547f5181105fc9dc348b0b2f622a3b",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.08297975000459701,
+      "executed_steps": 17,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed8/run1",
+      "last_progress_fraction": 0.35258369734977213,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 17.0,
+        "min_act": 17.0,
+        "progress": 4.6699850785548165
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 1.4429555864321353,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004700208349865587,
+          "steps": 17
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 204.86926025998167,
+      "terminated": true,
+      "trajectory_sha256": "76bec6c906529957fa3d1457428d9448a7774dcfdc734ab868a3c1c40312dd84",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.10288170794956386,
+      "executed_steps": 17,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed8/run2",
+      "last_progress_fraction": 0.3513927670949831,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 17.0,
+        "min_act": 17.0,
+        "progress": 4.552568202978951
+      },
+      "seed": 8,
+      "start_velocity_in_wrapper": 1.4054895570065413,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.005657093174865141,
+          "steps": 17
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 165.2383143593804,
+      "terminated": true,
+      "trajectory_sha256": "3d082a8e703c50e54bc20be8339bbd0a953e8a1388267baddbf45050ecfd33f1",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.8202293339418247,
+      "executed_steps": 197,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed9/run1",
+      "last_progress_fraction": 0.3512786073428036,
+      "mode": "env_velocity",
+      "repeat": 0,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 197.0,
+        "min_act": 197.0,
+        "progress": 4.598797464205342
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.11682484039900753,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.004673224159050733,
+          "steps": 50
+        },
+        "100-149": {
+          "mean_seconds": 0.0033328357711434366,
+          "steps": 50
+        },
+        "150-249": {
+          "mean_seconds": 0.0019600939654566825,
+          "steps": 47
+        },
+        "50-99": {
+          "mean_seconds": 0.005627940793056041,
+          "steps": 50
+        }
+      },
+      "steps_per_second": 240.17673088240508,
+      "terminated": true,
+      "trajectory_sha256": "c8e8a6a29f4a664eab8f243a4d5ee50b874dc91180ba526c4101c6401572d0b1",
+      "truncated": false
+    },
+    {
+      "collision_on_final_step": true,
+      "elapsed_seconds": 0.09273791697341949,
+      "executed_steps": 43,
+      "global_numpy_rng_at_reset": {
+        "changed": true,
+        "equals_fresh_config_seed_state": false
+      },
+      "label": "env_velocity/seed9/run2",
+      "last_progress_fraction": 0.35308325363589005,
+      "mode": "env_velocity",
+      "repeat": 1,
+      "reward_sums": {
+        "checkpoint": 0.0,
+        "lifetime": 43.0,
+        "min_act": 43.0,
+        "progress": 4.759050770463774
+      },
+      "seed": 9,
+      "start_velocity_in_wrapper": 0.5686445465253409,
+      "step_seconds_by_index": {
+        "0-49": {
+          "mean_seconds": 0.0020534331547529543,
+          "steps": 43
+        },
+        "100-149": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "150-249": {
+          "mean_seconds": null,
+          "steps": 0
+        },
+        "50-99": {
+          "mean_seconds": null,
+          "steps": 0
+        }
+      },
+      "steps_per_second": 463.67226484421303,
+      "terminated": true,
+      "trajectory_sha256": "9022f4430c81bb60774d8603dc9c3e1197f4180dcf79fb67fb929fbcb5966c5d",
+      "truncated": false
+    }
+  ],
+  "seed_propagation_defect_present": true,
+  "seed_propagation_evidence": "reset seed inert in fixed mode, env_velocity repeats differ, and no reset reseeded the global generator to the config seed; see protocol.seed_propagation_hypothesis",
+  "start": {
+    "pose_velocity_sha256": "e85364f39289a24605a8de66d0bedc747c26d667db4d37a4aa941d9341b47480",
+    "row": 0,
+    "velocity_rule": "previous_action_speed at the start row"
+  }
+}

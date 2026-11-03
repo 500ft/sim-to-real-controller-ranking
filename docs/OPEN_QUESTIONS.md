@@ -37,14 +37,14 @@ conditional on M1. These choices do not expose reserved outcomes.
 | Horizon | 250 steps, consistent with the pinned benchmark's [run_iw.py](https://github.com/HyberionBrew/f110_ope_benchmark/blob/42789222451f4ee0e679475a8798d7c47bf220b5/experiments/run_iw.py) `timesteps_to_include=(0,250)` | Confirm the timestep duration and the cutoff's timeout/terminal treatment on permitted records |
 | Starts | Use recorded real start poses. The [author reply record](ope_author_request.txt) says simulation starts came from real rollouts | Establish eligible records and a comparable start distribution; no paired episode IDs were supplied |
 | Rewards | Compare the four thesis reward definitions. The pinned [dataset README](https://github.com/HyberionBrew/f1tenth_orl_dataset/blob/536d762ad7b07076551d39ef202199cbaead6a87/README.md) names `reward_progress.json`, `reward_checkpoint.json`, `reward_lifetime.json` and `reward_min_act.json` | Match each thesis reward to executable code and a common calculation on both permitted archives; simulation lacks `new_rewards` |
-| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | The [frozen protocol](../runs/ope_corrected_v2/protocol.json) fixes seeds 0–9; verify simulator use after the import gate. Seeds sample simulator randomness, not independent vehicles |
+| Simulator seeds | Start with 10 development seeds, per the owner's current instruction | The [frozen protocol](../runs/ope_corrected_v2/protocol.json) fixes seeds 0–9. The [bridge benchmark](../reports/bridge_runtime_benchmark.md) shows `reset(seed)` is inert in the candidate; stochastic inputs must be supplied explicitly. Seeds sample simulator randomness, not independent vehicles |
 
 The [reward protocol](../runs/ope_corrected_v2/protocol.json) froze the
 timestep, reward implementation, discount, terminal and truncation handling,
 aggregation, eligible start rule and seeds before local reward outcomes were
 read. Proposed thesis correlations are source-check candidates, not pass
-thresholds. No ranking or simulator runtime sweep has been run under this
-decision.
+thresholds. The short [runtime benchmark](../reports/bridge_runtime_benchmark.md)
+has run; no ranking has.
 
 ## Four accepted research assumptions
 
@@ -100,9 +100,10 @@ reading any ranking, commit the timestep, executable reward hashes, discount,
 cutoff/terminal handling, eligible starts and aggregation from the pinned
 benchmark. Read the published per-agent reward summaries only for common-reward
 qualification, not to tune a ranking. Boundary cases and aggregate agreement
-are both required; unexplained discrepancies stop M2. Run a short local runtime
-benchmark and checkpoint before extended rollouts. M3 and reserved evaluation
-remain closed.
+are both required; unexplained discrepancies stop M2. The short local runtime
+benchmark and checkpoint check have [run](../runs/bridge_runtime_benchmark/result.json);
+extended rollouts still need an executable steering policy. M3 and reserved
+evaluation remain closed.
 
 | Question | Status | Evidence or action needed |
 | --- | --- | --- |
@@ -112,7 +113,7 @@ remain closed.
 | Loader aliases | Corrected Drive objects, ZIP hashes and roots recorded; old census historical | [Corrected census](../runs/ope_corrected_v2/census.json) binds the actual objects |
 | FQE and probability-ratio methods | Empirical execution remains ineligible | Synthetic delta-action and log-density ordering checked. Archived likelihoods, coverage and degenerate support remain unqualified; separate [estimator gates](../reports/ope_qualification.md#estimator-gates) apply |
 | External author contact | Full reply supplied by owner and inspected | [Contact record](ope_author_request.txt). Resolve ZIP permission, simulator revision and archive terminal semantics. No follow-up sent |
-| Simulator dependency | Public and Unlicense; benchmark revision unpinned | Unmodified candidate import fails against the pinned loader's `Config` interface. The [pinned probe](../runs/ope_corrected_v2/simulator_probe.json) reaches reset with aliases and fails at its first step; the [local reward bridge](../reports/ope_reward_adapter_qualification.md) executes a bounded smoke with candidate physics. Historical identity remains unresolved |
+| Simulator dependency | Public and Unlicense; benchmark revision unpinned | Unmodified candidate import fails against the pinned loader's `Config` interface. The [pinned probe](../runs/ope_corrected_v2/simulator_probe.json) reaches reset with aliases and fails at its first step; the [local reward bridge](../reports/ope_reward_adapter_qualification.md) executes a bounded smoke with candidate physics, and the [benchmark](../reports/bridge_runtime_benchmark.md) measures its speed, determinism and checkpoint. Historical identity remains unresolved |
 | Reward comparison | Shared calculation, per-agent aggregates and whole-development trace executed; full agreement unqualified | The [development trace](../runs/ope_reward_adapter_qualification/development_trace.json) isolates the stored-progress cutoff row and the frozen checkpoint row-alignment defect. The [reference comparison](../runs/ope_corrected_v2/reference_comparison.json) gap stays open because the published Groundtruth cohort is unidentified; resolve before M2 |
 | Reviewer, physical study, publication and campaign | No new approval supplied | Conditional M2 scope is in the roadmap; M3/M5 still require their separate prerequisites |
 
