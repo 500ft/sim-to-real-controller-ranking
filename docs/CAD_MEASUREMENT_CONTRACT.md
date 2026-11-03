@@ -7,7 +7,7 @@ This is a CAD/fixture design requirement added before physical testing. It is no
 Using the mechanical study's assumed 6061-T6 E = 68,900 N/mm² and selected tube L = 100 mm, OD = 20 mm, ID = 17 mm:
 
 - $I = \pi(\mathrm{OD}^4 - \mathrm{ID}^4)/64 = 3{,}754.154\ \mathrm{mm^4}$.
-- $k = 3EI/L^3 = 775.984\ \mathrm{N/mm}$; compliance 1.288687 micrometres/N.
+- $k = 3EI/L^3 = 775.984\ \mathrm{N/mm}$; compliance $1/k = 1.288687$ micrometres/N.
 - A 4 N load gives 5.15475 micrometres in this ideal beam.
 - Root rotation 50 microradians at a 100 mm lever produces 5 micrometres: almost the whole low-load signal.
 - Proposed translational fixture-stiffness screen: >=10k = 7,759.84 N/mm at the load point on EACH axis. Recompute from reviewed specimen/as-built stiffness if it changes; this ratio does not constrain root rotation.
