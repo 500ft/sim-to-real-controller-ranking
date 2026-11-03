@@ -1,14 +1,16 @@
 # Sim-to-Real Controller Ranking
 
-Can dispersion in the predicted performance difference between controllers,
-across physically justified models consistent with development data, identify
-rankings that should be withheld? The corrected-source qualification loads all
-15 evaluation policies on synthetic inputs, but reproduces a first-crash loader
-failure. The corrected-v2 Drive census now establishes archive identity and
-recording boundaries. A source-pinned reward bridge now executes candidate
-simulator steps, and a full development trace exposes the frozen checkpoint
-timing defect. Published Groundtruth membership, ZIP terms and historical
-simulator identity remain unverified, so reference ranking stays closed.
+Can the spread of predicted performance differences between controller pairs,
+across physically justified vehicle models consistent with development data,
+identify rankings that will reverse on a real platform? The corrected-source
+checks execute all 15 evaluation policies on synthetic inputs and reproduce a
+loader failure after the first crash. The corrected-v2 Drive census identifies
+the archives and their recording boundaries. A bridge runs short steps in a
+candidate simulator, while the development-record trace finds a row-alignment
+error in the previously fixed checkpoint calculation. The recording set behind
+the published Groundtruth aggregates, the corrected ZIP reuse terms and the
+benchmark's historical simulator revision remain unknown. No reference
+controller ranking has been run.
 
 [![CI](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/500ft/sim-to-real-controller-ranking/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-276C6B)](LICENSE)
@@ -26,14 +28,15 @@ Historical census at the original source pins. F110 archives, structural census 
 ## Results
 
 The [corrected-source interface report](reports/ope_interface_qualification.md)
-and [executed result](runs/ope_interface_qualification/result.json) record the
-new source pins, license inspection, policy batch checks and loader failure.
-The [corrected-v2 result](reports/ope_corrected_v2.md) binds the separate Drive
-objects by ID and hash, establishes recording boundaries and reports policy
-coverage, terminal exclusions and original-loader sensitivity. The
-[per-agent reward aggregates](runs/ope_corrected_v2/reward_aggregates.json) use
-one frozen calculation on both archives; the [reference comparison](runs/ope_corrected_v2/reference_comparison.json)
-shows the remaining reward mismatch. No controller ranking was run.
+and [executed result](runs/ope_interface_qualification/result.json) identify
+the inspected source revisions and code licenses, test policy batching and
+reproduce the loader failure. The [corrected-v2 result](reports/ope_corrected_v2.md)
+identifies each Drive object by ID and hash, establishes recording boundaries,
+and reports policy coverage, terminal exclusions and sensitivity to the original
+loader. The [per-agent reward aggregates](runs/ope_corrected_v2/reward_aggregates.json)
+use the same calculation, fixed before outcomes, on both archives. The
+[reference comparison](runs/ope_corrected_v2/reference_comparison.json) shows
+where those rewards still differ from the published aggregates.
 The [source-class trace](runs/ope_corrected_v2/reward_trace.json) isolates a
 stored-reward cutoff difference in a small sample and reproduces the duplicate
 full-lap checkpoint on synthetic input. The [candidate simulator probe](runs/ope_corrected_v2/simulator_probe.json)
@@ -54,7 +57,7 @@ The preserved census below uses the earlier pins:
   Its 10,813 `done | truncated` rows cannot be treated as separate recordings.
 - Real stochastic v2 contains 1,375 segments and 57 policy-name strings. All
   those names match configuration filenames in the pinned benchmark source;
-  execution on archived observations remains unqualified.
+  execution on archived observations has not passed its required checks.
 - At those earlier pins, both real-stochastic registrations loaded the
   simulation-v1 archive. The corrected source now uses distinct Drive objects.
   The original qualification binds each inspected archive by filename, hash
@@ -85,17 +88,18 @@ outside this repository while reuse terms remain unknown.
 
 ## What's next
 
-Resolve published Groundtruth cohort and generation provenance, qualify policy
-execution on archived observations, and obtain explicit corrected-ZIP terms.
-The [roadmap](ROADMAP.md) keeps ranking, M3 and reserved evaluation closed
-until their gates pass.
+Identify which recordings and source revision produced the published Groundtruth
+aggregates, test policy execution on archived development observations, and
+obtain explicit terms for the corrected ZIPs. Development ranking (M2),
+abstention-rule calibration (M3) and independent evaluation (M5) wait for their
+separate [roadmap requirements](ROADMAP.md).
 
 ## Retained work
 
 The licensed [public-driving comparison](reports/real_command_response.md)
 remains a same-run development result. Its
-[split qualification](reports/driving_split_qualification.md) admitted no
-separate final group. Unopened bags stay unopened.
+[split analysis](reports/driving_split_qualification.md) found no separate
+final group. Unopened bags stay unopened.
 
 The [history index](docs/history/README.md) retains simulator identification,
 controller comparisons, mast hand calculations, FEA, useful CAD and calibration
