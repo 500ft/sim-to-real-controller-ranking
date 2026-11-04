@@ -1,0 +1,8 @@
+{
+  "delay_near_tie_s": 0.1,
+  "model_near_tie_s": 0.1,
+  "overlay_center_x_m": -13.969377371,
+  "overlay_center_y_m": -6.61009889,
+  "overlay_half_width_m": 2.0,
+  "chosen_weight": 3000
+}

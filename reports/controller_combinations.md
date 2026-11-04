@@ -18,6 +18,10 @@ The preregistered order first requires every case to finish without collision, p
 
 Every run exceeded the 4 m/s² lateral speed-times-yaw-rate proxy target and the 2 m/s² forward-acceleration target: even the lowest run peak was 8.03 m/s² laterally and 4.95 m/s² forward. The lateral proxy omits lateral-velocity derivative; it is a registered screening signal, not a full tire-force measurement.
 
+![Conditional development order table](figures/tables/controller_combinations_ranking.png)
+
+<details><summary>Table as text</summary>
+
 | Conditional order | Architecture | Completed / attempted | Motion-failed runs | Deadline-aware misses | Mean completed Gym finish [s] | Mean completed RMS distance [m] | Max whole-call compute [ms] |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 | PP + LQR correction | 14 / 14 | 14 | 1 | 42.933 | 0.1087 | 18.41 |
@@ -27,6 +31,8 @@ Every run exceeded the 4 m/s² lateral speed-times-yaw-rate proxy target and the
 | 5 | PP + weighted LQR/MPC corrections | 14 / 14 | 14 | 456 | 43.558 | 0.0762 | 58.86 |
 | 6 | PP + MPC active; PP + LQR shadow | 14 / 14 | 14 | 458 | 43.283 | 0.1080 | 42.51 |
 | 7 | PP + LQR active; PP + MPC shadow | 14 / 14 | 14 | 465 | 42.934 | 0.1087 | 67.07 |
+
+</details>
 
 The first two candidates have the same completed, motion-failed and deadline-miss counts; the conditional leader is decided by the next registered worst-finish comparison. The last candidate has the most deadline-aware misses. Host wall-clock tails are variable, so the compute ordering is a development observation rather than target-hardware timing evidence.
 

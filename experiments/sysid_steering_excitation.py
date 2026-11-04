@@ -376,7 +376,7 @@ Environment commands are not the same as internal dynamic-model input. `command_
 
 ## Logged State
 
-Telemetry logs internal dynamic state from `env.sim.agents[0].state`, including achieved steering, speed, yaw rate, and slip angle. The lateral/longitudinal body velocity components are derived as `vx_mps = speed_mps * cos(slip_angle_rad)` and `vy_mps = speed_mps * sin(slip_angle_rad)`.
+Telemetry logs internal dynamic state from `env.sim.agents[0].state`, including achieved steering, speed, yaw rate, and slip angle. The lateral/longitudinal body velocity components are derived as $v_x = v\\cos\\beta$ and $v_y = v\\sin\\beta$, with $v$ = `speed_mps`, $\\beta$ = `slip_angle_rad` and the results in `vx_mps` and `vy_mps`.
 
 ## Quality Gates
 

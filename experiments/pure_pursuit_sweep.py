@@ -140,7 +140,7 @@ Priority order: collision, incomplete, corner cutting, oscillatory, stable.
 
 - Corner cutting threshold: max CTE > `{CORNER_CUTTING_CTE_M:.3f} m`
 - Oscillatory threshold: steering effort above the completed-run 75th percentile
-- Weighted score: `rms_cte + 0.25 * max_cte + 0.05 * steering_effort`
+- Weighted score: $\\mathtt{{rms\\_cte}} + 0.25\\,\\mathtt{{max\\_cte}} + 0.05\\,\\mathtt{{steering\\_effort}}$
 
 These thresholds are map-specific heuristics intended to select a controller baseline, not universal stability criteria.
 

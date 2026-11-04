@@ -1,16 +1,24 @@
 #!/usr/bin/env python
-"""Draw the simulator and ROS-capture report figures and their captions from committed run outputs.
+"""Write the simulator and ROS-capture figure captions and check the plotted values.
 
-The experiment scripts call the draw_* functions after they write their run
-files, so a full rerun and this redraw use the same plotting code. Run this file
-alone to redraw figures without a simulation, fit or bag:
+Each draw_* function builds its figure in memory from the committed run files,
+checks the caption claims against the data, audits the canvas and writes
+``<stem>.caption.md``. MATLAB draws the committed PNG and PDF from the same run
+files (experiments/matlab/render_figures.m). The experiment scripts call the
+draw_* functions after they write their run files, so a full rerun refreshes the
+captions. Run this file alone to refresh captions and the derived tables in
+reports/figures/data/ without a simulation, fit or bag:
 
     PYTHONPATH=gym MPLBACKEND=Agg python experiments/report_figures.py
     PYTHONPATH=gym MPLBACKEND=Agg python experiments/report_figures.py --only ekf
 
-Nothing here writes to runs/ or evidence/*/metrics; only PNG and caption files
-change. Each figure's words (finding, sample size, conditions, sources) are in
-the caption written beside it, never on the canvas.
+Then redraw the images:
+
+    matlab -batch "addpath('experiments/matlab'); render_figures"
+
+Nothing here writes to runs/ or evidence/*/metrics; only caption files and
+reports/figures/data/ change. Each figure's words (finding, sample size,
+conditions, sources) are in the caption written beside it, never on the canvas.
 """
 from __future__ import annotations
 
@@ -934,7 +942,10 @@ def main() -> None:
             plot_integrator_comparison.main()
             continue
         for path in GROUPS[name]():
-            print(f"Wrote {path.relative_to(REPO_ROOT)}")
+            print(f"Wrote {fs.caption_path(path).relative_to(REPO_ROOT)}")
+    import figure_data  # imports this module, so load it after the draw functions exist
+    for path in figure_data.write_all():
+        print(f"Wrote {path.relative_to(REPO_ROOT)}")
 
 
 if __name__ == "__main__":

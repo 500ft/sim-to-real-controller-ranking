@@ -7,6 +7,8 @@ from pathlib import Path
 
 import pandas as pd
 
+import report_tables
+
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PP_RESULTS = REPO_ROOT / "runs" / "pure_pursuit_sweep" / "results.csv"
 LQR_RESULTS = REPO_ROOT / "runs" / "lqr_controller" / "results.csv"
@@ -96,7 +98,7 @@ Compare tuned pure pursuit, LQR, and MPC under the same map, integration timeste
 
 ## Results
 
-{markdown_table(comparison)}
+{report_tables.block("figures/tables/controller_comparison.png", "Controller comparison table", markdown_table(comparison))}
 
 ## Notes
 

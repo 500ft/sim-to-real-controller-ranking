@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-"""Summarize registered paired delay sensitivity; no probability model implied."""
+"""Summarize registered paired delay sensitivity; no probability model implied.
+
+The figure is built in memory for the caption and overlap checks; MATLAB draws the
+committed PNG and PDF (experiments/matlab/make_controller_pipeline.m).
+"""
 
 from __future__ import annotations
 
@@ -77,7 +81,7 @@ def analyze() -> dict:
                "Source: runs/controller_pipeline/delay_sensitivity.json. "
                "The delay values are perturbation assumptions, not an identified model distribution.")
     figure_style.save(fig, ROOT / "reports/figures/controller_delay_sensitivity.png", caption,
-                      formats=("png", "svg"))
+                      formats=("png", "pdf"))
     return result
 
 

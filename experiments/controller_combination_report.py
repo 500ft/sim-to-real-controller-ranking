@@ -1,9 +1,15 @@
-"""Render the executed combination ledger without hand-copying result numbers."""
+"""Render the executed combination ledger without hand-copying result numbers.
+
+The overall-order table is also typeset from ranking.json by
+experiments/matlab/make_tables.m (reports/figures/tables/controller_combinations_ranking.*).
+"""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
+
+import report_tables
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "runs/controller_combinations/ranking.json"
@@ -65,14 +71,16 @@ def render():
               f"{value(summary['min_run_peak_lateral_proxy_mps2'], 2)} m/s² laterally and "
               f"{value(summary['min_run_peak_forward_accel_mps2'], 2)} m/s² forward. "
               "The lateral proxy omits lateral-velocity derivative; it is a registered screening signal, not a full tire-force measurement.", ""]
-    lines += ["| Conditional order | Architecture | Completed / attempted | Motion-failed runs | Deadline-aware misses | Mean completed Gym finish [s] | Mean completed RMS distance [m] | Max whole-call compute [ms] |",
-              "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
+    table = ["| Conditional order | Architecture | Completed / attempted | Motion-failed runs | Deadline-aware misses | Mean completed Gym finish [s] | Mean completed RMS distance [m] | Max whole-call compute [ms] |",
+             "| ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |"]
     for index, row in enumerate(rows, 1):
-        lines.append(f"| {index} | {LABELS[row['architecture']]} | {row['completed']} / {row['attempted']} | "
+        table.append(f"| {index} | {LABELS[row['architecture']]} | {row['completed']} / {row['attempted']} | "
                      f"{row['motion_failed_runs']} | {row['deadline_aware_misses']} | "
                      f"{value(row['mean_completed_gym_finish_s'])} | "
                      f"{value(row['mean_completed_rms_reference_distance_m'], 4)} | "
                      f"{value(row['max_whole_compute_s'] * 1000, 2)} |")
+    lines.append(report_tables.block("figures/tables/controller_combinations_ranking.png",
+                                     "Conditional development order table", "\n".join(table)))
     lines += ["", f"The first two candidates have the same completed, motion-failed and deadline-miss counts; "
               f"the conditional leader is decided by the next registered worst-finish comparison. "
               f"The last candidate has the most deadline-aware misses. Host wall-clock tails are variable, so the "

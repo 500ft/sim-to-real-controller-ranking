@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+import report_tables
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/controller_pipeline"
 REPORT = ROOT / "reports/controller_pipeline.md"
@@ -123,7 +125,9 @@ def main() -> None:
                          "[frozen_constrained_selection.json](../runs/controller_pipeline/frozen_constrained_selection.json) "
                          "before zero-offset evaluation."]
     if any(read(file) for file in evaluation):
-        sections += ["", "## Frozen zero-offset evaluation", "", run_table(evaluation)]
+        sections += ["", "## Frozen zero-offset evaluation", "",
+                     report_tables.block("figures/tables/controller_pipeline_evaluation.png",
+                                         "Frozen zero-offset evaluation table", run_table(evaluation))]
         comparison = ["| Controller | Prior constrained Gym finish [s] | Frozen evaluation [s] | Change [s] | RMS distance change [m] |",
                       "| --- | ---: | ---: | ---: | ---: |"]
         for name in NAMES:
@@ -143,7 +147,7 @@ def main() -> None:
                      "![Three paired Gym finish-time differences over nominal, 20 ms and 50 ms command delays]"
                      "(figures/controller_delay_sensitivity.png)", "", caption,
                      "[Caption file](figures/controller_delay_sensitivity.caption.md) · "
-                     "[SVG](figures/controller_delay_sensitivity.svg) · "
+                     "[PDF](figures/controller_delay_sensitivity.pdf) · "
                      "[source differences](../runs/controller_pipeline/delay_sensitivity.json)."]
     berlin_dir = OUT / "mapzoo_berlin"
     if (berlin_dir / "evaluation_mpc.json").exists():
@@ -216,7 +220,7 @@ def main() -> None:
                 if image.exists():
                     caption = image.with_name(f"{stem}.caption.md").read_text().strip()
                     sections += ["", f"![{alt}](figures/{stem}.png)", "", caption,
-                                 f"[SVG](figures/{stem}.svg) · [caption](figures/{stem}.caption.md)."]
+                                 f"[PDF](figures/{stem}.pdf) · [caption](figures/{stem}.caption.md)."]
     sensitivity = OUT / "model_sensitivity" / "summary.json"
     if sensitivity.exists():
         comparison = json.loads(sensitivity.read_text())
@@ -252,7 +256,7 @@ def main() -> None:
             caption = image.with_name("controller_model_dispersion.caption.md").read_text().strip()
             sections += ["", "![Paired finish differences over four simulator stiffness variants on two development tracks]"
                          "(figures/controller_model_dispersion.png)", "", caption,
-                         "[SVG](figures/controller_model_dispersion.svg) · "
+                         "[PDF](figures/controller_model_dispersion.pdf) · "
                          "[caption](figures/controller_model_dispersion.caption.md)."]
     sections += ["", "## Reproduce", "", "Use the repository's Python 3.9 Gym environment from `environment.yml`. "
                  "The commands below read checked-in example and licensed public MapZoo assets; no driving archive is accessed.",

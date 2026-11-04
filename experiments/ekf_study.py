@@ -23,6 +23,7 @@ from roboracer.estimation import ExtendedKalmanFilter, STATE_COLUMNS, dead_recko
 from roboracer.noise import DropoutWindow, NoiseSpec, apply_dropout_windows, apply_sensor_noise
 from roboracer.numerics import rmse, wrap_angle
 import report_figures
+import report_tables
 
 EXAMPLES_DIR = REPO_ROOT / "examples"
 PP_RESULTS_PATH = REPO_ROOT / "runs" / "pure_pursuit_sweep" / "results.csv"
@@ -274,7 +275,7 @@ Compare dead reckoning and EKF estimates against Gym ground truth under reproduc
 
 ## Results
 
-{markdown_table(compact)}
+{report_tables.block("figures/tables/ekf_summary.png", "EKF summary table", markdown_table(compact))}
 
 ## Figures
 
