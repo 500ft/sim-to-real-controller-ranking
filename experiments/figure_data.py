@@ -89,8 +89,93 @@ def parameter_id(out: Path) -> list[Path]:
     return [_csv(frame, out / "parameter_id_robustness.csv")]
 
 
+CONTROLLERS = {"pure_pursuit": "PP", "lqr": "LQR", "mpc": "MPC"}
+PAIRS = ("pure_pursuit|lqr", "pure_pursuit|mpc", "lqr|mpc")
+
+
+def _pair_label(pair: str) -> str:
+    a, b = pair.split("|")
+    return f"{CONTROLLERS[a]} - {CONTROLLERS[b]}"
+
+
+def controller_pipeline(out: Path) -> list[Path]:
+    """Plotted values of the four controller-pipeline figures, read from committed run JSON and telemetry."""
+    import numpy as np
+
+    base = rf.RUNS / "controller_pipeline"
+    berlin = base / "mapzoo_berlin"
+    read = lambda path: json.loads(path.read_text(encoding="utf-8"))
+    written = []
+
+    delay = read(base / "delay_sensitivity.json")
+    labels = {"nominal": "Nominal", "control_delay_20ms": "20 ms", "control_delay_50ms": "50 ms"}
+    rows = [{"pair": c["pair"], "pair_label": _pair_label(c["pair"]), "scenario": c["scenario"],
+             "delay_label": labels[c["scenario"]], "delta_lap_s": c["delta_lap_s"]} for c in delay["comparisons"]]
+    written.append(_csv(pd.DataFrame(rows), out / "controller_delay_sensitivity.csv"))
+
+    protocol = read(base / "model_sensitivity_protocol.json")
+    summary = read(base / "model_sensitivity" / "summary.json")
+    short = dict(zip(protocol["models"], ("N", "NL", "QL", "QM")))
+    rows = []
+    for pair in PAIRS:
+        for track in ("example", "mapzoo_berlin"):
+            for model in protocol["models"]:
+                item = next(c for c in summary["comparisons"]
+                            if c["track"] == track and c["model"] == model and c["pair"] == pair)
+                rows.append({"pair": pair, "pair_label": _pair_label(pair), "track": track, "model": model,
+                             "model_label": short[model], "delta_lap_s": item["delta_lap_s"]})
+    written.append(_csv(pd.DataFrame(rows), out / "controller_model_dispersion.csv"))
+
+    choice = read(berlin / "offline_frozen_choice.json")
+    chosen = choice["chosen_weight"]
+    weights = [int(key) for key in choice["candidates"]]
+    rows = [{"order": i, "smoothing_weight": w,
+             "mean_tuning_gym_finish_s": choice["candidates"][str(w)]["mean_tuning_gym_finish_s"]}
+            for i, w in enumerate(weights)]
+    written.append(_csv(pd.DataFrame(rows), out / "controller_offline_candidates.csv"))
+    rows = []
+    for name, label in CONTROLLERS.items():
+        final = read(berlin / f"offline_w{chosen}_evaluation_{name}.json")
+        source = read(berlin / f"evaluation_{name}.json")
+        rows.append({"controller": name, "label": label,
+                     "final_minus_source_s": final["lap_time_s"] - source["lap_time_s"]})
+    written.append(_csv(pd.DataFrame(rows), out / "controller_offline_deltas.csv"))
+
+    # Zoom window of controller_multitrack_figures.offline_overlay: +-1.7 m around the
+    # reference point farthest from the selected line; telemetry every 25th 2 ms sample.
+    reference = np.loadtxt(berlin / "reference_constrained.csv", delimiter=";", skiprows=3)
+    final_line = np.loadtxt(berlin / f"offline_line_weight_{chosen}.csv", delimiter=";", skiprows=3)
+    gaps = np.sqrt(((reference[:, None, 1:3] - final_line[None, :, 1:3]) ** 2).sum(axis=2)).min(axis=1)
+    center = reference[int(np.argmax(gaps)), 1:3]
+    rows = []
+
+    def keep(controller, series, x, y):
+        x, y = np.asarray(x, float), np.asarray(y, float)
+        inside = (np.abs(x - center[0]) < 1.7) & (np.abs(y - center[1]) < 1.7)
+        segment = np.cumsum(np.r_[True, inside[1:] & ~inside[:-1]]) if len(inside) else inside
+        for xi, yi, si in zip(x[inside], y[inside], segment[inside]):
+            rows.append({"controller": controller, "series": series, "segment": int(si), "x_m": xi, "y_m": yi})
+
+    keep("all", "source_line", reference[:, 1], reference[:, 2])
+    keep("all", "selected_line", final_line[:, 1], final_line[:, 2])
+    for name in CONTROLLERS:
+        before = pd.read_csv(berlin / f"evaluation_{name}.csv.gz", usecols=["x_m", "y_m"])
+        after = pd.read_csv(berlin / f"offline_w{chosen}_evaluation_{name}.csv.gz", usecols=["x_m", "y_m"])
+        keep(name, "source_replay", before["x_m"][::25], before["y_m"][::25])
+        keep(name, "selected_replay", after["x_m"][::25], after["y_m"][::25])
+    written.append(_csv(pd.DataFrame(rows), out / "controller_offline_overlay.csv"))
+    bands = {"delay_near_tie_s": delay["near_tie_s"], "model_near_tie_s": protocol["near_tie_s"],
+             "overlay_center_x_m": float(center[0]), "overlay_center_y_m": float(center[1]),
+             "overlay_half_width_m": 2.0, "chosen_weight": chosen}
+    path = out / "controller_pipeline_bands.json"
+    path.write_text(json.dumps(bands, indent=2) + "\n", encoding="utf-8")
+    written.append(path)
+    return written
+
+
 def write_all(out: Path = DATA) -> list[Path]:
-    return [p for step in (integrator, convergence, ekf, fmea, parameter_id) for p in step(out)]
+    return [p for step in (integrator, convergence, ekf, fmea, parameter_id,
+                                     controller_pipeline) for p in step(out)]
 
 
 if __name__ == "__main__":

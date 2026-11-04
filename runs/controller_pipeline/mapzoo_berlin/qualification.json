@@ -1,0 +1,62 @@
+{
+  "source": {
+    "repository": "zhouhengli/MapZoo",
+    "commit": "9fcd716722ccfefdb7b00af53e9c91994ffd8233",
+    "source_url": "https://github.com/zhouhengli/MapZoo/tree/9fcd716722ccfefdb7b00af53e9c91994ffd8233/berlin",
+    "license": "MIT as declared by repository LICENSE at pinned commit; copyright 2026 Zhouheng Li",
+    "use": "new separate public development track, not the installed f1tenth_gym Berlin map",
+    "files_sha256": {
+      "LICENSE": "b4a9f61cdf516cb1a90a930c599a9bfaa4cb83d95f9c34aba02c61033459d4e5",
+      "berlin_racing_line.csv": "822cf4a8a00c25fa7b9e4fa7dd999c87d1f1dd5ba5310af5b0e2d6fdae24a264",
+      "berlin.png": "546d9cc73b2b493f22d07bda93c082c4dbbd28c2f0c8521598bcd3c3ce302267",
+      "berlin.yaml": "ecbf0733c2898eca301be9b4e215ab1a08530a9ed4178a0fb3e82ca742de8331"
+    }
+  },
+  "source_line": {
+    "eligible": false,
+    "geometry_eligible": true,
+    "source_speed_profile_eligible": false,
+    "reason": "geometry or source speed limits failed",
+    "closure_gap_m": 0.0,
+    "length_m": 129.0498887340126,
+    "self_intersections": 0,
+    "resampled_points": 645,
+    "tangent_jump_rad": 0.011161339588492214,
+    "max_abs_curvature_1pm": 0.5032872057930248,
+    "min_expanded_footprint_clearance_m": 0.36055513291908897,
+    "source_max_lateral_accel_mps2": 12.000000495238808,
+    "source_max_forward_accel_mps2": 5.720218451185185,
+    "source_max_braking_mps2": 12.442135790897,
+    "profile_min_speed_mps": 2.819175097779654,
+    "profile_max_speed_mps": 8.0
+  },
+  "derived_line": {
+    "eligible": true,
+    "geometry_eligible": true,
+    "source_speed_profile_eligible": true,
+    "reason": "qualified",
+    "closure_gap_m": 0.0,
+    "length_m": 129.04491334712438,
+    "self_intersections": 0,
+    "resampled_points": 645,
+    "tangent_jump_rad": 0.011161146161763358,
+    "max_abs_curvature_1pm": 0.5035312203671025,
+    "min_expanded_footprint_clearance_m": 0.36055513291908897,
+    "source_max_lateral_accel_mps2": 4.000000000000001,
+    "source_max_forward_accel_mps2": 2.0000000000000355,
+    "source_max_braking_mps2": 4.0000000000000355,
+    "profile_min_speed_mps": 2.8184919195121165,
+    "profile_max_speed_mps": 8.0
+  },
+  "native_source_sha256": "3e8365b35cac5c8a679bcc769553a86fb568bdd456b138704d64d44c8f23e52b",
+  "derived_line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+  "model_operating_speed_mps": 6.921521164226918,
+  "model_operating_curvature_1pm": 0.058779594325187735,
+  "start_pose_xytheta": [
+    -8.26156988,
+    -17.84153893,
+    0.11860071125004641
+  ],
+  "source_rows": 1292,
+  "derived_rows": 646
+}

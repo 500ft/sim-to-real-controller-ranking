@@ -1,0 +1,247 @@
+{
+  "protocol_sha256": "33aece0875d4f50ad5fd6c39031205bca3de01ab511ba36693f3a0295c68cf03",
+  "near_tie_s": 0.1,
+  "scope": "development simulation only; no real-platform transfer, inferred model distribution, reserved group, physical driving or paper ranking",
+  "comparisons": [
+    {
+      "track": "example",
+      "model": "nominal",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.756,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "noise_low",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.753999999999998,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_low",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.754000000000005,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_medium",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.754000000000005,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "nominal",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.991999999999997,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "noise_low",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.989999999999995,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_low",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.990000000000002,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_medium",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 5.992000000000004,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "nominal",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.2359999999999971,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "noise_low",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.2359999999999971,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_low",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.2359999999999971,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "example",
+      "model": "quantization_medium",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.23799999999999955,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "nominal",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 2.942,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "noise_low",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 2.9380000000000024,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_low",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 2.942,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_medium",
+      "pair": "pure_pursuit|lqr",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 2.942,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "nominal",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 3.6240000000000023,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "noise_low",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 3.6240000000000023,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_low",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 3.6240000000000023,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_medium",
+      "pair": "pure_pursuit|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 3.6240000000000023,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "nominal",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.6820000000000022,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "noise_low",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.6859999999999999,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_low",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.6820000000000022,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "model": "quantization_medium",
+      "pair": "lqr|mpc",
+      "a_status": "completed_lap",
+      "b_status": "completed_lap",
+      "delta_lap_s": 0.6820000000000022,
+      "near_tie": false,
+      "sign_reversal_outside_tie": false
+    }
+  ]
+}

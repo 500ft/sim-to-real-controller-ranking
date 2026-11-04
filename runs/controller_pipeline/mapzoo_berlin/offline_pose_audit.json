@@ -1,0 +1,14 @@
+{
+  "original_estimate": [
+    -8.291150596147123,
+    -17.593295136054966,
+    0.11860071125004641
+  ],
+  "corrected_exact_tuning_pose": [
+    -8.292534469269121,
+    -17.593463953004346,
+    0.11860071125004641
+  ],
+  "position_difference_m": 0.00139413198090691,
+  "reason": "first-segment projection differs from central tangent; correction made before any offline line candidate run"
+}

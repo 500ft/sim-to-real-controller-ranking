@@ -69,7 +69,8 @@ class ReportFigureTest(unittest.TestCase):
                 setattr(plot_integrator_comparison, name, path)
 
     def test_matlab_pairs_for_the_other_generators(self) -> None:
-        for name in ("ope_structure", "real_command_response"):
+        for name in ("ope_structure", "real_command_response", "controller_delay_sensitivity",
+                     "controller_model_dispersion", "controller_offline_progress", "controller_offline_overlay"):
             image = rf.FIGURES / f"{name}.png"
             self.assertAlmostEqual(Image.open(image).info.get("dpi", (0, 0))[0], fs.DPI, delta=0.5, msg=name)
             self.assertTrue(image.with_suffix(".pdf").exists(), name)

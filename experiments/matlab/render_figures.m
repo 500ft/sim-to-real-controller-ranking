@@ -28,6 +28,7 @@ families = {
     'item11',           @make_item11,           'item11'
     'ope-structure',    @make_ope_structure,    'reports'
     'command-response', @make_command_response, 'reports'
+    'controller-pipeline', @make_controller_pipeline, 'reports'
     'tables',           @make_tables,           'tables'
 };
 if nargin < 3 || isempty(only), only = families(:, 1); end

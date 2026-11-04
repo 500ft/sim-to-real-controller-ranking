@@ -1,0 +1,10 @@
+pair,pair_label,scenario,delay_label,delta_lap_s
+pure_pursuit|lqr,PP - LQR,nominal,Nominal,-0.021999999999998465
+pure_pursuit|lqr,PP - LQR,control_delay_20ms,20 ms,-0.03200000000000358
+pure_pursuit|lqr,PP - LQR,control_delay_50ms,50 ms,-0.08399999999999608
+pure_pursuit|mpc,PP - MPC,nominal,Nominal,0.18200000000000216
+pure_pursuit|mpc,PP - MPC,control_delay_20ms,20 ms,0.20400000000000063
+pure_pursuit|mpc,PP - MPC,control_delay_50ms,50 ms,0.240000000000002
+lqr|mpc,LQR - MPC,nominal,Nominal,0.20400000000000063
+lqr|mpc,LQR - MPC,control_delay_20ms,20 ms,0.2360000000000042
+lqr|mpc,LQR - MPC,control_delay_50ms,50 ms,0.32399999999999807

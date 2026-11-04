@@ -1,0 +1,16 @@
+{
+  "eligible": true,
+  "reason": "qualified",
+  "closure_gap_m": 0.0,
+  "length_m": 156.35611902054015,
+  "self_intersections": 0,
+  "resampled_points": 782,
+  "tangent_jump_rad": 0.016216551882372053,
+  "max_abs_curvature_1pm": 0.31067516781825033,
+  "min_expanded_footprint_clearance_m": 0.1875,
+  "profile_min_speed_mps": 3.5882006857603614,
+  "profile_max_speed_mps": 8.0,
+  "map": "example",
+  "line_sha256": "ff8b4cf0317009661b2a09046823b199fc85deae4a47b5b1da8ac620d994de0d",
+  "source": "qualified checked-in example line; no generated trajectory substituted"
+}

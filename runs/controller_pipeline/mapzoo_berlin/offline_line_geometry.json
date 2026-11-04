@@ -1,0 +1,82 @@
+{
+  "source_line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+  "candidate_weights": [
+    0,
+    1000,
+    3000
+  ],
+  "candidates": {
+    "0": {
+      "line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+      "geometry": {
+        "eligible": true,
+        "geometry_eligible": true,
+        "source_speed_profile_eligible": true,
+        "reason": "qualified",
+        "closure_gap_m": 0.0,
+        "length_m": 129.04491334703027,
+        "self_intersections": 0,
+        "resampled_points": 645,
+        "tangent_jump_rad": 0.011161146976176784,
+        "max_abs_curvature_1pm": 0.5035312249097266,
+        "min_expanded_footprint_clearance_m": 0.36055513291908897,
+        "source_max_lateral_accel_mps2": 4.000000029521104,
+        "source_max_forward_accel_mps2": 2.000000030405865,
+        "source_max_braking_mps2": 4.000000030615146,
+        "numeric_speed_tolerance": 1e-07,
+        "profile_min_speed_mps": 2.818491906798556,
+        "profile_max_speed_mps": 8.0
+      },
+      "max_shift_m": 0.0,
+      "rms_shift_m": 0.0
+    },
+    "1000": {
+      "line_sha256": "d01174e163a26d90475a28eab1dbb001bfc2c44875b88b429d95e10e7d3c99e6",
+      "geometry": {
+        "eligible": true,
+        "geometry_eligible": true,
+        "source_speed_profile_eligible": true,
+        "reason": "qualified",
+        "closure_gap_m": 0.0,
+        "length_m": 128.6301189177504,
+        "self_intersections": 0,
+        "resampled_points": 643,
+        "tangent_jump_rad": 0.01115484743192876,
+        "max_abs_curvature_1pm": 0.4333064856579621,
+        "min_expanded_footprint_clearance_m": 0.2828427166893039,
+        "source_max_lateral_accel_mps2": 4.0000000277830265,
+        "source_max_forward_accel_mps2": 2.0000000366471977,
+        "source_max_braking_mps2": 4.000000031422113,
+        "numeric_speed_tolerance": 1e-07,
+        "profile_min_speed_mps": 3.0383122238091924,
+        "profile_max_speed_mps": 8.0
+      },
+      "max_shift_m": 0.1405685375525184,
+      "rms_shift_m": 0.03343611284562133
+    },
+    "3000": {
+      "line_sha256": "e8505e8f2a0470afefdfd9f89b98c7b924672765783929d10848b7d89acb19c9",
+      "geometry": {
+        "eligible": true,
+        "geometry_eligible": true,
+        "source_speed_profile_eligible": true,
+        "reason": "qualified",
+        "closure_gap_m": 0.0,
+        "length_m": 128.0732631755993,
+        "self_intersections": 0,
+        "resampled_points": 640,
+        "tangent_jump_rad": 0.011158287716211992,
+        "max_abs_curvature_1pm": 0.4232248454845989,
+        "min_expanded_footprint_clearance_m": 0.14142135834465194,
+        "source_max_lateral_accel_mps2": 4.000000028589478,
+        "source_max_forward_accel_mps2": 2.000000043946819,
+        "source_max_braking_mps2": 4.000000030199051,
+        "numeric_speed_tolerance": 1e-07,
+        "profile_min_speed_mps": 3.074287067267902,
+        "profile_max_speed_mps": 8.0
+      },
+      "max_shift_m": 0.28052067080634246,
+      "rms_shift_m": 0.07366634558239679
+    }
+  }
+}

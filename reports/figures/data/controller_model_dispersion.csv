@@ -1,0 +1,25 @@
+pair,pair_label,track,model,model_label,delta_lap_s
+pure_pursuit|lqr,PP - LQR,example,nominal,N,5.756
+pure_pursuit|lqr,PP - LQR,example,noise_low,NL,5.753999999999998
+pure_pursuit|lqr,PP - LQR,example,quantization_low,QL,5.754000000000005
+pure_pursuit|lqr,PP - LQR,example,quantization_medium,QM,5.754000000000005
+pure_pursuit|lqr,PP - LQR,mapzoo_berlin,nominal,N,2.942
+pure_pursuit|lqr,PP - LQR,mapzoo_berlin,noise_low,NL,2.9380000000000024
+pure_pursuit|lqr,PP - LQR,mapzoo_berlin,quantization_low,QL,2.942
+pure_pursuit|lqr,PP - LQR,mapzoo_berlin,quantization_medium,QM,2.942
+pure_pursuit|mpc,PP - MPC,example,nominal,N,5.991999999999997
+pure_pursuit|mpc,PP - MPC,example,noise_low,NL,5.989999999999995
+pure_pursuit|mpc,PP - MPC,example,quantization_low,QL,5.990000000000002
+pure_pursuit|mpc,PP - MPC,example,quantization_medium,QM,5.992000000000004
+pure_pursuit|mpc,PP - MPC,mapzoo_berlin,nominal,N,3.6240000000000023
+pure_pursuit|mpc,PP - MPC,mapzoo_berlin,noise_low,NL,3.6240000000000023
+pure_pursuit|mpc,PP - MPC,mapzoo_berlin,quantization_low,QL,3.6240000000000023
+pure_pursuit|mpc,PP - MPC,mapzoo_berlin,quantization_medium,QM,3.6240000000000023
+lqr|mpc,LQR - MPC,example,nominal,N,0.2359999999999971
+lqr|mpc,LQR - MPC,example,noise_low,NL,0.2359999999999971
+lqr|mpc,LQR - MPC,example,quantization_low,QL,0.2359999999999971
+lqr|mpc,LQR - MPC,example,quantization_medium,QM,0.23799999999999955
+lqr|mpc,LQR - MPC,mapzoo_berlin,nominal,N,0.6820000000000022
+lqr|mpc,LQR - MPC,mapzoo_berlin,noise_low,NL,0.6859999999999999
+lqr|mpc,LQR - MPC,mapzoo_berlin,quantization_low,QL,0.6820000000000022
+lqr|mpc,LQR - MPC,mapzoo_berlin,quantization_medium,QM,0.6820000000000022

@@ -1,0 +1,32 @@
+{
+  "source_protocol_sha256": "1166f373fa50abc981aef13c1699fb1bc3c7ec00dda342baf646440b2e34447e",
+  "source_line_sha256": "ff8b4cf0317009661b2a09046823b199fc85deae4a47b5b1da8ac620d994de0d",
+  "derived_line_sha256": "579a35f3431196df68fbb0eaf30c527445335777f3017fb6e6680eedb4bc6b8d",
+  "scope": "one example-track simulation development run; legacy baseline retained separately",
+  "controllers": {
+    "pure_pursuit": {
+      "lookahead_m": 1.2,
+      "vgain": 1.0
+    },
+    "lqr": {
+      "feedforward_lookahead_m": 1.2,
+      "feedforward_vgain": 1.0,
+      "max_steer_correction_rad": 0.005
+    },
+    "mpc": {
+      "feedforward_lookahead_m": 1.2,
+      "feedforward_vgain": 1.0,
+      "horizon": 15,
+      "max_steer_correction_rad": 0.005
+    }
+  },
+  "integration_dt_s": 0.002,
+  "control_rate_hz": 100,
+  "seed": 12345,
+  "initial_pose": "examples/config_example_map.yaml",
+  "max_sim_time_s": 45,
+  "completion_rule": "Gym checkpoint_done, independent first forward crossing reported separately",
+  "comparison_rule": "retain failures; inspect actual speed, lateral acceleration and controller deadline misses; no performance acceptance inferred from completion alone",
+  "geometry_gate": "line_qualification.json geometry_eligible true; source speed profile failure retained",
+  "tuning_gate": "Only after constrained baseline behavior and limits inspected; no arbitrary-track claim"
+}

@@ -1,0 +1,13 @@
+{
+  "source": "constrained_run_protocol.json",
+  "trigger": "45 s PP run reached 156.348 m maximum progress but was truncated before Gym checkpoint completion; LQR and MPC completed by 45 s",
+  "change": "extend PP upper horizon to 60 s with all other inputs fixed; reuse already completed LQR/MPC traces because the later horizon cannot change their earlier terminal states",
+  "status": "prospective diagnostic amendment after 45 s result, not an original preregistration",
+  "new_max_sim_time_s": 60.0,
+  "pp_original_result_sha256": "bcea206947dde9084d9d9615f7270d206fb7afdfb0153fd41d65911bfd1163b2",
+  "other_result_files": [
+    "constrained_nominal_lqr.json",
+    "constrained_nominal_mpc.json"
+  ],
+  "success_rule": "Gym completion without collision; actual telemetry limits and deadline misses reported separately"
+}

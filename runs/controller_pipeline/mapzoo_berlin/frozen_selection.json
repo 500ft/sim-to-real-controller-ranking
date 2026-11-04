@@ -1,0 +1,43 @@
+{
+  "protocol_sha256": "57410397d3d28ed81c4510d37f17970001d136b4dd58008670393b35edbfa6c2",
+  "line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
+  "selections": {
+    "pure_pursuit": {
+      "status": "selected",
+      "run_id": "tune0_pure_pursuit",
+      "parameters": {
+        "lookahead_m": 1.0,
+        "vgain": 1.0
+      },
+      "candidates": [
+        "tune0_pure_pursuit",
+        "tune1_pure_pursuit",
+        "tune2_pure_pursuit"
+      ]
+    },
+    "lqr": {
+      "status": "selected",
+      "run_id": "tune0_lqr",
+      "parameters": {
+        "max_steer_correction_rad": 0.0025
+      },
+      "candidates": [
+        "tune0_lqr",
+        "tune1_lqr",
+        "tune2_lqr"
+      ]
+    },
+    "mpc": {
+      "status": "selected",
+      "run_id": "tune0_mpc",
+      "parameters": {
+        "horizon": 8
+      },
+      "candidates": [
+        "tune0_mpc",
+        "tune1_mpc",
+        "tune2_mpc"
+      ]
+    }
+  }
+}

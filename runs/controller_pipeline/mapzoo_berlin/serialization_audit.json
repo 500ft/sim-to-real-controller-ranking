@@ -1,0 +1,10 @@
+{
+  "observation": "The nine-decimal exported baseline target line exceeded the exact 4/2/4 m/s^2 calculations by up to about 3.1e-8 m/s^2 when reloaded, although the unrounded profile sat on the boundary. The first offline-line check therefore reported the baseline as ineligible.",
+  "pre_amendment_exported_values_mps2": {
+    "lateral": 4.000000029521104,
+    "forward": 2.000000030405865,
+    "braking": 4.000000030615146
+  },
+  "resolution": "offline_line_protocol.json registers a 1e-7 m/s^2 numerical serialization tolerance; map footprint, curvature, closure and all physical target limits are unchanged. All three saved candidate files are reloaded and checked under that rule before any optimization run.",
+  "source_failure_remains": "The published MapZoo speed schedule exceeds the registered limits by whole m/s^2 and remains ineligible."
+}
