@@ -47,7 +47,7 @@ python table2img.py reports/figures/tables/ekf_summary.tex reports/figures/table
 | `make_ope_structure.m` | `ope_structure` |
 | `make_command_response.m` | `real_command_response` |
 | `make_controller_pipeline.m` | `controller_delay_sensitivity`, `controller_model_dispersion`, `controller_offline_progress`, `controller_offline_overlay` |
-| `make_tables.m` | `reports/figures/tables/`: `controller_comparison`, `dynamic_replay_yaw_rate`, `ekf_summary`, `parameter_id_robustness`, `command_response`, `ope_structure`, `controller_pipeline_evaluation` |
+| `make_tables.m` | `reports/figures/tables/`: `controller_comparison`, `dynamic_replay_yaw_rate`, `ekf_summary`, `parameter_id_robustness`, `command_response`, `ope_structure`, `controller_pipeline_evaluation`, `controller_combinations_ranking` |
 
 `fig_style.m` sets the shared rules: LaTeX text, 9/8/7 pt sizes and MATLAB's
 default blue and orange. `export_pair.m` writes the PDF and PNG. Helpers that

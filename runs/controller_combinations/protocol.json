@@ -1,0 +1,31 @@
+{
+  "scope": "Public, simulation-only development. Neither real-data paper qualification nor physical safety is assessed.",
+  "dependency": "feature/multitrack-controller-pipeline at 1c27599826d7fae32bef6d55c731a6f5753da362",
+  "architecture_order": ["pp", "pp_lqr", "pp_mpc", "lqr_active_mpc_shadow", "mpc_active_lqr_shadow", "mpc_lqr_fallback", "pp_blend"],
+  "architecture_exclusion": {"lqr_primary_mpc_takeover": "No independently justified available-information trigger distinguishes it from a tuned performance oracle. Keep excluded before outcomes."},
+  "architecture_semantics": "Legacy lqr and mpc are PP feedforward plus bounded LQR or MPC correction. Pure shadows compute on the same observation and receive the applied action for bypass-state synchronization, but never control the plant. The blend applies PP once plus weighted bounded corrections. A bypassed MPC warm start is reset, not treated as a prediction from the active trajectory.",
+  "frozen_selection": {
+    "example": "runs/controller_pipeline/frozen_constrained_selection.json",
+    "mapzoo_berlin": "runs/controller_pipeline/mapzoo_berlin/frozen_selection.json"
+  },
+  "tracks": {
+    "example": {"line": "runs/controller_pipeline/reference_constrained.csv", "line_sha256": "579a35f3431196df68fbb0eaf30c527445335777f3017fb6e6680eedb4bc6b8d", "seed": 12345, "max_sim_time_s": 60.0},
+    "mapzoo_berlin": {"line": "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv", "line_sha256": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7", "seed": 12345, "max_sim_time_s": 90.0}
+  },
+  "simulation": {"integration_dt_s": 0.002, "control_rate_hz": 100, "finish": "Gym checkpoint_done, which may require two circuits; report geometric first crossing separately", "initial_action": [0.0, 0.0]},
+  "shared_limits": {"command_steer_abs_rad": 0.4189, "command_speed_min_mps": 0.0, "command_speed_max_mps": 8.0, "command_steer_rate_abs_radps": 3.2, "command_speed_rate_abs_mps2": 9.51, "closed_loop_lateral_proxy_abs_mps2": 4.0, "closed_loop_forward_accel_mps2": 2.0, "closed_loop_brake_abs_mps2": 4.0, "closed_loop_speed_max_mps": 8.0, "numeric_tolerance": 1e-6},
+  "scenarios": {
+    "nominal": {"offset_m": 0.0, "model": "nominal", "command_delay_s": 0.0, "fault": null},
+    "offset": {"offset_m": -0.25, "model": "nominal", "command_delay_s": 0.0, "fault": null},
+    "stiffness": {"offset_m": 0.0, "model": "quantization_medium", "command_delay_s": 0.0, "fault": null},
+    "actuation_delay": {"offset_m": 0.0, "model": "nominal", "command_delay_s": 0.02, "fault": null},
+    "mpc_timeout": {"offset_m": 0.0, "model": "nominal", "command_delay_s": 0.0, "fault": "Reject every twentieth MPC result, starting with call 20, after its computation; 20 ms injected completion delay"}
+  },
+  "timing_modes": {"ideal": ["nominal", "offset", "stiffness", "actuation_delay", "mpc_timeout"], "deadline_aware": ["nominal", "mpc_timeout"]},
+  "scheduler": "At each 10 ms control tick, invoke only when no prior computation is pending. A result becomes eligible at the first following tick at or after measured whole-wrapper compute time plus declared injected delay and actuation delay. Hold the previous applied command meanwhile. A late result cannot affect earlier steps. Deadline miss means total whole-wrapper compute exceeds 10 ms. Ideal mode applies the bounded new command on the call tick, except declared actuation delay. All shadow work is included in timed duration.",
+  "fallback": {"trigger": "MPC failure, nonfinite or out-of-domain proposal, or measured primary solve time over 10 ms; injected fault has the same failure path", "minimum_dwell_control_ticks": 5, "recovery_valid_primary_ticks": 3, "transfer": "rate-limit the newly selected command against the last applied command", "missing_shadow": "ignore for pure shadow; reject for blend"},
+  "tuning": {"incremental_candidates_per_architecture": 3, "blend_lqr_weight_candidates": [0.25, 0.5, 0.75], "other_architecture_extra_parameters": "none; inherit source-track frozen settings", "selection": "on existing +0.25 m development tuning start, completion then common motion-constraint pass then minimum RMS reference distance; ties use registered candidate order", "freeze_before_evaluation": true},
+  "ranking": {"completion": "descending completed scenario count; missing run is not silently dropped", "feasibility": "all registered scenarios complete, no collision, no shared motion-limit violations, and no measured 10 ms compute deadline miss in deadline-aware runs", "overall": "qualifying candidates first; then fewer noncompletions, fewer motion-limit failures, fewer deadline misses, lower worst eligible Gym finish, lower mean RMS reference distance, then architecture order", "noncompletion": "null finish time; no imputed penalty", "near_tie_s": 0.1, "finish_quantization_s": 0.002, "repeatability": "deterministic same-seed replay checked; repeated runs are not independent samples", "criteria": ["completion_and_constraints", "finish_time", "tracking", "compute_deadlines", "disturbance_robustness"]},
+  "comparison": "Same map, qualified line, start, seed and vehicle-parameter pair for each architecture. Exposed prior scenarios are regression controls. No reserved group or real archive access.",
+  "pilot": "Run one short example-track ideal PP and PP+LQR/MPC shadow pair before the full matrix. Save every run by deterministic run ID and skip only when its protocol hash and telemetry hash verify."
+}

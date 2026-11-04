@@ -1,0 +1,3482 @@
+{
+  "protocol_sha256": "05eac57e78f7a9049f15cb6a7b3cc7d5e0dd024a0251d6295b6c460c84accced",
+  "cases_per_architecture": 14,
+  "architecture_count": 7,
+  "run_count": 98,
+  "min_run_peak_lateral_proxy_mps2": 8.03093709,
+  "min_run_peak_forward_accel_mps2": 4.950007285,
+  "excluded_architectures": {
+    "lqr_primary_mpc_takeover": "No independently justified available-information trigger distinguishes it from a tuned performance oracle. Keep excluded before outcomes."
+  },
+  "has_qualifying_overall_winner": false,
+  "overall_order": [
+    "pp_lqr",
+    "pp",
+    "pp_mpc",
+    "mpc_lqr_fallback",
+    "pp_blend",
+    "mpc_active_lqr_shadow",
+    "lqr_active_mpc_shadow"
+  ],
+  "ranking": [
+    {
+      "architecture": "pp_lqr",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 1,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 45.054,
+      "mean_completed_gym_finish_s": 42.93314285714285,
+      "mean_completed_rms_reference_distance_m": 0.10872958333480973,
+      "max_whole_compute_s": 0.018409499999961554,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "pp",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 1,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 49.744,
+      "mean_completed_gym_finish_s": 46.755714285714284,
+      "mean_completed_rms_reference_distance_m": 0.06563253674230127,
+      "max_whole_compute_s": 0.017315208000001192,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "pp_mpc",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 444,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 47.08,
+      "mean_completed_gym_finish_s": 43.26014285714285,
+      "mean_completed_rms_reference_distance_m": 0.1080397479230786,
+      "max_whole_compute_s": 0.0457544590000407,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "mpc_lqr_fallback",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 446,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 46.688,
+      "mean_completed_gym_finish_s": 43.94128571428571,
+      "mean_completed_rms_reference_distance_m": 0.10456493804910173,
+      "max_whole_compute_s": 0.047609500000135085,
+      "total_switches": 1513,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "pp_blend",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 456,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 46.38,
+      "mean_completed_gym_finish_s": 43.55785714285714,
+      "mean_completed_rms_reference_distance_m": 0.07616538276873024,
+      "max_whole_compute_s": 0.058856832999993,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "mpc_active_lqr_shadow",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 458,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 47.084,
+      "mean_completed_gym_finish_s": 43.28314285714284,
+      "mean_completed_rms_reference_distance_m": 0.10797619780278432,
+      "max_whole_compute_s": 0.042512958000088474,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    },
+    {
+      "architecture": "lqr_active_mpc_shadow",
+      "attempted": 14,
+      "executed": 14,
+      "completed": 14,
+      "noncompleted": 0,
+      "motion_failed_runs": 14,
+      "deadline_aware_misses": 465,
+      "qualifies": false,
+      "worst_completed_gym_finish_s": 45.054,
+      "mean_completed_gym_finish_s": 42.93428571428571,
+      "mean_completed_rms_reference_distance_m": 0.10872047982385492,
+      "max_whole_compute_s": 0.0670737079999526,
+      "total_switches": 0,
+      "non_nominal_completed": 10,
+      "non_nominal_attempted": 10
+    }
+  ],
+  "criterion_orders": {
+    "completion_and_constraints": [
+      "pp",
+      "pp_lqr",
+      "pp_mpc",
+      "mpc_lqr_fallback",
+      "pp_blend",
+      "mpc_active_lqr_shadow",
+      "lqr_active_mpc_shadow"
+    ],
+    "finish_time": [
+      "pp_lqr",
+      "lqr_active_mpc_shadow",
+      "pp_mpc",
+      "mpc_active_lqr_shadow",
+      "pp_blend",
+      "mpc_lqr_fallback",
+      "pp"
+    ],
+    "tracking": [
+      "pp",
+      "pp_blend",
+      "mpc_lqr_fallback",
+      "mpc_active_lqr_shadow",
+      "pp_mpc",
+      "lqr_active_mpc_shadow",
+      "pp_lqr"
+    ],
+    "compute_deadlines": [
+      "pp",
+      "pp_lqr",
+      "pp_mpc",
+      "mpc_lqr_fallback",
+      "pp_blend",
+      "mpc_active_lqr_shadow",
+      "lqr_active_mpc_shadow"
+    ],
+    "disturbance_robustness": [
+      "pp",
+      "pp_lqr",
+      "pp_mpc",
+      "lqr_active_mpc_shadow",
+      "mpc_active_lqr_shadow",
+      "mpc_lqr_fallback",
+      "pp_blend"
+    ]
+  },
+  "criterion_tied_extrema": {
+    "finish_time": {
+      "best": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "worst": [
+        "pp"
+      ]
+    },
+    "tracking": {
+      "best": [
+        "pp"
+      ],
+      "worst": [
+        "pp_lqr"
+      ]
+    },
+    "disturbance_robustness": {
+      "best": [
+        "pp",
+        "pp_lqr",
+        "pp_mpc",
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "worst": [
+        "pp",
+        "pp_lqr",
+        "pp_mpc",
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ]
+    },
+    "completion_and_constraints": {
+      "best": [
+        "pp",
+        "pp_lqr"
+      ],
+      "worst": [
+        "lqr_active_mpc_shadow"
+      ]
+    },
+    "compute_deadlines": {
+      "best": [
+        "pp",
+        "pp_lqr"
+      ],
+      "worst": [
+        "lqr_active_mpc_shadow"
+      ]
+    }
+  },
+  "pairwise": [
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 4.6839999999999975,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 4.6839999999999975,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 4.687999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.8939999999999984,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.0519999999999996,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8459999999999965,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.0519999999999996,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8459999999999965,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7939999999999969,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.740000000000002,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 4.678000000000004,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.740000000000002,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 4.678000000000004,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 4.686,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.8880000000000052,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -0.06199999999999761,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.06199999999999761,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.054000000000002046,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8519999999999968,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.06199999999999761,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.06199999999999761,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.054000000000002046,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8519999999999968,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7979999999999947,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 4.6839999999999975,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 4.6839999999999975,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 4.687999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.8939999999999984,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.0519999999999996,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8459999999999965,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.055999999999997385,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.0519999999999996,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8459999999999965,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7899999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7939999999999969,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.689999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 4.682000000000002,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.689999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 4.682000000000002,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 3.0559999999999974,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.363999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.6340000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.3260000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.6260000000000048,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.318000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.007999999999995566,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.6340000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.3260000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.6260000000000048,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.318000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 0.30799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 2.4879999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 2.4879999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 4.495999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.985999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -2.2519999999999953,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -2.2519999999999953,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.24399999999999977,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7539999999999978,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.2519999999999953,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 2.0079999999999956,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.4979999999999976,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -2.2519999999999953,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.24399999999999977,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7539999999999978,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 2.0079999999999956,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.4979999999999976,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.509999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.735999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 4.6839999999999975,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.722000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 4.677999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 3.9840000000000018,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.8840000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -0.0519999999999996,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.013999999999995794,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.05799999999999983,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.7519999999999953,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8519999999999968,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.03800000000000381,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.006000000000000227,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.6999999999999957,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7999999999999972,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.044000000000004036,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.7379999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.838000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.6939999999999955,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.7939999999999969,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.10000000000000142,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 4.735999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 2.3200000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 4.710000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 2.3159999999999954,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 4.451999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 3.847999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -2.415999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.02599999999999625,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -2.4200000000000017,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.2839999999999989,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8879999999999981,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.3900000000000006,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.0040000000000048885,
+      "inside_near_tie": true
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 2.131999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.5279999999999987,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -2.3940000000000055,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.25800000000000267,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.8620000000000019,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 2.136000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.5320000000000036,
+      "inside_near_tie": false
+    },
+    {
+      "track": "example",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.6039999999999992,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 3.5799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 3.5799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.9199999999999946,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.597999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.9939999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3159999999999954,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.6600000000000037,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9819999999999993,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.9939999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3159999999999954,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.6600000000000037,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9819999999999993,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.6780000000000044,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.911999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 3.583999999999996,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.911999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 3.583999999999996,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 1.1000000000000014,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.594000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 0.671999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.671999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.8119999999999976,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.31799999999999784,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.671999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.4839999999999947,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9899999999999949,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.671999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.8119999999999976,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.31799999999999784,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.4839999999999947,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9899999999999949,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "offset",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.4939999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 3.5799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 3.5799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.9919999999999973,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.597999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.921999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3159999999999954,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.588000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9819999999999993,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6660000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.921999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3159999999999954,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.588000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.9819999999999993,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "stiffness",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.6060000000000016,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.931999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 3.907999999999994,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.931999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 3.907999999999994,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 1.4420000000000002,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.3959999999999937,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 0.9759999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.9759999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.4899999999999949,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.5360000000000014,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.9759999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.465999999999994,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.5120000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.9759999999999991,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.4899999999999949,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.5360000000000014,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.465999999999994,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.5120000000000005,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "actuation_delay",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 0.9539999999999935,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 1.2279999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.9139999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 1.2279999999999944,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 2.003999999999998,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.6980000000000004,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -1.686,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -1.686,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.9099999999999966,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.21599999999999397,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 1.686,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.0,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.7760000000000034,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.470000000000006,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -1.686,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -0.9099999999999966,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.21599999999999397,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.7760000000000034,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.470000000000006,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "ideal",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 0.6940000000000026,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.9040000000000035,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 3.5859999999999985,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.9080000000000013,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 3.5820000000000007,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 1.0420000000000016,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.558,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 0.681999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6779999999999973,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.8620000000000019,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.34600000000000364,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": -0.6779999999999973,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.003999999999997783,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.543999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.0279999999999987,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.6739999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.8659999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3500000000000014,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -2.539999999999999,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -1.024000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "nominal",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.5159999999999982,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_lqr"
+      ],
+      "finish_difference_s": 2.9040000000000035,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_mpc"
+      ],
+      "finish_difference_s": 1.2520000000000024,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 2.9239999999999995,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": 0.9440000000000026,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 1.8520000000000039,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp",
+        "pp_blend"
+      ],
+      "finish_difference_s": 2.5700000000000003,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_mpc"
+      ],
+      "finish_difference_s": -1.652000000000001,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 0.01999999999999602,
+      "inside_near_tie": true
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -1.9600000000000009,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.0519999999999996,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_lqr",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3340000000000032,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "lqr_active_mpc_shadow"
+      ],
+      "finish_difference_s": 1.671999999999997,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -0.30799999999999983,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.6000000000000014,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "pp_mpc",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.3179999999999978,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_active_lqr_shadow"
+      ],
+      "finish_difference_s": -1.9799999999999969,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": -1.0719999999999956,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "lqr_active_mpc_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": -0.3539999999999992,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "mpc_lqr_fallback"
+      ],
+      "finish_difference_s": 0.9080000000000013,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_active_lqr_shadow",
+        "pp_blend"
+      ],
+      "finish_difference_s": 1.6259999999999977,
+      "inside_near_tie": false
+    },
+    {
+      "track": "mapzoo_berlin",
+      "scenario": "mpc_timeout",
+      "timing_mode": "deadline_aware",
+      "pair": [
+        "mpc_lqr_fallback",
+        "pp_blend"
+      ],
+      "finish_difference_s": 0.7179999999999964,
+      "inside_near_tie": false
+    }
+  ]
+}

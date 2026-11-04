@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [main, "task/priority-one-*"]
+    branches: [main, "task/priority-one-*", "feature/multitrack-controller-pipeline"]
 
 jobs:
   evidence-tests:
@@ -40,6 +40,7 @@ jobs:
         python experiments/test_report_figures.py
         python experiments/test_controller_pipeline_results.py
         python experiments/test_controller_multitrack_results.py
+        python -m unittest roboracer.test_controller_combinations experiments.test_controller_combination_results
         python -m unittest discover -s experiments -p "test_figure_*.py"
     - name: Equipment acquisition tooling (replay only; no device, no pyserial)
       run: |

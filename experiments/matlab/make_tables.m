@@ -12,6 +12,7 @@ parameter_id_robustness(root, tableDir);
 command_response(root, tableDir);
 ope_structure(root, tableDir);
 controller_pipeline_evaluation(root, tableDir);
+controller_combinations_ranking(root, tableDir);
 end
 
 function controller_comparison(root, d)
@@ -177,4 +178,31 @@ rows
 "\bottomrule"
 "\end{tabular}"];
 writelines(L, fullfile(d, 'controller_pipeline_evaluation.tex'));
+end
+
+
+function controller_combinations_ranking(root, d)
+R = jsondecode(fileread(fullfile(root, 'runs', 'controller_combinations', 'ranking.json')));
+names = struct('pp', 'PP', 'pp_lqr', 'PP + LQR correction', 'pp_mpc', 'PP + MPC correction', ...
+    'lqr_active_mpc_shadow', 'PP + LQR active; PP + MPC shadow', ...
+    'mpc_active_lqr_shadow', 'PP + MPC active; PP + LQR shadow', ...
+    'mpc_lqr_fallback', 'PP + MPC primary; PP + LQR fallback', 'pp_blend', 'PP + weighted LQR/MPC corrections');
+rows = strings(numel(R.ranking), 1);
+for i = 1:numel(R.ranking)
+    if iscell(R.ranking), x = R.ranking{i}; else, x = R.ranking(i); end
+    assert(~isempty(x.mean_completed_gym_finish_s), 'table assumes every candidate completed at least one case');
+    rows(i) = sprintf('%d & %s & %d/%d & %d & %d & %.3f & %.4f & %.2f \\\\', i, names.(x.architecture), ...
+        x.completed, x.attempted, x.motion_failed_runs, x.deadline_aware_misses, x.mean_completed_gym_finish_s, ...
+        x.mean_completed_rms_reference_distance_m, 1000 * x.max_whole_compute_s);
+end
+L = [header('controller_combinations_ranking', 'runs/controller_combinations/ranking.json')
+"\begin{tabular}{@{}r l c S[table-format=2.0] S[table-format=3.0] S[table-format=2.3] S[table-format=1.4] S[table-format=2.2]@{}}"
+"\toprule"
+"Conditional & & Completed / & {Motion-failed} & {Deadline-aware} & {Mean completed} & {Mean completed} & {Max whole-call} \\"
+"order & Architecture & attempted & {runs} & {misses} & {Gym finish (\unit{\second})} & {RMS distance (\unit{\metre})} & {compute (\unit{\milli\second})} \\"
+"\midrule"
+rows
+"\bottomrule"
+"\end{tabular}"];
+writelines(L, fullfile(d, 'controller_combinations_ranking.tex'));
 end
