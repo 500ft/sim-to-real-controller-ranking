@@ -22,7 +22,8 @@ recording segments, exact policy-name strings and the location of apparent
 terminal flags. The table also binds figure labels to filenames, enumerates
 loader aliases and distinguishes filename matches from executable policies.
 [Reproduction commands](../reports/ope_qualification.md#redraw-from-the-committed-result)
-write PNG, editable SVG, the caption and accessible Markdown/CSV tables without reading an archive.
+write the caption and accessible Markdown/CSV tables without reading an archive;
+[make_ope_structure.m](../experiments/matlab/make_ope_structure.m) draws the PNG and PDF.
 The figure first published with the census stays frozen at `runs/ope_qualification/structure.png`.
 
 ## Visual redesign and preservation
@@ -48,7 +49,7 @@ The two rendering commands read only committed derivatives. They perform no fit,
 archive decoding, filtering or outcome evaluation. Before/after SHA-256 checks
 confirmed that the result JSONs, motion CSV, delay profile, source records and
 original analysis scripts are byte-identical. Immediate-input hashes live in
-[the figure manifest](figure-manifest.json). SVG output keeps text editable.
+[the figure manifest](figure-manifest.json). The PDF beside each PNG keeps the figure as vectors.
 The generators' plotted values and table counts were separately compared with
 those sources; the CSV-derived residual RMSE agrees within its stored rounding.
 Both figures were inspected at a GitHub reading width for labels, overlap and
@@ -65,36 +66,60 @@ decisions unchanged; contact status is maintained in the
 
 ## Figure rules and redraw
 
-Every generated report figure uses [figure_style.py](../experiments/figure_style.py),
-which follows the cross-repository figure rules the owner approved on 2026-10-16
-(evidence-sufficiency-benchmark PR #26). The canvas carries only data, axes, tick
-labels, axis labels, panel letters (a), (b), ... and one framed legend. Everything
-in words (finding, conditions, sample size, sources) is in `<stem>.caption.md`
-beside each image, and the report paragraph under the image repeats that caption.
-Ink is black: line style and marker shape tell series apart, and marker fill
-carries state (filled for completed or passed, hollow for collided or failed).
-Colour appears only in the two pure-pursuit heatmap fields, with a colour bar;
-their cell numbers are the one text allowed inside a data area. Type is Computer
-Modern (matplotlib's bundled cmr10 with mathtext), PNG output is 600 dpi, and
-`figure_style.save` refuses to write a figure whose printed items touch. The
-2026-10-09 pass ([decision record](decisions/0002-figure-rules.md)) used colour per
-entity and on-canvas titles; this pass replaces those choices.
+MATLAB R2025b draws every report figure that can be rebuilt from committed run
+files. The owner asked for this on 2026-11-02, matching an approved before/after
+demo. The scripts live in [experiments/matlab/](../experiments/matlab/README.md),
+one `make_*.m` per figure family, with shared rules in
+[fig_style.m](../experiments/matlab/fig_style.m):
 
-[report_figures.py](../experiments/report_figures.py) redraws the simulator and
-ROS-capture figures from committed run files. It runs no simulation, fit or bag
-conversion and writes only PNG and caption files. The experiment scripts call the same
-functions after they write their run files, so a full rerun draws the same figure.
+- The canvas carries only data, axes, tick labels, axis labels and panel letters
+  a, b, .... The finding, conditions, sample size and sources are in
+  `<stem>.caption.md` beside each image, and the report paragraph under the
+  image repeats that caption.
+- Text uses the LaTeX interpreter in Computer Modern: 9 pt axis and series
+  labels, 8 pt notes, 7 pt tick labels and 10 pt bold panel letters. Units sit
+  in parentheses and symbols are LaTeX math.
+- Colour follows MATLAB's default order: blue for the reference, measured or
+  passed series and orange for the model, command or failed series. Line style,
+  marker shape and fill keep the encodings the captions describe, so a figure
+  still reads in greyscale. Filled markers are the nominal state and hollow
+  markers the failed one.
+- Lines carry direct labels in their own colour. Zero lines, limits and
+  tolerances are grey and dotted, and each is labelled once. The pure-pursuit
+  heatmaps use MATLAB's default parula map with a colour bar.
+- Each figure is written as a vector PDF and a 300-dpi PNG at the path the
+  reports already use.
+
+The Python generators still own every plotted value and caption.
+[report_figures.py](../experiments/report_figures.py) and the three `plot_*.py`
+scripts build each figure in memory from the committed run files, check the
+caption claims against the data, audit the canvas and write the caption. They
+no longer write images. [figure_data.py](../experiments/figure_data.py) writes the
+few derived tables that MATLAB reads to `reports/figures/data/`: the parsed
+reference path, per-run summaries, display labels and tolerances. The experiment
+scripts call the same draw functions after they write their run files, so a full
+rerun refreshes the captions. Redraw from committed files:
 
 ```bash
 PYTHONPATH=gym MPLBACKEND=Agg python experiments/report_figures.py
+matlab -batch "addpath('experiments/matlab'); render_figures"
 PYTHONPATH=gym MPLBACKEND=Agg python experiments/test_report_figures.py
 ```
 
-The test redraws all 29 figures into a scratch directory and fails on
-touching or clipped text. `python -m unittest discover -s experiments -p 'test_figure_*.py'`
-checks each figure family against its data file, its caption file and the report text. Redraw from committed files when only a figure
-changes: a full rerun of the replay, fit and robustness studies changes their
-CSV values in the last digits on some machines.
+The test rebuilds all 29 simulator and ROS-capture figures with captions in a
+scratch directory, fails on touching text, checks that each committed PNG is
+300 dpi with a PDF beside it and that `reports/figures/data/` matches a fresh
+export. `python -m unittest discover -s experiments -p 'test_figure_*.py'`
+checks each figure family against its data file, its caption file and the report
+text. Redraw from committed files when only a figure changes: a full rerun of the
+replay, fit and robustness studies changes their CSV values in the last digits
+on some machines.
+
+[make_tables.m](../experiments/matlab/make_tables.m) writes six headline result
+tables as booktabs/siunitx LaTeX from the committed CSVs. A standalone LaTeX
+document typesets each one to PDF and a 300-dpi PNG in `reports/figures/tables/`.
+The reports show the PNG and keep the Markdown table under it in a
+"Table as text" fold, so the values stay searchable.
 
 These committed images were not redrawn:
 
@@ -121,7 +146,7 @@ flowchart LR
     CSV --> CTRL[Controllers and EKF]
     REPLAY --> METRICS[Run metrics and traces]
     CTRL --> METRICS
-    METRICS --> PLOTS[Matplotlib figures]
+    METRICS --> PLOTS[MATLAB figures]
     LOADS[Committed load envelope] --> MAST[Hand calc and FEA]
 ```
 
@@ -144,7 +169,8 @@ by [plot_real_command_response.py](../experiments/plot_real_command_response.py)
 from [comparison.csv](../runs/real_command_response/comparison.csv),
 [result.json](../runs/real_command_response/result.json) and
 [delay_profile.json](../runs/real_command_response/delay_profile.json).
-It also emits SVG and an [accessible metric table](../runs/real_command_response/comparison_metrics.md).
+It also writes the caption and an [accessible metric table](../runs/real_command_response/comparison_metrics.md);
+[make_command_response.m](../experiments/matlab/make_command_response.m) draws the PNG and PDF.
 [The report](../reports/real_command_response.md#redraw-without-data-acquisition-or-fitting)
 gives the rendering command, attribution and scientific limits. The original
 [analysis script](../experiments/real_command_response.py) and
@@ -172,7 +198,7 @@ supports a second qualified derived line and [synchronized MP4](../runs/controll
 with a [preview](../runs/controller_pipeline/mapzoo_berlin/controller_preview.png).
 The [offline-candidate figure](../reports/figures/controller_offline_progress.png)
 and [zoomed before/after overlay](../reports/figures/controller_offline_overlay.png)
-come from frozen candidate JSON and per-step telemetry. Their SVGs, captions and
+come from frozen candidate JSON and per-step telemetry. Their PDFs, captions and
 input hashes are in the [figure manifest](figure-manifest.json). The selected
 line produced faster Gym finishes but failed the closed-loop target checks, as
 recorded in the [controller report](../reports/controller_pipeline.md).
@@ -184,12 +210,18 @@ measured vehicle-model distribution or physical ranking is inferred.
 
 The [delay-sensitivity chart](../reports/figures/controller_delay_sensitivity.png)
 ([caption](../reports/figures/controller_delay_sensitivity.caption.md),
-[SVG](../reports/figures/controller_delay_sensitivity.svg)) is generated by
+[PDF](../reports/figures/controller_delay_sensitivity.pdf)) is generated by
 [controller_dispersion.py](../experiments/controller_dispersion.py) from the
 [paired result JSON](../runs/controller_pipeline/delay_sensitivity.json).
 Shading marks the registered near-tie region, not an uncertainty interval. The
 three timing scenarios use one map and fixed vehicle physics; they cannot stand
 in for an identified vehicle-model distribution.
+
+Python writes the captions of these four figures and their plotted values to
+`reports/figures/data/controller_*.csv` with
+[figure_data.py](../experiments/figure_data.py);
+[make_controller_pipeline.m](../experiments/matlab/make_controller_pipeline.m) draws the PNG and PDF.
+The MP4 videos and their preview frames stay matplotlib renders.
 
 ## Full simulation reproduction
 

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Render the structural figure, its caption and tables from the committed result, without archives."""
+"""Write the structural figure caption and tables from the committed result, without archives.
+
+MATLAB draws the figure from structure.csv (experiments/matlab/make_ope_structure.m).
+"""
 import argparse
 import csv
 import json
@@ -172,7 +175,7 @@ def render_tables(result, directory):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--result', type=Path, required=True)
-    parser.add_argument('--output', type=Path, default=OUTPUT, help='PNG path; SVG and caption saved beside it')
+    parser.add_argument('--output', type=Path, default=OUTPUT, help='figure PNG path; the caption is written beside it and MATLAB draws the PNG and PDF')
     parser.add_argument('--tables', type=Path, help='directory for structure.md and the CSV tables (not written by default)')
     args = parser.parse_args()
     # runs/ holds the frozen 2026 census and its original figure; the live figure lives in reports/figures.
@@ -180,7 +183,7 @@ def main():
         parser.error(f'{args.output} is under runs/, which is frozen; write the figure elsewhere')
     result = json.loads(args.result.read_text())
     fs.apply(hashsalt='racing-structure')
-    fs.save(render_figure(result), args.output, caption(result), ('png', 'svg'))
+    fs.save(render_figure(result), args.output, caption(result))
     if args.tables:
         render_tables(result, args.tables)
 

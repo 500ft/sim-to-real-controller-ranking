@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-"""Redraw every report figure from committed run outputs into a scratch directory.
+"""Rebuild every report figure from committed run outputs, with captions in a scratch directory.
 
-Checks that each figure renders, that nothing printed touches anything else
-(figure_style.save refuses otherwise), that each figure gets a caption file and
-that every PNG is written at the shared resolution. Committed figures and run
-files are not touched. Per-family value and caption checks live in test_figure_*.py.
+Checks that each figure builds, that nothing printed touches anything else
+(figure_style.save refuses otherwise) and that each figure gets a caption file.
+For every figure it also checks the committed MATLAB pair: a PNG at the shared
+resolution and a vector PDF beside it, and that the derived tables in
+reports/figures/data/ match a fresh export. Committed figures and run files are
+not touched. Per-family value and caption checks live in test_figure_*.py.
 
 Run: PYTHONPATH=gym MPLBACKEND=Agg python experiments/test_report_figures.py
 """
@@ -14,6 +16,7 @@ from pathlib import Path
 
 from PIL import Image
 
+import figure_data
 import figure_style as fs
 import plot_integrator_comparison
 import report_figures as rf
@@ -24,8 +27,8 @@ class ReportFigureTest(unittest.TestCase):
         written = []
         original = fs.save
 
-        def recorded(fig, path, caption, formats=("png",)):
-            paths = original(fig, path, caption, formats)
+        def recorded(fig, path, caption, formats=("png",), preview_dir=None):
+            paths = original(fig, path, caption, formats, preview_dir)
             written.extend(paths)
             return paths
 
@@ -56,12 +59,27 @@ class ReportFigureTest(unittest.TestCase):
                 self.assertLessEqual(names, committed, "redraw wrote a figure name that is not committed")
                 for path in written:
                     self.assertTrue(fs.caption_path(path).exists(), path.name)
-                    dpi = Image.open(path).info.get("dpi", (0, 0))[0]
-                    self.assertAlmostEqual(dpi, fs.DPI, delta=0.5, msg=path.name)
+                    image = (rf.ITEM11 / "figures" if path.parent.name == "item11" else rf.FIGURES) / path.name
+                    dpi = Image.open(image).info.get("dpi", (0, 0))[0]
+                    self.assertAlmostEqual(dpi, fs.DPI, delta=0.5, msg=image.name)
+                    self.assertTrue(image.with_suffix(".pdf").exists(), image.name)
         finally:
             fs.save = original
             for name, path in saved.items():
                 setattr(plot_integrator_comparison, name, path)
+
+    def test_matlab_pairs_for_the_other_generators(self) -> None:
+        for name in ("ope_structure", "real_command_response", "controller_delay_sensitivity",
+                     "controller_model_dispersion", "controller_offline_progress", "controller_offline_overlay"):
+            image = rf.FIGURES / f"{name}.png"
+            self.assertAlmostEqual(Image.open(image).info.get("dpi", (0, 0))[0], fs.DPI, delta=0.5, msg=name)
+            self.assertTrue(image.with_suffix(".pdf").exists(), name)
+
+    def test_derived_tables_match_a_fresh_export(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            for path in figure_data.write_all(Path(tmp)):
+                committed = figure_data.DATA / path.name
+                self.assertEqual(path.read_bytes(), committed.read_bytes(), path.name)
 
 
 if __name__ == "__main__":

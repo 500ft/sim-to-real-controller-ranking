@@ -8,8 +8,8 @@
       "MPLBACKEND": "Agg"
     },
     "note": "Every command below assumes these. PYTHONPATH=gym is required because this repository's own gym/ directory must shadow the third-party gym package for the vendored f110_gym imports to resolve; without it the generators fail at import. MPLBACKEND=Agg is required for headless runs.",
-    "numeric_gate": "reports/figures/dynamic_replay_*.png are NOT byte-comparable: the renderer moves glyphs and layout between font builds. Compare runs/dynamic_model_replay/metrics.csv instead, via experiments/test_replay_metrics.py (tolerance 1e-9 relative; observed cross-run spread 1e-15).",
-    "figure_rules": "experiments/figure_style.py sets Computer Modern type, black-ink marker and line conventions and 600 dpi output for every generator, and refuses to save a figure whose printed items touch. Each rebuilt figure's words live in <stem>.caption.md beside the image. redraw_command entries rebuild PNGs and captions from committed run files without a simulation, fit or bag; python -m unittest discover -s experiments -p 'test_figure_*.py' checks plotted values, canvas text, the overlap audit and captions."
+    "numeric_gate": "reports/figures/dynamic_replay_*.png are NOT byte-comparable: the renderer moves glyphs and layout between MATLAB and font builds. Compare runs/dynamic_model_replay/metrics.csv instead, via experiments/test_replay_metrics.py (tolerance 1e-9 relative; observed cross-run spread 1e-15).",
+    "figure_rules": "experiments/matlab/ draws every redrawn figure in MATLAB R2025b: LaTeX text in Computer Modern at 9/8/7 pt, MATLAB default blue and orange, grey dotted reference lines, direct labels, vector PDF plus 300-dpi PNG. Each figure's words live in <stem>.caption.md beside the image. redraw_command entries rebuild captions and reports/figures/data/ from committed run files without a simulation, fit or bag; matlab_command then redraws the images. python -m unittest discover -s experiments -p 'test_figure_*.py' checks plotted values, canvas text, the overlap audit and captions."
   },
   "figures": [
     {
@@ -22,7 +22,7 @@
       ],
       "outputs": [
         "reports/figures/ope_structure.png",
-        "reports/figures/ope_structure.svg",
+        "reports/figures/ope_structure.pdf",
         "reports/figures/ope_structure.caption.md",
         "runs/ope_qualification/structure.md",
         "runs/ope_qualification/structure.csv",
@@ -34,10 +34,15 @@
         "runs/ope_qualification/result.json": "eafc1c220d3774a10aaba85ed0ce96e42fead88811aeacf419c7c53339693f2b"
       },
       "notes": "Presentation-only rendering from the frozen result. Qualification script and result provenance are unchanged. The figure first published with the census stays frozen under runs/; the generator refuses to write a figure there.",
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "frozen_outputs": [
         "runs/ope_qualification/structure.png",
         "runs/ope_qualification/structure.svg"
+      ],
+      "matlab_script": "experiments/matlab/make_ope_structure.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'ope-structure'})\"",
+      "matlab_inputs": [
+        "runs/ope_qualification/structure.csv"
       ]
     },
     {
@@ -52,7 +57,7 @@
       ],
       "outputs": [
         "reports/figures/real_command_response.png",
-        "reports/figures/real_command_response.svg",
+        "reports/figures/real_command_response.pdf",
         "reports/figures/real_command_response.caption.md",
         "runs/real_command_response/comparison_metrics.md",
         "runs/real_command_response/comparison_metrics.csv"
@@ -65,11 +70,13 @@
         "runs/real_command_response/result.json": "d2e2c44dea912ae7fb43d6e743b436135ee7d91be6a1ece9230b847836d03e79",
         "runs/real_command_response/delay_profile.json": "b9ba40bced9cb721ca2f9198870b451e0f9d7d9700f8cb4fa65e5535f3070555"
       },
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "frozen_outputs": [
         "runs/real_command_response/comparison.png",
         "runs/real_command_response/comparison.svg"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_command_response.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'command-response'})\""
     },
     {
       "id": "integrator-comparison",
@@ -81,21 +88,31 @@
       ],
       "outputs": [
         "reports/figures/first_integrator_comparison.png",
+        "reports/figures/first_integrator_comparison.pdf",
         "reports/figures/integrator_trajectory_overlay.png",
+        "reports/figures/integrator_trajectory_overlay.pdf",
         "reports/figures/integrator_tracking_error_vs_progress.png",
-        "reports/figures/integrator_summary_metrics.png"
+        "reports/figures/integrator_tracking_error_vs_progress.pdf",
+        "reports/figures/integrator_summary_metrics.png",
+        "reports/figures/integrator_summary_metrics.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only integrator",
       "redraw_inputs": [
         "runs/first_lap/telemetry.csv",
         "examples/example_waypoints.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/first_integrator_comparison.caption.md",
         "reports/figures/integrator_trajectory_overlay.caption.md",
         "reports/figures/integrator_tracking_error_vs_progress.caption.md",
         "reports/figures/integrator_summary_metrics.caption.md"
+      ],
+      "matlab_script": "experiments/matlab/make_integrator.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'integrator'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/integrator_reference_path.csv",
+        "reports/figures/data/integrator_summary.csv"
       ]
     },
     {
@@ -108,16 +125,23 @@
       ],
       "outputs": [
         "reports/figures/integrator_convergence_position_error.png",
-        "reports/figures/integrator_convergence_metrics.png"
+        "reports/figures/integrator_convergence_position_error.pdf",
+        "reports/figures/integrator_convergence_metrics.png",
+        "reports/figures/integrator_convergence_metrics.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only convergence",
       "redraw_inputs": [
         "runs/integrator_convergence/convergence_results.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/integrator_convergence_position_error.caption.md",
         "reports/figures/integrator_convergence_metrics.caption.md"
+      ],
+      "matlab_script": "experiments/matlab/make_convergence.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'convergence'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/integrator_convergence_tolerances.json"
       ]
     },
     {
@@ -130,18 +154,22 @@
       ],
       "outputs": [
         "reports/figures/dynamic_replay_yaw_rate_overlay.png",
-        "reports/figures/dynamic_replay_state_errors.png"
+        "reports/figures/dynamic_replay_yaw_rate_overlay.pdf",
+        "reports/figures/dynamic_replay_state_errors.png",
+        "reports/figures/dynamic_replay_state_errors.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only dynamic-replay",
       "redraw_inputs": [
         "runs/dynamic_model_replay/replay_trace.csv",
         "runs/dynamic_model_replay/metrics.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/dynamic_replay_yaw_rate_overlay.caption.md",
         "reports/figures/dynamic_replay_state_errors.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_dynamic_replay.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'dynamic-replay'})\""
     },
     {
       "id": "kinematic-model-replay",
@@ -153,18 +181,22 @@
       ],
       "outputs": [
         "reports/figures/model_vs_gym_trajectory_error.png",
-        "reports/figures/model_vs_gym_state_errors.png"
+        "reports/figures/model_vs_gym_trajectory_error.pdf",
+        "reports/figures/model_vs_gym_state_errors.png",
+        "reports/figures/model_vs_gym_state_errors.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only kinematic-replay",
       "redraw_inputs": [
         "runs/model_vs_gym_comparison/replay_trace.csv",
         "runs/model_vs_gym_comparison/metrics.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/model_vs_gym_trajectory_error.caption.md",
         "reports/figures/model_vs_gym_state_errors.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_kinematic_replay.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'kinematic-replay'})\""
     },
     {
       "id": "kinematic-yaw-rate-diagnostic",
@@ -187,8 +219,11 @@
       ],
       "outputs": [
         "reports/figures/sysid_steering_input.png",
+        "reports/figures/sysid_steering_input.pdf",
         "reports/figures/sysid_yaw_response.png",
-        "reports/figures/sysid_speed_hold.png"
+        "reports/figures/sysid_yaw_response.pdf",
+        "reports/figures/sysid_speed_hold.png",
+        "reports/figures/sysid_speed_hold.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only excitation",
       "redraw_inputs": [
@@ -196,12 +231,14 @@
         "runs/sysid_steering_excitation/metadata.json",
         "runs/sysid_steering_excitation/quality_metrics.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/sysid_steering_input.caption.md",
         "reports/figures/sysid_yaw_response.caption.md",
         "reports/figures/sysid_speed_hold.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_excitation.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'excitation'})\""
     },
     {
       "id": "dynamic-parameter-identification",
@@ -213,18 +250,22 @@
       ],
       "outputs": [
         "reports/figures/dynamic_parameter_fit.png",
-        "reports/figures/dynamic_parameter_residuals.png"
+        "reports/figures/dynamic_parameter_fit.pdf",
+        "reports/figures/dynamic_parameter_residuals.png",
+        "reports/figures/dynamic_parameter_residuals.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only parameter-fit",
       "redraw_inputs": [
         "runs/dynamic_parameter_identification/fit_trace.csv",
         "runs/dynamic_parameter_identification/heldout_replay_trace.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/dynamic_parameter_fit.caption.md",
         "reports/figures/dynamic_parameter_residuals.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_parameter_fit.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'parameter-fit'})\""
     },
     {
       "id": "pure-pursuit-sweep",
@@ -236,20 +277,25 @@
       ],
       "outputs": [
         "reports/figures/pure_pursuit_sweep_rms_cte_heatmap.png",
+        "reports/figures/pure_pursuit_sweep_rms_cte_heatmap.pdf",
         "reports/figures/pure_pursuit_sweep_lap_time_heatmap.png",
-        "reports/figures/pure_pursuit_sweep_regions.png"
+        "reports/figures/pure_pursuit_sweep_lap_time_heatmap.pdf",
+        "reports/figures/pure_pursuit_sweep_regions.png",
+        "reports/figures/pure_pursuit_sweep_regions.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only pure-pursuit",
       "redraw_inputs": [
         "runs/pure_pursuit_sweep/results.csv",
         "runs/pure_pursuit_sweep/metadata.json"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/pure_pursuit_sweep_rms_cte_heatmap.caption.md",
         "reports/figures/pure_pursuit_sweep_lap_time_heatmap.caption.md",
         "reports/figures/pure_pursuit_sweep_regions.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_pure_pursuit.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'pure-pursuit'})\""
     },
     {
       "id": "lqr-controller",
@@ -288,8 +334,11 @@
       ],
       "outputs": [
         "reports/figures/ekf_position_error_over_time.png",
+        "reports/figures/ekf_position_error_over_time.pdf",
         "reports/figures/ekf_rmse_summary.png",
-        "reports/figures/ekf_dropout_zoom.png"
+        "reports/figures/ekf_rmse_summary.pdf",
+        "reports/figures/ekf_dropout_zoom.png",
+        "reports/figures/ekf_dropout_zoom.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only ekf",
       "redraw_inputs": [
@@ -297,11 +346,16 @@
         "runs/ekf_study/summary.csv",
         "runs/ekf_study/metadata.json"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/ekf_position_error_over_time.caption.md",
         "reports/figures/ekf_rmse_summary.caption.md",
         "reports/figures/ekf_dropout_zoom.caption.md"
+      ],
+      "matlab_script": "experiments/matlab/make_ekf.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'ekf'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/ekf_rmse_summary.csv"
       ]
     },
     {
@@ -315,16 +369,23 @@
       ],
       "outputs": [
         "reports/figures/fmea_rpn_bar.png",
-        "reports/figures/fmea_detection_signals.png"
+        "reports/figures/fmea_rpn_bar.pdf",
+        "reports/figures/fmea_detection_signals.png",
+        "reports/figures/fmea_detection_signals.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only fmea",
       "redraw_inputs": [
         "runs/failure_mode_fmea/results.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/fmea_rpn_bar.caption.md",
         "reports/figures/fmea_detection_signals.caption.md"
+      ],
+      "matlab_script": "experiments/matlab/make_fmea.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'fmea'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/fmea.csv"
       ]
     },
     {
@@ -337,18 +398,26 @@
       ],
       "outputs": [
         "reports/figures/parameter_id_noise_degradation.png",
+        "reports/figures/parameter_id_noise_degradation.pdf",
         "reports/figures/parameter_id_latency_degradation.png",
-        "reports/figures/parameter_id_condition_number.png"
+        "reports/figures/parameter_id_latency_degradation.pdf",
+        "reports/figures/parameter_id_condition_number.png",
+        "reports/figures/parameter_id_condition_number.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only parameter-id-robustness",
       "redraw_inputs": [
         "runs/parameter_id_robustness/results.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "reports/figures/parameter_id_noise_degradation.caption.md",
         "reports/figures/parameter_id_latency_degradation.caption.md",
         "reports/figures/parameter_id_condition_number.caption.md"
+      ],
+      "matlab_script": "experiments/matlab/make_parameter_id.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'parameter-id'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/parameter_id_robustness.csv"
       ]
     },
     {
@@ -360,17 +429,20 @@
         "evidence/item11/telemetry/enriched_bridge.csv"
       ],
       "outputs": [
-        "evidence/item11/figures/steering_command_vs_achieved.png"
+        "evidence/item11/figures/steering_command_vs_achieved.png",
+        "evidence/item11/figures/steering_command_vs_achieved.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only item11",
       "redraw_inputs": [
         "evidence/item11/telemetry/enriched_bridge.csv",
         "evidence/item11/metrics/enriched_preflight.json"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "evidence/item11/figures/steering_command_vs_achieved.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_item11.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'item11'})\""
     },
     {
       "id": "item11-enriched-identification",
@@ -382,18 +454,22 @@
       ],
       "outputs": [
         "evidence/item11/figures/enriched_ros_fit.png",
-        "evidence/item11/figures/enriched_ros_residuals.png"
+        "evidence/item11/figures/enriched_ros_fit.pdf",
+        "evidence/item11/figures/enriched_ros_residuals.png",
+        "evidence/item11/figures/enriched_ros_residuals.pdf"
       ],
       "redraw_command": "python experiments/report_figures.py --only item11",
       "redraw_inputs": [
         "evidence/item11/metrics/enriched_fit/fit_trace.csv",
         "evidence/item11/metrics/enriched_fit/heldout_replay_trace.csv"
       ],
-      "style": "experiments/figure_style.py",
+      "style": "experiments/matlab/fig_style.m",
       "captions": [
         "evidence/item11/figures/enriched_ros_fit.caption.md",
         "evidence/item11/figures/enriched_ros_residuals.caption.md"
-      ]
+      ],
+      "matlab_script": "experiments/matlab/make_item11.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'item11'})\""
     },
     {
       "id": "controller-delay-sensitivity",
@@ -405,7 +481,7 @@
       ],
       "outputs": [
         "reports/figures/controller_delay_sensitivity.png",
-        "reports/figures/controller_delay_sensitivity.svg",
+        "reports/figures/controller_delay_sensitivity.pdf",
         "reports/figures/controller_delay_sensitivity.caption.md"
       ],
       "environment": "environment.yml, Python 3.9, matplotlib 3.8",
@@ -413,7 +489,14 @@
       "input_sha256": {
         "runs/controller_pipeline/delay_sensitivity.json": "4636e5db7f3b5bc1d6597081672330f97b56141dd1977ce998a3f2ea06cb5b23"
       },
-      "style": "experiments/figure_style.py"
+      "style": "experiments/matlab/fig_style.m",
+      "data_command": "python experiments/figure_data.py",
+      "matlab_script": "experiments/matlab/make_controller_pipeline.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'controller-pipeline'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/controller_delay_sensitivity.csv",
+        "reports/figures/data/controller_pipeline_bands.json"
+      ]
     },
     {
       "id": "example-controller-overlay",
@@ -475,10 +558,10 @@
       ],
       "outputs": [
         "reports/figures/controller_offline_progress.png",
-        "reports/figures/controller_offline_progress.svg",
+        "reports/figures/controller_offline_progress.pdf",
         "reports/figures/controller_offline_progress.caption.md"
       ],
-      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8",
       "input_sha256": {
         "runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json": "bb79b0f619a08a8cf5cbd7ff1e75177fbee18021f44a2bcafe5d07b6fb24b9c4",
         "runs/controller_pipeline/mapzoo_berlin/evaluation_pure_pursuit.json": "3892a2ff21e5b3e3d5f21aba4370b70a9c0689b3b7b870d5a88d44297d8eefae",
@@ -488,7 +571,16 @@
         "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.json": "35934f14102a8c440955a2a19c934e0c1c6343feb815661d54786090e9fc3438",
         "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.json": "16f1b3fbc85ec996621779a0f3bc5e1cbc4bbdaa6642a241b3ebdfd247e8cf02"
       },
-      "notes": "Faster times are retained as constraint-failing simulation development; target profile limits do not qualify closed-loop motion."
+      "notes": "Faster times are retained as constraint-failing simulation development; target profile limits do not qualify closed-loop motion.",
+      "style": "experiments/matlab/fig_style.m",
+      "data_command": "python experiments/figure_data.py",
+      "matlab_script": "experiments/matlab/make_controller_pipeline.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'controller-pipeline'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/controller_offline_candidates.csv",
+        "reports/figures/data/controller_offline_deltas.csv",
+        "reports/figures/data/controller_pipeline_bands.json"
+      ]
     },
     {
       "id": "controller-offline-overlay",
@@ -507,10 +599,10 @@
       ],
       "outputs": [
         "reports/figures/controller_offline_overlay.png",
-        "reports/figures/controller_offline_overlay.svg",
+        "reports/figures/controller_offline_overlay.pdf",
         "reports/figures/controller_offline_overlay.caption.md"
       ],
-      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8",
       "input_sha256": {
         "runs/controller_pipeline/mapzoo_berlin/reference_constrained.csv": "827a309b519d918388f464ac0e747083fd5dbf4f9dd403341f8d11e4cdec89b7",
         "runs/controller_pipeline/mapzoo_berlin/offline_line_weight_3000.csv": "e8505e8f2a0470afefdfd9f89b98c7b924672765783929d10848b7d89acb19c9",
@@ -521,7 +613,15 @@
         "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_lqr.csv.gz": "3e9f64d508cd9e523a80959ec9d5403507ffcb7fbc6b89564d266d326720346d",
         "runs/controller_pipeline/mapzoo_berlin/offline_w3000_evaluation_mpc.csv.gz": "94e28d95f0995d478d0a781c04fe3e050cb2c685a20789e0ee7e19584d21b484"
       },
-      "notes": "Zoom centered at largest nearest-point line displacement; trajectories sampled from committed telemetry."
+      "notes": "Zoom centered at largest nearest-point line displacement; trajectories sampled from committed telemetry.",
+      "style": "experiments/matlab/fig_style.m",
+      "data_command": "python experiments/figure_data.py",
+      "matlab_script": "experiments/matlab/make_controller_pipeline.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'controller-pipeline'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/controller_offline_overlay.csv",
+        "reports/figures/data/controller_pipeline_bands.json"
+      ]
     },
     {
       "id": "controller-model-dispersion",
@@ -534,15 +634,66 @@
       ],
       "outputs": [
         "reports/figures/controller_model_dispersion.png",
-        "reports/figures/controller_model_dispersion.svg",
+        "reports/figures/controller_model_dispersion.pdf",
         "reports/figures/controller_model_dispersion.caption.md"
       ],
-      "environment": "environment.yml, Python 3.9, matplotlib 3.8, ffmpeg for video",
+      "environment": "environment.yml, Python 3.9, matplotlib 3.8",
       "input_sha256": {
         "runs/controller_pipeline/model_sensitivity_protocol.json": "33aece0875d4f50ad5fd6c39031205bca3de01ab511ba36693f3a0295c68cf03",
         "runs/controller_pipeline/model_sensitivity/summary.json": "f7ff644f1ebdc46eac4ef3b60307e1e93c5042e10a53a1aa9e8db4bf79d6b88c"
       },
-      "notes": "Paired stiffness values derive from prior synthetic fits; no physical uncertainty distribution or paper ranking claim."
+      "notes": "Paired stiffness values derive from prior synthetic fits; no physical uncertainty distribution or paper ranking claim.",
+      "style": "experiments/matlab/fig_style.m",
+      "data_command": "python experiments/figure_data.py",
+      "matlab_script": "experiments/matlab/make_controller_pipeline.m",
+      "matlab_command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'controller-pipeline'})\"",
+      "matlab_inputs": [
+        "reports/figures/data/controller_model_dispersion.csv",
+        "reports/figures/data/controller_pipeline_bands.json"
+      ]
+    },
+    {
+      "id": "headline-tables",
+      "evidence_type": "typeset result tables from committed run files",
+      "generator": "experiments/matlab/make_tables.m",
+      "command": "matlab -batch \"addpath('experiments/matlab'); render_figures([], [], {'tables'})\"",
+      "inputs": [
+        "runs/controller_comparison/results.csv",
+        "runs/dynamic_model_replay/metrics.csv",
+        "runs/ekf_study/summary.csv",
+        "runs/parameter_id_robustness/results.csv",
+        "reports/figures/data/parameter_id_robustness.csv",
+        "runs/real_command_response/comparison_metrics.csv",
+        "runs/ope_qualification/structure.csv",
+        "runs/controller_pipeline/ceval_nominal_pure_pursuit.json",
+        "runs/controller_pipeline/ceval_nominal_lqr.json",
+        "runs/controller_pipeline/ceval_nominal_mpc.json"
+      ],
+      "outputs": [
+        "reports/figures/tables/controller_comparison.tex",
+        "reports/figures/tables/controller_comparison.pdf",
+        "reports/figures/tables/controller_comparison.png",
+        "reports/figures/tables/dynamic_replay_yaw_rate.tex",
+        "reports/figures/tables/dynamic_replay_yaw_rate.pdf",
+        "reports/figures/tables/dynamic_replay_yaw_rate.png",
+        "reports/figures/tables/ekf_summary.tex",
+        "reports/figures/tables/ekf_summary.pdf",
+        "reports/figures/tables/ekf_summary.png",
+        "reports/figures/tables/parameter_id_robustness.tex",
+        "reports/figures/tables/parameter_id_robustness.pdf",
+        "reports/figures/tables/parameter_id_robustness.png",
+        "reports/figures/tables/command_response.tex",
+        "reports/figures/tables/command_response.pdf",
+        "reports/figures/tables/command_response.png",
+        "reports/figures/tables/ope_structure.tex",
+        "reports/figures/tables/ope_structure.pdf",
+        "reports/figures/tables/ope_structure.png",
+        "reports/figures/tables/controller_pipeline_evaluation.tex",
+        "reports/figures/tables/controller_pipeline_evaluation.pdf",
+        "reports/figures/tables/controller_pipeline_evaluation.png"
+      ],
+      "typeset_command": "python <kit>/tex/table2img.py reports/figures/tables/<name>.tex reports/figures/tables/<name>",
+      "notes": "MATLAB writes each LaTeX fragment from the CSV; a standalone booktabs/siunitx document typesets it to PDF and a 300-dpi PNG. The reports keep the Markdown table under each image."
     }
   ],
   "scope_note": "Historical simulation and mast studies remain preserved. The active paper qualification has no ranking figure; the controller video and delay plot are simulation-only development outputs.",

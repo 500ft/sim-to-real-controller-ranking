@@ -65,11 +65,17 @@ Selections were frozen in [frozen_constrained_selection.json](../runs/controller
 
 ## Frozen zero-offset evaluation
 
+![Frozen zero-offset evaluation table](figures/tables/controller_pipeline_evaluation.png)
+
+<details><summary>Table as text</summary>
+
 | Controller | Run | Status | Gym finish [s] | RMS distance [m] | Max CTE [m] | Steering effort [rad] | p95 / max compute [ms] | Deadline misses | Source |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |
 | PP | ceval pure pursuit | completed_lap | 49.230 | 0.0688 | 0.3680 | 13.338 | 0.15 / 8.23 | 0 | [JSON](../runs/controller_pipeline/ceval_nominal_pure_pursuit.json) |
 | LQR | ceval lqr | completed_lap | 43.474 | 0.1179 | 0.4122 | 10.669 | 0.24 / 9.96 | 0 | [JSON](../runs/controller_pipeline/ceval_nominal_lqr.json) |
 | MPC | ceval mpc | completed_lap | 43.238 | 0.1192 | 0.3694 | 11.067 | 1.91 / 44.45 | 11 | [JSON](../runs/controller_pipeline/ceval_nominal_mpc.json) |
+
+</details>
 
 ## Same-track controller-tuning comparison
 
@@ -86,7 +92,7 @@ The frozen search minimized tracking distance on offset starts, not lap time. Th
 ![Three paired Gym finish-time differences over nominal, 20 ms and 50 ms command delays](figures/controller_delay_sensitivity.png)
 
 One example-track simulation with fixed nominal physics and source-listed command delays. Panels (a), (b), (c) show PP minus LQR, PP minus MPC, and LQR minus MPC. The shaded region is the registered ±0.1 s near-tie interval, not uncertainty. All three pairs completed in every scenario; none reversed outside that interval. Source: runs/controller_pipeline/delay_sensitivity.json. The delay values are perturbation assumptions, not an identified model distribution.
-[Caption file](figures/controller_delay_sensitivity.caption.md) · [SVG](figures/controller_delay_sensitivity.svg) · [source differences](../runs/controller_pipeline/delay_sensitivity.json).
+[Caption file](figures/controller_delay_sensitivity.caption.md) · [PDF](figures/controller_delay_sensitivity.pdf) · [source differences](../runs/controller_pipeline/delay_sensitivity.json).
 
 ## Public MapZoo Berlin development track
 
@@ -147,13 +153,13 @@ The target line passes its 4 m/s² lateral and 2 m/s² forward speed-profile lim
 
 ![Frozen Berlin candidate mean and evaluation lap-time changes](figures/controller_offline_progress.png)
 
-MapZoo Berlin simulation development. Panel (a): mean Gym finish of the three independently selected controllers on each registered line candidate, in candidate order (0, 1000, 3000 smoothing weights). Panel (b): one frozen zero-offset evaluation per controller on the chosen line minus its earlier frozen source-line evaluation. Negative values are faster; all three final runs exceed the registered 4 m/s² target in the speed-times-yaw-rate proxy, so speed improvement is not qualified. Source: runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json and the linked evaluation JSONs.
-[SVG](figures/controller_offline_progress.svg) · [caption](figures/controller_offline_progress.caption.md).
+MapZoo Berlin simulation development. Panel (a): mean Gym finish of the three independently selected controllers on each registered line candidate, in candidate order (0, 1000, 3000 smoothing weights). Panel (b): one frozen zero-offset evaluation per controller on the chosen line minus its earlier frozen source-line evaluation. Negative values are faster; all three final runs exceed the registered 4 m/s² target in the speed-times-yaw-rate proxy, so speed improvement is not qualified; hollow markers mark those failing runs. Source: runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json and the linked evaluation JSONs.
+[PDF](figures/controller_offline_progress.pdf) · [caption](figures/controller_offline_progress.caption.md).
 
 ![Zoomed Berlin source and selected lines with before and after controller trajectories](figures/controller_offline_overlay.png)
 
 MapZoo Berlin simulated x-y positions sampled from the retained 2 ms telemetry without invented interpolation. Panels (a), (b), (c) are PP, LQR and MPC, zoomed to the largest nearest-point line displacement. Dotted and dash-dot are the source and selected lines; dashed and solid are the earlier frozen source-line evaluation and selected-line evaluation on the same world start. The selected line passed footprint clearance and target speed-profile checks, but the speed-times-yaw-rate proxy in every selected-line run exceeded the registered target. Source: per-run compressed telemetry under runs/controller_pipeline/mapzoo_berlin/.
-[SVG](figures/controller_offline_overlay.svg) · [caption](figures/controller_offline_overlay.caption.md).
+[PDF](figures/controller_offline_overlay.pdf) · [caption](figures/controller_offline_overlay.caption.md).
 
 ## Paired model sensitivity
 
@@ -191,7 +197,7 @@ The largest signed-pair change from nominal is 0.004 s; 0 registered comparisons
 ![Paired finish differences over four simulator stiffness variants on two development tracks](figures/controller_model_dispersion.png)
 
 Development simulation only. Panels (a), (b), (c) show PP minus LQR, PP minus MPC and LQR minus MPC Gym finish time. N, NL, QL, QM are nominal, noise-low, quantization-low and quantization-medium paired stiffness fits from prior synthetic identification. They are deterministic sensitivity assumptions, not physical uncertainty draws. The grey ±0.1 s band is the registered near-tie region, not a confidence interval. Source: runs/controller_pipeline/model_sensitivity/summary.json.
-[SVG](figures/controller_model_dispersion.svg) · [caption](figures/controller_model_dispersion.caption.md).
+[PDF](figures/controller_model_dispersion.pdf) · [caption](figures/controller_model_dispersion.caption.md).
 
 ## Reproduce
 

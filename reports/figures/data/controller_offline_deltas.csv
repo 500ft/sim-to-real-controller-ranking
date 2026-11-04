@@ -1,0 +1,4 @@
+controller,label,final_minus_source_s
+pure_pursuit,PP,-0.7700000000000031
+lqr,LQR,-0.4440000000000026
+mpc,MPC,-0.509999999999998

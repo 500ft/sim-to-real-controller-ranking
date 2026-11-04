@@ -8,12 +8,14 @@ Replay the existing RK4 F1TENTH Gym telemetry through the documented kinematic b
 
 The replay uses the kinematic equations from `docs/vehicle_model.md`:
 
-```text
-dX/dt = v cos(psi + beta)
-dY/dt = v sin(psi + beta)
-dpsi/dt = (v / lr) sin(beta)
-dv/dt = a
-beta = atan((lr / (lf + lr)) tan(delta))
+```math
+\begin{aligned}
+\dot X &= v\cos(\psi + \beta) \\
+\dot Y &= v\sin(\psi + \beta) \\
+\dot\psi &= \frac{v}{l_r}\sin\beta \\
+\dot v &= a \\
+\beta &= \arctan\left(\frac{l_r}{l_f + l_r}\tan\delta\right)
+\end{aligned}
 ```
 
 The model is integrated with RK4 over the logged telemetry intervals. Steering input is the achieved simulator steering state `steer_rad`, and acceleration input is `accel_x_mps2`.

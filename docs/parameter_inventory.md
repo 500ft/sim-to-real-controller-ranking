@@ -16,7 +16,7 @@ This document tracks parameter values, sources, and status before model-vs-Gym c
 | Wheelbase | `lf + lr` | 0.33020 | m | derived from default `lf` and `lr` | known derived default |
 | CG height | `h` | 0.074 | m | default `F110Env.params` | known default |
 | Vehicle mass | `m` | 3.74 | kg | default `F110Env.params` | known default |
-| Yaw inertia | `I` / \(I_z\) | 0.04712 | kg m^2 | default `F110Env.params` | known default |
+| Yaw inertia | `I` / $I_z$ | 0.04712 | kg m^2 | default `F110Env.params` | known default |
 | Minimum steering angle | `s_min` | -0.4189 | rad | default `F110Env.params` | known default |
 | Maximum steering angle | `s_max` | 0.4189 | rad | default `F110Env.params` | known default |
 | Minimum steering velocity | `sv_min` | -3.2 | rad/s | default `F110Env.params` | known default |
@@ -41,7 +41,7 @@ These parameters are the known default values used by the local F1TENTH Gym nonl
 | Rear axle distance from CG | `lr` | 0.17145 | m | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default, not fitted | slip-angle geometry |
 | CG height | `h` | 0.074 | m | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default, not fitted | load-transfer term in dynamic model |
 | Vehicle mass | `m` | 3.74 | kg | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default, not fitted | force balance |
-| Yaw inertia | `I` / \(I_z\) | 0.04712 | kg m^2 | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default, not fitted | yaw dynamics |
+| Yaw inertia | `I` / $I_z$ | 0.04712 | kg m^2 | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default, not fitted | yaw dynamics |
 | Steering angle minimum | `s_min` | -0.4189 | rad | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default | steering constraint |
 | Steering angle maximum | `s_max` | 0.4189 | rad | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default | steering constraint |
 | Steering velocity minimum | `sv_min` | -3.2 | rad/s | `gym/f110_gym/envs/f110_env.py` default `F110Env.params` | known default | input constraint |
@@ -55,32 +55,32 @@ These parameters are the known default values used by the local F1TENTH Gym nonl
 
 The nonlinear single-track model uses the state order:
 
-\[
+```math
 x =
 \begin{bmatrix}
 X & Y & \delta & v & \psi & r & \beta
 \end{bmatrix}^T
-\]
+```
 
-where \(X,Y\) are global position, \(\delta\) is steering angle, \(v\) is speed, \(\psi\) is yaw angle, \(r\) is yaw rate, and \(\beta\) is slip angle at the vehicle center.
+where $X,Y$ are global position, $\delta$ is steering angle, $v$ is speed, $\psi$ is yaw angle, $r$ is yaw rate, and $\beta$ is slip angle at the vehicle center.
 
 The input order is:
 
-\[
+```math
 u =
 \begin{bmatrix}
 \dot{\delta} & a_x
 \end{bmatrix}^T
-\]
+```
 
-where \(\dot{\delta}\) is steering velocity and \(a_x\) is longitudinal acceleration. `vehicle_dynamics_st` applies steering, velocity, and acceleration constraints internally through `steering_constraint` and `accl_constraints`; replay code should call the same function rather than duplicating those limits externally.
+where $\dot{\delta}$ is steering velocity and $a_x$ is longitudinal acceleration. `vehicle_dynamics_st` applies steering, velocity, and acceleration constraints internally through `steering_constraint` and `accl_constraints`; replay code should call the same function rather than duplicating those limits externally.
 
 ## Experiment and Controller Parameters
 
 | Parameter | Symbol / code key | Value | Units | Source | Status |
 | --- | --- | ---: | --- | --- | --- |
 | First-run timestep | `timestep` | 0.01 | s | `experiments/run_scripted_lap.py` environment creation | known first-run setting |
-| RK4 convergence timestep | \(\Delta t_{\mathrm{conv}}\) | 0.0020 | s | `reports/integrator_convergence.md` | selected numerical timestep |
+| RK4 convergence timestep | $\Delta t_{\mathrm{conv}}$ | 0.0020 | s | `reports/integrator_convergence.md` | selected numerical timestep |
 | First-run lookahead | `tlad` | 0.82461887897713965 | m | `WORK_PARAMS` in `experiments/run_scripted_lap.py` | known experiment setting |
 | First-run velocity gain | `vgain` | 1.375 | unitless | `WORK_PARAMS` in `experiments/run_scripted_lap.py` | known experiment setting |
 | First-run mass candidate | `mass` | 3.463388126201571 | kg | `WORK_PARAMS` in `experiments/run_scripted_lap.py` | recorded candidate; not passed to Gym in current first-lap run |
@@ -98,10 +98,10 @@ where \(\dot{\delta}\) is steering velocity and \(a_x\) is longitudinal accelera
 
 | Parameter | Symbol | Value | Units | Source | Status |
 | --- | --- | --- | --- | --- | --- |
-| Front physical cornering stiffness | \(C_{\alpha f}\) | TBD | N/rad | future sysID | not fitted |
-| Rear physical cornering stiffness | \(C_{\alpha r}\) | TBD | N/rad | future sysID | not fitted |
-| Dynamic-model operating speed | \(v_{x0}\) | TBD | m/s | future operating-point selection | TBD |
-| Kinematic replay initial state | \(X_0, Y_0, \psi_0, v_0\) | TBD | mixed | first row of selected Gym telemetry | TBD |
+| Front physical cornering stiffness | $C_{\alpha f}$ | TBD | N/rad | future sysID | not fitted |
+| Rear physical cornering stiffness | $C_{\alpha r}$ | TBD | N/rad | future sysID | not fitted |
+| Dynamic-model operating speed | $v_{x0}$ | TBD | m/s | future operating-point selection | TBD |
+| Kinematic replay initial state | $X_0, Y_0, \psi_0, v_0$ | TBD | mixed | first row of selected Gym telemetry | TBD |
 
 ## Identified Gym Dynamic Coefficients
 
@@ -112,12 +112,12 @@ The controlled Gym steering-excitation dataset is used to verify that the identi
 | `C_Sf` | 4.718000 | Gym coefficient | `runs/sysid_steering_excitation/telemetry.csv` | held-out validation passed |
 | `C_Sr` | 5.456200 | Gym coefficient | `runs/sysid_steering_excitation/telemetry.csv` | held-out validation passed |
 
-The identification result and validation evidence are recorded in `runs/dynamic_parameter_identification/` and `reports/dynamic_parameter_identification.md`. Physical \(C_{\alpha f}\) and \(C_{\alpha r}\) remain not fitted.
+The identification result and validation evidence are recorded in `runs/dynamic_parameter_identification/` and `reports/dynamic_parameter_identification.md`. Physical $C_{\alpha f}$ and $C_{\alpha r}$ remain not fitted.
 
 ## Interpretation Rules
 
 - Simulator defaults are valid references to what F1TENTH Gym uses when `params` is not supplied.
 - Config bounds are not fitted parameter values.
-- `C_Sf` and `C_Sr` are simulator parameters, but the derived model's physical cornering stiffnesses \(C_{\alpha f}\) and \(C_{\alpha r}\) remain not fitted.
+- `C_Sf` and `C_Sr` are simulator parameters, but the derived model's physical cornering stiffnesses $C_{\alpha f}$ and $C_{\alpha r}$ remain not fitted.
 - The selected `0.0020 s` timestep is a numerical convergence result, not a vehicle parameter and not evidence of physical model accuracy.
 - Any parameter used in a future report must cite one of: simulator default, config bound, measured geometry, selected numerical setting, or fitted sysID result.

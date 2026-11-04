@@ -1,0 +1,8 @@
+scenario,label,reproduced,rpn,signal_group,detection_metric
+euler_instability,Euler instability,0,96,position,0.1655545686165032
+bad_lookahead_small,Lookahead too small,1,140,time,0.432
+bad_lookahead_large,Lookahead too large,1,112,time,6.566
+latency_100ms,100 ms control latency,1,200,time,1.484
+steering_saturation,Steering saturation,1,72,steer,0.4189
+sensor_noise_high,High sensor noise,0,180,position,0.0527242558474592
+measurement_dropout_3s,3 s measurement dropout,1,168,position,0.7058078327667466

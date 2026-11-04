@@ -6,13 +6,13 @@ This is a CAD/fixture design requirement added before physical testing. It is no
 
 Using the mechanical study's assumed 6061-T6 E = 68,900 N/mm² and selected tube L = 100 mm, OD = 20 mm, ID = 17 mm:
 
-- I = pi(OD^4 - ID^4)/64 = 3,754.154 mm^4.
-- k = 3EI/L^3 = 775.984 N/mm; compliance = 1.288687 micrometres/N.
+- $I = \pi(\mathrm{OD}^4 - \mathrm{ID}^4)/64 = 3{,}754.154\ \mathrm{mm^4}$.
+- $k = 3EI/L^3 = 775.984\ \mathrm{N/mm}$; compliance $1/k = 1.288687$ micrometres/N.
 - A 4 N load gives 5.15475 micrometres in this ideal beam.
 - Root rotation 50 microradians at a 100 mm lever produces 5 micrometres: almost the whole low-load signal.
 - Proposed translational fixture-stiffness screen: >=10k = 7,759.84 N/mm at the load point on EACH axis. Recompute from reviewed specimen/as-built stiffness if it changes; this ratio does not constrain root rotation.
 
-These are hand-model quantities, not new FEA or measured values. The protocol's separate nominal FEA compliance is 0.176/128.76 = 0.001367 mm/N. At 20 N it gives approximately 27.3 micrometres, sufficient for the existing 20-count full-scale screen at 0.001 mm resolution. That screen does NOT mean the 4 N point has 20 counts.
+These are hand-model quantities, not new FEA or measured values. The protocol's separate nominal FEA compliance is $0.176/128.76 = 0.001367\ \mathrm{mm/N}$. At 20 N it gives approximately 27.3 micrometres, sufficient for the existing 20-count full-scale screen at 0.001 mm resolution. That screen does NOT mean the 4 N point has 20 counts.
 
 ## Required fixture/instrument design acceptance
 
@@ -26,7 +26,7 @@ These are hand-model quantities, not new FEA or measured values. The protocol's 
 
 | Term | Known planning calculation | Still required before acceptance |
 | --- | --- | --- |
-| Tip quantization | At 1 micrometre step, uniform quantization standard uncertainty = 1/sqrt(12) = 0.289 micrometres | Actual calibration, hysteresis, contact-force and resolution records |
+| Tip quantization | At 1 micrometre step, uniform quantization standard uncertainty $1/\sqrt{12} = 0.289$ micrometres | Actual calibration, hysteresis, contact-force and resolution records |
 | Root quantization | Same 0.289 micrometres at 1 micrometre step | Actual root station calibration and motion geometry |
 | Difference of independent readings | Combined standard uncertainty 0.408 micrometres; illustrative k=2 expansion 0.816 micrometres | Actual dependence/covariance, zero-drift and coverage justification |
 | Low-load illustration | 0.816/5.155 = 15.8% of the 4 N ideal signal | Fitted-slope uncertainty, not pointwise relative uncertainty, governs the frozen gate |

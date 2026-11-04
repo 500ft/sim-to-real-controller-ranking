@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-"""Render only committed controller-development results."""
+"""Build captions for the committed controller-development results.
+
+The figures are built in memory for the caption and overlap checks; MATLAB draws the
+committed PNG and PDF from reports/figures/data/ (experiments/matlab/make_controller_pipeline.m).
+"""
 
 from __future__ import annotations
 
@@ -50,9 +54,10 @@ def offline_progress():
                f"({', '.join(str(w) for w in weights)} smoothing weights). Panel (b): one frozen zero-offset "
                "evaluation per controller on the chosen line minus its earlier frozen source-line evaluation. "
                "Negative values are faster; all three final runs exceed the registered 4 m/s² target "
-               "in the speed-times-yaw-rate proxy, so speed improvement is not qualified. Source: "
+               "in the speed-times-yaw-rate proxy, so speed improvement is not qualified; hollow markers mark "
+               "those failing runs. Source: "
                "runs/controller_pipeline/mapzoo_berlin/offline_frozen_choice.json and the linked evaluation JSONs.")
-    style.save(fig, FIG / "controller_offline_progress.png", caption, formats=("png", "svg"))
+    style.save(fig, FIG / "controller_offline_progress.png", caption, formats=("png", "pdf"))
 
 
 def offline_overlay():
@@ -97,7 +102,7 @@ def offline_overlay():
                "clearance and target speed-profile checks, but the speed-times-yaw-rate proxy in every "
                "selected-line run exceeded the registered target. Source: per-run compressed telemetry "
                "under runs/controller_pipeline/mapzoo_berlin/.")
-    style.save(fig, FIG / "controller_offline_overlay.png", caption, formats=("png", "svg"))
+    style.save(fig, FIG / "controller_offline_overlay.png", caption, formats=("png", "pdf"))
 
 
 def model_dispersion():
@@ -133,7 +138,7 @@ def model_dispersion():
                "identification. They are deterministic sensitivity assumptions, not physical uncertainty "
                "draws. The grey ±0.1 s band is the registered near-tie region, not a confidence interval. "
                "Source: runs/controller_pipeline/model_sensitivity/summary.json.")
-    style.save(fig, FIG / "controller_model_dispersion.png", caption, formats=("png", "svg"))
+    style.save(fig, FIG / "controller_model_dispersion.png", caption, formats=("png", "pdf"))
 
 
 if __name__ == "__main__":
