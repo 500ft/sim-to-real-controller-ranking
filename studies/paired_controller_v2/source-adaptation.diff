@@ -1,0 +1,14 @@
+# Path-redacted presentation of the repository-root binding change.
+# This is not a byte-exact or directly applicable patch. Both source hashes are
+# recorded in source-manifest.json; the exact original diff is retained privately.
+--- executed/independent_controller_check.py
++++ review-copy/independent_controller_check.py
+@@ -17,7 +17,7 @@
+ from scipy.optimize import root
+ 
+ HERE = Path(__file__).resolve().parent
+-REPO = Path(r"<historical Windows source checkout; path redacted>")
++REPO = Path(__file__).resolve().parents[3]
+ SOURCES = [REPO / p for p in [
+     "gym/roboracer/controllers.py", "gym/roboracer/dynamics.py",
+     "gym/roboracer/closed_loop.py", "gym/f110_gym/envs/dynamic_models.py",

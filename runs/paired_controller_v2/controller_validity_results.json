@@ -1,0 +1,313 @@
+{
+  "scope": "Independent local controller model audit. No laps or real driving outcomes read.",
+  "source_parameters": {
+    "mu": 1.0489,
+    "C_Sf": 4.718,
+    "C_Sr": 5.4562,
+    "lf": 0.15875,
+    "lr": 0.17145,
+    "h": 0.074,
+    "m": 3.74,
+    "I": 0.04712,
+    "s_min": -0.4189,
+    "s_max": 0.4189,
+    "sv_min": -3.2,
+    "sv_max": 3.2,
+    "v_switch": 7.319,
+    "a_max": 9.51,
+    "v_min": -5.0,
+    "v_max": 20.0
+  },
+  "operating_speed_mps": 8.330945320963725,
+  "operating_curvature_1pm": 0.0323079470865019,
+  "force_stiffness": {
+    "front_force_stiffness_N_per_rad": 94.27424262155307,
+    "rear_force_stiffness_N_per_rad": 100.94891169196734
+  },
+  "curved_trim": {
+    "delta": 0.016917229984147682,
+    "beta": -0.034400480268659356,
+    "epsi": 0.034400480268659356,
+    "r": 0.2691557406102366
+  },
+  "straight_analytic_vs_finite_difference_max_abs_error": 1.3891110484109959e-12,
+  "curved_jacobian_step_sensitivity_max_abs_error": 2.886579864025407e-09,
+  "acceptance": {
+    "straight_jacobian_limit": 1e-06,
+    "straight_jacobian_pass": true,
+    "curved_step_limit": 1e-06,
+    "curved_step_pass": true,
+    "mpc_objective_gradient_limit": 1e-06,
+    "all_gradient_checks_pass": true
+  },
+  "historical_recomputed_poles": [
+    {
+      "real": 0.9781686097883442,
+      "imag": 0.042143350551001095,
+      "abs": 0.9790760395244725
+    },
+    {
+      "real": 0.9781686097883442,
+      "imag": -0.042143350551001095,
+      "abs": 0.9790760395244725
+    },
+    {
+      "real": 0.9625796082564121,
+      "imag": 0.018901541757361733,
+      "abs": 0.9627651689336674
+    },
+    {
+      "real": 0.9625796082564121,
+      "imag": -0.018901541757361733,
+      "abs": 0.9627651689336674
+    },
+    {
+      "real": 0.9962910111022533,
+      "imag": 0.0,
+      "abs": 0.9962910111022533
+    },
+    {
+      "real": 0.990051560507141,
+      "imag": 0.0,
+      "abs": 0.990051560507141
+    }
+  ],
+  "historical_max_pole_abs": 0.9962910111022533,
+  "candidate_ideal_rate_input_max_pole_abs": 0.9900213749687901,
+  "candidate_ideal_rate_input_poles": [
+    {
+      "real": 0.8643194562144283,
+      "imag": 0.1056122994105532,
+      "abs": 0.8707480003867877
+    },
+    {
+      "real": 0.8643194562144283,
+      "imag": -0.1056122994105532,
+      "abs": 0.8707480003867877
+    },
+    {
+      "real": 0.9300855849986793,
+      "imag": 0.0,
+      "abs": 0.9300855849986793
+    },
+    {
+      "real": 0.9687499530441624,
+      "imag": 0.035307382170532746,
+      "abs": 0.9693931518010652
+    },
+    {
+      "real": 0.9687499530441624,
+      "imag": -0.035307382170532746,
+      "abs": 0.9693931518010652
+    },
+    {
+      "real": 0.9900213749687901,
+      "imag": 0.0,
+      "abs": 0.9900213749687901
+    }
+  ],
+  "candidate_pole_scope": "Ideal direct steering-rate/acceleration state feedback only. Does not qualify PP feedforward, clipping, the integrated corrections, low-level bang-bang steering or speed PID in the actual historical runner.",
+  "historical_A_mismatches": [
+    {
+      "row": 0,
+      "column": 5,
+      "historical": 0.0,
+      "plant_jacobian_same_perturbation_coordinates": 8.330945320970669
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "historical": 0.0,
+      "plant_jacobian_same_perturbation_coordinates": -0.00869586944118872
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "historical": -0.0323079470865019,
+      "plant_jacobian_same_perturbation_coordinates": 1.7981766710720685e-11
+    },
+    {
+      "row": 4,
+      "column": 2,
+      "historical": 15.895214346349745,
+      "plant_jacobian_same_perturbation_coordinates": 317.6153653692282
+    },
+    {
+      "row": 4,
+      "column": 4,
+      "historical": -0.7114598960246603,
+      "plant_jacobian_same_perturbation_coordinates": -13.611528274726226
+    },
+    {
+      "row": 4,
+      "column": 5,
+      "historical": 3.9576186332767382,
+      "plant_jacobian_same_perturbation_coordinates": 49.69556225420391
+    },
+    {
+      "row": 5,
+      "column": 2,
+      "historical": 0.1514230711644232,
+      "plant_jacobian_same_perturbation_coordinates": 3.025709060931747
+    },
+    {
+      "row": 5,
+      "column": 3,
+      "historical": 0.0,
+      "plant_jacobian_same_perturbation_coordinates": -0.06461589411123785
+    },
+    {
+      "row": 5,
+      "column": 4,
+      "historical": -0.9992815789421234,
+      "plant_jacobian_same_perturbation_coordinates": -0.9909788330209057
+    },
+    {
+      "row": 5,
+      "column": 5,
+      "historical": -0.3265384931413892,
+      "plant_jacobian_same_perturbation_coordinates": -6.265640014532781
+    }
+  ],
+  "mpc_objective_gradient_checks": [
+    {
+      "case": 0,
+      "cost": 5.778264947395712,
+      "max_abs_gradient_error": 1.4884482535393317e-10,
+      "passes_1e-6": true
+    },
+    {
+      "case": 1,
+      "cost": 3.3164427689286162,
+      "max_abs_gradient_error": 5.291883597990932e-11,
+      "passes_1e-6": true
+    },
+    {
+      "case": 2,
+      "cost": 8.102006354920043,
+      "max_abs_gradient_error": 1.7706647259529973e-10,
+      "passes_1e-6": true
+    }
+  ],
+  "historical_timing": {
+    "mpc_solve_count": "3786",
+    "mpc_mean_solve_time_s": "0.001073901553882733",
+    "mpc_p95_solve_time_s": "0.0013264369999985703",
+    "mpc_max_solve_time_s": "0.03680733300000005",
+    "mpc_success_fraction": "1.0",
+    "mpc_meets_100hz_budget": "True",
+    "mpc_meets_50hz_budget": "True"
+  },
+  "historical_deadline_miss_lower_bound": 1,
+  "historical_exact_deadline_miss_count": null,
+  "historical_p50_solve_time": null,
+  "exact_zoh_A": [
+    [
+      0.9999963777615452,
+      0.08330935262078072,
+      0.0012448700629570058,
+      -2.67434237708691e-05,
+      1.1795384644218432e-05,
+      0.08075469434635335
+    ],
+    [
+      -8.695858941681953e-05,
+      0.9999963777615452,
+      0.015201811589632066,
+      -0.00030232063405402626,
+      0.009341730168157062,
+      0.0023218885681461905
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      2.9741132251261737,
+      0.0040323165475807995,
+      0.8705403135868073,
+      0.4496722002489711
+    ],
+    [
+      0.0,
+      0.0,
+      0.014577114599631838,
+      -0.0003361329366550581,
+      -0.008966909962005153,
+      0.9370098651304131
+    ]
+  ],
+  "exact_zoh_B": [
+    [
+      4.159121834229077e-06,
+      -1.3345745141292845e-07
+    ],
+    [
+      5.123029037103036e-05,
+      -6.570159876864641e-05
+    ],
+    [
+      0.010000000000000002,
+      0.0
+    ],
+    [
+      0.0,
+      0.010000000000000002
+    ],
+    [
+      0.015201847757219262,
+      -0.012520880912201972
+    ],
+    [
+      9.819693727184192e-05,
+      6.0590631715081627e-05
+    ]
+  ],
+  "candidate_K": [
+    [
+      2.7795172709272054,
+      11.053265664008473,
+      19.823199576802317,
+      -0.020329089901851165,
+      0.5619716143775024,
+      5.363196655440455
+    ],
+    [
+      -1.0246099687778472,
+      -3.8827568225541103,
+      -3.5702397413863354,
+      1.017576649550057,
+      -0.24659241463444273,
+      -1.6649374150509857
+    ]
+  ],
+  "elapsed_seconds": 0.05798830000003363,
+  "source_manifest": {
+    "gym\\roboracer\\controllers.py": "1efecdeae1bd99ae85d03ccda07617a9c6b67d39aae7e54dea4524bb41e364dc",
+    "gym\\roboracer\\dynamics.py": "fc87e6496f479c3a8e03df5498d6dc129b3a8ebca305dee572821abea4720bdd",
+    "gym\\roboracer\\closed_loop.py": "e241ba69022bd2764deaf188e6b582e47841c049f96f299a62345646c6a3040d",
+    "gym\\f110_gym\\envs\\dynamic_models.py": "d6233ac29bb5333e9455896d8e8999d846dc6baa6ac74df8a90ae35ce606aed3",
+    "gym\\f110_gym\\envs\\base_classes.py": "409bc3bdc4bf9d57b24343c83c13cd6cd54fc8e0b85f8dc1a8e0db42444a14cc",
+    "gym\\f110_gym\\envs\\f110_env.py": "4868db6a22544df03a9abacee2d08c6d1986a8af339d15a81624ff1133f8d2d4",
+    "experiments\\lqr_controller.py": "5cf8235e613848c5d110303ad0348fd09abb63dbd58831f4cd249d23d9aaa65d",
+    "experiments\\mpc_controller.py": "e3ba3669c43bb8c6c5802da4735cd11e32a9334881d3703427b67354f99bbe39",
+    "experiments\\controller_comparison.py": "990dbae2a5ca93afa60d02a08277fb27405871c8ccc780488d91d867dd702949",
+    "runs\\lqr_controller\\linear_model.json": "75c82219467ccc466bcc8090f9075300f8151faf883f68967db894f58127eac9",
+    "runs\\mpc_controller\\results.csv": "68e73d4f680ecfe75bfdbbff4297a9e2b4e44e3d799785108877be874e561a55",
+    "runs\\pure_pursuit_sweep\\results.csv": "763a8f6bde38389b91c7961b84822fa7577f0b6afa9e1f365b4cc1798f17ab16"
+  }
+}

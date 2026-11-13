@@ -1,0 +1,232 @@
+{
+  "version": "racing-v2-paired-campaign-20261113",
+  "scope": "Synthetic public example track; no historical outcome replay or real data.",
+  "plant": "Read-only source vehicle_dynamics_st, source constraints, RK4 dt=.002s. Perfect plant state available to every controller.",
+  "architecture": {
+    "pure_pursuit": "Source PP lookahead1.2, speed profile gain1.2; source pid/steering relay maps target angle/speed to physical rate/acceleration at100Hz.",
+    "lqr": "Standalone scheduled Frenet full-state feedback on direct steering-rate/acceleration with steady-turn feedforward and common PP startup below2m/s.",
+    "mpc": "Standalone constrained linear MPC on corrected scheduled Frenet model;15 steps, exact ZOH, state/input bounds, shifted feasible warm start; common PP startup below2m/s."
+  },
+  "interface_difference": "Historical F110 wrapper applies relay/PID every2ms and a steering-target buffer. New study maps PP at100Hz and applies the same4ms physical input delay to all controllers; it does not reproduce the wrapper.",
+  "controller_dt_s": 0.01,
+  "integration_dt_s": 0.002,
+  "input_delay_s": 0.004,
+  "horizon": 15,
+  "model_schedule": {
+    "speed_grid_mps": 0.5,
+    "curvature_grid_1pm": 0.02,
+    "linearization": "Finite-difference Jacobian of full nonlinear Frenet plant at a consistent steady-turn trim; exact ZOH.",
+    "curvature_stencil": "Geometric central6-segment span, about1.2m; fixed before outcomes."
+  },
+  "completion": "One unwrapped geometric progress circuit >=156.3586m, rather than historical toggle>=4 episode.",
+  "collision": "Actual oriented0.58x0.31m rectangle versus occupied map pixel cells by separating-axis test; same test for all controllers. No source LiDAR TTC.",
+  "approved_change": "Parent authorized rectangular geometry correction after offline proof that the prior circumscribed-circle screen stopped PP without rectangular body contact. v1protocol/results remain preserved.",
+  "pilot": {
+    "seed": 883170,
+    "lateral_offset_m": 0.0,
+    "heading_offset_rad": 0.0,
+    "speed_profile_multiplier": 1.0,
+    "max_time_s": 45.0
+  },
+  "campaign_not_launched": null,
+  "acceptance_before_pilot": {
+    "independent_jacobian_and_gradient": "All independent_controller_check.py fixed1e-6 gates pass.",
+    "finite_state": true,
+    "input_rate_bound_radps": 3.2,
+    "input_acceleration_bound_mps2": 9.51,
+    "state_bound_tolerance": "Source clamp allows one integration-step overshoot: sv_max*DT and a_max*DT.",
+    "optimizer": "Stop on first solver failure or >1e-6 predicted-constraint violation; no tuning/retry.",
+    "case_completion": "Report rectangle contact/timeout as valid negative pilot outcomes and continue the comparison. Only numerical/input/optimizer gate failures stop it.",
+    "timing": "Retain every full controller-call time, including model cache miss, p50,p95,max and count>10ms. Timing alone is not hard-real-time qualification."
+  },
+  "authorization": "Parent explicitly approved20paired scenarios/controller nominal plus6prespecified OATcells after the three rectangular-footprint sanity pilots.",
+  "scenario_draws": [
+    {
+      "seed": 883200,
+      "initial_lateral_error_m": -0.0846379576502528,
+      "initial_heading_error_rad": 0.028364704512564412,
+      "speed_profile_multiplier": 0.9637145224870449
+    },
+    {
+      "seed": 883201,
+      "initial_lateral_error_m": -0.00994531697673609,
+      "initial_heading_error_rad": -0.022690068895663603,
+      "speed_profile_multiplier": 0.9635278664430184
+    },
+    {
+      "seed": 883202,
+      "initial_lateral_error_m": 0.042103390349871705,
+      "initial_heading_error_rad": -0.012857269168241902,
+      "speed_profile_multiplier": 1.0056652547837577
+    },
+    {
+      "seed": 883203,
+      "initial_lateral_error_m": -0.08370151683297365,
+      "initial_heading_error_rad": 0.03489826682701645,
+      "speed_profile_multiplier": 1.0035622767387977
+    },
+    {
+      "seed": 883204,
+      "initial_lateral_error_m": -0.05943807812299265,
+      "initial_heading_error_rad": -0.006925394737721533,
+      "speed_profile_multiplier": 0.9972318664688656
+    },
+    {
+      "seed": 883205,
+      "initial_lateral_error_m": 0.05376717909142478,
+      "initial_heading_error_rad": 0.02395157377425671,
+      "speed_profile_multiplier": 0.9970662582420274
+    },
+    {
+      "seed": 883206,
+      "initial_lateral_error_m": 0.04001134519856417,
+      "initial_heading_error_rad": -0.009183164607981633,
+      "speed_profile_multiplier": 0.9650983161854555
+    },
+    {
+      "seed": 883207,
+      "initial_lateral_error_m": -0.0927991034798261,
+      "initial_heading_error_rad": 0.018145062049217873,
+      "speed_profile_multiplier": 0.9634164338024848
+    },
+    {
+      "seed": 883208,
+      "initial_lateral_error_m": -0.018530124347494986,
+      "initial_heading_error_rad": 0.010360032520545136,
+      "speed_profile_multiplier": 1.0275491923465043
+    },
+    {
+      "seed": 883209,
+      "initial_lateral_error_m": 0.08302591304562995,
+      "initial_heading_error_rad": 0.01947585701268589,
+      "speed_profile_multiplier": 1.0138156048563407
+    },
+    {
+      "seed": 883210,
+      "initial_lateral_error_m": -0.01334804305597434,
+      "initial_heading_error_rad": -0.027524808501127138,
+      "speed_profile_multiplier": 1.0486421456359367
+    },
+    {
+      "seed": 883211,
+      "initial_lateral_error_m": -0.015804981129726087,
+      "initial_heading_error_rad": -0.010162820268935934,
+      "speed_profile_multiplier": 1.0086698191956904
+    },
+    {
+      "seed": 883212,
+      "initial_lateral_error_m": 0.05089519969802209,
+      "initial_heading_error_rad": -0.0013193762979035277,
+      "speed_profile_multiplier": 0.9868668547893987
+    },
+    {
+      "seed": 883213,
+      "initial_lateral_error_m": -0.004610245916842587,
+      "initial_heading_error_rad": -0.014108433452199828,
+      "speed_profile_multiplier": 1.0081494773314277
+    },
+    {
+      "seed": 883214,
+      "initial_lateral_error_m": 0.07265995201017028,
+      "initial_heading_error_rad": 0.016344962480823795,
+      "speed_profile_multiplier": 0.9631468316997062
+    },
+    {
+      "seed": 883215,
+      "initial_lateral_error_m": -0.02845413230911023,
+      "initial_heading_error_rad": -0.012460070711109265,
+      "speed_profile_multiplier": 0.9937233329772902
+    },
+    {
+      "seed": 883216,
+      "initial_lateral_error_m": 0.06557633363147727,
+      "initial_heading_error_rad": 0.018406388027813345,
+      "speed_profile_multiplier": 0.9819152512579012
+    },
+    {
+      "seed": 883217,
+      "initial_lateral_error_m": 0.09338804927975228,
+      "initial_heading_error_rad": 0.028504326603355216,
+      "speed_profile_multiplier": 1.0299071399629254
+    },
+    {
+      "seed": 883218,
+      "initial_lateral_error_m": 0.09326779342771577,
+      "initial_heading_error_rad": -0.004288207251177974,
+      "speed_profile_multiplier": 1.0228447645352254
+    },
+    {
+      "seed": 883219,
+      "initial_lateral_error_m": 0.06364097120619072,
+      "initial_heading_error_rad": 0.00463623099196355,
+      "speed_profile_multiplier": 0.9581874953424637
+    }
+  ],
+  "cells": [
+    {
+      "name": "nominal",
+      "mu_factor": 1.0,
+      "mass_I_factor": 1.0,
+      "added_delay_ms": 0
+    },
+    {
+      "name": "mu_0p8",
+      "mu_factor": 0.8,
+      "mass_I_factor": 1.0,
+      "added_delay_ms": 0
+    },
+    {
+      "name": "mu_1p2",
+      "mu_factor": 1.2,
+      "mass_I_factor": 1.0,
+      "added_delay_ms": 0
+    },
+    {
+      "name": "mass_I_0p9",
+      "mu_factor": 1.0,
+      "mass_I_factor": 0.9,
+      "added_delay_ms": 0
+    },
+    {
+      "name": "mass_I_1p1",
+      "mu_factor": 1.0,
+      "mass_I_factor": 1.1,
+      "added_delay_ms": 0
+    },
+    {
+      "name": "delay_10ms",
+      "mu_factor": 1.0,
+      "mass_I_factor": 1.0,
+      "added_delay_ms": 10
+    },
+    {
+      "name": "delay_30ms",
+      "mu_factor": 1.0,
+      "mass_I_factor": 1.0,
+      "added_delay_ms": 30
+    }
+  ],
+  "case_count": 420,
+  "controller_tuning": "No controller retuning. Frozen rectangular pilot laws,Q,R,horizon,trim,grid and constraints.",
+  "pairing": "Each cell uses identical20scenario draws; same realization across controllers. Controller order per seed/cell is a deterministic PCG64 permutation.",
+  "uncertainty": "Paired differences and paired bootstrap intervals over scenario seeds. Completion proportions include failures; lap-time intervals are conditional on common completions and report that denominator.",
+  "mass_limitation": "m and yawI scale together. In this normalized-tire model m/I stays fixed and mass cancels elsewhere; expected structural null, not physical mass-robustness evidence.",
+  "physical_domain": "Perfect state; normalized linear-tire F110 dynamics; no battery, sensor, tire saturation or real-car validation. Record slip and lateral-acceleration/mu*g proxies. Exceedance is a model-validity warning, not silently excluded data.",
+  "timing_scope": "Full controller-call wall times on a shared Windows host. Other CPU work may run concurrently. No hard-real-time hardware claim.",
+  "local_integration_gate": {
+    "steps_s": [
+      0.004,
+      0.002,
+      0.001
+    ],
+    "scenario": "Independent fixed-control RK4 source-plant straight-to-turn transient2s at3m/s, steer .05rad, rate .03rad/s, accel .3m/s2.",
+    "max_abs_last_refinement_state_change_limit": 0.0001,
+    "scope": "Local source-integrator sanity; not a whole-trajectory global error bound."
+  },
+  "source_hashes": {
+    "corrected_pilot.py": "26b73e39464263226d993ffb5d0bd468d05a7a03f32f48f5e6a607c2427cd4c7",
+    "corrected_rectangular_pilot.py": "7e73dd67d61a5b3d5cb24ae32bd8ef90e93718dfc3e5ba48a3cf7ae16e08b9eb",
+    "run_frozen_campaign.py": "c805df42f24915b38f8a4724888d3cf42728de90ee0fd9e8239b905ff8f6eb14",
+    "independent_controller_check.py": "d0d62ed11dded8f902ca43448c46a24e9466bf557841d9763a3739ec34bb1e8f"
+  }
+}
