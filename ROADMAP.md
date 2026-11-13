@@ -49,6 +49,21 @@ The licensed [command-response study](reports/real_command_response.md) remains
 development evidence. Its [split qualification](reports/driving_split_qualification.md)
 admitted no independent final group. Unopened bags remain unassigned and frozen.
 
+## Executed synthetic controls study
+
+The [paired direct-rate controller study](studies/paired_controller_v2/README.md)
+adds completed implementation/model-sensitivity evidence alongside the archive
+qualification work. Its [stored summary](runs/paired_controller_v2/summary.json)
+and [frozen protocol](runs/paired_controller_v2/protocol.json) retain the paired
+outcomes and uncertainty rules. The historical PP-plus-trim wrapper remains
+unchanged. The current report distinguishes both architectures.
+
+The linear-tire model's domain warnings and coherent-mass structural null limit
+the new comparisons. They do not satisfy the real-platform reference, refusal
+calibration or reserved evaluation milestones below. Those dependencies stay
+in force. The next research step is to qualify a physically justified model and
+permitted development outcomes before interpreting a real-platform ranking.
+
 ## Dependency order
 
 ```mermaid

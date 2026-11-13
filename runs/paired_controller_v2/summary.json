@@ -1,0 +1,5110 @@
+{
+  "complete_campaign": true,
+  "saved_cases": 420,
+  "expected_cases": 420,
+  "protocol_sha256": "85a38616f9a85bf0d61cc999536543dc9eff79845c2e2c4046b5f3b3c3576e08",
+  "reducer_sha256": "e501ea587141e95adf2be28c7fd2c87209f4441ad86a4f1c3d8b4d9e1f0fe503",
+  "interpretation": "Synthetic scenario sensitivity in an unsaturated linear-tire model with perfect state. Intervals describe these perturbation draws, not physical performance or generalization. Times conditional on common completed one-circuit trials. Recorded controller computation includes trim/model-cache/optimization but excludes final output clipping and return; full_call_* field names are preserved historical labels. Timing samples are nested within trials and descriptive only.",
+  "by_cell_controller": {
+    "nominal/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.361299999999996,
+        "median": 19.314,
+        "p05": 18.7347,
+        "p95": 19.9466,
+        "min": 18.444,
+        "max": 20.034
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.1489299979920952,
+        "median": 0.14966704364046235,
+        "p05": 0.13840805501071834,
+        "p95": 0.160998637969549,
+        "min": 0.13667657341496486,
+        "max": 0.1663115415443926
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3131096660264606,
+        "median": 0.3115877547373432,
+        "p05": 0.27977127838775095,
+        "p95": 0.35106182081803994,
+        "min": 0.27921753189462867,
+        "max": 0.3626560463990961
+      },
+      "full_call_timing_ms": {
+        "n": 38730,
+        "mean": 0.1504559359691442,
+        "median": 0.15590000020893058,
+        "p05": 0.11040000026696362,
+        "p95": 0.2195999995819875,
+        "min": 0.1007999999274034,
+        "max": 6.795799999963492
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.3286390867413608,
+      "max_lateral_accel_over_mu_g_proxy": 2.4619820919351687,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33850
+    },
+    "nominal/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10678138325424047,
+        "median": 0.10727242433584169,
+        "p05": 0.09730506647223015,
+        "p95": 0.11817080483871784,
+        "min": 0.09697111264757022,
+        "max": 0.12082830058445419
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3565407764809167,
+        "median": 0.35807854330288685,
+        "p05": 0.32425449043551013,
+        "p95": 0.3905069659581346,
+        "min": 0.3241472094813825,
+        "max": 0.4051987140316903
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 0.1995592496801906,
+        "median": 0.05030000011174707,
+        "p05": 0.03680000008898787,
+        "p95": 0.26043999964712944,
+        "min": 0.034100000448233914,
+        "max": 24.511300000085612
+      },
+      "calls_over_10ms": 3,
+      "trials_with_call_over_10ms": 3,
+      "max_beta_rad": 0.36762983118552217,
+      "max_lateral_accel_over_mu_g_proxy": 2.3898763361857003,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33398
+    },
+    "nominal/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10677523452288443,
+        "median": 0.10729090970396327,
+        "p05": 0.09730969793314284,
+        "p95": 0.11816056252873934,
+        "min": 0.09699247023164881,
+        "max": 0.12082454115331556
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3565548443593737,
+        "median": 0.35808752211518863,
+        "p05": 0.32427025271823423,
+        "p95": 0.390511442482554,
+        "min": 0.32424883098180135,
+        "max": 0.40520159233384334
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 2.936535334187663,
+        "median": 2.8722000001835113,
+        "p05": 1.9585000000006403,
+        "p95": 4.446140000072752,
+        "min": 0.10850000035134144,
+        "max": 26.90729999994801
+      },
+      "calls_over_10ms": 7,
+      "trials_with_call_over_10ms": 5,
+      "max_beta_rad": 0.3676262732275592,
+      "max_lateral_accel_over_mu_g_proxy": 2.3898784862051694,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33401
+    },
+    "mu_0p8/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.4464,
+        "median": 19.399,
+        "p05": 18.8265,
+        "p95": 20.0249,
+        "min": 18.532,
+        "max": 20.118000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.1919663185797064,
+        "median": 0.19274457785387492,
+        "p05": 0.17794554107778404,
+        "p95": 0.20879589428447048,
+        "min": 0.1774392008914692,
+        "max": 0.2130875498693167
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.4122883718303935,
+        "median": 0.4125330496949443,
+        "p05": 0.3736673751149924,
+        "p95": 0.45808474118352466,
+        "min": 0.3725212771156508,
+        "max": 0.48057328556388285
+      },
+      "full_call_timing_ms": {
+        "n": 38900,
+        "mean": 0.1662797712073146,
+        "median": 0.16260000029433286,
+        "p05": 0.11300000005576294,
+        "p95": 0.23330000021815067,
+        "min": 0.10279999969498022,
+        "max": 0.7034000000203378
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.3951057223919331,
+      "max_lateral_accel_over_mu_g_proxy": 2.890349943004456,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 56828
+    },
+    "mu_0p8/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.7135,
+        "median": 19.664,
+        "p05": 19.086100000000002,
+        "p95": 20.3028,
+        "min": 18.784,
+        "max": 20.394000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.15148253920324897,
+        "median": 0.15225067943638215,
+        "p05": 0.14000846564666178,
+        "p95": 0.16536660170854675,
+        "min": 0.13913690291040248,
+        "max": 0.17090400747629686
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.41666059481338785,
+        "median": 0.417598566061248,
+        "p05": 0.38267783763099794,
+        "p95": 0.4534377159904418,
+        "min": 0.3806013955035602,
+        "max": 0.4730820653602808
+      },
+      "full_call_timing_ms": {
+        "n": 39437,
+        "mean": 0.21103003270836979,
+        "median": 0.05429999964690069,
+        "p05": 0.03840000044874614,
+        "p95": 0.26672000058169915,
+        "min": 0.03460000061750179,
+        "max": 27.01549999983399
+      },
+      "calls_over_10ms": 4,
+      "trials_with_call_over_10ms": 4,
+      "max_beta_rad": 0.4482120766361455,
+      "max_lateral_accel_over_mu_g_proxy": 2.9337768955759764,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 50999
+    },
+    "mu_0p8/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.7136,
+        "median": 19.664,
+        "p05": 19.086100000000002,
+        "p95": 20.3028,
+        "min": 18.784,
+        "max": 20.394000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.15150134734518111,
+        "median": 0.15227735420928956,
+        "p05": 0.14001561029331744,
+        "p95": 0.16539445755125587,
+        "min": 0.13881167137696176,
+        "max": 0.17092880274456634
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.416739940830687,
+        "median": 0.4176183830661024,
+        "p05": 0.38080376970667507,
+        "p95": 0.453456439203986,
+        "min": 0.3806181286401967,
+        "max": 0.4731002867406116
+      },
+      "full_call_timing_ms": {
+        "n": 39437,
+        "mean": 2.9966055709102593,
+        "median": 2.9025999992882134,
+        "p05": 1.9808199996987241,
+        "p95": 4.4595199999093875,
+        "min": 0.11089999952673679,
+        "max": 29.30859999923996
+      },
+      "calls_over_10ms": 4,
+      "trials_with_call_over_10ms": 4,
+      "max_beta_rad": 0.4482142790156922,
+      "max_lateral_accel_over_mu_g_proxy": 2.9338020295610776,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 50990
+    },
+    "mu_1p2/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.3101,
+        "median": 19.261000000000003,
+        "p05": 18.6767,
+        "p95": 19.8969,
+        "min": 18.386,
+        "max": 19.990000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.12292140556889744,
+        "median": 0.12334587005339827,
+        "p05": 0.11501243711861832,
+        "p95": 0.13169766624689735,
+        "min": 0.11481872451294901,
+        "max": 0.13469085090684985
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.2530996918530156,
+        "median": 0.25290557410721026,
+        "p05": 0.23511849777146207,
+        "p95": 0.2748185947154651,
+        "min": 0.23371112584694728,
+        "max": 0.2861040970737662
+      },
+      "full_call_timing_ms": {
+        "n": 38628,
+        "mean": 0.16749551361845677,
+        "median": 0.16365000010409858,
+        "p05": 0.11240000003454043,
+        "p95": 0.23399999918183312,
+        "min": 0.10240000028716167,
+        "max": 9.464800000387186
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.26320599215617263,
+      "max_lateral_accel_over_mu_g_proxy": 1.977595678584721,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 15148
+    },
+    "mu_1p2/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.393499999999996,
+        "median": 19.344,
+        "p05": 18.7558,
+        "p95": 19.9928,
+        "min": 18.448,
+        "max": 20.084
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10382527864835485,
+        "median": 0.10421413217969516,
+        "p05": 0.09449042938030894,
+        "p95": 0.11479746030333601,
+        "min": 0.09412826396370398,
+        "max": 0.1174494395742122
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.33223438231214125,
+        "median": 0.33361395766984175,
+        "p05": 0.30216313016537555,
+        "p95": 0.36409610167130374,
+        "min": 0.29850439298210196,
+        "max": 0.3810893794490737
+      },
+      "full_call_timing_ms": {
+        "n": 38796,
+        "mean": 0.21159087019139974,
+        "median": 0.05580000015470432,
+        "p05": 0.037599999814119656,
+        "p95": 0.29855000002498855,
+        "min": 0.03479999941191636,
+        "max": 24.65200000006007
+      },
+      "calls_over_10ms": 1,
+      "trials_with_call_over_10ms": 1,
+      "max_beta_rad": 0.3068524405594489,
+      "max_lateral_accel_over_mu_g_proxy": 1.9794325267535744,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 20702
+    },
+    "mu_1p2/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.393199999999997,
+        "median": 19.344,
+        "p05": 18.7558,
+        "p95": 19.9928,
+        "min": 18.448,
+        "max": 20.084
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.103823717584026,
+        "median": 0.1042396090687685,
+        "p05": 0.094501298533023,
+        "p95": 0.11479301214803145,
+        "min": 0.09413996919106855,
+        "max": 0.11744619119618598
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3322900599270845,
+        "median": 0.33414452645837844,
+        "p05": 0.3021646163031556,
+        "p95": 0.36409886017326587,
+        "min": 0.29852079397021347,
+        "max": 0.3810952559889263
+      },
+      "full_call_timing_ms": {
+        "n": 38796,
+        "mean": 2.9843242550760842,
+        "median": 2.864749999844207,
+        "p05": 1.9232499996633123,
+        "p95": 4.497750000155065,
+        "min": 0.1109000004362315,
+        "max": 47.063799999705225
+      },
+      "calls_over_10ms": 9,
+      "trials_with_call_over_10ms": 6,
+      "max_beta_rad": 0.3068527945021754,
+      "max_lateral_accel_over_mu_g_proxy": 1.9794487218892185,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 20704
+    },
+    "mass_I_0p9/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.361299999999996,
+        "median": 19.314,
+        "p05": 18.7347,
+        "p95": 19.9466,
+        "min": 18.444,
+        "max": 20.034
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.14892999782461883,
+        "median": 0.14966704337449288,
+        "p05": 0.13840805501071834,
+        "p95": 0.160998637969549,
+        "min": 0.13667657341496486,
+        "max": 0.16631154154439243
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.31310966602646256,
+        "median": 0.3115877547373432,
+        "p05": 0.27977127838775095,
+        "p95": 0.35106182081803994,
+        "min": 0.27921753189462867,
+        "max": 0.3626560463990961
+      },
+      "full_call_timing_ms": {
+        "n": 38730,
+        "mean": 0.16395808675551052,
+        "median": 0.16150000010384247,
+        "p05": 0.11170000016136328,
+        "p95": 0.23020000026008347,
+        "min": 0.10240000028716167,
+        "max": 0.8256000000983477
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.3286390867413608,
+      "max_lateral_accel_over_mu_g_proxy": 2.4619820919351687,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33850
+    },
+    "mass_I_0p9/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.1067813832542405,
+        "median": 0.10727242433584172,
+        "p05": 0.09730506647223018,
+        "p95": 0.11817080483871753,
+        "min": 0.0969711126475707,
+        "max": 0.12082830058445555
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3565407764809152,
+        "median": 0.35807854330288336,
+        "p05": 0.32425449043551013,
+        "p95": 0.39050696595812906,
+        "min": 0.3241472094813825,
+        "max": 0.4051987140316903
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 0.20792157234541933,
+        "median": 0.05450000026030466,
+        "p05": 0.03734499978236273,
+        "p95": 0.2964400000109855,
+        "min": 0.03440000000409782,
+        "max": 22.794299999986833
+      },
+      "calls_over_10ms": 1,
+      "trials_with_call_over_10ms": 1,
+      "max_beta_rad": 0.3676298311855222,
+      "max_lateral_accel_over_mu_g_proxy": 2.3898763361857007,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33398
+    },
+    "mass_I_0p9/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10677523452288414,
+        "median": 0.10729090970396285,
+        "p05": 0.09730969793314417,
+        "p95": 0.11816056252874266,
+        "min": 0.09699247023164992,
+        "max": 0.12082454115331476
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3565548443593755,
+        "median": 0.35808752211519335,
+        "p05": 0.3242702527182426,
+        "p95": 0.3905114424825561,
+        "min": 0.3242488309818019,
+        "max": 0.405201592333851
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 2.9826536670926598,
+        "median": 2.8590500000973407,
+        "p05": 1.93244499996581,
+        "p95": 4.57738500022059,
+        "min": 0.10899999961111462,
+        "max": 29.66610000021319
+      },
+      "calls_over_10ms": 4,
+      "trials_with_call_over_10ms": 3,
+      "max_beta_rad": 0.36762627322756064,
+      "max_lateral_accel_over_mu_g_proxy": 2.3898784862052165,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33401
+    },
+    "mass_I_1p1/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.361299999999996,
+        "median": 19.314,
+        "p05": 18.7347,
+        "p95": 19.9466,
+        "min": 18.444,
+        "max": 20.034
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.14892999785121747,
+        "median": 0.14966704364046865,
+        "p05": 0.13840805501071712,
+        "p95": 0.16099863796955116,
+        "min": 0.13667657341496503,
+        "max": 0.16631154154439048
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.31310966602646945,
+        "median": 0.31158775473735645,
+        "p05": 0.27977127838773436,
+        "p95": 0.3510618208180412,
+        "min": 0.27921753189462867,
+        "max": 0.3626560463990961
+      },
+      "full_call_timing_ms": {
+        "n": 38730,
+        "mean": 0.16869323779830556,
+        "median": 0.16379999942728318,
+        "p05": 0.11199999971722718,
+        "p95": 0.23839999994379468,
+        "min": 0.10249999922962161,
+        "max": 7.119599999896309
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.3286390867413607,
+      "max_lateral_accel_over_mu_g_proxy": 2.4619820919351683,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33850
+    },
+    "mass_I_1p1/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10678138325424033,
+        "median": 0.10727242433584194,
+        "p05": 0.09730506647223108,
+        "p95": 0.11817080483871852,
+        "min": 0.09697111264756991,
+        "max": 0.12082830058445439
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3565407764809159,
+        "median": 0.3580785433028881,
+        "p05": 0.3242544904355093,
+        "p95": 0.39050696595812917,
+        "min": 0.3241472094813767,
+        "max": 0.4051987140316921
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 0.21057120102499663,
+        "median": 0.05560000045079505,
+        "p05": 0.037400000110210385,
+        "p95": 0.29765499994027733,
+        "min": 0.034699999559961725,
+        "max": 31.860199999755423
+      },
+      "calls_over_10ms": 2,
+      "trials_with_call_over_10ms": 2,
+      "max_beta_rad": 0.3676298311855216,
+      "max_lateral_accel_over_mu_g_proxy": 2.389876336185698,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33398
+    },
+    "mass_I_1p1/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5209,
+        "median": 19.471,
+        "p05": 18.8879,
+        "p95": 20.1149,
+        "min": 18.582,
+        "max": 20.208000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10677523452288443,
+        "median": 0.1072909097039626,
+        "p05": 0.09730969793314376,
+        "p95": 0.11816056252874196,
+        "min": 0.096992470231647,
+        "max": 0.1208245411533126
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.35655484435937435,
+        "median": 0.3580875221151848,
+        "p05": 0.3242702527182343,
+        "p95": 0.39051144248255504,
+        "min": 0.3242488309818025,
+        "max": 0.4052015923338528
+      },
+      "full_call_timing_ms": {
+        "n": 39050,
+        "mean": 2.965389682457628,
+        "median": 2.852999999959138,
+        "p05": 1.9108449996110721,
+        "p95": 4.520104999892252,
+        "min": 0.10879999990720535,
+        "max": 33.48809999988589
+      },
+      "calls_over_10ms": 7,
+      "trials_with_call_over_10ms": 6,
+      "max_beta_rad": 0.3676262732275492,
+      "max_lateral_accel_over_mu_g_proxy": 2.3898784862051814,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33401
+    },
+    "delay_10ms/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.3739,
+        "median": 19.328000000000003,
+        "p05": 18.7465,
+        "p95": 19.9588,
+        "min": 18.452,
+        "max": 20.05
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.14920844445442455,
+        "median": 0.15075262951204133,
+        "p05": 0.13861633712604812,
+        "p95": 0.16166821362627115,
+        "min": 0.13854137799263638,
+        "max": 0.16458841196018412
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3169951933172229,
+        "median": 0.32101031959055726,
+        "p05": 0.27833529696905196,
+        "p95": 0.3416708780069235,
+        "min": 0.27814954203652903,
+        "max": 0.3521948649995777
+      },
+      "full_call_timing_ms": {
+        "n": 38758,
+        "mean": 0.16406965529470346,
+        "median": 0.16150000010384247,
+        "p05": 0.11150000045745401,
+        "p95": 0.23039999996399274,
+        "min": 0.10210000073129777,
+        "max": 0.8725999996386236
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.3456879738526907,
+      "max_lateral_accel_over_mu_g_proxy": 2.73703068234791,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 35396
+    },
+    "delay_10ms/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.522300000000005,
+        "median": 19.47,
+        "p05": 18.878800000000002,
+        "p95": 20.1186,
+        "min": 18.59,
+        "max": 20.206
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10701057509840448,
+        "median": 0.10764181748249499,
+        "p05": 0.09773628425280458,
+        "p95": 0.11877593811630961,
+        "min": 0.09764057040209655,
+        "max": 0.12087597713140565
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.35745628837080556,
+        "median": 0.35912347470283185,
+        "p05": 0.3254209566846056,
+        "p95": 0.39118005125765787,
+        "min": 0.32463032165479067,
+        "max": 0.4084973620197276
+      },
+      "full_call_timing_ms": {
+        "n": 39051,
+        "mean": 0.2072853755357838,
+        "median": 0.05270000019663712,
+        "p05": 0.03719999949680641,
+        "p95": 0.29944999960207497,
+        "min": 0.03440000000409782,
+        "max": 27.426499999819498
+      },
+      "calls_over_10ms": 3,
+      "trials_with_call_over_10ms": 3,
+      "max_beta_rad": 0.37009793992650203,
+      "max_lateral_accel_over_mu_g_proxy": 2.3983421526430146,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33446
+    },
+    "delay_10ms/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.522300000000005,
+        "median": 19.47,
+        "p05": 18.878800000000002,
+        "p95": 20.1186,
+        "min": 18.59,
+        "max": 20.206
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10701904750072552,
+        "median": 0.1075935996640568,
+        "p05": 0.09776659116898684,
+        "p95": 0.11880191533950626,
+        "min": 0.09765299585813421,
+        "max": 0.12088381956045037
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.35750123213426943,
+        "median": 0.3590782854015835,
+        "p05": 0.3254318193581158,
+        "p95": 0.3911876642166233,
+        "min": 0.3246411035002955,
+        "max": 0.4085062277786819
+      },
+      "full_call_timing_ms": {
+        "n": 39051,
+        "mean": 2.9172849786162036,
+        "median": 2.801999999974214,
+        "p05": 1.8929500001831912,
+        "p95": 4.389149999951769,
+        "min": 0.10589999965304742,
+        "max": 25.29080000022077
+      },
+      "calls_over_10ms": 4,
+      "trials_with_call_over_10ms": 3,
+      "max_beta_rad": 0.3700987861993336,
+      "max_lateral_accel_over_mu_g_proxy": 2.3983582606996694,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33464
+    },
+    "delay_30ms/pure_pursuit": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.4022,
+        "median": 19.35,
+        "p05": 18.784200000000002,
+        "p95": 19.985,
+        "min": 18.484,
+        "max": 20.080000000000002
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.1503736893457901,
+        "median": 0.14962240305025024,
+        "p05": 0.13958290815499144,
+        "p95": 0.16692606569744053,
+        "min": 0.13942476536162574,
+        "max": 0.16764878129119504
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3261922264420762,
+        "median": 0.3227730136997802,
+        "p05": 0.29171389467679676,
+        "p95": 0.36672731564714106,
+        "min": 0.2690716730720989,
+        "max": 0.3712885187880787
+      },
+      "full_call_timing_ms": {
+        "n": 38809,
+        "mean": 0.19080367955845504,
+        "median": 0.20679999943240546,
+        "p05": 0.11349999931553612,
+        "p95": 0.23839999994379468,
+        "min": 0.1019000001178938,
+        "max": 6.467199999860895
+      },
+      "calls_over_10ms": 0,
+      "trials_with_call_over_10ms": 0,
+      "max_beta_rad": 0.38418641765999606,
+      "max_lateral_accel_over_mu_g_proxy": 3.4700491940732303,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 49669
+    },
+    "delay_30ms/lqr": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5146,
+        "median": 19.463,
+        "p05": 18.8746,
+        "p95": 20.1066,
+        "min": 18.582,
+        "max": 20.194
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10724988725913309,
+        "median": 0.10784171498810219,
+        "p05": 0.09744428949343688,
+        "p95": 0.11884536403120564,
+        "min": 0.09716195751019673,
+        "max": 0.12152192820868046
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3568689967128166,
+        "median": 0.35762272764045666,
+        "p05": 0.3243784898975578,
+        "p95": 0.3913296840359148,
+        "min": 0.3177489236816553,
+        "max": 0.4092455179913185
+      },
+      "full_call_timing_ms": {
+        "n": 39036,
+        "mean": 0.22625399886913522,
+        "median": 0.06050000047252979,
+        "p05": 0.03930000002583256,
+        "p95": 0.2897500005474285,
+        "min": 0.03420000030018855,
+        "max": 16.169999999874562
+      },
+      "calls_over_10ms": 1,
+      "trials_with_call_over_10ms": 1,
+      "max_beta_rad": 0.3774216832108155,
+      "max_lateral_accel_over_mu_g_proxy": 2.4317269101059766,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33378
+    },
+    "delay_30ms/mpc": {
+      "attempted": 20,
+      "completed": 20,
+      "outcomes": {
+        "one_circuit": 20
+      },
+      "completion_binomial_exact_95_for_declared_scenarios": [
+        0.8315665290169146,
+        1.0
+      ],
+      "completion_time_s_conditional": {
+        "n": 20,
+        "mean": 19.5145,
+        "median": 19.463,
+        "p05": 18.8746,
+        "p95": 20.1066,
+        "min": 18.582,
+        "max": 20.194
+      },
+      "rms_cte_m_completed_only": {
+        "n": 20,
+        "mean": 0.10725857249621953,
+        "median": 0.10781673907849953,
+        "p05": 0.09744604772543995,
+        "p95": 0.11885638082450749,
+        "min": 0.09717812313993172,
+        "max": 0.12153032248380788
+      },
+      "max_cte_m_all_outcomes": {
+        "n": 20,
+        "mean": 0.3568817740596074,
+        "median": 0.357631261392103,
+        "p05": 0.3243870515944917,
+        "p95": 0.39133703624065613,
+        "min": 0.31775854705122153,
+        "max": 0.40925126343681867
+      },
+      "full_call_timing_ms": {
+        "n": 39035,
+        "mean": 3.0999332496499474,
+        "median": 3.0166999995344668,
+        "p05": 2.016000000094209,
+        "p95": 4.933450000225983,
+        "min": 0.10849999944184674,
+        "max": 27.47540000018489
+      },
+      "calls_over_10ms": 5,
+      "trials_with_call_over_10ms": 4,
+      "max_beta_rad": 0.3774242206100859,
+      "max_lateral_accel_over_mu_g_proxy": 2.4317223113979174,
+      "trials_above_lateral_mu_g_proxy": 20,
+      "total_physics_steps_above_lateral_mu_g_proxy": 33376
+    }
+  },
+  "paired_controllers": {
+    "nominal/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04214861473785469,
+        "paired_bootstrap_percentile_95": [
+          -0.042688621598909515,
+          -0.04164142114565926
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04086165037679017,
+          -0.042403099406960576,
+          -0.043693419086557106,
+          -0.041264345721471876,
+          -0.042143249292125845,
+          -0.04289071196143958,
+          -0.04219921133124398,
+          -0.04105102607082786,
+          -0.042419606499982054,
+          -0.04153165875088155,
+          -0.0454832409599384,
+          -0.04176216031506154,
+          -0.04319760246504398,
+          -0.04214887795217585,
+          -0.04139368800252935,
+          -0.042217102219893665,
+          -0.041551515867405575,
+          -0.04268807482403604,
+          -0.04271812322708145,
+          -0.039353930425647346
+        ]
+      }
+    },
+    "nominal/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.042154763469210745,
+        "paired_bootstrap_percentile_95": [
+          -0.04269144831896426,
+          -0.041648269419266574
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04093220481409464,
+          -0.042381741822881985,
+          -0.04368018001810997,
+          -0.04125375407146016,
+          -0.04213086476027514,
+          -0.04286612575704714,
+          -0.042230166970490576,
+          -0.041034791136223964,
+          -0.042411041311436526,
+          -0.04151892351046596,
+          -0.04548700039107703,
+          -0.04172699240842047,
+          -0.04319567552649106,
+          -0.04214879529523574,
+          -0.04154323481514258,
+          -0.04221765212071696,
+          -0.04159237014069253,
+          -0.042698658338164,
+          -0.042694916888781964,
+          -0.03935017928700654
+        ]
+      }
+    },
+    "nominal/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -6.14873135605723e-06,
+        "paired_bootstrap_percentile_95": [
+          -2.5892622188315536e-05,
+          9.128722603221767e-06
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -7.055443730447086e-05,
+          2.1357584078590675e-05,
+          1.3239068447135072e-05,
+          1.0591650011715359e-05,
+          1.2384531850706537e-05,
+          2.4586204392440525e-05,
+          -3.0955639246599276e-05,
+          1.6234934603898132e-05,
+          8.565188545528457e-06,
+          1.2735240415590043e-05,
+          -3.7594311386307533e-06,
+          3.516790664107039e-05,
+          1.9269385529152583e-06,
+          8.265694011189151e-08,
+          -0.0001495468126132271,
+          -5.499008232934255e-07,
+          -4.0854273286955456e-05,
+          -1.0583514127956994e-05,
+          2.3206338299483487e-05,
+          3.751138640803453e-06
+        ]
+      }
+    },
+    "mu_0p8/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.26709999999999995,
+        "paired_bootstrap_percentile_95": [
+          0.2636999999999999,
+          0.27059999999999923
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.27199999999999847,
+          0.2759999999999998,
+          0.2660000000000018,
+          0.2560000000000002,
+          0.2660000000000018,
+          0.26399999999999935,
+          0.28200000000000003,
+          0.2759999999999998,
+          0.26399999999999935,
+          0.26200000000000045,
+          0.2519999999999989,
+          0.2579999999999991,
+          0.2699999999999996,
+          0.26200000000000045,
+          0.27800000000000225,
+          0.26599999999999824,
+          0.27399999999999736,
+          0.26000000000000156,
+          0.26200000000000045,
+          0.2759999999999998
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.040483779376457404,
+        "paired_bootstrap_percentile_95": [
+          -0.04115266872333932,
+          -0.03981485531199952
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.038401349517511785,
+          -0.039455265078362306,
+          -0.04196399365503142,
+          -0.04088901629151742,
+          -0.04069839840796763,
+          -0.04028939842701787,
+          -0.038770546727965344,
+          -0.03902505365492026,
+          -0.04037052813197675,
+          -0.04139227563000997,
+          -0.04218354239301983,
+          -0.04165683686803218,
+          -0.04141968419219205,
+          -0.04010707029132843,
+          -0.03756948670635532,
+          -0.0406619367145534,
+          -0.04018922130641456,
+          -0.043494858375023926,
+          -0.042834827178881096,
+          -0.03830229798106671
+        ]
+      }
+    },
+    "mu_0p8/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.2671999999999999,
+        "paired_bootstrap_percentile_95": [
+          0.26370000000000005,
+          0.27079999999999915
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.27199999999999847,
+          0.2759999999999998,
+          0.2660000000000018,
+          0.2560000000000002,
+          0.2660000000000018,
+          0.26399999999999935,
+          0.2839999999999989,
+          0.2759999999999998,
+          0.26399999999999935,
+          0.26200000000000045,
+          0.2519999999999989,
+          0.2579999999999991,
+          0.2699999999999996,
+          0.26200000000000045,
+          0.27800000000000225,
+          0.26599999999999824,
+          0.27399999999999736,
+          0.26000000000000156,
+          0.26200000000000045,
+          0.2759999999999998
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04046497123452524,
+        "paired_bootstrap_percentile_95": [
+          -0.0411294096376531,
+          -0.03979556869382937
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.03837671138769316,
+          -0.039428600704655536,
+          -0.0419121701756191,
+          -0.04086221076100416,
+          -0.04067168673950691,
+          -0.04026276054966377,
+          -0.03846044601371934,
+          -0.03899815219766967,
+          -0.040345924660257215,
+          -0.041365258996681614,
+          -0.042158747124750345,
+          -0.04162918011323716,
+          -0.04142298838530015,
+          -0.03986253353140798,
+          -0.03757147497243468,
+          -0.04090533120858805,
+          -0.040161769552490345,
+          -0.04346684144944957,
+          -0.042809106651868684,
+          -0.03862752951450743
+        ]
+      }
+    },
+    "mu_0p8/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 9.999999999994457e-05,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0002999999999998337
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0019999999999988916,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": 1.880814193216951e-05,
+        "paired_bootstrap_percentile_95": [
+          -3.905956115459123e-05,
+          7.314433030198398e-05
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          2.4638129818621568e-05,
+          2.666437370676955e-05,
+          5.1823479412321793e-05,
+          2.6805530513263065e-05,
+          2.6711668460716043e-05,
+          2.6637877354102057e-05,
+          0.00031010071424600327,
+          2.690145725059434e-05,
+          2.4603471719536474e-05,
+          2.70166333283528e-05,
+          2.4795268269484083e-05,
+          2.7656754795019056e-05,
+          -3.3041931080945997e-06,
+          0.00024453675992044954,
+          -1.9882660793613116e-06,
+          -0.0002433944940346544,
+          2.7451753924212507e-05,
+          2.8016925574358975e-05,
+          2.5720527012412786e-05,
+          -0.0003252315334407174
+        ]
+      }
+    },
+    "mu_1p2/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.08340000000000032,
+        "paired_bootstrap_percentile_95": [
+          0.07910000000000021,
+          0.08750000000000072
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.08999999999999986,
+          0.0940000000000012,
+          0.08200000000000074,
+          0.06999999999999673,
+          0.08399999999999963,
+          0.08200000000000074,
+          0.09600000000000009,
+          0.09800000000000253,
+          0.07399999999999807,
+          0.07400000000000162,
+          0.062000000000001165,
+          0.07600000000000051,
+          0.08999999999999986,
+          0.07800000000000296,
+          0.09600000000000009,
+          0.08399999999999963,
+          0.08999999999999986,
+          0.08000000000000185,
+          0.07400000000000162,
+          0.09399999999999764
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.019096126920542605,
+        "paired_bootstrap_percentile_95": [
+          -0.019543015223830514,
+          -0.018629364310600017
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.01955357602373188,
+          -0.02089436855521272,
+          -0.01881599210068373,
+          -0.01935231267397891,
+          -0.019624570674732805,
+          -0.018638905072673392,
+          -0.02068903168552305,
+          -0.019999181151158577,
+          -0.017872894410770626,
+          -0.018704521488813422,
+          -0.01724141133263765,
+          -0.019002733885067458,
+          -0.018543305110251637,
+          -0.01828670699148166,
+          -0.019287550021212393,
+          -0.019708332937609846,
+          -0.019228532942368967,
+          -0.0168822477651889,
+          -0.018977569920993864,
+          -0.020618793666760546
+        ]
+      }
+    },
+    "mu_1p2/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.08310000000000048,
+        "paired_bootstrap_percentile_95": [
+          0.07880000000000038,
+          0.0872000000000007
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.08999999999999986,
+          0.0920000000000023,
+          0.08200000000000074,
+          0.06799999999999784,
+          0.08399999999999963,
+          0.08200000000000074,
+          0.09600000000000009,
+          0.09800000000000253,
+          0.07399999999999807,
+          0.07400000000000162,
+          0.062000000000001165,
+          0.07600000000000051,
+          0.08999999999999986,
+          0.07800000000000296,
+          0.09600000000000009,
+          0.08399999999999963,
+          0.08800000000000097,
+          0.08000000000000185,
+          0.07400000000000162,
+          0.09399999999999764
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.019097687984871423,
+        "paired_bootstrap_percentile_95": [
+          -0.019543290179994417,
+          -0.018630433879395385
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.019551541006053483,
+          -0.020882663327848147,
+          -0.018805031317697826,
+          -0.019410100020809187,
+          -0.019656265175829413,
+          -0.01855625679343012,
+          -0.020679849234606973,
+          -0.01999964566864107,
+          -0.017877328840463183,
+          -0.018713137049635162,
+          -0.01724465971066387,
+          -0.01907139793766506,
+          -0.018550115469216533,
+          -0.01830014800342042,
+          -0.019287983899943933,
+          -0.019714981696329806,
+          -0.019259662615266196,
+          -0.01688675906666602,
+          -0.018898264345266605,
+          -0.02060796851797546
+        ]
+      }
+    },
+    "mu_1p2/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": -0.0002999999999998337,
+        "paired_bootstrap_percentile_95": [
+          -0.0005999999999996674,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          -0.0019999999999988916,
+          0.0,
+          -0.0019999999999988916,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.0019999999999988916,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -1.56106432882136e-06,
+        "paired_bootstrap_percentile_95": [
+          -1.6236489847425933e-05,
+          1.4233996114441492e-05
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          2.0350176783978657e-06,
+          1.1705227364572357e-05,
+          1.096078298590264e-05,
+          -5.778734683027642e-05,
+          -3.169450109660743e-05,
+          8.2648279243272e-05,
+          9.182450916078722e-06,
+          -4.6451748249298763e-07,
+          -4.434429692556918e-06,
+          -8.615560821739754e-06,
+          -3.248378026218801e-06,
+          -6.866405259760289e-05,
+          -6.810358964895458e-06,
+          -1.3441011938758463e-05,
+          -4.338787315399939e-07,
+          -6.648758719959846e-06,
+          -3.112967289722879e-05,
+          -4.511301477119756e-06,
+          7.930557572725927e-05,
+          1.0825148785087446e-05
+        ]
+      }
+    },
+    "mass_I_0p9/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04214861457037834,
+        "paired_bootstrap_percentile_95": [
+          -0.042688621539336544,
+          -0.04164142081841531
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04086165037678918,
+          -0.042403096589375314,
+          -0.04369341908655608,
+          -0.041264345721472986,
+          -0.04214324876018821,
+          -0.042890711961438635,
+          -0.04219921133124331,
+          -0.04105102607082761,
+          -0.042419606499982054,
+          -0.04153165875088313,
+          -0.045483240959936874,
+          -0.04176216031505997,
+          -0.04319760246504843,
+          -0.042148877952168484,
+          -0.04139368800252893,
+          -0.042217102219894345,
+          -0.041551515867407574,
+          -0.04268807482403643,
+          -0.04271812322708177,
+          -0.039353930425647346
+        ]
+      }
+    },
+    "mass_I_0p9/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.0421547633017347,
+        "paired_bootstrap_percentile_95": [
+          -0.04269144790622809,
+          -0.041648269392005596
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04093220481409304,
+          -0.0423817390052961,
+          -0.04368018001811043,
+          -0.04125375407146448,
+          -0.04213086422833716,
+          -0.0428661257570474,
+          -0.04223016697048969,
+          -0.04103479113622513,
+          -0.04241104131143886,
+          -0.041518923510467695,
+          -0.04548700039107767,
+          -0.04172699240841944,
+          -0.04319567552649427,
+          -0.04214879529522916,
+          -0.04154323481514581,
+          -0.04221765212071539,
+          -0.04159237014069099,
+          -0.04269865833816046,
+          -0.0426949168887857,
+          -0.03935017928700521
+        ]
+      }
+    },
+    "mass_I_0p9/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -6.148731356370174e-06,
+        "paired_bootstrap_percentile_95": [
+          -2.5892622188618056e-05,
+          9.128722603046162e-06
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -7.055443730386024e-05,
+          2.1357584079215175e-05,
+          1.3239068445650148e-05,
+          1.059165000850959e-05,
+          1.2384531851053482e-05,
+          2.4586204391233157e-05,
+          -3.095563924637723e-05,
+          1.6234934602482598e-05,
+          8.565188543196989e-06,
+          1.2735240415437388e-05,
+          -3.759431140795688e-06,
+          3.5167906640529156e-05,
+          1.926938554164259e-06,
+          8.26569393208576e-08,
+          -0.00014954681261687697,
+          -5.499008210452239e-07,
+          -4.085427328341662e-05,
+          -1.058351412402958e-05,
+          2.320633829606955e-05,
+          3.7511386421357207e-06
+        ]
+      }
+    },
+    "mass_I_1p1/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04214861459697713,
+        "paired_bootstrap_percentile_95": [
+          -0.04268862159186692,
+          -0.04164142087094576
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04086165037678838,
+          -0.04240309658937716,
+          -0.04369341908655881,
+          -0.041264345721480813,
+          -0.04214324929212944,
+          -0.04289071196143873,
+          -0.042199211331247446,
+          -0.04105102607083097,
+          -0.042419606499982526,
+          -0.041531658750880274,
+          -0.0454832409599361,
+          -0.041762160315059416,
+          -0.043197602465046794,
+          -0.042148877952177366,
+          -0.04139368800253468,
+          -0.042217102219899105,
+          -0.04155151586740831,
+          -0.04268807482403772,
+          -0.04271812322708203,
+          -0.03935393042564651
+        ]
+      }
+    },
+    "mass_I_1p1/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.15959999999999983,
+        "paired_bootstrap_percentile_95": [
+          0.1554999999999996,
+          0.1635999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16799999999999926,
+          0.16999999999999815,
+          0.1579999999999977,
+          0.14999999999999858,
+          0.1579999999999977,
+          0.15600000000000236,
+          0.1739999999999995,
+          0.1739999999999995,
+          0.15200000000000102,
+          0.15600000000000236,
+          0.13800000000000168,
+          0.15399999999999991,
+          0.16199999999999903,
+          0.15199999999999747,
+          0.16799999999999926,
+          0.15800000000000125,
+          0.16400000000000148,
+          0.15399999999999991,
+          0.15199999999999747,
+          0.17400000000000304
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.042154763328333046,
+        "paired_bootstrap_percentile_95": [
+          -0.042691447906895115,
+          -0.04164826941926892
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04093220481409246,
+          -0.04238173900530007,
+          -0.04368018001811508,
+          -0.04125375407146474,
+          -0.04213086476027848,
+          -0.042866125757048346,
+          -0.042230166970493005,
+          -0.041034791136228266,
+          -0.042411041311434805,
+          -0.04151892351046438,
+          -0.04548700039107788,
+          -0.04172699240842001,
+          -0.04319567552649428,
+          -0.042148795295232994,
+          -0.041543234815149696,
+          -0.042217652120721746,
+          -0.041592370140690685,
+          -0.04269865833816347,
+          -0.04269491688878484,
+          -0.039350179287005654
+        ]
+      }
+    },
+    "mass_I_1p1/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -6.148731355914982e-06,
+        "paired_bootstrap_percentile_95": [
+          -2.5892622187914676e-05,
+          9.128722602903134e-06
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -7.055443730408228e-05,
+          2.1357584077091873e-05,
+          1.3239068443735014e-05,
+          1.0591650016072984e-05,
+          1.2384531850956337e-05,
+          2.4586204390386612e-05,
+          -3.095563924555844e-05,
+          1.6234934602704643e-05,
+          8.565188547721148e-06,
+          1.2735240415895355e-05,
+          -3.759431141781011e-06,
+          3.5167906639405055e-05,
+          1.9269385525128024e-06,
+          8.265694437237237e-08,
+          -0.00014954681261501734,
+          -5.499008226411695e-07,
+          -4.0854273282375786e-05,
+          -1.0583514125750426e-05,
+          2.320633829719365e-05,
+          3.751138640858964e-06
+        ]
+      }
+    },
+    "delay_10ms/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.1484,
+        "paired_bootstrap_percentile_95": [
+          0.14410000000000026,
+          0.15289999999999998
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16199999999999903,
+          0.1680000000000028,
+          0.15200000000000102,
+          0.13800000000000168,
+          0.14399999999999835,
+          0.13999999999999702,
+          0.16600000000000037,
+          0.1559999999999988,
+          0.14199999999999946,
+          0.13800000000000168,
+          0.13799999999999812,
+          0.1460000000000008,
+          0.1460000000000008,
+          0.14399999999999835,
+          0.16000000000000014,
+          0.15399999999999991,
+          0.1460000000000008,
+          0.13200000000000145,
+          0.14000000000000057,
+          0.1559999999999988
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04219786935602003,
+        "paired_bootstrap_percentile_95": [
+          -0.042789744022434587,
+          -0.04163058175440016
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.041071695388728166,
+          -0.04090080759053984,
+          -0.04204486468803613,
+          -0.045038429768559415,
+          -0.043229729422954735,
+          -0.042991894636137964,
+          -0.040762872390864596,
+          -0.0409317677405831,
+          -0.04081029529485572,
+          -0.04194551954449183,
+          -0.04371243482877847,
+          -0.04342558043442325,
+          -0.04394100929810153,
+          -0.0434884213000523,
+          -0.0406449622119487,
+          -0.04167349993228825,
+          -0.04307477199041769,
+          -0.0428491092300238,
+          -0.04037265064209564,
+          -0.041047070786519646
+        ]
+      }
+    },
+    "delay_10ms/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.1484,
+        "paired_bootstrap_percentile_95": [
+          0.14410000000000026,
+          0.15289999999999998
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.16199999999999903,
+          0.1680000000000028,
+          0.15200000000000102,
+          0.13800000000000168,
+          0.14399999999999835,
+          0.13999999999999702,
+          0.16600000000000037,
+          0.1559999999999988,
+          0.14199999999999946,
+          0.13800000000000168,
+          0.13799999999999812,
+          0.1460000000000008,
+          0.1460000000000008,
+          0.14399999999999835,
+          0.16000000000000014,
+          0.15399999999999991,
+          0.1460000000000008,
+          0.13200000000000145,
+          0.14000000000000057,
+          0.1559999999999988
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04218939695369901,
+        "paired_bootstrap_percentile_95": [
+          -0.042785630168904625,
+          -0.041617445737687254
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.041062474677477895,
+          -0.040888382134502174,
+          -0.042022933777320595,
+          -0.04506627010143198,
+          -0.04324787713826679,
+          -0.04307018255770231,
+          -0.04073230555962809,
+          -0.0409242157209896,
+          -0.04085812003748843,
+          -0.041936284316571745,
+          -0.04370459239973375,
+          -0.04334827373861552,
+          -0.04393596832984739,
+          -0.04347632854399153,
+          -0.04053944343720034,
+          -0.04166140272414652,
+          -0.04309243395817848,
+          -0.04282217754397705,
+          -0.04038244963605389,
+          -0.04101582274085609
+        ]
+      }
+    },
+    "delay_10ms/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": 8.472402321030304e-06,
+        "paired_bootstrap_percentile_95": [
+          -8.098212598202648e-06,
+          2.575784681708536e-05
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          9.22071125027124e-06,
+          1.242545603766243e-05,
+          2.1930910715534102e-05,
+          -2.7840332872564044e-05,
+          -1.8147715312055723e-05,
+          -7.828792156434894e-05,
+          3.056683123650594e-05,
+          7.55201959350138e-06,
+          -4.7824742632707196e-05,
+          9.235227920081912e-06,
+          7.84242904472432e-06,
+          7.730669580773009e-05,
+          5.040968254141354e-06,
+          1.2092756060774756e-05,
+          0.00010551877474836158,
+          1.2097208141728655e-05,
+          -1.766196776079032e-05,
+          2.6931686046755e-05,
+          -9.798993958254343e-06,
+          3.124804566355388e-05
+        ]
+      }
+    },
+    "delay_30ms/lqr-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.11240000000000006,
+        "paired_bootstrap_percentile_95": [
+          0.10779999999999959,
+          0.11699999999999999
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.12600000000000122,
+          0.12400000000000233,
+          0.12199999999999989,
+          0.1059999999999981,
+          0.12199999999999989,
+          0.1039999999999992,
+          0.13400000000000034,
+          0.12199999999999989,
+          0.10400000000000276,
+          0.1039999999999992,
+          0.09799999999999898,
+          0.11199999999999832,
+          0.11000000000000298,
+          0.10999999999999943,
+          0.11799999999999855,
+          0.11599999999999966,
+          0.11000000000000298,
+          0.08999999999999986,
+          0.10200000000000031,
+          0.11399999999999721
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04312380208665701,
+        "paired_bootstrap_percentile_95": [
+          -0.04394700857127122,
+          -0.042415737004695024
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.04071626432049161,
+          -0.0425937981409517,
+          -0.04112089624323127,
+          -0.04290055446459447,
+          -0.0422051408087199,
+          -0.04135623531557618,
+          -0.04123760667458726,
+          -0.043223806672139195,
+          -0.045508930252253166,
+          -0.043740528002202225,
+          -0.046126853082514574,
+          -0.04299894448126665,
+          -0.04326852898784227,
+          -0.04293047406679455,
+          -0.04189318780597877,
+          -0.0434078626599312,
+          -0.04277772527343289,
+          -0.04818353580222018,
+          -0.0437291012628621,
+          -0.04255606741555011
+        ]
+      }
+    },
+    "delay_30ms/mpc-minus-pure_pursuit": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": 0.11229999999999993,
+        "paired_bootstrap_percentile_95": [
+          0.1076999999999991,
+          0.1169000000000004
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.12600000000000122,
+          0.12400000000000233,
+          0.12199999999999989,
+          0.1059999999999981,
+          0.12199999999999989,
+          0.1039999999999992,
+          0.13400000000000034,
+          0.12199999999999989,
+          0.10200000000000031,
+          0.1039999999999992,
+          0.09799999999999898,
+          0.11199999999999832,
+          0.11000000000000298,
+          0.10999999999999943,
+          0.11799999999999855,
+          0.11599999999999966,
+          0.11000000000000298,
+          0.08999999999999986,
+          0.10200000000000031,
+          0.11399999999999721
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": -0.04311511684957057,
+        "paired_bootstrap_percentile_95": [
+          -0.043934977797965145,
+          -0.04240986923772426
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.0407024174509744,
+          -0.04259279819303978,
+          -0.04109376116451981,
+          -0.042891917553260064,
+          -0.04220191621281909,
+          -0.04140941173068233,
+          -0.04122351535495,
+          -0.04320773969016942,
+          -0.045446881569237055,
+          -0.04373063605604745,
+          -0.04611845880738716,
+          -0.04298592739461879,
+          -0.043255489249682616,
+          -0.04299303457894145,
+          -0.04187282984565448,
+          -0.043391853839331265,
+          -0.04276505982368435,
+          -0.048172380981646,
+          -0.043706405708950694,
+          -0.04253990178581511
+        ]
+      }
+    },
+    "delay_30ms/mpc-minus-lqr": {
+      "completed_minus_completed": {
+        "n_pairs": 20,
+        "estimand": "All paired outcome indicators, A minus B",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Mean one-circuit duration difference among common completions, A minus B",
+        "mean_difference": -0.00010000000000012221,
+        "paired_bootstrap_percentile_95": [
+          -0.00030000000000036665,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -0.0020000000000024443,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Mean RMS CTE difference among common completions, A minus B",
+        "mean_difference": 8.68523708644764e-06,
+        "paired_bootstrap_percentile_95": [
+          -2.9501098170385195e-06,
+          1.889866311565353e-05
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          1.384686951720615e-05,
+          9.99947911917154e-07,
+          2.7135078711465477e-05,
+          8.636911334403141e-06,
+          3.2245959008109226e-06,
+          -5.31764151061459e-05,
+          1.4091319637254962e-05,
+          1.6066981969778404e-05,
+          6.2048683016111e-05,
+          9.891946154777509e-06,
+          8.394275127415751e-06,
+          1.301708664785961e-05,
+          1.3039738159650871e-05,
+          -6.25605121468975e-05,
+          2.0357960324290936e-05,
+          1.6008820599933138e-05,
+          1.2665449748539004e-05,
+          1.1154820574177382e-05,
+          2.2695553911405986e-05,
+          1.61656297349988e-05
+        ]
+      }
+    }
+  },
+  "paired_OAT": {
+    "mu_0p8/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.08510000000000026,
+        "paired_bootstrap_percentile_95": [
+          0.08369999999999997,
+          0.08650000000000038
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.08399999999999963,
+          0.08399999999999963,
+          0.08599999999999852,
+          0.08800000000000097,
+          0.08599999999999852,
+          0.08400000000000318,
+          0.08000000000000185,
+          0.08399999999999963,
+          0.08399999999999963,
+          0.08600000000000207,
+          0.08800000000000097,
+          0.08999999999999986,
+          0.08399999999999963,
+          0.08599999999999852,
+          0.0779999999999994,
+          0.08600000000000207,
+          0.08000000000000185,
+          0.09199999999999875,
+          0.08799999999999741,
+          0.08400000000000318
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.0430363205876112,
+        "paired_bootstrap_percentile_95": [
+          0.04188634781385152,
+          0.0441945118833303
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.03995650126611344,
+          0.04075615976104768,
+          0.04367382295116831,
+          0.04463380104554501,
+          0.043857080235392504,
+          0.042053265547108504,
+          0.0391015873358975,
+          0.040424303039957726,
+          0.04514015562612106,
+          0.04472318390884081,
+          0.046776008324924095,
+          0.04595073600576011,
+          0.042142944252196196,
+          0.04377931701536236,
+          0.038367078214818356,
+          0.0429851952414404,
+          0.041199751837389914,
+          0.04785100620913188,
+          0.046591886457503756,
+          0.04076262747650433
+        ]
+      }
+    },
+    "mu_0p8/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.19260000000000038,
+        "paired_bootstrap_percentile_95": [
+          0.19080000000000047,
+          0.19449999999999984
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.18799999999999883,
+          0.19000000000000128,
+          0.19400000000000261,
+          0.19400000000000261,
+          0.19400000000000261,
+          0.19200000000000017,
+          0.1880000000000024,
+          0.18599999999999994,
+          0.19599999999999795,
+          0.19200000000000017,
+          0.20199999999999818,
+          0.19399999999999906,
+          0.19200000000000017,
+          0.1960000000000015,
+          0.1880000000000024,
+          0.19399999999999906,
+          0.18999999999999773,
+          0.1980000000000004,
+          0.1980000000000004,
+          0.18599999999999994
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.044701155949008475,
+        "paired_bootstrap_percentile_95": [
+          0.043839721188013304,
+          0.04562817028000043
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.042416802125391825,
+          0.04370399408964595,
+          0.045403248382693995,
+          0.04500913047549947,
+          0.04530193111955072,
+          0.04465457908153021,
+          0.04253025193917613,
+          0.04245027545586533,
+          0.04718923399412636,
+          0.04486256702971239,
+          0.05007570689184267,
+          0.04605605945278947,
+          0.04392086252504812,
+          0.04582112467620979,
+          0.042191279510992385,
+          0.044540360746780666,
+          0.04256204639838093,
+          0.047044222658143994,
+          0.04647518250570411,
+          0.041814259921084965
+        ]
+      }
+    },
+    "mu_0p8/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.19270000000000032,
+        "paired_bootstrap_percentile_95": [
+          0.19099999999999967,
+          0.1945000000000004
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.18799999999999883,
+          0.19000000000000128,
+          0.19400000000000261,
+          0.19400000000000261,
+          0.19400000000000261,
+          0.19200000000000017,
+          0.19000000000000128,
+          0.18599999999999994,
+          0.19599999999999795,
+          0.19200000000000017,
+          0.20199999999999818,
+          0.19399999999999906,
+          0.19200000000000017,
+          0.1960000000000015,
+          0.1880000000000024,
+          0.19399999999999906,
+          0.18999999999999773,
+          0.1980000000000004,
+          0.1980000000000004,
+          0.18599999999999994
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.0447261128222967,
+        "paired_bootstrap_percentile_95": [
+          0.04386381983872579,
+          0.045661551967553504
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.04251199469251492,
+          0.04370930087927413,
+          0.04544183279365918,
+          0.045025344356001015,
+          0.04531625825616073,
+          0.044656630754491874,
+          0.04287130829266873,
+          0.04246094197851202,
+          0.04720527227730037,
+          0.044876848422625154,
+          0.05010426159125078,
+          0.04604854830094342,
+          0.04391563139338711,
+          0.046065578779190125,
+          0.04233883805752625,
+          0.044297516153569305,
+          0.0426303524255921,
+          0.04708282309784631,
+          0.04647769669441704,
+          0.041485277249003444
+        ]
+      }
+    },
+    "mu_1p2/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": -0.051200000000000044,
+        "paired_bootstrap_percentile_95": [
+          -0.052799999999999514,
+          -0.049600000000000574
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.045999999999999375,
+          -0.04800000000000182,
+          -0.054000000000002046,
+          -0.047999999999998266,
+          -0.0519999999999996,
+          -0.053999999999998494,
+          -0.047999999999998266,
+          -0.04800000000000182,
+          -0.053999999999998494,
+          -0.05000000000000071,
+          -0.05799999999999983,
+          -0.05000000000000071,
+          -0.053999999999998494,
+          -0.052000000000003155,
+          -0.05000000000000071,
+          -0.0519999999999996,
+          -0.0519999999999996,
+          -0.05799999999999983,
+          -0.052000000000003155,
+          -0.04399999999999693
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -0.026008592423197745,
+        "paired_bootstrap_percentile_95": [
+          -0.027015569578243363,
+          -0.025069833096245085
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.023305039695963495,
+          -0.024351579535614093,
+          -0.028118816700968052,
+          -0.025138343820305553,
+          -0.0256451336416436,
+          -0.027241936176808687,
+          -0.024294269911170077,
+          -0.02404792726112122,
+          -0.02774825735279335,
+          -0.026118342727523475,
+          -0.03162069063754275,
+          -0.02588117347105745,
+          -0.027246673733176685,
+          -0.02710908768311382,
+          -0.024244226554824944,
+          -0.02557201123256725,
+          -0.02490850120933942,
+          -0.029178881253446837,
+          -0.02685266683479484,
+          -0.02154828903017933
+        ]
+      }
+    },
+    "mu_1p2/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": -0.12739999999999957,
+        "paired_bootstrap_percentile_95": [
+          -0.12889999999999927,
+          -0.1259999999999996
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.12399999999999878,
+          -0.12399999999999878,
+          -0.129999999999999,
+          -0.1280000000000001,
+          -0.12599999999999767,
+          -0.1280000000000001,
+          -0.12599999999999767,
+          -0.12399999999999878,
+          -0.13200000000000145,
+          -0.13200000000000145,
+          -0.13400000000000034,
+          -0.1280000000000001,
+          -0.12599999999999767,
+          -0.12599999999999767,
+          -0.12199999999999989,
+          -0.12600000000000122,
+          -0.12600000000000122,
+          -0.1319999999999979,
+          -0.129999999999999,
+          -0.12400000000000233
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -0.0029561046058856587,
+        "paired_bootstrap_percentile_95": [
+          -0.003107940105306871,
+          -0.002784376880846387
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.0019969653429052076,
+          -0.0028428486838662365,
+          -0.003241389715094675,
+          -0.003226310772812588,
+          -0.00312645502425056,
+          -0.0029901292880425007,
+          -0.0027840902654491517,
+          -0.0029960823414519333,
+          -0.0032015452635819203,
+          -0.0032912054654553463,
+          -0.0033788610102419986,
+          -0.003121747041063369,
+          -0.002592376378384345,
+          -0.0032469167224196266,
+          -0.0021380885735079874,
+          -0.0030632419502834296,
+          -0.0025855182843028124,
+          -0.003373054194599698,
+          -0.003112113528707258,
+          -0.0028131522712925294
+        ]
+      }
+    },
+    "mu_1p2/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": -0.1276999999999994,
+        "paired_bootstrap_percentile_95": [
+          -0.1290999999999995,
+          -0.12629999999999963
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.12399999999999878,
+          -0.12599999999999767,
+          -0.129999999999999,
+          -0.129999999999999,
+          -0.12599999999999767,
+          -0.1280000000000001,
+          -0.12599999999999767,
+          -0.12399999999999878,
+          -0.13200000000000145,
+          -0.13200000000000145,
+          -0.13400000000000034,
+          -0.1280000000000001,
+          -0.12599999999999767,
+          -0.12599999999999767,
+          -0.12199999999999989,
+          -0.12600000000000122,
+          -0.1280000000000001,
+          -0.1319999999999979,
+          -0.129999999999999,
+          -0.12400000000000233
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -0.002951516938858423,
+        "paired_bootstrap_percentile_95": [
+          -0.00311662838738821,
+          -0.0027629821365020906
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -0.0019243758879223388,
+          -0.0028525010405802548,
+          -0.0032436680005559076,
+          -0.0032946897696545796,
+          -0.003170534057197874,
+          -0.002932067213191669,
+          -0.0027439521752864737,
+          -0.0030127817935383244,
+          -0.0032145448818200056,
+          -0.003312556266692676,
+          -0.0033783499571295866,
+          -0.0032255790003020424,
+          -0.002601113675902156,
+          -0.003260440391298497,
+          -0.0019889756396263003,
+          -0.003069340808180096,
+          -0.0025757936839130857,
+          -0.0033669819819488606,
+          -0.0030560142912794824,
+          -0.0028060782611482454
+        ]
+      }
+    },
+    "mass_I_0p9/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -1.674763466796847e-10,
+        "paired_bootstrap_percentile_95": [
+          -4.758316171638022e-10,
+          9.298117831235686e-17
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          -2.8175847766043205e-09,
+          -2.220446049250313e-16,
+          -3.885780586188048e-16,
+          -5.319385487645434e-10,
+          0.0,
+          6.38378239159465e-16,
+          5.551115123125783e-17,
+          0.0,
+          1.1379786002407855e-15,
+          -1.6653345369377348e-16,
+          -1.609823385706477e-15,
+          3.0531133177191805e-15,
+          -5.745404152435185e-15,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.608224830031759e-16,
+          0.0
+        ]
+      }
+    },
+    "mass_I_0p9/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 9.020562075079397e-18,
+        "paired_bootstrap_percentile_95": [
+          -4.28129753871076e-16,
+          4.2674197509029455e-16
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          9.853229343548264e-16,
+          4.85722573273506e-16,
+          8.049116928532385e-16,
+          -1.4988010832439613e-15,
+          -9.159339953157541e-16,
+          9.43689570931383e-16,
+          1.304512053934559e-15,
+          3.0531133177191805e-16,
+          0.0,
+          -4.440892098500626e-16,
+          1.3600232051658168e-15,
+          -4.163336342344337e-17,
+          -1.4016565685892601e-15,
+          1.6237011735142914e-15,
+          4.163336342344337e-16,
+          -6.800116025829084e-16,
+          -1.9984014443252818e-15,
+          -3.885780586188048e-16,
+          -6.800116025829084e-16,
+          0.0
+        ]
+      }
+    },
+    "mass_I_0p9/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -3.039235529911366e-16,
+        "paired_bootstrap_percentile_95": [
+          -1.2157289064340658e-15,
+          5.592748486549226e-16
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          1.5959455978986625e-15,
+          1.1102230246251565e-15,
+          -6.800116025829084e-16,
+          -4.704570066849101e-15,
+          -5.689893001203927e-16,
+          -2.636779683484747e-16,
+          1.5265566588595902e-15,
+          -1.1102230246251565e-15,
+          -2.3314683517128287e-15,
+          -5.967448757360216e-16,
+          -8.049116928532385e-16,
+          -5.828670879282072e-16,
+          -1.5265566588595902e-16,
+          8.326672684688674e-16,
+          -3.2335245592207684e-15,
+          1.5681900222830336e-15,
+          1.5404344466674047e-15,
+          3.5388358909926865e-15,
+          -4.093947403305265e-15,
+          1.3322676295501878e-15
+        ]
+      }
+    },
+    "mass_I_1p1/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -1.4087771921245107e-10,
+        "paired_bootstrap_percentile_95": [
+          -4.2263686585164437e-10,
+          2.4480417692984703e-15
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          -1.27675647831893e-15,
+          -2.817583721892447e-09,
+          2.525757381022231e-15,
+          8.326672684688674e-15,
+          4.3021142204224816e-15,
+          -1.0824674490095276e-15,
+          2.609024107869118e-15,
+          3.497202527569243e-15,
+          -3.608224830031759e-16,
+          -1.3322676295501878e-15,
+          -2.1094237467877974e-15,
+          -2.192690473634684e-15,
+          2.8033131371785203e-15,
+          8.881784197001252e-16,
+          4.9960036108132044e-15,
+          4.690692279041286e-15,
+          -1.1102230246251565e-16,
+          2.3869795029440866e-15,
+          6.106226635438361e-16,
+          1.6653345369377348e-16
+        ]
+      }
+    },
+    "mass_I_1p1/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -1.5890067039947552e-16,
+        "paired_bootstrap_percentile_95": [
+          -5.564992910933597e-16,
+          1.797173521111972e-16
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          5.134781488891349e-16,
+          -3.0531133177191805e-16,
+          8.187894806610529e-16,
+          -6.106226635438361e-16,
+          7.077671781985373e-16,
+          -2.3592239273284576e-16,
+          -8.604228440844963e-16,
+          3.885780586188048e-16,
+          -8.326672684688674e-16,
+          -5.551115123125783e-17,
+          1.942890293094024e-16,
+          -6.938893903907228e-17,
+          -1.3877787807814457e-17,
+          -6.245004513516506e-16,
+          -3.3306690738754696e-16,
+          -7.494005416219807e-16,
+          -2.8449465006019636e-15,
+          7.077671781985373e-16,
+          2.7755575615628914e-17,
+          9.992007221626409e-16
+        ]
+      }
+    },
+    "mass_I_1p1/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": -1.6653345369377347e-17,
+        "paired_bootstrap_percentile_95": [
+          -8.61116733474887e-16,
+          8.673790852231618e-16
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          9.020562075079397e-16,
+          -1.8041124150158794e-15,
+          -2.581268532253489e-15,
+          3.747002708109903e-15,
+          9.575673587391975e-16,
+          -2.2898349882893854e-15,
+          1.8041124150158794e-16,
+          -8.049116928532385e-16,
+          1.3600232051658168e-15,
+          2.498001805406602e-16,
+          -2.9559688030644793e-15,
+          -1.734723475976807e-15,
+          -4.163336342344337e-16,
+          3.635980405647388e-15,
+          -2.123301534595612e-15,
+          -9.71445146547012e-17,
+          1.734723475976807e-15,
+          2.914335439641036e-15,
+          -2.2620794126737565e-15,
+          1.0547118733938987e-15
+        ]
+      }
+    },
+    "delay_10ms/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.012599999999999768,
+        "paired_bootstrap_percentile_95": [
+          0.011199999999999299,
+          0.014000000000000058
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.013999999999999346,
+          0.00999999999999801,
+          0.007999999999999119,
+          0.019999999999999574,
+          0.013999999999999346,
+          0.014000000000002899,
+          0.007999999999999119,
+          0.013999999999999346,
+          0.007999999999999119,
+          0.013999999999999346,
+          0.008000000000002672,
+          0.015999999999998238,
+          0.013999999999999346,
+          0.015999999999998238,
+          0.012000000000000455,
+          0.012000000000000455,
+          0.013999999999999346,
+          0.012000000000000455,
+          0.007999999999999119,
+          0.01600000000000179
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.000278446462329357,
+        "paired_bootstrap_percentile_95": [
+          -0.00033737144045413323,
+          0.0009153876896658609
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0004177419389486958,
+          -0.0008328340618944108,
+          -0.0017198697803877394,
+          0.0037817753285294686,
+          0.0014592258064899388,
+          0.0004672232923439157,
+          -0.001565384204504583,
+          0.00011146011952506418,
+          -0.001365370950318634,
+          0.0005877863764137681,
+          -0.001723129584208477,
+          0.001606082459315955,
+          0.00100090679288245,
+          0.0012090058314363494,
+          0.00015321338191159883,
+          -0.0007707517199002922,
+          0.001397145963346974,
+          0.0007955075115079757,
+          -0.001552624450300133,
+          0.002111819195449255
+        ]
+      }
+    },
+    "delay_10ms/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0013999999999999347,
+        "paired_bootstrap_percentile_95": [
+          -0.001000000000000334,
+          0.0038000000000002034
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.007999999999999119,
+          0.008000000000002672,
+          0.0020000000000024443,
+          0.008000000000002672,
+          0.0,
+          -0.0020000000000024443,
+          0.0,
+          -0.004000000000001336,
+          -0.0020000000000024443,
+          -0.004000000000001336,
+          0.007999999999999119,
+          0.007999999999999119,
+          -0.0019999999999988916,
+          0.007999999999999119,
+          0.004000000000001336,
+          0.007999999999999119,
+          -0.004000000000001336,
+          -0.00999999999999801,
+          -0.003999999999997783,
+          -0.0020000000000024443
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.00022919184416400756,
+        "paired_bootstrap_percentile_95": [
+          9.289766490278542e-05,
+          0.00037422109608149925
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.00020769692701069764,
+          0.0006694577545263286,
+          -7.131538186676278e-05,
+          7.691281441929432e-06,
+          0.00037274567566104866,
+          0.00036604061764553,
+          -0.00012904526412520212,
+          0.00023071844976982336,
+          0.00024394025480770076,
+          0.00017392558280349135,
+          4.767654695145285e-05,
+          -5.733766004575869e-05,
+          0.0002574999598248945,
+          -0.00013053751644009903,
+          0.0009019391724922471,
+          -0.00022714943229487639,
+          -0.00012611015966514094,
+          0.0006344731055202141,
+          0.000792848134685678,
+          0.00041867883457695487
+        ]
+      }
+    },
+    "delay_10ms/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.0013999999999999347,
+        "paired_bootstrap_percentile_95": [
+          -0.001000000000000334,
+          0.0038000000000002034
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.007999999999999119,
+          0.008000000000002672,
+          0.0020000000000024443,
+          0.008000000000002672,
+          0.0,
+          -0.0020000000000024443,
+          0.0,
+          -0.004000000000001336,
+          -0.0020000000000024443,
+          -0.004000000000001336,
+          0.007999999999999119,
+          0.007999999999999119,
+          -0.0019999999999988916,
+          0.007999999999999119,
+          0.004000000000001336,
+          0.007999999999999119,
+          -0.004000000000001336,
+          -0.00999999999999801,
+          -0.003999999999997783,
+          -0.0020000000000024443
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.00024381297784109509,
+        "paired_bootstrap_percentile_95": [
+          0.00010203603708673318,
+          0.0004011184534679645
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.00028747207556543974,
+          0.0006605256264854004,
+          -6.262353959836375e-05,
+          -3.074070144234997e-05,
+          0.0003422134284982864,
+          0.0002631664916887405,
+          -6.75227936420969e-05,
+          0.0002220355347594266,
+          0.0001875503236294651,
+          0.00017042557030798322,
+          5.927840713480792e-05,
+          -1.5198870879098991e-05,
+          0.0002606139895261206,
+          -0.00011852741731943617,
+          0.0011570047598538358,
+          -0.0002145023233298543,
+          -0.0001029178541389758,
+          0.0006719883056949261,
+          0.0007598428024279402,
+          0.0004461757415997053
+        ]
+      }
+    },
+    "delay_30ms/pure_pursuit": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": 0.04090000000000007,
+        "paired_bootstrap_percentile_95": [
+          0.03929999999999971,
+          0.04260000000000001
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.04199999999999804,
+          0.04199999999999804,
+          0.03399999999999892,
+          0.04400000000000048,
+          0.03599999999999781,
+          0.036000000000001364,
+          0.036000000000001364,
+          0.045999999999999375,
+          0.03999999999999915,
+          0.04400000000000048,
+          0.0400000000000027,
+          0.04200000000000159,
+          0.03999999999999915,
+          0.03999999999999915,
+          0.038000000000000256,
+          0.0400000000000027,
+          0.03999999999999915,
+          0.05000000000000071,
+          0.04199999999999804,
+          0.04600000000000293
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.0014436913536949232,
+        "paired_bootstrap_percentile_95": [
+          0.000708500952179608,
+          0.0022149155150892044
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0009255797406045874,
+          0.0006787351579230494,
+          -0.002552797719587968,
+          0.0020585227912197357,
+          0.00043467334456637197,
+          -0.0007686771693147243,
+          -0.0005944350881952609,
+          0.0022620854486122,
+          0.00326454622675984,
+          0.0024426644173426715,
+          0.0013372397468024433,
+          0.0016492989974918604,
+          0.0007509046733528701,
+          0.0007822341505239472,
+          0.001485811125566755,
+          0.0013887767971006715,
+          0.002160662027990784,
+          0.006169016569001512,
+          0.0019575343253551425,
+          0.003041451510781973
+        ]
+      }
+    },
+    "delay_30ms/lqr": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": -0.006299999999999706,
+        "paired_bootstrap_percentile_95": [
+          -0.008799999999999213,
+          -0.0038999999999997925
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          -0.003999999999997783,
+          -0.0019999999999988916,
+          0.0,
+          0.0,
+          -0.01600000000000179,
+          -0.003999999999997783,
+          -0.006000000000000227,
+          -0.007999999999999119,
+          -0.008000000000002672,
+          0.0,
+          0.0,
+          -0.011999999999996902,
+          -0.0019999999999988916,
+          -0.012000000000000455,
+          -0.0019999999999988916,
+          -0.013999999999999346,
+          -0.013999999999999346,
+          -0.007999999999999119,
+          -0.014000000000002899
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.0004685040048925997,
+        "paired_bootstrap_percentile_95": [
+          0.00031460608564785647,
+          0.0006251979584324652
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0010709657969031477,
+          0.0004880364239319285,
+          1.972512373786539e-05,
+          0.00042231404809714435,
+          0.0003727818279723183,
+          0.0007657994765486731,
+          0.000367169568461459,
+          8.930484730086674e-05,
+          0.00017522247448872874,
+          0.00023379516602199668,
+          0.0006936276242262701,
+          0.0004125148312867505,
+          0.0006799781505545804,
+          6.380359052482465e-07,
+          0.0009863113221173364,
+          0.00019801635706313825,
+          0.0009344526219634691,
+          0.0006735555908173735,
+          0.0009465562895744906,
+          -0.00016068547912079234
+        ]
+      }
+    },
+    "delay_30ms/mpc": {
+      "completion_difference": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal completion indicator",
+        "mean_difference": 0.0,
+        "paired_bootstrap_percentile_95": [
+          0.0,
+          0.0
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "time_s": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional duration",
+        "mean_difference": -0.006399999999999828,
+        "paired_bootstrap_percentile_95": [
+          -0.008899999999999686,
+          -0.0039999999999995595
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0,
+          -0.003999999999997783,
+          -0.0019999999999988916,
+          0.0,
+          0.0,
+          -0.01600000000000179,
+          -0.003999999999997783,
+          -0.006000000000000227,
+          -0.010000000000001563,
+          -0.008000000000002672,
+          0.0,
+          0.0,
+          -0.011999999999996902,
+          -0.0019999999999988916,
+          -0.012000000000000455,
+          -0.0019999999999988916,
+          -0.013999999999999346,
+          -0.013999999999999346,
+          -0.007999999999999119,
+          -0.014000000000002899
+        ]
+      },
+      "rms_cte_m": {
+        "n_pairs": 20,
+        "estimand": "Perturbed minus nominal conditional RMS CTE",
+        "mean_difference": 0.00048333797333510454,
+        "paired_bootstrap_percentile_95": [
+          0.00032154288955600434,
+          0.0006514507843852067
+        ],
+        "bootstrap_resamples": 20000,
+        "bootstrap_seed": 994130,
+        "individual_differences": [
+          0.0011553671037248248,
+          0.00046767878776525496,
+          3.3621134002195796e-05,
+          0.00042035930941983213,
+          0.0003636218920224227,
+          0.0006880368570500867,
+          0.0004122165273453132,
+          8.913689466674701e-05,
+          0.00022870596895931128,
+          0.00023095187176118415,
+          0.0007057813304923166,
+          0.0003903640112935397,
+          0.000691090950161316,
+          -6.200513318176115e-05,
+          0.0011562160950548545,
+          0.0002145750784863648,
+          0.0009879723449989636,
+          0.0006952939255195079,
+          0.0009460455051864131,
+          -0.000148270988026597
+        ]
+      }
+    }
+  },
+  "mass_structural_null_checks": {
+    "mass_I_0p9/pure_pursuit": {
+      "time_s": 0.0,
+      "rms_cte_m": 2.8175847766043205e-09,
+      "max_abs_cte_m": 3.247402347028583e-14,
+      "progress_m": 8.526512829121202e-14
+    },
+    "mass_I_0p9/lqr": {
+      "time_s": 0.0,
+      "rms_cte_m": 1.9984014443252818e-15,
+      "max_abs_cte_m": 7.605027718682322e-15,
+      "progress_m": 2.842170943040401e-14
+    },
+    "mass_I_0p9/mpc": {
+      "time_s": 0.0,
+      "rms_cte_m": 4.704570066849101e-15,
+      "max_abs_cte_m": 1.8318679906315083e-14,
+      "progress_m": 2.842170943040401e-14
+    },
+    "mass_I_1p1/pure_pursuit": {
+      "time_s": 0.0,
+      "rms_cte_m": 2.817583721892447e-09,
+      "max_abs_cte_m": 5.0737192225369654e-14,
+      "progress_m": 1.7053025658242404e-13
+    },
+    "mass_I_1p1/lqr": {
+      "time_s": 0.0,
+      "rms_cte_m": 2.8449465006019636e-15,
+      "max_abs_cte_m": 8.826273045769994e-15,
+      "progress_m": 2.842170943040401e-14
+    },
+    "mass_I_1p1/mpc": {
+      "time_s": 0.0,
+      "rms_cte_m": 3.747002708109903e-15,
+      "max_abs_cte_m": 1.0547118733938987e-14,
+      "progress_m": 2.842170943040401e-14
+    }
+  },
+  "independent_trajectory_readback": {
+    "checked_cases": 420,
+    "max_metric_absolute_error": 0.0,
+    "comparison_tolerance": 1e-10,
+    "passed": true
+  }
+}

@@ -1,0 +1,49 @@
+INSTRUMENTATION QUALIFICATIONS — 13 NOVEMBER 2026
+
+These are reporting corrections from inspection of the already frozen code.
+No campaign controller, outcome rule, limit, timer or result was changed.
+
+1. Recorded timing scope
+
+RateController.command starts its timer at entry and records the elapsed value
+after the controller decision, before the common final numpy.clip operations
+and return. The samples include trim computation, a scheduled-model cache miss,
+matrix construction and optimization where applicable. They exclude the last
+output clipping and Python return overhead, path-geometry calculation outside
+the call, plant integration and the rest of the scheduling loop.
+
+The frozen JSON/CSV fields retain their original full_call_* names so the record
+is unchanged. Public prose and figures should say "timed controller computation
+(final output clipping excluded)" rather than literal full-call execution time.
+The >10 ms counts apply to that recorded region. They show recorded overruns;
+they are not a complete hardware deadline qualification. Shared host workload
+is uncontrolled. Historical MPC timings cover only minimize, so an old/new
+implementation speed comparison is not supported by these samples.
+
+2. MPC warm start
+
+The initial decision vector is the previous horizon shifted by one sample with
+the last input repeated. Bounds and predicted state inequalities may change
+with the new state/reference. The initial vector is therefore not guaranteed
+feasible. The frozen protocol's phrase "shifted feasible warm start" overstates
+it. The solver must still return success and satisfy the fixed 1e-6 predicted
+state gate; no failed solution is accepted or automatically retried.
+
+3. Scheduled approximation
+
+The feedback error uses the local reference's steady-turn trim while Jacobians
+are cached on a 0.5 m/s speed and 0.02 1/m curvature grid. Within each prediction
+horizon, the reference and linearization are held constant. This approximation
+is part of the frozen study; it is not exact nonlinear MPC or a proof of curved
+trajectory stability. All physical plant constraints and the shared delay apply
+after the decision for all controllers.
+
+4. Wall time and simulated time
+
+Recorded computation time is not injected into the simulation clock. Command
+updates occur at each prescribed 10 ms of simulated time, irrespective of host
+wall time. The physical input queue provides a fixed 4 ms baseline plus the
+specified 10 or 30 ms perturbation. These delay cells are independent of the
+measured computation samples. Reported overruns therefore did not cause the
+simulated trajectory changes, and completed circuits do not establish stable
+operation with variable solver execution latency or missed-deadline handling.

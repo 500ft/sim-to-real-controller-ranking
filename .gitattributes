@@ -1,1 +1,16 @@
 *.pdf binary
+
+# Preserve executed paired-study evidence bytes across Windows/Linux checkouts.
+runs/paired_controller_v2/** -text
+studies/paired_controller_v2/frozen_code/** -text
+studies/paired_controller_v2/source-adaptation.diff -text
+
+# Keep referenced public plant/planner/map input bytes consistent across hosts.
+LICENSE -text
+gym/f110_gym/envs/dynamic_models.py -text
+gym/roboracer/dynamics.py -text
+gym/roboracer/track.py -text
+examples/config_example_map.yaml -text
+examples/example_map.yaml -text
+examples/example_map.png -text
+examples/example_waypoints.csv -text

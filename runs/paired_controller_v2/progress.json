@@ -1,0 +1,17 @@
+{
+  "state": "completed",
+  "completed_cases": 420,
+  "total_cases": 420,
+  "started_unix": 1794586252.7651892,
+  "host": "Windows-11-10.0.26300-SP0",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "pid": 4468,
+  "execution": "Sequential cases on shared host; deterministic randomized controller order per scenario/cell.",
+  "current": {
+    "cell": "delay_30ms",
+    "seed": 883219,
+    "controller": "mpc"
+  },
+  "last_outcome": "one_circuit",
+  "updated_unix": 1794588431.785755
+}

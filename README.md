@@ -1,5 +1,11 @@
 # Sim-to-Real Controller Ranking
 
+The reproduced dataset-registration defect has an
+[accepted upstream correction](https://github.com/HyberionBrew/f1tenth_orl_dataset/commit/57eb1bb60a45b3165a9c737c56b4ac9a2003da22).
+A separate [paired direct-rate controller study](studies/paired_controller_v2/README.md)
+now preserves its executed synthetic results, protocol and computation samples.
+Its physical-domain warnings keep real-platform controller ranking open.
+
 Can dispersion in the predicted performance difference between controllers,
 across physically justified models consistent with development data, identify
 rankings that should be withheld? The corrected-source qualification loads all
@@ -33,7 +39,7 @@ objects by ID and hash, establishes recording boundaries and reports policy
 coverage, terminal exclusions and original-loader sensitivity. The
 [per-agent reward aggregates](runs/ope_corrected_v2/reward_aggregates.json) use
 one frozen calculation on both archives; the [reference comparison](runs/ope_corrected_v2/reference_comparison.json)
-shows the remaining reward mismatch. No controller ranking was run.
+shows the remaining reward mismatch. No corrected-archive controller ranking was run.
 The [source-class trace](runs/ope_corrected_v2/reward_trace.json) isolates a
 stored-reward cutoff difference in a small sample and reproduces the duplicate
 full-lap checkpoint on synthetic input. The [candidate simulator probe](runs/ope_corrected_v2/simulator_probe.json)
